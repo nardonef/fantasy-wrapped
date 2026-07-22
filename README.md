@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fantasy Football Wrapped
 
-## Getting Started
+Your fantasy football season, told back to you with precision and a little
+cruelty. A public web app: connect your league, get a Spotify-Wrapped-style
+tap-through story of your season — bench regret, schedule luck, your nemesis,
+the trade you lost — ending in a manager archetype built to be screenshotted
+into the group chat. Plus a league-wide superlatives ballot designed to start
+arguments.
 
-First, run the development server:
+Sleeper leagues today; Yahoo and ESPN planned.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+Next.js (App Router) · PostgreSQL + Drizzle · Tailwind v4 + Motion ·
+Claude (copywriting) · Biome · Vitest · Playwright
+
+## Run it
+
+```sh
+createdb fantasy_wrapped && createdb fantasy_wrapped_test
+cp .env.example .env          # set DATABASE_URL (+ ANTHROPIC_API_KEY for LLM copy)
+pnpm install
+pnpm db:migrate
+pnpm dev                      # open http://localhost:3000, enter a Sleeper username
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | What |
+|---|---|
+| `pnpm test` / `pnpm test:e2e` | Vitest units + goldens / Playwright story flow |
+| `pnpm eval` | Render every fixture manager's card script as markdown for human review |
+| `pnpm tsx scripts/record-fixtures.ts <leagueId>` | Snapshot a real league into `fixtures/` |
+| `pnpm tsx scripts/sync-league.ts [--fixtures] <leagueId>` | Sync a league into Postgres |
+| `pnpm tsx scripts/copy-eval.ts <leagueId>` | Generate LLM copy for tone review (needs API key) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The product lives in `src/engine/` — pure, deterministic, golden-tested.
+Read `docs/engine.md` for how to add an insight, and `docs/tone.md` for the
+voice. The iteration loop: add/tune an insight → `pnpm eval` → read the
+output like a group-chat member → cut anything that doesn't land.
