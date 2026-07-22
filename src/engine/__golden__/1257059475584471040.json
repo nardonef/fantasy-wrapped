@@ -1,0 +1,1192 @@
+[
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "1",
+    "managerName": "justinhuang",
+    "teamName": "Rebuild Year 2?",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "10-4. 1899.1 points. 4th place.",
+        "facts": {
+          "record": "10-4",
+          "pointsFor": 1899.1,
+          "pointsForRank": 4,
+          "finish": "4th place",
+          "finalRank": 4,
+          "standingsRank": 2,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped TreVeyon Henderson in week 8. 136.2 points after that.",
+        "facts": {
+          "player": "TreVeyon Henderson",
+          "droppedWeek": 8,
+          "pointsAfterDrop": 136.2
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "2 of your losses were already wins — if you'd started the right players. Weeks 4, 14.",
+        "facts": {
+          "flippableLosses": 2,
+          "weeks": "4, 14",
+          "missedPlayoffs": false,
+          "actualRecord": "10-4"
+        }
+      },
+      {
+        "insightId": "robbed-week",
+        "category": "luck",
+        "headline": "Week 10: you scored 156.9 — 2nd best in the league — and still lost",
+        "facts": {
+          "week": 10,
+          "score": 156.9,
+          "weeklyRank": 2,
+          "opponentScore": 192.5
+        }
+      },
+      {
+        "insightId": "daylight-robbery-win",
+        "category": "luck",
+        "headline": "Week 7: you won with the 9th best score of the week (105)",
+        "facts": {
+          "week": 7,
+          "score": 105,
+          "weeklyRank": 9
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 8 pickup TreVeyon Henderson gave you 136.2 points for $2",
+        "facts": {
+          "pickup": "TreVeyon Henderson",
+          "week": 8,
+          "startedPointsAfter": 136.2,
+          "faabSpent": 2
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "Your nemesis: caffyfun (1-2 against them)",
+        "facts": {
+          "nemesis": "caffyfun",
+          "lossesToThem": 2,
+          "winsAgainstThem": 1,
+          "totalMargin": 2.3,
+          "swept": false
+        }
+      },
+      {
+        "insightId": "mvp",
+        "category": "people",
+        "headline": "Your MVP: Christian McCaffrey — 402.9 points, 18% of everything you scored",
+        "facts": {
+          "mvp": "Christian McCaffrey",
+          "position": "RB",
+          "startedPoints": 402.9,
+          "shareOfTeamPct": 18,
+          "startedWeeks": 16
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 11: Cameron Dicker. 163 points from pick 103.",
+        "facts": {
+          "steal": "Cameron Dicker",
+          "round": 11,
+          "pickNo": 103,
+          "startedPoints": 163
+        }
+      },
+      {
+        "insightId": "streak",
+        "category": "narrative",
+        "headline": "Weeks 5–9: 5 straight wins",
+        "facts": {
+          "streakType": "winning",
+          "length": 5,
+          "fromWeek": 5,
+          "toWeek": 9
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-middle-manager",
+      "name": "The Middle Manager",
+      "evidence": {
+        "record": "10-4",
+        "standingsRank": 2,
+        "leagueSize": 10,
+        "pointsForRank": 4
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "2",
+    "managerName": "MrHippo",
+    "teamName": "MrHippo",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "9-5. 1794 points. 5th place.",
+        "facts": {
+          "record": "9-5",
+          "pointsFor": 1794,
+          "pointsForRank": 7,
+          "finish": "5th place",
+          "finalRank": 5,
+          "standingsRank": 4,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 7: you benched Jordan Addison (21.8) and started Mike Evans (0)",
+        "facts": {
+          "week": 7,
+          "benchedPlayer": "Jordan Addison",
+          "benchedPoints": 21.8,
+          "startedPlayer": "Mike Evans",
+          "startedPoints": 0,
+          "pointsLeftBehind": 21.8,
+          "costTheGame": false
+        }
+      },
+      {
+        "insightId": "bench-points-total",
+        "category": "regret",
+        "headline": "185 points died on your bench this season (13.2/week)",
+        "facts": {
+          "totalBenchPoints": 185,
+          "perWeek": 13.2,
+          "leagueRank": 8
+        }
+      },
+      {
+        "insightId": "schedule-luck",
+        "category": "luck",
+        "headline": "Luckiest schedule in the league: you won 9 but earned 6.2. The schedule carried you.",
+        "facts": {
+          "actualWins": 9,
+          "deservedWins": 6.2,
+          "allPlayRecord": "56-70",
+          "games": 14
+        }
+      },
+      {
+        "insightId": "daylight-robbery-win",
+        "category": "luck",
+        "headline": "Week 5: you won with the 9th best score of the week (121.6)",
+        "facts": {
+          "week": 5,
+          "score": 121.6,
+          "weeklyRank": 9
+        }
+      },
+      {
+        "insightId": "mvp",
+        "category": "people",
+        "headline": "Your MVP: Bijan Robinson — 359.5 points, 16% of everything you scored",
+        "facts": {
+          "mvp": "Bijan Robinson",
+          "position": "RB",
+          "startedPoints": 359.5,
+          "shareOfTeamPct": 16,
+          "startedWeeks": 16
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 10: Drake Maye. 336.2 points from pick 92.",
+        "facts": {
+          "steal": "Drake Maye",
+          "round": 10,
+          "pickNo": 92,
+          "startedPoints": 336.2
+        }
+      },
+      {
+        "insightId": "streak",
+        "category": "narrative",
+        "headline": "Weeks 11–14: 4 straight wins",
+        "facts": {
+          "streakType": "winning",
+          "length": 4,
+          "fromWeek": 11,
+          "toWeek": 14
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-lottery-winner",
+      "name": "The Lottery Winner",
+      "evidence": {
+        "actualWins": 9,
+        "deservedWins": 6.2,
+        "pointsForRank": 7,
+        "finish": "made playoffs"
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "3",
+    "managerName": "jawuwu",
+    "teamName": null,
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "9-5. 1994.6 points. 6th place.",
+        "facts": {
+          "record": "9-5",
+          "pointsFor": 1994.6,
+          "pointsForRank": 1,
+          "finish": "6th place",
+          "finalRank": 6,
+          "standingsRank": 3,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "points-machine",
+        "category": "identity",
+        "headline": "1994.6 points — the most in the league. Rings given for it: zero.",
+        "facts": {
+          "pointsFor": 1994.6,
+          "leagueRank": 1,
+          "champion": false
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped Dak Prescott in week 1. 310.3 points after that.",
+        "facts": {
+          "player": "Dak Prescott",
+          "droppedWeek": 1,
+          "pointsAfterDrop": 310.3
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "3 of your losses were already wins — if you'd started the right players. Weeks 1, 6, 8.",
+        "facts": {
+          "flippableLosses": 3,
+          "weeks": "1, 6, 8",
+          "missedPlayoffs": false,
+          "actualRecord": "9-5"
+        }
+      },
+      {
+        "insightId": "daylight-robbery-win",
+        "category": "luck",
+        "headline": "Week 4: you won with the 9th best score of the week (121.4)",
+        "facts": {
+          "week": 4,
+          "score": 121.4,
+          "weeklyRank": 9
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 2 pickup Dak Prescott gave you 248.5 points for $1",
+        "facts": {
+          "pickup": "Dak Prescott",
+          "week": 2,
+          "startedPointsAfter": 248.5,
+          "faabSpent": 1
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "misterchef owned you this season: 2-0, by 70.9 total points",
+        "facts": {
+          "nemesis": "misterchef",
+          "lossesToThem": 2,
+          "winsAgainstThem": 0,
+          "totalMargin": 70.9,
+          "swept": true
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 14: Dak Prescott. 248.5 points from pick 135.",
+        "facts": {
+          "steal": "Dak Prescott",
+          "round": 14,
+          "pickNo": 135,
+          "startedPoints": 248.5
+        }
+      },
+      {
+        "insightId": "peak-week",
+        "category": "narrative",
+        "headline": "Week 10: 192.5 points — the best score anyone managed that week",
+        "facts": {
+          "week": 10,
+          "score": 192.5,
+          "leagueSeasonHigh": false,
+          "seasonAverage": 142.5
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-empire-of-nothing",
+      "name": "The Empire of Nothing",
+      "evidence": {
+        "pointsFor": 1994.6,
+        "pointsForRank": 1,
+        "finish": "placement"
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "4",
+    "managerName": "vrdevaraj",
+    "teamName": "Hospital Squad",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "1-13. 1577.1 points. 7th place.",
+        "facts": {
+          "record": "1-13",
+          "pointsFor": 1577.1,
+          "pointsForRank": 10,
+          "finish": "7th place",
+          "finalRank": 7,
+          "standingsRank": 10,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "crowns-and-stinkers",
+        "category": "identity",
+        "headline": "4 weeks with the worst score in the league",
+        "facts": {
+          "worstScoreWeeks": 4
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "5 of your losses were already wins — if you'd started the right players. Weeks 1, 3, 6, 10, 11.",
+        "facts": {
+          "flippableLosses": 5,
+          "weeks": "1, 3, 6, 10, 11",
+          "missedPlayoffs": true,
+          "actualRecord": "1-13"
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 3: you benched David Montgomery (29.4) and started Zay Flowers (3.3) — it cost you the game",
+        "facts": {
+          "week": 3,
+          "benchedPlayer": "David Montgomery",
+          "benchedPoints": 29.4,
+          "startedPlayer": "Zay Flowers",
+          "startedPoints": 3.3,
+          "pointsLeftBehind": 26.1,
+          "costTheGame": true
+        }
+      },
+      {
+        "insightId": "points-against-extreme",
+        "category": "luck",
+        "headline": "1960.7 points against — the league's heaviest fire, and it all landed on you",
+        "facts": {
+          "pointsAgainst": 1960.7,
+          "leagueRank": 1
+        }
+      },
+      {
+        "insightId": "opponent-season-highs",
+        "category": "luck",
+        "headline": "2 different opponents had their best week of the season against you (caffyfun, jonappetit)",
+        "facts": {
+          "count": 2,
+          "opponents": "caffyfun, jonappetit",
+          "weeks": "8, 9"
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 5 pickup Matthew Stafford gave you 225.2 points",
+        "facts": {
+          "pickup": "Matthew Stafford",
+          "week": 5,
+          "startedPointsAfter": 225.2,
+          "faabSpent": null
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "2KSports owned you this season: 3-0, by 71 total points",
+        "facts": {
+          "nemesis": "2KSports",
+          "lossesToThem": 3,
+          "winsAgainstThem": 0,
+          "totalMargin": 71,
+          "swept": true
+        }
+      },
+      {
+        "insightId": "streak",
+        "category": "narrative",
+        "headline": "Weeks 1–13: 13 straight losses",
+        "facts": {
+          "streakType": "losing",
+          "length": 13,
+          "fromWeek": 1,
+          "toWeek": 13
+        }
+      },
+      {
+        "insightId": "playoff-story",
+        "category": "narrative",
+        "headline": "Dead last. 1-13.",
+        "facts": {
+          "finish": "last",
+          "record": "1-13",
+          "standingsRank": 10
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-punching-bag",
+      "name": "The Punching Bag",
+      "evidence": {
+        "pointsAgainst": 1960.7,
+        "pointsAgainstRank": 1,
+        "record": "1-13",
+        "finish": "missed playoffs"
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "5",
+    "managerName": "tranataur",
+    "teamName": "WWJD?",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "6-8. 1692.7 points. 9th place.",
+        "facts": {
+          "record": "6-8",
+          "pointsFor": 1692.7,
+          "pointsForRank": 9,
+          "finish": "9th place",
+          "finalRank": 9,
+          "standingsRank": 8,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "crowns-and-stinkers",
+        "category": "identity",
+        "headline": "3 weeks with the worst score in the league",
+        "facts": {
+          "worstScoreWeeks": 3
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 11: you benched Sean Tucker (34) and started Kimani Vidal (3.2) — it cost you the game",
+        "facts": {
+          "week": 11,
+          "benchedPlayer": "Sean Tucker",
+          "benchedPoints": 34,
+          "startedPlayer": "Kimani Vidal",
+          "startedPoints": 3.2,
+          "pointsLeftBehind": 30.8,
+          "costTheGame": true
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "3 of your losses were already wins — if you'd started the right players. Weeks 1, 7, 11.",
+        "facts": {
+          "flippableLosses": 3,
+          "weeks": "1, 7, 11",
+          "missedPlayoffs": true,
+          "actualRecord": "6-8"
+        }
+      },
+      {
+        "insightId": "trade-verdict",
+        "category": "people",
+        "headline": "You fleeced abchen: got Deebo Samuel, Tee Higgins, Woody Marks, gave Jaylen Waddle, Omarion Hampton — up 84.5 points on the deal",
+        "facts": {
+          "partner": "abchen",
+          "week": 10,
+          "got": "Deebo Samuel, Tee Higgins, Woody Marks",
+          "gave": "Jaylen Waddle, Omarion Hampton",
+          "netPoints": 84.5,
+          "wonTheTrade": true
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "misterchef owned you this season: 2-0, by 80.7 total points",
+        "facts": {
+          "nemesis": "misterchef",
+          "lossesToThem": 2,
+          "winsAgainstThem": 0,
+          "totalMargin": 80.7,
+          "swept": true
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 5 pickup Kimani Vidal gave you 70.9 points for $11",
+        "facts": {
+          "pickup": "Kimani Vidal",
+          "week": 5,
+          "startedPointsAfter": 70.9,
+          "faabSpent": 11
+        }
+      },
+      {
+        "insightId": "collapse-week",
+        "category": "narrative",
+        "headline": "Week 7: 59.2 points — the single worst score anyone managed all year",
+        "facts": {
+          "week": 7,
+          "score": 59.2,
+          "leagueSeasonLow": true,
+          "seasonAverage": 120.9
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 8: Jaylen Waddle. 102.8 points from pick 79.",
+        "facts": {
+          "steal": "Jaylen Waddle",
+          "round": 8,
+          "pickNo": 79,
+          "startedPoints": 102.8
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-middle-manager",
+      "name": "The Middle Manager",
+      "evidence": {
+        "record": "6-8",
+        "standingsRank": 8,
+        "leagueSize": 10,
+        "pointsForRank": 9
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "6",
+    "managerName": "2KSports",
+    "teamName": null,
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "7-7. 1815.5 points. 10th place.",
+        "facts": {
+          "record": "7-7",
+          "pointsFor": 1815.5,
+          "pointsForRank": 6,
+          "finish": "10th place",
+          "finalRank": 10,
+          "standingsRank": 7,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "5 of your losses were already wins — if you'd started the right players. Weeks 4, 5, 6, 7, 14.",
+        "facts": {
+          "flippableLosses": 5,
+          "weeks": "4, 5, 6, 7, 14",
+          "missedPlayoffs": true,
+          "actualRecord": "7-7"
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped Dak Prescott in week 2. 288.1 points after that.",
+        "facts": {
+          "player": "Dak Prescott",
+          "droppedWeek": 2,
+          "pointsAfterDrop": 288.1
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 6 pickup Jaxson Dart gave you 133.7 points for $3",
+        "facts": {
+          "pickup": "Jaxson Dart",
+          "week": 6,
+          "startedPointsAfter": 133.7,
+          "faabSpent": 3
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "caffyfun owned you this season: 2-0, by 36.7 total points",
+        "facts": {
+          "nemesis": "caffyfun",
+          "lossesToThem": 2,
+          "winsAgainstThem": 0,
+          "totalMargin": 36.7,
+          "swept": true
+        }
+      },
+      {
+        "insightId": "mvp",
+        "category": "people",
+        "headline": "Your MVP: Puka Nacua — 348 points, 16% of everything you scored",
+        "facts": {
+          "mvp": "Puka Nacua",
+          "position": "WR",
+          "startedPoints": 348,
+          "shareOfTeamPct": 16,
+          "startedWeeks": 15
+        }
+      },
+      {
+        "insightId": "streak",
+        "category": "narrative",
+        "headline": "Weeks 4–8: 5 straight losses",
+        "facts": {
+          "streakType": "losing",
+          "length": 5,
+          "fromWeek": 4,
+          "toWeek": 8
+        }
+      },
+      {
+        "insightId": "playoff-story",
+        "category": "narrative",
+        "headline": "First team out. 7-7 and home for the playoffs.",
+        "facts": {
+          "finish": "first-out",
+          "standingsRank": 7,
+          "record": "7-7",
+          "playoffSpots": 6
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-first-one-out",
+      "name": "The First One Out",
+      "evidence": {
+        "record": "7-7",
+        "standingsRank": 7,
+        "playoffSpots": 6
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "7",
+    "managerName": "jonappetit",
+    "teamName": null,
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "3-11. 1779.7 points. 8th place.",
+        "facts": {
+          "record": "3-11",
+          "pointsFor": 1779.7,
+          "pointsForRank": 8,
+          "finish": "8th place",
+          "finalRank": 8,
+          "standingsRank": 9,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "crowns-and-stinkers",
+        "category": "identity",
+        "headline": "2 weeks as the league's top score. 2 weeks as its worst. No in-between.",
+        "facts": {
+          "topScoreWeeks": 2,
+          "worstScoreWeeks": 2
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "6 of your losses were already wins — if you'd started the right players. Weeks 1, 2, 7, 8, 12, 13.",
+        "facts": {
+          "flippableLosses": 6,
+          "weeks": "1, 2, 7, 8, 12, 13",
+          "missedPlayoffs": true,
+          "actualRecord": "3-11"
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped Dak Prescott in week 1. 310.3 points after that.",
+        "facts": {
+          "player": "Dak Prescott",
+          "droppedWeek": 1,
+          "pointsAfterDrop": 310.3
+        }
+      },
+      {
+        "insightId": "schedule-luck",
+        "category": "luck",
+        "headline": "Unluckiest schedule in the league: you played like 6.4 wins and got 3.",
+        "facts": {
+          "actualWins": 3,
+          "deservedWins": 6.4,
+          "allPlayRecord": "58-68",
+          "games": 14
+        }
+      },
+      {
+        "insightId": "opponent-season-highs",
+        "category": "luck",
+        "headline": "2 different opponents had their best week of the season against you (tranataur, MrHippo)",
+        "facts": {
+          "count": 2,
+          "opponents": "tranataur, MrHippo",
+          "weeks": "5, 11"
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "tranataur owned you this season: 3-0, by 104.8 total points",
+        "facts": {
+          "nemesis": "tranataur",
+          "lossesToThem": 3,
+          "winsAgainstThem": 0,
+          "totalMargin": 104.8,
+          "swept": true
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 1 pickup Justin Herbert gave you 180.7 points for $11",
+        "facts": {
+          "pickup": "Justin Herbert",
+          "week": 1,
+          "startedPointsAfter": 180.7,
+          "faabSpent": 11
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 10: Brandon Aubrey. 176.6 points from pick 97.",
+        "facts": {
+          "steal": "Brandon Aubrey",
+          "round": 10,
+          "pickNo": 97,
+          "startedPoints": 176.6
+        }
+      },
+      {
+        "insightId": "streak",
+        "category": "narrative",
+        "headline": "Weeks 10–14: 5 straight losses",
+        "facts": {
+          "streakType": "losing",
+          "length": 5,
+          "fromWeek": 10,
+          "toWeek": 14
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-what-if",
+      "name": "The What-If",
+      "evidence": {
+        "lossesYouCouldHaveWon": 6,
+        "actualRecord": "3-11",
+        "optimalRecord": "9-5",
+        "finish": "missed playoffs"
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "8",
+    "managerName": "caffyfun",
+    "teamName": "Chase-ing My Ship",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "10-4. 1925.7 points. 3rd place.",
+        "facts": {
+          "record": "10-4",
+          "pointsFor": 1925.7,
+          "pointsForRank": 3,
+          "finish": "3rd place",
+          "finalRank": 3,
+          "standingsRank": 1,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped Jared Goff in week 1. 200.8 points after that.",
+        "facts": {
+          "player": "Jared Goff",
+          "droppedWeek": 1,
+          "pointsAfterDrop": 200.8
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 16: you benched Trevor Lawrence (31.2) and started Jordan Love (2.8) — it cost you the game",
+        "facts": {
+          "week": 16,
+          "benchedPlayer": "Trevor Lawrence",
+          "benchedPoints": 31.2,
+          "startedPlayer": "Jordan Love",
+          "startedPoints": 2.8,
+          "pointsLeftBehind": 28.4,
+          "costTheGame": true
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 1 pickup Daniel Jones gave you 156.8 points for $3",
+        "facts": {
+          "pickup": "Daniel Jones",
+          "week": 1,
+          "startedPointsAfter": 156.8,
+          "faabSpent": 3
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 11: Chris Boswell. 122 points from pick 109.",
+        "facts": {
+          "steal": "Chris Boswell",
+          "round": 11,
+          "pickNo": 109,
+          "startedPoints": 122
+        }
+      },
+      {
+        "insightId": "streak",
+        "category": "narrative",
+        "headline": "Weeks 4–8: 5 straight wins",
+        "facts": {
+          "streakType": "winning",
+          "length": 5,
+          "fromWeek": 4,
+          "toWeek": 8
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-regular-season-merchant",
+      "name": "The Regular-Season Merchant",
+      "evidence": {
+        "regularSeason": "10-4",
+        "seed": 1,
+        "finish": "semifinal"
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "9",
+    "managerName": "misterchef",
+    "teamName": "Second Best",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "7-7. 1853.1 points. league champion.",
+        "facts": {
+          "record": "7-7",
+          "pointsFor": 1853.1,
+          "pointsForRank": 5,
+          "finish": "league champion",
+          "finalRank": 1,
+          "standingsRank": 6,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "crowns-and-stinkers",
+        "category": "identity",
+        "headline": "3 weeks as the league's top score. 3 weeks as its worst. No in-between.",
+        "facts": {
+          "topScoreWeeks": 3,
+          "worstScoreWeeks": 3
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "5 of your losses were already wins — if you'd started the right players. Weeks 1, 5, 6, 12, 14.",
+        "facts": {
+          "flippableLosses": 5,
+          "weeks": "1, 5, 6, 12, 14",
+          "missedPlayoffs": false,
+          "actualRecord": "7-7"
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped Jameson Williams in week 7. 148.5 points after that.",
+        "facts": {
+          "player": "Jameson Williams",
+          "droppedWeek": 7,
+          "pointsAfterDrop": 148.5
+        }
+      },
+      {
+        "insightId": "robbed-week",
+        "category": "luck",
+        "headline": "Week 12: you scored 179.7 — 2nd best in the league — and still lost",
+        "facts": {
+          "week": 12,
+          "score": 179.7,
+          "weeklyRank": 2,
+          "opponentScore": 197.5
+        }
+      },
+      {
+        "insightId": "daylight-robbery-win",
+        "category": "luck",
+        "headline": "Week 11: you won with the 9th best score of the week (97.4)",
+        "facts": {
+          "week": 11,
+          "score": 97.4,
+          "weeklyRank": 9
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 3 pickup Dallas Goedert gave you 117.1 points",
+        "facts": {
+          "pickup": "Dallas Goedert",
+          "week": 3,
+          "startedPointsAfter": 117.1,
+          "faabSpent": null
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "2KSports owned you this season: 2-0, by 45 total points",
+        "facts": {
+          "nemesis": "2KSports",
+          "lossesToThem": 2,
+          "winsAgainstThem": 0,
+          "totalMargin": 45,
+          "swept": true
+        }
+      },
+      {
+        "insightId": "draft-steal",
+        "category": "narrative",
+        "headline": "Round 14: Javonte Williams. 220.4 points from pick 132.",
+        "facts": {
+          "steal": "Javonte Williams",
+          "round": 14,
+          "pickNo": 132,
+          "startedPoints": 220.4
+        }
+      },
+      {
+        "insightId": "playoff-story",
+        "category": "narrative",
+        "headline": "Champion. Won the final by 0.7.",
+        "facts": {
+          "finish": "champion",
+          "finalMargin": 0.7,
+          "record": "7-7"
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-heist",
+      "name": "The Heist",
+      "evidence": {
+        "finish": "champion",
+        "deservedWins": 6.7,
+        "actualWins": 7,
+        "allPlayRank": 6
+      }
+    }
+  },
+  {
+    "engineVersion": "0.1.0",
+    "leagueName": "Asian American Association",
+    "season": 2025,
+    "rosterId": "10",
+    "managerName": "abchen",
+    "teamName": "THERE’S NO 2ND BEST 😤😤",
+    "cards": [
+      {
+        "insightId": "season-summary",
+        "category": "identity",
+        "headline": "8-6. 1957 points. 2nd place.",
+        "facts": {
+          "record": "8-6",
+          "pointsFor": 1957,
+          "pointsForRank": 2,
+          "finish": "2nd place",
+          "finalRank": 2,
+          "standingsRank": 5,
+          "leagueSize": 10
+        }
+      },
+      {
+        "insightId": "bench-points-total",
+        "category": "regret",
+        "headline": "302.2 points died on your bench this season (21.6/week), most in the league",
+        "facts": {
+          "totalBenchPoints": 302.2,
+          "perWeek": 21.6,
+          "leagueRank": 1
+        }
+      },
+      {
+        "insightId": "dropped-league-winner",
+        "category": "regret",
+        "headline": "You dropped Justin Herbert in week 1. 265 points after that.",
+        "facts": {
+          "player": "Justin Herbert",
+          "droppedWeek": 1,
+          "pointsAfterDrop": 265
+        }
+      },
+      {
+        "insightId": "trade-verdict",
+        "category": "people",
+        "headline": "The Jaylen Waddle, Omarion Hampton trade: tranataur beat you by 84.5 points of rest-of-season value",
+        "facts": {
+          "partner": "tranataur",
+          "week": 10,
+          "got": "Jaylen Waddle, Omarion Hampton",
+          "gave": "Deebo Samuel, Tee Higgins, Woody Marks",
+          "netPoints": -84.5,
+          "wonTheTrade": false
+        }
+      },
+      {
+        "insightId": "waiver-steal",
+        "category": "people",
+        "headline": "Week 11 pickup Michael Wilson gave you 95.2 points",
+        "facts": {
+          "pickup": "Michael Wilson",
+          "week": 11,
+          "startedPointsAfter": 95.2,
+          "faabSpent": null
+        }
+      },
+      {
+        "insightId": "nemesis",
+        "category": "people",
+        "headline": "Your nemesis: misterchef (1-2 against them)",
+        "facts": {
+          "nemesis": "misterchef",
+          "lossesToThem": 2,
+          "winsAgainstThem": 1,
+          "totalMargin": 17.1,
+          "swept": false
+        }
+      },
+      {
+        "insightId": "peak-week",
+        "category": "narrative",
+        "headline": "Week 12: 197.5 points — the highest score anyone posted all season",
+        "facts": {
+          "week": 12,
+          "score": 197.5,
+          "leagueSeasonHigh": true,
+          "seasonAverage": 139.8
+        }
+      },
+      {
+        "insightId": "playoff-story",
+        "category": "narrative",
+        "headline": "One game from the title. misterchef beat you in the final by 0.7.",
+        "facts": {
+          "finish": "runner-up",
+          "finalMargin": 0.7,
+          "champion": "misterchef"
+        }
+      }
+    ],
+    "archetype": {
+      "id": "the-almost",
+      "name": "The Almost",
+      "evidence": {
+        "finish": "runner-up",
+        "finalMargin": 0.7,
+        "record": "8-6"
+      }
+    }
+  }
+]

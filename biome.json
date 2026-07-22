@@ -13,6 +13,7 @@
       "!drizzle",
       "!public/*.svg",
       "!**/fixtures/**/*.json",
+      "!**/__golden__",
       "!**/evals/output"
     ]
   },
