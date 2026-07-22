@@ -64,6 +64,7 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
       managerName={wrapped.team.displayName}
       leagueName={wrapped.league.name}
       season={wrapped.league.season}
+      leagueHref={`/l/${parsed.provider}/${parsed.leagueId}/${parsed.season}`}
     />
   );
 }

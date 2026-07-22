@@ -5,7 +5,7 @@ import { selectCards } from "./select";
 import type { CardScript, SeasonFacts } from "./types";
 import { ENGINE_VERSION } from "./version";
 
-export { classifyArchetype } from "./archetype";
+export { classifyArchetype, classifyLeagueArchetypes } from "./archetype";
 export { computeSeasonFacts } from "./facts";
 export { computeCandidates } from "./insights";
 export { selectCards } from "./select";

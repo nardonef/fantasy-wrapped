@@ -31,6 +31,14 @@ test("wrapped story plays through to the archetype finale", async ({ page }) => 
   await expect(player).toContainText("9/10");
 });
 
+test("league ballot page lists superlatives and links to wrappeds", async ({ page }) => {
+  await page.goto("/l/sleeper/1269125082375008256/2025");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("ballot");
+  await expect(page.getByText("The Ring")).toBeVisible();
+  // Every team gets a final verdict row.
+  await expect(page.getByText("Final verdicts")).toBeVisible();
+});
+
 test("unknown roster 404s", async ({ page }) => {
   const response = await page.goto("/w/sleeper/1269125082375008256/2025/99");
   expect(response?.status()).toBe(404);

@@ -9,9 +9,10 @@ type Props = {
   managerName: string;
   leagueName: string;
   season: number;
+  leagueHref: string;
 };
 
-export function StoryPlayer({ cards, managerName, leagueName, season }: Props) {
+export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref }: Props) {
   const [index, setIndex] = useState(0);
   const card = cards[index];
 
@@ -170,6 +171,12 @@ export function StoryPlayer({ cards, managerName, leagueName, season }: Props) {
               >
                 Send it to the chat
               </button>
+              <a
+                href={leagueHref}
+                className="font-mono text-xs font-bold tracking-widest underline underline-offset-4"
+              >
+                the ballot →
+              </a>
             </motion.div>
           )}
         </motion.div>
