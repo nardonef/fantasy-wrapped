@@ -1,0 +1,59 @@
+[
+ {
+  "created": 1756945508471,
+  "creators": [
+   "736496829188927488"
+  ],
+  "draft_id": "1269125083805274112",
+  "draft_order": {
+   "1104447153356861440": 5,
+   "1151071016127520768": 7,
+   "1265736765436600320": 10,
+   "1268732178997444608": 1,
+   "1269149539613294592": 6,
+   "457511950237696": 4,
+   "736496829188927488": 3,
+   "887279208425136128": 8,
+   "994031705956597760": 9
+  },
+  "last_message_id": "1269206226542010368",
+  "last_message_time": 1756964854420,
+  "last_picked": 1756964853778,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "description": "",
+   "league_type": "1",
+   "name": "Lonely Fans ",
+   "scoring_type": "ppr"
+  },
+  "season": "2025",
+  "season_type": "regular",
+  "settings": {
+   "alpha_sort": 0,
+   "autopause_enabled": 0,
+   "autopause_end_time": 1020,
+   "autopause_start_time": 300,
+   "autostart": 1,
+   "cpu_autopick": 1,
+   "enforce_position_limits": 1,
+   "nomination_timer": 60,
+   "pick_timer": 60,
+   "player_type": 0,
+   "reversal_round": 0,
+   "rounds": 15,
+   "slots_bn": 5,
+   "slots_def": 1,
+   "slots_flex": 2,
+   "slots_k": 1,
+   "slots_qb": 1,
+   "slots_rb": 2,
+   "slots_te": 1,
+   "slots_wr": 2,
+   "teams": 10
+  },
+  "sport": "nfl",
+  "start_time": 1756962031721,
+  "status": "complete",
+  "type": "snake"
+ }
+]

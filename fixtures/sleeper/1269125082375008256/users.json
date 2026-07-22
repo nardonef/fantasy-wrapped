@@ -1,0 +1,132 @@
+[
+ {
+  "avatar": "39efe65a68f654b055349b745dd6f524",
+  "display_name": "2KSports",
+  "is_bot": null,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "allow_sms": "on",
+   "archived": "off",
+   "mention_pn": "on"
+  },
+  "settings": null,
+  "user_id": "457511950237696"
+ },
+ {
+  "avatar": "96c680140636516e397a3c31f1e81bd2",
+  "display_name": "InfinityStoner",
+  "is_bot": false,
+  "is_owner": true,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "mention_pn": "on",
+   "team_name": "Its Always Sunny "
+  },
+  "settings": null,
+  "user_id": "736496829188927488"
+ },
+ {
+  "avatar": "4f4090e5e9c3941414db40a871e3e909",
+  "display_name": "Disastrous414",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "mention_pn": "on",
+   "team_name": "Pick 8"
+  },
+  "settings": null,
+  "user_id": "887279208425136128"
+ },
+ {
+  "avatar": "4b497865b72cac32f7c250f948326a9c",
+  "display_name": "Lawman12",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "mention_pn": "on"
+  },
+  "settings": null,
+  "user_id": "994031705956597760"
+ },
+ {
+  "avatar": "55d583aeaa920d760969a8816e40c0f8",
+  "display_name": "eco1990",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "mention_pn": "on"
+  },
+  "settings": null,
+  "user_id": "1104447153356861440"
+ },
+ {
+  "avatar": "18f94416debb232880f6dda1d167b16b",
+  "display_name": "TheHatrickSwayze",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "archived": "off",
+   "mention_pn": "on",
+   "team_name": "The Wu Tang Plan"
+  },
+  "settings": null,
+  "user_id": "1151071016127520768"
+ },
+ {
+  "avatar": "4fcad6d2c5bbc4247b8e2bda03c53dc7",
+  "display_name": "frothydogs",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "avatar": "https://sleepercdn.com/uploads/fcb30b51a9d2d9e6d44c6f4365a7823d.jpg",
+   "mention_pn": "on",
+   "team_name": "frothydogs"
+  },
+  "settings": null,
+  "user_id": "1265736765436600320"
+ },
+ {
+  "avatar": "51385ba57cd089261f6de9ce483b8716",
+  "display_name": "Rodrigoooo",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "avatar": "https://sleepercdn.com/uploads/3266bb775643ed2250e7ba04286d9933.jpg",
+   "mention_pn": "on",
+   "team_name": "River Plate"
+  },
+  "settings": null,
+  "user_id": "1268732178997444608"
+ },
+ {
+  "avatar": "578c6b253dd7b4bab45382e1af102204",
+  "display_name": "Bgomez626",
+  "is_bot": false,
+  "is_owner": null,
+  "league_id": "1269125082375008256",
+  "metadata": {
+   "allow_pn": "on",
+   "allow_sms": "on",
+   "avatar": "https://sleepercdn.com/uploads/2f7c1ef0b8e415f3f7a753415706bc9d.jpg",
+   "mention_pn": "on",
+   "team_name": "Asskickersunited"
+  },
+  "settings": null,
+  "user_id": "1269149539613294592"
+ }
+]
