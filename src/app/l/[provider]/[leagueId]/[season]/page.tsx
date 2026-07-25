@@ -26,7 +26,7 @@ async function loadLeaguePage(params: Params) {
         eq(leagues.season, season),
       ),
     );
-  if (!league || league.syncStatus !== "synced") return null;
+  if (league?.syncStatus !== "synced") return null;
   const bundle = await loadBundle(league.id);
   if (!bundle) return null;
   const facts = computeSeasonFacts(bundle);

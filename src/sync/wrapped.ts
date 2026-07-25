@@ -38,7 +38,7 @@ export async function getWrapped(
         eq(leagues.season, season),
       ),
     );
-  if (!league || league.syncStatus !== "synced") return null;
+  if (league?.syncStatus !== "synced") return null;
 
   const teamRows = await db.select().from(teams).where(eq(teams.leagueId, league.id));
   const team = teamRows.find((t) => t.providerRosterId === rosterId);

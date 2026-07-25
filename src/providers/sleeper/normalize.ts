@@ -220,11 +220,13 @@ export function normalizeSleeperLeague(payloads: SleeperLeaguePayloads): Normali
       const adds: Record<string, string[]> = {};
       const drops: Record<string, string[]> = {};
       for (const [playerId, rosterId] of Object.entries(tx.adds ?? {})) {
-        (adds[String(rosterId)] ??= []).push(playerId);
+        adds[String(rosterId)] ??= [];
+        adds[String(rosterId)].push(playerId);
         referencedPlayerIds.add(playerId);
       }
       for (const [playerId, rosterId] of Object.entries(tx.drops ?? {})) {
-        (drops[String(rosterId)] ??= []).push(playerId);
+        drops[String(rosterId)] ??= [];
+        drops[String(rosterId)].push(playerId);
         referencedPlayerIds.add(playerId);
       }
       const assets: TransactionAssets = { adds, drops };

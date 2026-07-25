@@ -318,13 +318,14 @@ export function computeSeasonFacts(bundle: NormalizedLeagueBundle): SeasonFacts 
     const h2h: TeamSeasonFacts["h2h"] = {};
     for (const w of weeks) {
       if (!w.opponentRosterId || w.result === null) continue;
-      const entry = (h2h[w.opponentRosterId] ??= {
+      h2h[w.opponentRosterId] ??= {
         wins: 0,
         losses: 0,
         ties: 0,
         pointsFor: 0,
         pointsAgainst: 0,
-      });
+      };
+      const entry = h2h[w.opponentRosterId];
       if (w.result === "W") entry.wins++;
       else if (w.result === "L") entry.losses++;
       else entry.ties++;
