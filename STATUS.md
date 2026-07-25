@@ -36,3 +36,22 @@ an insight: `docs/engine.md`. Voice/tone: `docs/tone.md`.
 - Neon Previews Integration (per-PR database branches — Preview deployments
   currently share the production database; fine while there's no real
   user data yet)
+
+## Known limitations
+
+- `/api/sync` rate limiter (`src/lib/rate-limit.ts`) is an in-memory `Map`,
+  scoped to one serverless instance. On Vercel this is best-effort, not a
+  real guarantee — a client can exceed 12/hour by landing on different warm
+  instances. Not a security issue yet (public data, no cost beyond DB
+  writes), but swap for a shared store (e.g. Upstash Redis) before real
+  traffic makes this matter.
+- Sleeper's full player dump (~5–10MB) is re-fetched on every sync — works,
+  wasteful. Worth caching if sync volume grows.
+- The optimal-lineup solver doesn't know which players were actually on IR
+  a given week — normalization collapses every non-starter to `slot: "BN"`,
+  losing the IR/healthy-bench distinction Sleeper provides. Bench-regret
+  figures could be mildly inflated in the rare case where the best bench
+  alternative was actually IR-ineligible that week.
+- Vercel Deployment Protection was confirmed off for Production; Preview
+  environment status wasn't re-checked after the toggle — verify before
+  sharing preview links with anyone.
