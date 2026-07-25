@@ -15,6 +15,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000",
+  ),
   title: "Fantasy Wrapped",
   description:
     "Your fantasy football season, told back to you with precision and a little cruelty.",
