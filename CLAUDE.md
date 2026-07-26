@@ -52,3 +52,23 @@ Fixtures of real leagues live in `fixtures/` (recorded Sleeper API responses).
 `pnpm eval` (Phase 2) renders every manager's card script as markdown into `evals/output/`
 for human review. Add an insight module → run evals → read the output like a human would →
 tighten notability until only cards that land survive.
+
+## Git workflow — required, no exceptions
+
+`main` is protected on GitHub: direct pushes are rejected, merges require the `checks` CI
+run to pass, and this applies to the repo owner too (no admin bypass). Every change goes
+through this flow:
+
+1. Branch off latest `main`: `git checkout -b <type>/<short-description>` — types: `feat`,
+   `fix`, `chore`, `docs`, `refactor`.
+2. Commit there. Push the branch (`git push -u origin <branch>`), not `main`.
+3. Open a PR: `gh pr create --fill` (or with an explicit title/body for anything non-trivial).
+4. Wait for CI to go green: `gh pr checks --watch` or `gh run watch`. Fix and push more
+   commits to the same branch if it fails — don't open a second PR for the same change.
+5. Merge once green: `gh pr merge --squash --delete-branch`. Squash is the only merge
+   method enabled on this repo — keep `main`'s history one commit per change.
+
+No review approval is required (solo project) — the CI gate is the check, not a human
+approver. If a change is trivial enough that this feels like overhead, it still goes
+through the flow; that's the point of it being default behavior, not a judgment call per
+change.
