@@ -6,6 +6,10 @@
 Setup/dev commands: `README.md`. Architecture and rules: `CLAUDE.md`. How to add
 an insight: `docs/engine.md`. Voice/tone: `docs/tone.md`.
 
+`main` is branch-protected: every change goes through a branch + PR + CI-gated squash
+merge (see CLAUDE.md "Git workflow"). Direct pushes to `main` are rejected by GitHub,
+including for the repo owner — verified live, not just configured.
+
 ## Shipped
 
 - Sleeper ingest (public API, no auth) → normalized bundle → Postgres
