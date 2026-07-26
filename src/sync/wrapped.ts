@@ -11,6 +11,8 @@ import { loadBundle } from "./load";
 export type WrappedPayload = {
   script: CardScript;
   copy: WrappedCopy;
+  /** Internal league row id — the key for loadSeasonFacts(). */
+  leagueDbId: string;
   league: { name: string; season: number; providerLeagueId: string; provider: Provider };
   team: { id: string; displayName: string; teamName: string | null; avatarUrl: string | null };
   allTeams: { rosterId: string; displayName: string; teamName: string | null }[];
@@ -90,6 +92,7 @@ export async function getWrapped(
   return {
     script,
     copy,
+    leagueDbId: league.id,
     league: {
       name: league.name,
       season: league.season,

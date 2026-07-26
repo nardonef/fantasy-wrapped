@@ -1,0 +1,3338 @@
+[
+  {
+    "manager": "justinhuang",
+    "archetype": "The Middle Manager",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1899.1",
+        "view": {
+          "bars": [
+            {
+              "value": 122.12,
+              "highlight": false
+            },
+            {
+              "value": 130.2,
+              "highlight": false
+            },
+            {
+              "value": 147.22,
+              "highlight": false
+            },
+            {
+              "value": 143.88,
+              "highlight": false
+            },
+            {
+              "value": 142.14,
+              "highlight": false
+            },
+            {
+              "value": 132.94,
+              "highlight": false
+            },
+            {
+              "value": 105.04,
+              "highlight": false
+            },
+            {
+              "value": 129.22,
+              "highlight": false
+            },
+            {
+              "value": 131.42,
+              "highlight": false
+            },
+            {
+              "value": 156.9,
+              "highlight": true
+            },
+            {
+              "value": 156.16,
+              "highlight": false
+            },
+            {
+              "value": 122.26,
+              "highlight": false
+            },
+            {
+              "value": 148.64,
+              "highlight": false
+            },
+            {
+              "value": 130.96,
+              "highlight": false
+            },
+            {
+              "value": 125.3,
+              "highlight": false
+            },
+            {
+              "value": 143.16,
+              "highlight": false
+            },
+            {
+              "value": 126.98,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "10-4",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Points for",
+              "value": "1899.1",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "2nd of 10",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "136.2",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "136.2",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "TreVeyon Henderson",
+            "meta": "Dropped week 8",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/12529.jpg"
+          }
+        }
+      },
+      {
+        "key": "2-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "2",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "2",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "10-4",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "2 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "3-robbed-week",
+        "kicker": "The football gods · Week 10",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "192.5",
+        "view": {
+          "heroLabel": "Points that still lost",
+          "hero": "192.5",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "4-daylight-robbery-win",
+        "kicker": "The football gods · Week 7",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "105",
+        "view": {
+          "heroLabel": "Points that somehow won",
+          "hero": "105",
+          "heroAccent": "text-flag-ink"
+        }
+      },
+      {
+        "key": "5-waiver-steal",
+        "kicker": "Personnel · Week 8",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "136.2",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "136.2",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "TreVeyon Henderson",
+            "meta": "Claimed week 8",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/12529.jpg"
+          }
+        }
+      },
+      {
+        "key": "6-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "2.3",
+        "view": {
+          "person": {
+            "initials": "CA",
+            "name": "caffyfun",
+            "meta": "Chase-ing My Ship · 10-4",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "2×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "2.3",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "7-mvp",
+        "kicker": "Personnel",
+        "layout": "portrait",
+        "tone": "light",
+        "ghost": "402.9",
+        "view": {
+          "player": {
+            "name": "Christian McCaffrey",
+            "meta": "RB · 16 starts",
+            "photo": "https://sleepercdn.com/content/nfl/players/4034.jpg"
+          },
+          "pair": [
+            {
+              "label": "Points delivered",
+              "value": "402.9",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Of your total",
+              "value": "18%",
+              "accent": "text-flag-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "8-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "163",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "163",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Cameron Dicker",
+            "meta": "Round 11, pick 103",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/8259.jpg"
+          }
+        }
+      },
+      {
+        "key": "9-streak",
+        "kicker": "The story",
+        "layout": "chart",
+        "tone": "light",
+        "ghost": "9",
+        "view": {
+          "bars": [
+            {
+              "value": 122.12,
+              "highlight": false
+            },
+            {
+              "value": 130.2,
+              "highlight": false
+            },
+            {
+              "value": 147.22,
+              "highlight": false
+            },
+            {
+              "value": 143.88,
+              "highlight": false
+            },
+            {
+              "value": 142.14,
+              "highlight": true
+            },
+            {
+              "value": 132.94,
+              "highlight": true
+            },
+            {
+              "value": 105.04,
+              "highlight": true
+            },
+            {
+              "value": 129.22,
+              "highlight": true
+            },
+            {
+              "value": 131.42,
+              "highlight": true
+            },
+            {
+              "value": 156.9,
+              "highlight": true
+            },
+            {
+              "value": 156.16,
+              "highlight": false
+            },
+            {
+              "value": 122.26,
+              "highlight": false
+            },
+            {
+              "value": 148.64,
+              "highlight": false
+            },
+            {
+              "value": 130.96,
+              "highlight": false
+            },
+            {
+              "value": 125.3,
+              "highlight": false
+            },
+            {
+              "value": 143.16,
+              "highlight": false
+            },
+            {
+              "value": 126.98,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "10-4",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Points for",
+              "value": "1899.1",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Finish",
+              "value": "2nd of 10",
+              "accent": "text-flag-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Record",
+              "value": "10-4",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Standings Rank",
+              "value": "2",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "League Size",
+              "value": "10",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "MrHippo",
+    "archetype": "The Lottery Winner",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1794",
+        "view": {
+          "bars": [
+            {
+              "value": 131.78,
+              "highlight": false
+            },
+            {
+              "value": 144.5,
+              "highlight": false
+            },
+            {
+              "value": 110.82,
+              "highlight": false
+            },
+            {
+              "value": 135.22,
+              "highlight": false
+            },
+            {
+              "value": 121.62,
+              "highlight": false
+            },
+            {
+              "value": 132.34,
+              "highlight": false
+            },
+            {
+              "value": 148.68,
+              "highlight": false
+            },
+            {
+              "value": 109.08,
+              "highlight": false
+            },
+            {
+              "value": 128.06,
+              "highlight": false
+            },
+            {
+              "value": 114.5,
+              "highlight": false
+            },
+            {
+              "value": 149.04,
+              "highlight": true
+            },
+            {
+              "value": 123.36,
+              "highlight": false
+            },
+            {
+              "value": 147.28,
+              "highlight": false
+            },
+            {
+              "value": 97.74,
+              "highlight": false
+            },
+            {
+              "value": 139.7,
+              "highlight": false
+            },
+            {
+              "value": 164.2,
+              "highlight": false
+            },
+            {
+              "value": 175.34,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "9-5",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Points for",
+              "value": "1794.0",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "4th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-worst-benching",
+        "kicker": "Regret · Week 7",
+        "layout": "versus",
+        "tone": "dark",
+        "ghost": "21.8",
+        "view": {
+          "versus": [
+            {
+              "label": "You started",
+              "name": "Mike Evans",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/2216.jpg",
+              "positive": false
+            },
+            {
+              "label": "You benched",
+              "name": "Jordan Addison",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/9756.jpg",
+              "positive": true
+            }
+          ],
+          "foot": {
+            "label": "Points left behind",
+            "value": "21.8",
+            "accent": "text-card-red"
+          }
+        }
+      },
+      {
+        "key": "2-bench-points-total",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "185",
+        "view": {
+          "heroLabel": "Points left on your bench",
+          "hero": "185",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "3-schedule-luck",
+        "kicker": "The football gods",
+        "layout": "bars",
+        "tone": "dark",
+        "ghost": "14",
+        "view": {
+          "compare": [
+            {
+              "label": "You scored",
+              "value": "1794.0",
+              "width": "100%",
+              "positive": true
+            },
+            {
+              "label": "Scored against you",
+              "value": "1710.0",
+              "width": "95%",
+              "positive": false
+            }
+          ]
+        }
+      },
+      {
+        "key": "4-daylight-robbery-win",
+        "kicker": "The football gods · Week 5",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "121.6",
+        "view": {
+          "heroLabel": "Points that somehow won",
+          "hero": "121.6",
+          "heroAccent": "text-flag-ink"
+        }
+      },
+      {
+        "key": "5-mvp",
+        "kicker": "Personnel",
+        "layout": "portrait",
+        "tone": "light",
+        "ghost": "359.5",
+        "view": {
+          "player": {
+            "name": "Bijan Robinson",
+            "meta": "RB · 16 starts",
+            "photo": "https://sleepercdn.com/content/nfl/players/9509.jpg"
+          },
+          "pair": [
+            {
+              "label": "Points delivered",
+              "value": "359.5",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Of your total",
+              "value": "16%",
+              "accent": "text-flag-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "6-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "336.2",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "336.2",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Drake Maye",
+            "meta": "Round 10, pick 92",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/11564.jpg"
+          }
+        }
+      },
+      {
+        "key": "7-streak",
+        "kicker": "The story",
+        "layout": "chart",
+        "tone": "light",
+        "ghost": "14",
+        "view": {
+          "bars": [
+            {
+              "value": 131.78,
+              "highlight": false
+            },
+            {
+              "value": 144.5,
+              "highlight": false
+            },
+            {
+              "value": 110.82,
+              "highlight": false
+            },
+            {
+              "value": 135.22,
+              "highlight": false
+            },
+            {
+              "value": 121.62,
+              "highlight": false
+            },
+            {
+              "value": 132.34,
+              "highlight": false
+            },
+            {
+              "value": 148.68,
+              "highlight": false
+            },
+            {
+              "value": 109.08,
+              "highlight": false
+            },
+            {
+              "value": 128.06,
+              "highlight": false
+            },
+            {
+              "value": 114.5,
+              "highlight": false
+            },
+            {
+              "value": 149.04,
+              "highlight": true
+            },
+            {
+              "value": 123.36,
+              "highlight": true
+            },
+            {
+              "value": 147.28,
+              "highlight": true
+            },
+            {
+              "value": 97.74,
+              "highlight": true
+            },
+            {
+              "value": 139.7,
+              "highlight": false
+            },
+            {
+              "value": 164.2,
+              "highlight": false
+            },
+            {
+              "value": 175.34,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "9-5",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Points for",
+              "value": "1794.0",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Finish",
+              "value": "4th of 10",
+              "accent": "text-card-red-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Actual Wins",
+              "value": "9",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Deserved Wins",
+              "value": "6.2",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Points For Rank",
+              "value": "7",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "jawuwu",
+    "archetype": "The Empire of Nothing",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1994.6",
+        "view": {
+          "bars": [
+            {
+              "value": 111.04,
+              "highlight": false
+            },
+            {
+              "value": 162.54,
+              "highlight": false
+            },
+            {
+              "value": 130.04,
+              "highlight": false
+            },
+            {
+              "value": 121.44,
+              "highlight": false
+            },
+            {
+              "value": 152.98,
+              "highlight": false
+            },
+            {
+              "value": 141.24,
+              "highlight": false
+            },
+            {
+              "value": 151.96,
+              "highlight": false
+            },
+            {
+              "value": 145.38,
+              "highlight": false
+            },
+            {
+              "value": 122.4,
+              "highlight": false
+            },
+            {
+              "value": 192.5,
+              "highlight": true
+            },
+            {
+              "value": 143.62,
+              "highlight": false
+            },
+            {
+              "value": 114.96,
+              "highlight": false
+            },
+            {
+              "value": 172.5,
+              "highlight": false
+            },
+            {
+              "value": 132.04,
+              "highlight": false
+            },
+            {
+              "value": 138.36,
+              "highlight": false
+            },
+            {
+              "value": 133.66,
+              "highlight": false
+            },
+            {
+              "value": 131.98,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "9-5",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Points for",
+              "value": "1994.6",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Finish",
+              "value": "3rd of 10",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-points-machine",
+        "kicker": "Identity",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "1994.6",
+        "view": {
+          "heroLabel": "Points scored",
+          "hero": "1994.6",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "2-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "310.3",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "310.3",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "Dak Prescott",
+            "meta": "Dropped week 1",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/3294.jpg"
+          }
+        }
+      },
+      {
+        "key": "3-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "3",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "3",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "9-5",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "3 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "4-daylight-robbery-win",
+        "kicker": "The football gods · Week 4",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "121.4",
+        "view": {
+          "heroLabel": "Points that somehow won",
+          "hero": "121.4",
+          "heroAccent": "text-flag-ink"
+        }
+      },
+      {
+        "key": "5-waiver-steal",
+        "kicker": "Personnel · Week 2",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "248.5",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "248.5",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Dak Prescott",
+            "meta": "Claimed week 2",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/3294.jpg"
+          }
+        }
+      },
+      {
+        "key": "6-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "70.9",
+        "view": {
+          "person": {
+            "initials": "MI",
+            "name": "misterchef",
+            "meta": "Second Best · 7-7",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "2×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "70.9",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "7-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "248.5",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "248.5",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Dak Prescott",
+            "meta": "Round 14, pick 135",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/3294.jpg"
+          }
+        }
+      },
+      {
+        "key": "8-peak-week",
+        "kicker": "The story · Week 10",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "192.5",
+        "view": {
+          "heroLabel": "Your best week",
+          "hero": "192.5",
+          "heroAccent": "text-flag-ink",
+          "pair": [
+            {
+              "label": "That week",
+              "value": "192.5",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Your average",
+              "value": "142.5",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Points For",
+              "value": "1994.6",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Points For Rank",
+              "value": "1",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Finish",
+              "value": "placement",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "vrdevaraj",
+    "archetype": "The Punching Bag",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1577.1",
+        "view": {
+          "bars": [
+            {
+              "value": 108.52,
+              "highlight": false
+            },
+            {
+              "value": 112.44,
+              "highlight": false
+            },
+            {
+              "value": 113.92,
+              "highlight": false
+            },
+            {
+              "value": 102.96,
+              "highlight": false
+            },
+            {
+              "value": 132.68,
+              "highlight": false
+            },
+            {
+              "value": 91.04,
+              "highlight": false
+            },
+            {
+              "value": 106.32,
+              "highlight": false
+            },
+            {
+              "value": 127.68,
+              "highlight": false
+            },
+            {
+              "value": 90.94,
+              "highlight": false
+            },
+            {
+              "value": 129.8,
+              "highlight": false
+            },
+            {
+              "value": 89.9,
+              "highlight": false
+            },
+            {
+              "value": 126.52,
+              "highlight": false
+            },
+            {
+              "value": 99.22,
+              "highlight": false
+            },
+            {
+              "value": 145.14,
+              "highlight": true
+            },
+            {
+              "value": 108.72,
+              "highlight": false
+            },
+            {
+              "value": 108.28,
+              "highlight": false
+            },
+            {
+              "value": 124.26,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "1-13",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1577.1",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "10th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-crowns-and-stinkers",
+        "kicker": "Identity",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "4",
+        "view": {
+          "heroLabel": "Weeks as the league's worst",
+          "hero": "4",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "2-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "5",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "5",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "1-13",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "5 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "3-worst-benching",
+        "kicker": "Regret · Week 3",
+        "layout": "versus",
+        "tone": "dark",
+        "ghost": "29.4",
+        "view": {
+          "versus": [
+            {
+              "label": "You started",
+              "name": "Zay Flowers",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/9997.jpg",
+              "positive": false
+            },
+            {
+              "label": "You benched",
+              "name": "David Montgomery",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/5892.jpg",
+              "positive": true
+            }
+          ],
+          "foot": {
+            "label": "Points left behind",
+            "value": "26.1",
+            "accent": "text-card-red"
+          }
+        }
+      },
+      {
+        "key": "4-points-against-extreme",
+        "kicker": "The football gods",
+        "layout": "bars",
+        "tone": "dark",
+        "ghost": "1960.7",
+        "view": {
+          "compare": [
+            {
+              "label": "You scored",
+              "value": "1577.1",
+              "width": "80%",
+              "positive": true
+            },
+            {
+              "label": "Scored against you",
+              "value": "1960.7",
+              "width": "100%",
+              "positive": false
+            }
+          ]
+        }
+      },
+      {
+        "key": "5-opponent-season-highs",
+        "kicker": "The football gods",
+        "layout": "ledger",
+        "tone": "dark",
+        "ghost": "2",
+        "view": {
+          "entries": [
+            {
+              "label": "Week 8",
+              "text": "caffyfun had their best week of the year",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Week 9",
+              "text": "jonappetit had their best week of the year",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "6-waiver-steal",
+        "kicker": "Personnel · Week 5",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "225.2",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "225.2",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Matthew Stafford",
+            "meta": "Claimed week 5",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/421.jpg"
+          }
+        }
+      },
+      {
+        "key": "7-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "71",
+        "view": {
+          "person": {
+            "initials": "KS",
+            "name": "2KSports",
+            "meta": "7-7",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "3×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "71",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "8-streak",
+        "kicker": "The story",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "13",
+        "view": {
+          "bars": [
+            {
+              "value": 108.52,
+              "highlight": true
+            },
+            {
+              "value": 112.44,
+              "highlight": true
+            },
+            {
+              "value": 113.92,
+              "highlight": true
+            },
+            {
+              "value": 102.96,
+              "highlight": true
+            },
+            {
+              "value": 132.68,
+              "highlight": true
+            },
+            {
+              "value": 91.04,
+              "highlight": true
+            },
+            {
+              "value": 106.32,
+              "highlight": true
+            },
+            {
+              "value": 127.68,
+              "highlight": true
+            },
+            {
+              "value": 90.94,
+              "highlight": true
+            },
+            {
+              "value": 129.8,
+              "highlight": true
+            },
+            {
+              "value": 89.9,
+              "highlight": true
+            },
+            {
+              "value": 126.52,
+              "highlight": true
+            },
+            {
+              "value": 99.22,
+              "highlight": true
+            },
+            {
+              "value": 145.14,
+              "highlight": true
+            },
+            {
+              "value": 108.72,
+              "highlight": false
+            },
+            {
+              "value": 108.28,
+              "highlight": false
+            },
+            {
+              "value": 124.26,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "1-13",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1577.1",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "10th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "9-playoff-story",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "10",
+        "view": {
+          "heroLabel": "Where you finished",
+          "hero": "10th",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Record",
+              "value": "1-13",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Season",
+              "value": "last",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Points Against",
+              "value": "1960.7",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Points Against Rank",
+              "value": "1",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Record",
+              "value": "1-13",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "tranataur",
+    "archetype": "The Middle Manager",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1692.7",
+        "view": {
+          "bars": [
+            {
+              "value": 125.16,
+              "highlight": false
+            },
+            {
+              "value": 100.02,
+              "highlight": false
+            },
+            {
+              "value": 137.02,
+              "highlight": false
+            },
+            {
+              "value": 124.76,
+              "highlight": false
+            },
+            {
+              "value": 158.72,
+              "highlight": true
+            },
+            {
+              "value": 116.32,
+              "highlight": false
+            },
+            {
+              "value": 59.24,
+              "highlight": false
+            },
+            {
+              "value": 148.22,
+              "highlight": false
+            },
+            {
+              "value": 118.02,
+              "highlight": false
+            },
+            {
+              "value": 123.74,
+              "highlight": false
+            },
+            {
+              "value": 137.48,
+              "highlight": false
+            },
+            {
+              "value": 92.02,
+              "highlight": false
+            },
+            {
+              "value": 99.32,
+              "highlight": false
+            },
+            {
+              "value": 152.64,
+              "highlight": false
+            },
+            {
+              "value": 122.52,
+              "highlight": false
+            },
+            {
+              "value": 106.3,
+              "highlight": false
+            },
+            {
+              "value": 93.28,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "6-8",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1692.7",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "8th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-crowns-and-stinkers",
+        "kicker": "Identity",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "3",
+        "view": {
+          "heroLabel": "Weeks as the league's worst",
+          "hero": "3",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "2-worst-benching",
+        "kicker": "Regret · Week 11",
+        "layout": "versus",
+        "tone": "dark",
+        "ghost": "34",
+        "view": {
+          "versus": [
+            {
+              "label": "You started",
+              "name": "Kimani Vidal",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/11647.jpg",
+              "positive": false
+            },
+            {
+              "label": "You benched",
+              "name": "Sean Tucker",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/9506.jpg",
+              "positive": true
+            }
+          ],
+          "foot": {
+            "label": "Points left behind",
+            "value": "30.8",
+            "accent": "text-card-red"
+          }
+        }
+      },
+      {
+        "key": "3-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "3",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "3",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "6-8",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "3 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "4-trade-verdict",
+        "kicker": "Personnel · Week 10",
+        "layout": "versus",
+        "tone": "light",
+        "ghost": "84.5",
+        "view": {
+          "versus": [
+            {
+              "label": "You gave up",
+              "name": "Omarion Hampton +1",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/12507.jpg",
+              "positive": false
+            },
+            {
+              "label": "You received",
+              "name": "Tee Higgins +2",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/6801.jpg",
+              "positive": true
+            }
+          ],
+          "foot": {
+            "label": "Rest-of-season net",
+            "value": "+84.5",
+            "accent": "text-flag-ink"
+          }
+        }
+      },
+      {
+        "key": "5-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "80.7",
+        "view": {
+          "person": {
+            "initials": "MI",
+            "name": "misterchef",
+            "meta": "Second Best · 7-7",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "2×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "80.7",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "6-waiver-steal",
+        "kicker": "Personnel · Week 5",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "70.9",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "70.9",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Kimani Vidal",
+            "meta": "Claimed week 5",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/11647.jpg"
+          }
+        }
+      },
+      {
+        "key": "7-collapse-week",
+        "kicker": "The story · Week 7",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "120.9",
+        "view": {
+          "heroLabel": "Your worst week",
+          "hero": "59.2",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "That week",
+              "value": "59.2",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Your average",
+              "value": "120.9",
+              "accent": "text-chalk"
+            }
+          ]
+        }
+      },
+      {
+        "key": "8-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "102.8",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "102.8",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Jaylen Waddle",
+            "meta": "Round 8, pick 79",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/7526.jpg"
+          }
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Record",
+              "value": "6-8",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Standings Rank",
+              "value": "8",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "League Size",
+              "value": "10",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "2KSports",
+    "archetype": "The First One Out",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1815.5",
+        "view": {
+          "bars": [
+            {
+              "value": 128.62,
+              "highlight": false
+            },
+            {
+              "value": 145.5,
+              "highlight": false
+            },
+            {
+              "value": 137.38,
+              "highlight": false
+            },
+            {
+              "value": 131.16,
+              "highlight": false
+            },
+            {
+              "value": 137.32,
+              "highlight": false
+            },
+            {
+              "value": 106.08,
+              "highlight": false
+            },
+            {
+              "value": 136.28,
+              "highlight": false
+            },
+            {
+              "value": 115.12,
+              "highlight": false
+            },
+            {
+              "value": 160.44,
+              "highlight": true
+            },
+            {
+              "value": 122.68,
+              "highlight": false
+            },
+            {
+              "value": 112.62,
+              "highlight": false
+            },
+            {
+              "value": 145.16,
+              "highlight": false
+            },
+            {
+              "value": 126.66,
+              "highlight": false
+            },
+            {
+              "value": 110.52,
+              "highlight": false
+            },
+            {
+              "value": 137.64,
+              "highlight": false
+            },
+            {
+              "value": 156.82,
+              "highlight": false
+            },
+            {
+              "value": 108.58,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "7-7",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1815.5",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "7th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "5",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "5",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "7-7",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "5 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "2-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "288.1",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "288.1",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "Dak Prescott",
+            "meta": "Dropped week 2",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/3294.jpg"
+          }
+        }
+      },
+      {
+        "key": "3-waiver-steal",
+        "kicker": "Personnel · Week 6",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "133.7",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "133.7",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Jaxson Dart",
+            "meta": "Claimed week 6",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/12508.jpg"
+          }
+        }
+      },
+      {
+        "key": "4-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "36.7",
+        "view": {
+          "person": {
+            "initials": "CA",
+            "name": "caffyfun",
+            "meta": "Chase-ing My Ship · 10-4",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "2×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "36.7",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "5-mvp",
+        "kicker": "Personnel",
+        "layout": "portrait",
+        "tone": "light",
+        "ghost": "348",
+        "view": {
+          "player": {
+            "name": "Puka Nacua",
+            "meta": "WR · 15 starts",
+            "photo": "https://sleepercdn.com/content/nfl/players/9493.jpg"
+          },
+          "pair": [
+            {
+              "label": "Points delivered",
+              "value": "348",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Of your total",
+              "value": "16%",
+              "accent": "text-flag-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "6-streak",
+        "kicker": "The story",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "8",
+        "view": {
+          "bars": [
+            {
+              "value": 128.62,
+              "highlight": false
+            },
+            {
+              "value": 145.5,
+              "highlight": false
+            },
+            {
+              "value": 137.38,
+              "highlight": false
+            },
+            {
+              "value": 131.16,
+              "highlight": true
+            },
+            {
+              "value": 137.32,
+              "highlight": true
+            },
+            {
+              "value": 106.08,
+              "highlight": true
+            },
+            {
+              "value": 136.28,
+              "highlight": true
+            },
+            {
+              "value": 115.12,
+              "highlight": true
+            },
+            {
+              "value": 160.44,
+              "highlight": true
+            },
+            {
+              "value": 122.68,
+              "highlight": false
+            },
+            {
+              "value": 112.62,
+              "highlight": false
+            },
+            {
+              "value": 145.16,
+              "highlight": false
+            },
+            {
+              "value": 126.66,
+              "highlight": false
+            },
+            {
+              "value": 110.52,
+              "highlight": false
+            },
+            {
+              "value": 137.64,
+              "highlight": false
+            },
+            {
+              "value": 156.82,
+              "highlight": false
+            },
+            {
+              "value": 108.58,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "7-7",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1815.5",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "7th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "7-playoff-story",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "7",
+        "view": {
+          "heroLabel": "Where you finished",
+          "hero": "7th",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Record",
+              "value": "7-7",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Season",
+              "value": "first-out",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Record",
+              "value": "7-7",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Standings Rank",
+              "value": "7",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Playoff Spots",
+              "value": "6",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "jonappetit",
+    "archetype": "The What-If",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1779.7",
+        "view": {
+          "bars": [
+            {
+              "value": 123.52,
+              "highlight": false
+            },
+            {
+              "value": 120.08,
+              "highlight": false
+            },
+            {
+              "value": 93.9,
+              "highlight": false
+            },
+            {
+              "value": 148.52,
+              "highlight": false
+            },
+            {
+              "value": 139.02,
+              "highlight": false
+            },
+            {
+              "value": 145.96,
+              "highlight": false
+            },
+            {
+              "value": 154.4,
+              "highlight": false
+            },
+            {
+              "value": 123.28,
+              "highlight": false
+            },
+            {
+              "value": 173.9,
+              "highlight": true
+            },
+            {
+              "value": 130.5,
+              "highlight": false
+            },
+            {
+              "value": 101.44,
+              "highlight": false
+            },
+            {
+              "value": 121.42,
+              "highlight": false
+            },
+            {
+              "value": 115.72,
+              "highlight": false
+            },
+            {
+              "value": 88.06,
+              "highlight": false
+            },
+            {
+              "value": 102,
+              "highlight": false
+            },
+            {
+              "value": 127.2,
+              "highlight": false
+            },
+            {
+              "value": 148.62,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "3-11",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1779.7",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "9th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-crowns-and-stinkers",
+        "kicker": "Identity",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "2",
+        "view": {
+          "heroLabel": "Weeks at the top of the league",
+          "hero": "2",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Weekly crowns",
+              "value": "2",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Weekly stinkers",
+              "value": "2",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "2-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "6",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "6",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "3-11",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "6 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "3-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "310.3",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "310.3",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "Dak Prescott",
+            "meta": "Dropped week 1",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/3294.jpg"
+          }
+        }
+      },
+      {
+        "key": "4-schedule-luck",
+        "kicker": "The football gods",
+        "layout": "bars",
+        "tone": "dark",
+        "ghost": "14",
+        "view": {
+          "compare": [
+            {
+              "label": "You scored",
+              "value": "1779.7",
+              "width": "92%",
+              "positive": true
+            },
+            {
+              "label": "Scored against you",
+              "value": "1924.4",
+              "width": "100%",
+              "positive": false
+            }
+          ]
+        }
+      },
+      {
+        "key": "5-opponent-season-highs",
+        "kicker": "The football gods",
+        "layout": "ledger",
+        "tone": "dark",
+        "ghost": "2",
+        "view": {
+          "entries": [
+            {
+              "label": "Week 5",
+              "text": "tranataur had their best week of the year",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Week 11",
+              "text": "MrHippo had their best week of the year",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "6-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "104.8",
+        "view": {
+          "person": {
+            "initials": "TR",
+            "name": "tranataur",
+            "meta": "WWJD? · 6-8",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "3×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "104.8",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "7-waiver-steal",
+        "kicker": "Personnel · Week 1",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "180.7",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "180.7",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Justin Herbert",
+            "meta": "Claimed week 1",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/6797.jpg"
+          }
+        }
+      },
+      {
+        "key": "8-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "176.6",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "176.6",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Brandon Aubrey",
+            "meta": "Round 10, pick 97",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/11533.jpg"
+          }
+        }
+      },
+      {
+        "key": "9-streak",
+        "kicker": "The story",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "14",
+        "view": {
+          "bars": [
+            {
+              "value": 123.52,
+              "highlight": false
+            },
+            {
+              "value": 120.08,
+              "highlight": false
+            },
+            {
+              "value": 93.9,
+              "highlight": false
+            },
+            {
+              "value": 148.52,
+              "highlight": false
+            },
+            {
+              "value": 139.02,
+              "highlight": false
+            },
+            {
+              "value": 145.96,
+              "highlight": false
+            },
+            {
+              "value": 154.4,
+              "highlight": false
+            },
+            {
+              "value": 123.28,
+              "highlight": false
+            },
+            {
+              "value": 173.9,
+              "highlight": true
+            },
+            {
+              "value": 130.5,
+              "highlight": true
+            },
+            {
+              "value": 101.44,
+              "highlight": true
+            },
+            {
+              "value": 121.42,
+              "highlight": true
+            },
+            {
+              "value": 115.72,
+              "highlight": true
+            },
+            {
+              "value": 88.06,
+              "highlight": true
+            },
+            {
+              "value": 102,
+              "highlight": false
+            },
+            {
+              "value": 127.2,
+              "highlight": false
+            },
+            {
+              "value": 148.62,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "3-11",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1779.7",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "9th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Losses You Could Have Won",
+              "value": "6",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Actual Record",
+              "value": "3-11",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Optimal Record",
+              "value": "9-5",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "caffyfun",
+    "archetype": "The Regular-Season Merchant",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1925.7",
+        "view": {
+          "bars": [
+            {
+              "value": 128.3,
+              "highlight": false
+            },
+            {
+              "value": 153.04,
+              "highlight": false
+            },
+            {
+              "value": 135.32,
+              "highlight": false
+            },
+            {
+              "value": 141.98,
+              "highlight": false
+            },
+            {
+              "value": 150.08,
+              "highlight": false
+            },
+            {
+              "value": 144.38,
+              "highlight": false
+            },
+            {
+              "value": 155.36,
+              "highlight": false
+            },
+            {
+              "value": 163.74,
+              "highlight": true
+            },
+            {
+              "value": 115.18,
+              "highlight": false
+            },
+            {
+              "value": 139.8,
+              "highlight": false
+            },
+            {
+              "value": 109.44,
+              "highlight": false
+            },
+            {
+              "value": 147.54,
+              "highlight": false
+            },
+            {
+              "value": 107.06,
+              "highlight": false
+            },
+            {
+              "value": 134.46,
+              "highlight": false
+            },
+            {
+              "value": 183.9,
+              "highlight": false
+            },
+            {
+              "value": 129.68,
+              "highlight": false
+            },
+            {
+              "value": 153.12,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "10-4",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Points for",
+              "value": "1925.7",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Finish",
+              "value": "1st of 10",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "200.8",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "200.8",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "Jared Goff",
+            "meta": "Dropped week 1",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/3163.jpg"
+          }
+        }
+      },
+      {
+        "key": "2-worst-benching",
+        "kicker": "Regret · Week 16",
+        "layout": "versus",
+        "tone": "dark",
+        "ghost": "31.2",
+        "view": {
+          "versus": [
+            {
+              "label": "You started",
+              "name": "Jordan Love",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/6804.jpg",
+              "positive": false
+            },
+            {
+              "label": "You benched",
+              "name": "Trevor Lawrence",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/7523.jpg",
+              "positive": true
+            }
+          ],
+          "foot": {
+            "label": "Points left behind",
+            "value": "28.4",
+            "accent": "text-card-red"
+          }
+        }
+      },
+      {
+        "key": "3-waiver-steal",
+        "kicker": "Personnel · Week 1",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "156.8",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "156.8",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Daniel Jones",
+            "meta": "Claimed week 1",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/5870.jpg"
+          }
+        }
+      },
+      {
+        "key": "4-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "122",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "122",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Chris Boswell",
+            "meta": "Round 11, pick 109",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/1945.jpg"
+          }
+        }
+      },
+      {
+        "key": "5-streak",
+        "kicker": "The story",
+        "layout": "chart",
+        "tone": "light",
+        "ghost": "8",
+        "view": {
+          "bars": [
+            {
+              "value": 128.3,
+              "highlight": false
+            },
+            {
+              "value": 153.04,
+              "highlight": false
+            },
+            {
+              "value": 135.32,
+              "highlight": false
+            },
+            {
+              "value": 141.98,
+              "highlight": true
+            },
+            {
+              "value": 150.08,
+              "highlight": true
+            },
+            {
+              "value": 144.38,
+              "highlight": true
+            },
+            {
+              "value": 155.36,
+              "highlight": true
+            },
+            {
+              "value": 163.74,
+              "highlight": true
+            },
+            {
+              "value": 115.18,
+              "highlight": false
+            },
+            {
+              "value": 139.8,
+              "highlight": false
+            },
+            {
+              "value": 109.44,
+              "highlight": false
+            },
+            {
+              "value": 147.54,
+              "highlight": false
+            },
+            {
+              "value": 107.06,
+              "highlight": false
+            },
+            {
+              "value": 134.46,
+              "highlight": false
+            },
+            {
+              "value": 183.9,
+              "highlight": false
+            },
+            {
+              "value": 129.68,
+              "highlight": false
+            },
+            {
+              "value": 153.12,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "10-4",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Points for",
+              "value": "1925.7",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Finish",
+              "value": "1st of 10",
+              "accent": "text-flag-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Regular Season",
+              "value": "10-4",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Seed",
+              "value": "1",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Finish",
+              "value": "semifinal",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "misterchef",
+    "archetype": "The Heist",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1853.1",
+        "view": {
+          "bars": [
+            {
+              "value": 107.98,
+              "highlight": false
+            },
+            {
+              "value": 144.94,
+              "highlight": false
+            },
+            {
+              "value": 157.14,
+              "highlight": false
+            },
+            {
+              "value": 167.9,
+              "highlight": false
+            },
+            {
+              "value": 120.8,
+              "highlight": false
+            },
+            {
+              "value": 114.52,
+              "highlight": false
+            },
+            {
+              "value": 158.34,
+              "highlight": false
+            },
+            {
+              "value": 155.76,
+              "highlight": false
+            },
+            {
+              "value": 115.9,
+              "highlight": false
+            },
+            {
+              "value": 98.32,
+              "highlight": false
+            },
+            {
+              "value": 97.44,
+              "highlight": false
+            },
+            {
+              "value": 179.68,
+              "highlight": true
+            },
+            {
+              "value": 136.84,
+              "highlight": false
+            },
+            {
+              "value": 97.5,
+              "highlight": false
+            },
+            {
+              "value": 198.86,
+              "highlight": false
+            },
+            {
+              "value": 160,
+              "highlight": false
+            },
+            {
+              "value": 87.1,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "7-7",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Points for",
+              "value": "1853.1",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Finish",
+              "value": "6th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-crowns-and-stinkers",
+        "kicker": "Identity",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "3",
+        "view": {
+          "heroLabel": "Weeks at the top of the league",
+          "hero": "3",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Weekly crowns",
+              "value": "3",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Weekly stinkers",
+              "value": "3",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "2-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "5",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "5",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "7-7",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "5 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "3-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "148.5",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "148.5",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "Jameson Williams",
+            "meta": "Dropped week 7",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/8148.jpg"
+          }
+        }
+      },
+      {
+        "key": "4-robbed-week",
+        "kicker": "The football gods · Week 12",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "197.5",
+        "view": {
+          "heroLabel": "Points that still lost",
+          "hero": "197.5",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "5-daylight-robbery-win",
+        "kicker": "The football gods · Week 11",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "97.4",
+        "view": {
+          "heroLabel": "Points that somehow won",
+          "hero": "97.4",
+          "heroAccent": "text-flag-ink"
+        }
+      },
+      {
+        "key": "6-waiver-steal",
+        "kicker": "Personnel · Week 3",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "117.1",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "117.1",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Dallas Goedert",
+            "meta": "Claimed week 3",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/5022.jpg"
+          }
+        }
+      },
+      {
+        "key": "7-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "45",
+        "view": {
+          "person": {
+            "initials": "KS",
+            "name": "2KSports",
+            "meta": "7-7",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "2×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "45",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "8-draft-steal",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "220.4",
+        "view": {
+          "heroLabel": "Points from a late pick",
+          "hero": "220.4",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Javonte Williams",
+            "meta": "Round 14, pick 132",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/7588.jpg"
+          }
+        }
+      },
+      {
+        "key": "9-playoff-story",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "heroLabel": "Where you finished",
+          "hero": "champion",
+          "heroAccent": "text-flag-ink",
+          "pair": [
+            {
+              "label": "Record",
+              "value": "7-7",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Season",
+              "value": "champion",
+              "accent": "text-flag-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Finish",
+              "value": "champion",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Deserved Wins",
+              "value": "6.7",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Actual Wins",
+              "value": "7",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "manager": "abchen",
+    "archetype": "The Almost",
+    "cards": [
+      {
+        "key": "0-season-summary",
+        "kicker": "The record",
+        "layout": "chart",
+        "tone": "dark",
+        "ghost": "1957",
+        "view": {
+          "bars": [
+            {
+              "value": 127.36,
+              "highlight": false
+            },
+            {
+              "value": 145.3,
+              "highlight": false
+            },
+            {
+              "value": 122.92,
+              "highlight": false
+            },
+            {
+              "value": 149.98,
+              "highlight": false
+            },
+            {
+              "value": 123.4,
+              "highlight": false
+            },
+            {
+              "value": 131.26,
+              "highlight": false
+            },
+            {
+              "value": 133.84,
+              "highlight": false
+            },
+            {
+              "value": 133.6,
+              "highlight": false
+            },
+            {
+              "value": 138.56,
+              "highlight": false
+            },
+            {
+              "value": 138.74,
+              "highlight": false
+            },
+            {
+              "value": 136.32,
+              "highlight": false
+            },
+            {
+              "value": 197.52,
+              "highlight": true
+            },
+            {
+              "value": 84.44,
+              "highlight": false
+            },
+            {
+              "value": 193.76,
+              "highlight": false
+            },
+            {
+              "value": 158.2,
+              "highlight": false
+            },
+            {
+              "value": 141.14,
+              "highlight": false
+            },
+            {
+              "value": 86.4,
+              "highlight": false
+            }
+          ],
+          "rows": [
+            {
+              "label": "Record",
+              "value": "8-6",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Points for",
+              "value": "1957.0",
+              "accent": "text-flag"
+            },
+            {
+              "label": "Finish",
+              "value": "5th of 10",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "1-bench-points-total",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "302.2",
+        "view": {
+          "heroLabel": "Points left on your bench",
+          "hero": "302.2",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "2-dropped-league-winner",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "265",
+        "view": {
+          "heroLabel": "Points they scored after you dropped them",
+          "hero": "265",
+          "heroAccent": "text-card-red",
+          "player": {
+            "name": "Justin Herbert",
+            "meta": "Dropped week 1",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/6797.jpg"
+          }
+        }
+      },
+      {
+        "key": "3-trade-verdict",
+        "kicker": "Personnel · Week 10",
+        "layout": "versus",
+        "tone": "dark",
+        "ghost": "-84.5",
+        "view": {
+          "versus": [
+            {
+              "label": "You gave up",
+              "name": "Tee Higgins +2",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/6801.jpg",
+              "positive": true
+            },
+            {
+              "label": "You received",
+              "name": "Omarion Hampton +1",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/12507.jpg",
+              "positive": false
+            }
+          ],
+          "foot": {
+            "label": "Rest-of-season net",
+            "value": "-84.5",
+            "accent": "text-card-red"
+          }
+        }
+      },
+      {
+        "key": "4-waiver-steal",
+        "kicker": "Personnel · Week 11",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "95.2",
+        "view": {
+          "heroLabel": "Points after you claimed him",
+          "hero": "95.2",
+          "heroAccent": "text-flag-ink",
+          "player": {
+            "name": "Michael Wilson",
+            "meta": "Claimed week 11",
+            "photo": "https://sleepercdn.com/content/nfl/players/thumb/10232.jpg"
+          }
+        }
+      },
+      {
+        "key": "5-nemesis",
+        "kicker": "Personnel",
+        "layout": "person",
+        "tone": "dark",
+        "ghost": "17.1",
+        "view": {
+          "person": {
+            "initials": "MI",
+            "name": "misterchef",
+            "meta": "Second Best · 7-7",
+            "positive": false
+          },
+          "pair": [
+            {
+              "label": "They beat you",
+              "value": "2×",
+              "accent": "text-card-red"
+            },
+            {
+              "label": "Outscored by",
+              "value": "17.1",
+              "accent": "text-card-red"
+            }
+          ]
+        }
+      },
+      {
+        "key": "6-peak-week",
+        "kicker": "The story · Week 12",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": "197.5",
+        "view": {
+          "heroLabel": "Your best week",
+          "hero": "197.5",
+          "heroAccent": "text-flag-ink",
+          "pair": [
+            {
+              "label": "That week",
+              "value": "197.5",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Your average",
+              "value": "139.8",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "7-playoff-story",
+        "kicker": "The story",
+        "layout": "statement",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "heroLabel": "Where you finished",
+          "hero": "runner-up",
+          "heroAccent": "text-flag-ink",
+          "pair": [
+            {
+              "label": "Record",
+              "value": "—",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Season",
+              "value": "runner-up",
+              "accent": "text-card-red-ink"
+            }
+          ]
+        }
+      },
+      {
+        "key": "finale",
+        "kicker": "2025 · Final verdict",
+        "layout": "verdict",
+        "tone": "light",
+        "ghost": null,
+        "view": {
+          "rows": [
+            {
+              "label": "Finish",
+              "value": "runner-up",
+              "accent": "text-flag-ink"
+            },
+            {
+              "label": "Final Margin",
+              "value": "0.7",
+              "accent": "text-paper-ink"
+            },
+            {
+              "label": "Record",
+              "value": "8-6",
+              "accent": "text-paper-ink"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

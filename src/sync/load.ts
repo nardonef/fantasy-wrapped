@@ -1,5 +1,6 @@
 import { asc, eq, inArray } from "drizzle-orm";
 import { db } from "@/db";
+import { computeSeasonFacts, type SeasonFacts } from "@/engine";
 import {
   draftPicks,
   leagues,
@@ -10,6 +11,17 @@ import {
   transactions,
 } from "@/db/schema";
 import type { NormalizedLeagueBundle } from "@/providers/types";
+
+/**
+ * SeasonFacts for a synced league. The story player needs the same league-wide
+ * numbers the engine reasoned over — weekly scores for the chart layout, other
+ * managers' records for the person layout — and the cached CardScript carries
+ * only the cards themselves. The ballot page already does this per request.
+ */
+export async function loadSeasonFacts(leagueDbId: string): Promise<SeasonFacts | null> {
+  const bundle = await loadBundle(leagueDbId);
+  return bundle ? computeSeasonFacts(bundle) : null;
+}
 
 /**
  * Reconstruct the NormalizedLeagueBundle for a synced league from Postgres —
