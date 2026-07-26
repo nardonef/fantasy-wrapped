@@ -1,17 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const anton = Anton({
-  weight: "400",
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-geist",
 });
 
-const plexMono = IBM_Plex_Mono({
-  weight: ["400", "500", "700"],
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-plex-mono",
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +26,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0B",
+  // The page ground, a shade darker than the card surface.
+  themeColor: "#060607",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -40,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${plexMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="grain min-h-full flex flex-col">{children}</body>
     </html>
   );

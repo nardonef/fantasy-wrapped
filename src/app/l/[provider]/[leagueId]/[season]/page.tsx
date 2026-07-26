@@ -55,7 +55,7 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
     `/w/${p.provider}/${p.leagueId}/${facts.league.season}/${rosterId}`;
 
   return (
-    <main className="yardlines min-h-dvh px-6 py-14 sm:mx-auto sm:max-w-xl">
+    <main className="min-h-dvh px-6 py-14 sm:mx-auto sm:max-w-xl">
       <p className="text-xs tracking-[0.35em] text-chalk-dim uppercase">
         {facts.league.name} · {facts.league.season}
       </p>

@@ -104,9 +104,7 @@ export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.16 }}
-          className={`yardlines relative flex flex-1 flex-col justify-end px-6 pb-16 ${
-            card.accent === "red" && !finale ? "hazard" : ""
-          }`}
+          className="relative flex flex-1 flex-col justify-end px-6 pb-16"
         >
           {card.ghost && (
             <motion.span

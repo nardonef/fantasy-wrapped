@@ -2,7 +2,7 @@ import { LandingFlow } from "@/components/LandingFlow";
 
 export default function Home() {
   return (
-    <main className="yardlines relative flex min-h-dvh flex-col px-6 pt-14 pb-10 sm:mx-auto sm:w-full sm:max-w-md">
+    <main className="relative flex min-h-dvh flex-col px-6 pt-14 pb-10 sm:mx-auto sm:w-full sm:max-w-md">
       <header>
         <p className="text-xs tracking-[0.35em] text-chalk-dim uppercase">
           Fantasy Football · 2025
