@@ -1,6 +1,6 @@
 # abchen — “THERE’S NO 2ND BEST 😤😤”
 
-_Asian American Association · 2025 · engine 0.1.0_
+_Asian American Association · 2025 · engine 0.2.0_
 
 ## The story
 

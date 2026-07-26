@@ -89,6 +89,7 @@ export const peopleInsights: InsightModule[] = [
           shareOfTeamPct: share,
           startedWeeks: t.mvp.startedWeeks,
         },
+        refs: { player: t.mvp.player },
       };
     },
   },
@@ -117,6 +118,7 @@ export const peopleInsights: InsightModule[] = [
           pickNo: bust.pickNo,
           startedPoints: pts,
         },
+        refs: { player: bust.player },
       };
     },
   },
@@ -148,6 +150,7 @@ export const peopleInsights: InsightModule[] = [
           startedPointsAfter: pts,
           faabSpent: best.faab,
         },
+        refs: { player: best.player },
       };
     },
   },
@@ -166,6 +169,16 @@ export const peopleInsights: InsightModule[] = [
       const notability = won
         ? clamp(56 + (delta - 50) / 5, 56, 80)
         : clamp(64 + (delta - 50) / 5, 64, 88);
+      // A trade can move several players; the portrait shows the one that
+      // decided it. Name breaks ties so the pick stays deterministic.
+      const headliner = (side: typeof biggest.gained) =>
+        [...side].sort(
+          (a, b) =>
+            b.restOfSeasonPoints - a.restOfSeasonPoints ||
+            a.player.name.localeCompare(b.player.name),
+        )[0]?.player;
+      const got = headliner(biggest.gained);
+      const gave = headliner(biggest.lost);
       return {
         id: this.id,
         category: "people",
@@ -181,6 +194,7 @@ export const peopleInsights: InsightModule[] = [
           netPoints: round1(biggest.delta),
           wonTheTrade: won,
         },
+        refs: { ...(got ? { got } : {}), ...(gave ? { gave } : {}) },
       };
     },
   },

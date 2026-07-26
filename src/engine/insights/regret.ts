@@ -111,6 +111,7 @@ export const regretInsights: InsightModule[] = [
           pointsLeftBehind: gain,
           costTheGame: flippedGame ?? false,
         },
+        refs: { started: swap.started, benched: swap.benched },
       };
     },
   },
@@ -137,6 +138,7 @@ export const regretInsights: InsightModule[] = [
           droppedWeek: worst.week,
           pointsAfterDrop: pts,
         },
+        refs: { player: worst.player },
       };
     },
   },

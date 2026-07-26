@@ -89,6 +89,7 @@ export function selectCards(facts: SeasonFacts, rosterId: string): WrappedCard[]
       category: c.category,
       headline: c.headline,
       facts: c.facts,
+      ...(c.refs ? { refs: c.refs } : {}),
     })),
   ];
 }

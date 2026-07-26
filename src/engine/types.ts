@@ -175,6 +175,13 @@ export type CandidateInsight = {
   headline: string;
   /** Exact numbers/names the copy layer must preserve verbatim. */
   facts: Record<string, string | number | boolean | null>;
+  /**
+   * The players this card is about, for the UI only — headshots, portraits.
+   * Deliberately outside `facts`: copy validation requires every number in
+   * `facts` to survive into the sentence verbatim, and a player id is not a
+   * number the LLM should ever be asked to reproduce.
+   */
+  refs?: Record<string, PlayerRef>;
 };
 
 export type WrappedCard = {
@@ -182,6 +189,7 @@ export type WrappedCard = {
   category: InsightCategory;
   headline: string;
   facts: Record<string, string | number | boolean | null>;
+  refs?: Record<string, PlayerRef>;
 };
 
 export type Archetype = {

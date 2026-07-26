@@ -1,6 +1,6 @@
 [
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "1",
@@ -29,6 +29,13 @@
           "player": "TreVeyon Henderson",
           "droppedWeek": 8,
           "pointsAfterDrop": 136.2
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "12529",
+            "name": "TreVeyon Henderson",
+            "position": "RB"
+          }
         }
       },
       {
@@ -72,6 +79,13 @@
           "week": 8,
           "startedPointsAfter": 136.2,
           "faabSpent": 2
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "12529",
+            "name": "TreVeyon Henderson",
+            "position": "RB"
+          }
         }
       },
       {
@@ -96,6 +110,13 @@
           "startedPoints": 402.9,
           "shareOfTeamPct": 18,
           "startedWeeks": 16
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "4034",
+            "name": "Christian McCaffrey",
+            "position": "RB"
+          }
         }
       },
       {
@@ -107,6 +128,13 @@
           "round": 11,
           "pickNo": 103,
           "startedPoints": 163
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "8259",
+            "name": "Cameron Dicker",
+            "position": "K"
+          }
         }
       },
       {
@@ -133,7 +161,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "2",
@@ -166,6 +194,18 @@
           "startedPoints": 0,
           "pointsLeftBehind": 21.8,
           "costTheGame": false
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "2216",
+            "name": "Mike Evans",
+            "position": "WR"
+          },
+          "benched": {
+            "providerPlayerId": "9756",
+            "name": "Jordan Addison",
+            "position": "WR"
+          }
         }
       },
       {
@@ -209,6 +249,13 @@
           "startedPoints": 359.5,
           "shareOfTeamPct": 16,
           "startedWeeks": 16
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "9509",
+            "name": "Bijan Robinson",
+            "position": "RB"
+          }
         }
       },
       {
@@ -220,6 +267,13 @@
           "round": 10,
           "pickNo": 92,
           "startedPoints": 336.2
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11564",
+            "name": "Drake Maye",
+            "position": "QB"
+          }
         }
       },
       {
@@ -246,7 +300,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "3",
@@ -285,6 +339,13 @@
           "player": "Dak Prescott",
           "droppedWeek": 1,
           "pointsAfterDrop": 310.3
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3294",
+            "name": "Dak Prescott",
+            "position": "QB"
+          }
         }
       },
       {
@@ -317,6 +378,13 @@
           "week": 2,
           "startedPointsAfter": 248.5,
           "faabSpent": 1
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3294",
+            "name": "Dak Prescott",
+            "position": "QB"
+          }
         }
       },
       {
@@ -340,6 +408,13 @@
           "round": 14,
           "pickNo": 135,
           "startedPoints": 248.5
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3294",
+            "name": "Dak Prescott",
+            "position": "QB"
+          }
         }
       },
       {
@@ -365,7 +440,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "4",
@@ -417,6 +492,18 @@
           "startedPoints": 3.3,
           "pointsLeftBehind": 26.1,
           "costTheGame": true
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "9997",
+            "name": "Zay Flowers",
+            "position": "WR"
+          },
+          "benched": {
+            "providerPlayerId": "5892",
+            "name": "David Montgomery",
+            "position": "RB"
+          }
         }
       },
       {
@@ -447,6 +534,13 @@
           "week": 5,
           "startedPointsAfter": 225.2,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "421",
+            "name": "Matthew Stafford",
+            "position": "QB"
+          }
         }
       },
       {
@@ -495,7 +589,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "5",
@@ -536,6 +630,18 @@
           "startedPoints": 3.2,
           "pointsLeftBehind": 30.8,
           "costTheGame": true
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "11647",
+            "name": "Kimani Vidal",
+            "position": "RB"
+          },
+          "benched": {
+            "providerPlayerId": "9506",
+            "name": "Sean Tucker",
+            "position": "RB"
+          }
         }
       },
       {
@@ -560,6 +666,18 @@
           "gave": "Jaylen Waddle, Omarion Hampton",
           "netPoints": 84.5,
           "wonTheTrade": true
+        },
+        "refs": {
+          "got": {
+            "providerPlayerId": "6801",
+            "name": "Tee Higgins",
+            "position": "WR"
+          },
+          "gave": {
+            "providerPlayerId": "12507",
+            "name": "Omarion Hampton",
+            "position": "RB"
+          }
         }
       },
       {
@@ -583,6 +701,13 @@
           "week": 5,
           "startedPointsAfter": 70.9,
           "faabSpent": 11
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11647",
+            "name": "Kimani Vidal",
+            "position": "RB"
+          }
         }
       },
       {
@@ -605,6 +730,13 @@
           "round": 8,
           "pickNo": 79,
           "startedPoints": 102.8
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "7526",
+            "name": "Jaylen Waddle",
+            "position": "WR"
+          }
         }
       }
     ],
@@ -620,7 +752,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "6",
@@ -660,6 +792,13 @@
           "player": "Dak Prescott",
           "droppedWeek": 2,
           "pointsAfterDrop": 288.1
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3294",
+            "name": "Dak Prescott",
+            "position": "QB"
+          }
         }
       },
       {
@@ -671,6 +810,13 @@
           "week": 6,
           "startedPointsAfter": 133.7,
           "faabSpent": 3
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "12508",
+            "name": "Jaxson Dart",
+            "position": "QB"
+          }
         }
       },
       {
@@ -695,6 +841,13 @@
           "startedPoints": 348,
           "shareOfTeamPct": 16,
           "startedWeeks": 15
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "9493",
+            "name": "Puka Nacua",
+            "position": "WR"
+          }
         }
       },
       {
@@ -731,7 +884,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "7",
@@ -780,6 +933,13 @@
           "player": "Dak Prescott",
           "droppedWeek": 1,
           "pointsAfterDrop": 310.3
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3294",
+            "name": "Dak Prescott",
+            "position": "QB"
+          }
         }
       },
       {
@@ -824,6 +984,13 @@
           "week": 1,
           "startedPointsAfter": 180.7,
           "faabSpent": 11
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "6797",
+            "name": "Justin Herbert",
+            "position": "QB"
+          }
         }
       },
       {
@@ -835,6 +1002,13 @@
           "round": 10,
           "pickNo": 97,
           "startedPoints": 176.6
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11533",
+            "name": "Brandon Aubrey",
+            "position": "K"
+          }
         }
       },
       {
@@ -861,7 +1035,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "8",
@@ -890,6 +1064,13 @@
           "player": "Jared Goff",
           "droppedWeek": 1,
           "pointsAfterDrop": 200.8
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3163",
+            "name": "Jared Goff",
+            "position": "QB"
+          }
         }
       },
       {
@@ -904,6 +1085,18 @@
           "startedPoints": 2.8,
           "pointsLeftBehind": 28.4,
           "costTheGame": true
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "6804",
+            "name": "Jordan Love",
+            "position": "QB"
+          },
+          "benched": {
+            "providerPlayerId": "7523",
+            "name": "Trevor Lawrence",
+            "position": "QB"
+          }
         }
       },
       {
@@ -915,6 +1108,13 @@
           "week": 1,
           "startedPointsAfter": 156.8,
           "faabSpent": 3
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "5870",
+            "name": "Daniel Jones",
+            "position": "QB"
+          }
         }
       },
       {
@@ -926,6 +1126,13 @@
           "round": 11,
           "pickNo": 109,
           "startedPoints": 122
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "1945",
+            "name": "Chris Boswell",
+            "position": "K"
+          }
         }
       },
       {
@@ -951,7 +1158,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "9",
@@ -1000,6 +1207,13 @@
           "player": "Jameson Williams",
           "droppedWeek": 7,
           "pointsAfterDrop": 148.5
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "8148",
+            "name": "Jameson Williams",
+            "position": "WR"
+          }
         }
       },
       {
@@ -1032,6 +1246,13 @@
           "week": 3,
           "startedPointsAfter": 117.1,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "5022",
+            "name": "Dallas Goedert",
+            "position": "TE"
+          }
         }
       },
       {
@@ -1055,6 +1276,13 @@
           "round": 14,
           "pickNo": 132,
           "startedPoints": 220.4
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "7588",
+            "name": "Javonte Williams",
+            "position": "RB"
+          }
         }
       },
       {
@@ -1080,7 +1308,7 @@
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "10",
@@ -1119,6 +1347,13 @@
           "player": "Justin Herbert",
           "droppedWeek": 1,
           "pointsAfterDrop": 265
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "6797",
+            "name": "Justin Herbert",
+            "position": "QB"
+          }
         }
       },
       {
@@ -1132,6 +1367,18 @@
           "gave": "Deebo Samuel, Tee Higgins, Woody Marks",
           "netPoints": -84.5,
           "wonTheTrade": false
+        },
+        "refs": {
+          "got": {
+            "providerPlayerId": "12507",
+            "name": "Omarion Hampton",
+            "position": "RB"
+          },
+          "gave": {
+            "providerPlayerId": "6801",
+            "name": "Tee Higgins",
+            "position": "WR"
+          }
         }
       },
       {
@@ -1143,6 +1390,13 @@
           "week": 11,
           "startedPointsAfter": 95.2,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "10232",
+            "name": "Michael Wilson",
+            "position": "WR"
+          }
         }
       },
       {
