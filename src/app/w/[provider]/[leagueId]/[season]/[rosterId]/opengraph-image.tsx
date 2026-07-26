@@ -12,7 +12,11 @@ type Params = {
   rosterId: string;
 };
 
-/** The group-chat artifact: archetype verdict on penalty-flag yellow. */
+/**
+ * The group-chat artifact: the archetype verdict, on the same light surface
+ * the finale card uses. Fonts are system sans — loading Geist into
+ * ImageResponse needs a font binary committed to the repo (see STATUS.md).
+ */
 export default async function OgImage({ params }: { params: Promise<Params> }) {
   const p = await params;
   const wrapped =
@@ -33,21 +37,29 @@ export default async function OgImage({ params }: { params: Promise<Params> }) {
         flexDirection: "column",
         justifyContent: "flex-end",
         padding: 72,
-        backgroundColor: "#E8FF2B",
+        backgroundColor: "#FAFAFA",
         color: "#0A0A0B",
         fontFamily: "sans-serif",
       }}
     >
-      <div style={{ fontSize: 26, letterSpacing: 8, textTransform: "uppercase", opacity: 0.7 }}>
+      <div
+        style={{
+          fontSize: 22,
+          letterSpacing: 6,
+          textTransform: "uppercase",
+          // The light-surface accent. #5B8CFF on #FAFAFA is about 2.3:1.
+          color: "#2148D8",
+        }}
+      >
         {league}
       </div>
       <div
         style={{
-          fontSize: 120,
-          fontWeight: 900,
-          textTransform: "uppercase",
-          lineHeight: 0.95,
-          marginTop: 16,
+          fontSize: 124,
+          fontWeight: 700,
+          letterSpacing: -4,
+          lineHeight: 0.94,
+          marginTop: 20,
         }}
       >
         {archetype}
@@ -56,13 +68,17 @@ export default async function OgImage({ params }: { params: Promise<Params> }) {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          marginTop: 40,
-          fontSize: 30,
-          fontWeight: 700,
+          marginTop: 48,
+          paddingTop: 28,
+          borderTop: "1px solid rgba(10, 10, 11, 0.15)",
+          fontSize: 22,
+          letterSpacing: 6,
+          textTransform: "uppercase",
+          color: "#52525B",
         }}
       >
         <span>{manager}</span>
-        <span style={{ opacity: 0.7 }}>FANTASY WRAPPED</span>
+        <span>Fantasy Wrapped</span>
       </div>
     </div>,
     size,
