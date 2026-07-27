@@ -167,6 +167,7 @@ function Rows({
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 + i * 0.06, duration: 0.6, ease: EASE }}
+          data-testid={variant === "stacked" ? "verdict-row" : "stat-row"}
           className={
             variant === "inline"
               ? "relative flex items-baseline justify-between gap-4 py-3.5"
@@ -345,6 +346,7 @@ function chart({ card, tone, accent }: ArchProps): Arch {
             <motion.span
               // Bars are positional; a week has no other stable identity here.
               key={`${i}-${b.value}`}
+              data-testid="chart-bar"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ delay: 0.3 + i * 0.035, duration: 0.5, ease: EASE }}
