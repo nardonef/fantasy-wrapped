@@ -143,7 +143,19 @@
         }
       },
       {
-        "key": "3-robbed-week",
+        "key": "3-bench-points-total",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "180.2",
+        "view": {
+          "heroLabel": "Points left on your bench",
+          "hero": "180.2",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "4-robbed-week",
         "kicker": "The football gods · Week 10",
         "layout": "statement",
         "tone": "dark",
@@ -155,7 +167,7 @@
         }
       },
       {
-        "key": "4-daylight-robbery-win",
+        "key": "5-daylight-robbery-win",
         "kicker": "The football gods · Week 7",
         "layout": "statement",
         "tone": "light",
@@ -167,7 +179,7 @@
         }
       },
       {
-        "key": "5-waiver-steal",
+        "key": "6-waiver-steal",
         "kicker": "Personnel · Week 8",
         "layout": "statement",
         "tone": "light",
@@ -184,7 +196,7 @@
         }
       },
       {
-        "key": "6-nemesis",
+        "key": "7-nemesis",
         "kicker": "Personnel",
         "layout": "person",
         "tone": "dark",
@@ -206,32 +218,6 @@
               "label": "Outscored by",
               "value": "2.3",
               "accent": "text-card-red"
-            }
-          ]
-        }
-      },
-      {
-        "key": "7-mvp",
-        "kicker": "Personnel",
-        "layout": "portrait",
-        "tone": "light",
-        "ghost": "402.9",
-        "view": {
-          "player": {
-            "name": "Christian McCaffrey",
-            "meta": "RB · 16 starts",
-            "photo": "https://sleepercdn.com/content/nfl/players/4034.jpg"
-          },
-          "pair": [
-            {
-              "label": "Points delivered",
-              "value": "402.9",
-              "accent": "text-flag-ink"
-            },
-            {
-              "label": "Of your total",
-              "value": "18%",
-              "accent": "text-flag-ink"
             }
           ]
         }
@@ -881,7 +867,19 @@
         }
       },
       {
-        "key": "4-daylight-robbery-win",
+        "key": "4-zero-hero",
+        "kicker": "Regret · Week 8",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "10.4",
+        "view": {
+          "heroLabel": "Points from a starter",
+          "hero": "10.4",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "5-daylight-robbery-win",
         "kicker": "The football gods · Week 4",
         "layout": "statement",
         "tone": "light",
@@ -893,7 +891,7 @@
         }
       },
       {
-        "key": "5-waiver-steal",
+        "key": "6-waiver-steal",
         "kicker": "Personnel · Week 2",
         "layout": "statement",
         "tone": "light",
@@ -910,7 +908,7 @@
         }
       },
       {
-        "key": "6-nemesis",
+        "key": "7-nemesis",
         "kicker": "Personnel",
         "layout": "person",
         "tone": "dark",
@@ -937,7 +935,7 @@
         }
       },
       {
-        "key": "7-draft-steal",
+        "key": "8-draft-steal",
         "kicker": "The story",
         "layout": "statement",
         "tone": "light",
@@ -954,7 +952,7 @@
         }
       },
       {
-        "key": "8-peak-week",
+        "key": "9-peak-week",
         "kicker": "The story · Week 10",
         "layout": "statement",
         "tone": "light",
@@ -1576,7 +1574,19 @@
         }
       },
       {
-        "key": "4-trade-verdict",
+        "key": "4-zero-hero",
+        "kicker": "Regret · Week 1",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "6.6",
+        "view": {
+          "heroLabel": "Points from a starter",
+          "hero": "6.6",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "5-trade-verdict",
         "kicker": "Personnel · Week 10",
         "layout": "versus",
         "tone": "light",
@@ -1604,7 +1614,7 @@
         }
       },
       {
-        "key": "5-nemesis",
+        "key": "6-nemesis",
         "kicker": "Personnel",
         "layout": "person",
         "tone": "dark",
@@ -1631,7 +1641,7 @@
         }
       },
       {
-        "key": "6-waiver-steal",
+        "key": "7-waiver-steal",
         "kicker": "Personnel · Week 5",
         "layout": "statement",
         "tone": "light",
@@ -1648,7 +1658,7 @@
         }
       },
       {
-        "key": "7-collapse-week",
+        "key": "8-collapse-week",
         "kicker": "The story · Week 7",
         "layout": "statement",
         "tone": "dark",
@@ -1672,7 +1682,7 @@
         }
       },
       {
-        "key": "8-draft-steal",
+        "key": "9-draft-steal",
         "kicker": "The story",
         "layout": "statement",
         "tone": "light",
@@ -1860,7 +1870,35 @@
         }
       },
       {
-        "key": "3-waiver-steal",
+        "key": "3-worst-benching",
+        "kicker": "Regret · Week 7",
+        "layout": "versus",
+        "tone": "dark",
+        "ghost": "29.4",
+        "view": {
+          "versus": [
+            {
+              "label": "You started",
+              "name": "Caleb Williams",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/11560.jpg",
+              "positive": false
+            },
+            {
+              "label": "You benched",
+              "name": "Jaxson Dart",
+              "photo": "https://sleepercdn.com/content/nfl/players/thumb/12508.jpg",
+              "positive": true
+            }
+          ],
+          "foot": {
+            "label": "Points left behind",
+            "value": "25.7",
+            "accent": "text-card-red"
+          }
+        }
+      },
+      {
+        "key": "4-waiver-steal",
         "kicker": "Personnel · Week 6",
         "layout": "statement",
         "tone": "light",
@@ -1877,7 +1915,7 @@
         }
       },
       {
-        "key": "4-nemesis",
+        "key": "5-nemesis",
         "kicker": "Personnel",
         "layout": "person",
         "tone": "dark",
@@ -1904,7 +1942,7 @@
         }
       },
       {
-        "key": "5-mvp",
+        "key": "6-mvp",
         "kicker": "Personnel",
         "layout": "portrait",
         "tone": "light",
@@ -1930,7 +1968,7 @@
         }
       },
       {
-        "key": "6-streak",
+        "key": "7-streak",
         "kicker": "The story",
         "layout": "chart",
         "tone": "dark",
@@ -2028,7 +2066,7 @@
         }
       },
       {
-        "key": "7-playoff-story",
+        "key": "8-playoff-story",
         "kicker": "The story",
         "layout": "statement",
         "tone": "dark",
@@ -2247,7 +2285,19 @@
         }
       },
       {
-        "key": "4-schedule-luck",
+        "key": "4-zero-hero",
+        "kicker": "Regret · Week 8",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "10.3",
+        "view": {
+          "heroLabel": "Points from a starter",
+          "hero": "10.3",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "5-schedule-luck",
         "kicker": "The football gods",
         "layout": "bars",
         "tone": "dark",
@@ -2265,27 +2315,6 @@
               "value": "1924.4",
               "width": "100%",
               "positive": false
-            }
-          ]
-        }
-      },
-      {
-        "key": "5-opponent-season-highs",
-        "kicker": "The football gods",
-        "layout": "ledger",
-        "tone": "dark",
-        "ghost": "2",
-        "view": {
-          "entries": [
-            {
-              "label": "Week 5",
-              "text": "tranataur had their best week of the year",
-              "accent": "text-card-red"
-            },
-            {
-              "label": "Week 11",
-              "text": "MrHippo had their best week of the year",
-              "accent": "text-card-red"
             }
           ]
         }
@@ -2625,7 +2654,19 @@
         }
       },
       {
-        "key": "3-waiver-steal",
+        "key": "3-zero-hero",
+        "kicker": "Regret · Week 9",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "9",
+        "view": {
+          "heroLabel": "Points from a starter",
+          "hero": "9",
+          "heroAccent": "text-card-red"
+        }
+      },
+      {
+        "key": "4-waiver-steal",
         "kicker": "Personnel · Week 1",
         "layout": "statement",
         "tone": "light",
@@ -2642,7 +2683,7 @@
         }
       },
       {
-        "key": "4-draft-steal",
+        "key": "5-draft-steal",
         "kicker": "The story",
         "layout": "statement",
         "tone": "light",
@@ -2659,7 +2700,7 @@
         }
       },
       {
-        "key": "5-streak",
+        "key": "6-streak",
         "kicker": "The story",
         "layout": "chart",
         "tone": "light",
@@ -3220,7 +3261,31 @@
         }
       },
       {
-        "key": "3-trade-verdict",
+        "key": "3-flippable-losses",
+        "kicker": "Regret",
+        "layout": "statement",
+        "tone": "dark",
+        "ghost": "2",
+        "view": {
+          "heroLabel": "Losses that were coin flips",
+          "hero": "2",
+          "heroAccent": "text-card-red",
+          "pair": [
+            {
+              "label": "Actual",
+              "value": "8-6",
+              "accent": "text-chalk"
+            },
+            {
+              "label": "Weeks",
+              "value": "2 of them",
+              "accent": "text-flag"
+            }
+          ]
+        }
+      },
+      {
+        "key": "4-trade-verdict",
         "kicker": "Personnel · Week 10",
         "layout": "versus",
         "tone": "dark",
@@ -3248,7 +3313,7 @@
         }
       },
       {
-        "key": "4-waiver-steal",
+        "key": "5-waiver-steal",
         "kicker": "Personnel · Week 11",
         "layout": "statement",
         "tone": "light",
@@ -3265,7 +3330,7 @@
         }
       },
       {
-        "key": "5-nemesis",
+        "key": "6-nemesis",
         "kicker": "Personnel",
         "layout": "person",
         "tone": "dark",
@@ -3292,7 +3357,7 @@
         }
       },
       {
-        "key": "6-peak-week",
+        "key": "7-peak-week",
         "kicker": "The story · Week 12",
         "layout": "statement",
         "tone": "light",
@@ -3316,7 +3381,7 @@
         }
       },
       {
-        "key": "7-playoff-story",
+        "key": "8-playoff-story",
         "kicker": "The story",
         "layout": "statement",
         "tone": "light",

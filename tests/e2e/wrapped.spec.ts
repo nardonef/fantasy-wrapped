@@ -15,21 +15,21 @@ test("wrapped story plays through to the archetype finale", async ({ page }) => 
   await expect(player).toBeVisible();
   // Opener: the season summary record.
   await expect(player).toContainText("4-10");
-  await expect(player).toContainText("01 / 10");
+  await expect(player).toContainText("01 / 11");
 
   // Tap through every card to the finale.
   const next = page.getByRole("button", { name: "next card" });
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 10; i++) {
     await next.click();
   }
-  await expect(player).toContainText("10 / 10");
+  await expect(player).toContainText("11 / 11");
   await expect(player).toContainText("The Saboteur");
   await expect(page.getByRole("button", { name: /send it to the chat/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /the ballot/i })).toBeVisible();
 
   // Back navigation works.
   await page.getByRole("button", { name: "previous card" }).click();
-  await expect(player).toContainText("09 / 10");
+  await expect(player).toContainText("10 / 11");
 });
 
 test("the opener draws the season shape beside the record it produced", async ({ page }) => {
@@ -52,7 +52,7 @@ test("the deck varies its layout and inverts for a brag", async ({ page }) => {
 
   const layouts = new Set<string>();
   const tones = new Set<string>();
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 11; i++) {
     layouts.add((await player.getAttribute("data-layout")) ?? "");
     tones.add((await player.getAttribute("data-tone")) ?? "");
     await next.click();
@@ -67,7 +67,7 @@ test("the deck varies its layout and inverts for a brag", async ({ page }) => {
 test("the finale convicts with the archetype's evidence, strongest first", async ({ page }) => {
   await page.goto(WRAPPED_URL);
   const next = page.getByRole("button", { name: "next card" });
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 10; i++) {
     await next.click();
   }
 

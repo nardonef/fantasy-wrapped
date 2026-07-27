@@ -1,6 +1,6 @@
 # misterchef — “Second Best”
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 

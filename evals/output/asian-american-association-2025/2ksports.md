@@ -1,6 +1,6 @@
 # 2KSports
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -10,15 +10,17 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 **3. [regret] You dropped Dak Prescott in week 2. 288.1 points after that.**
 
-**4. [people] Week 6 pickup Jaxson Dart gave you 133.7 points for $3**
+**4. [regret] Week 7: you benched Jaxson Dart (29.4) and started Caleb Williams (3.7) — it cost you the game**
 
-**5. [people] caffyfun owned you this season: 2-0, by 36.7 total points**
+**5. [people] Week 6 pickup Jaxson Dart gave you 133.7 points for $3**
 
-**6. [people] Your MVP: Puka Nacua — 348 points, 16% of everything you scored**
+**6. [people] caffyfun owned you this season: 2-0, by 36.7 total points**
 
-**7. [narrative] Weeks 4–8: 5 straight losses**
+**7. [people] Your MVP: Puka Nacua — 348 points, 16% of everything you scored**
 
-**8. [narrative] First team out. 7-7 and home for the playoffs.**
+**8. [narrative] Weeks 4–8: 5 straight losses**
+
+**9. [narrative] First team out. 7-7 and home for the playoffs.**
 
 **FINALE — The First One Out**
 
@@ -29,7 +31,6 @@ _Asian American Association · 2025 · engine 0.2.0_
 ## Cutting-room floor (candidates that didn't ship)
 
 - (74) [regret] You went 7-7. With perfect lineups you go 12-2.
-- (70) [regret] Week 7: you benched Jaxson Dart (29.4) and started Caleb Williams (3.7) — it cost you the game
 - (62) [narrative] Round 9: D'Andre Swift. 155.6 points from pick 85.
 - (60) [people] vrdevaraj was your personal win button: 3-0, +71 points
 - (55) [regret] 283.7 points died on your bench this season (20.3/week)

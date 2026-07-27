@@ -1,6 +1,6 @@
 # justinhuang — “Rebuild Year 2?”
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -10,15 +10,15 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 **3. [regret] 2 of your losses were already wins — if you'd started the right players. Weeks 4, 14.**
 
-**4. [luck] Week 10: you scored 156.9 — 2nd best in the league — and still lost**
+**4. [regret] 180.2 points died on your bench this season (12.9/week)**
 
-**5. [luck] Week 7: you won with the 9th best score of the week (105)**
+**5. [luck] Week 10: you scored 156.9 — 2nd best in the league — and still lost**
 
-**6. [people] Week 8 pickup TreVeyon Henderson gave you 136.2 points for $2**
+**6. [luck] Week 7: you won with the 9th best score of the week (105)**
 
-**7. [people] Your nemesis: caffyfun (1-2 against them)**
+**7. [people] Week 8 pickup TreVeyon Henderson gave you 136.2 points for $2**
 
-**8. [people] Your MVP: Christian McCaffrey — 402.9 points, 18% of everything you scored**
+**8. [people] Your nemesis: caffyfun (1-2 against them)**
 
 **9. [narrative] Round 11: Cameron Dicker. 163 points from pick 103.**
 
@@ -34,8 +34,8 @@ _Asian American Association · 2025 · engine 0.2.0_
 ## Cutting-room floor (candidates that didn't ship)
 
 - (56) [luck] 2 different opponents had their best week of the season against you (jawuwu, vrdevaraj)
-- (50) [regret] 180.2 points died on your bench this season (12.9/week)
 - (50) [luck] 1683.9 points against — softest schedule in the league
+- (46) [people] Your MVP: Christian McCaffrey — 402.9 points, 18% of everything you scored
 - (46) [narrative] Playoff exit: third_place, knocked out by caffyfun by 26.1
 - (44) [regret] You went 10-4. With perfect lineups you go 12-2.
 - (42) [people] jonappetit was your personal win button: 2-0, +54.2 points

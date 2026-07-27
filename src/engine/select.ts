@@ -6,7 +6,12 @@ import type { CandidateInsight, InsightCategory, SeasonFacts, WrappedCard } from
 const NOTABILITY_FLOOR = 45;
 const MAX_CARDS = 9;
 const CATEGORY_CAPS: Record<InsightCategory, number> = {
-  regret: 2,
+  // Three, because regret is where the best material is: a manager who wasted
+  // the most points in the league, lost games they had already won, AND
+  // benched the difference-maker has three distinct cards, not two. Measured
+  // across both fixture leagues: +11 cards over 20 managers, and every card it
+  // displaces is replaced by a higher-notability one.
+  regret: 3,
   luck: 2,
   people: 3,
   narrative: 2,

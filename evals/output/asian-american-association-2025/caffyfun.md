@@ -1,6 +1,6 @@
 # caffyfun — “Chase-ing My Ship”
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -10,11 +10,13 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 **3. [regret] Week 16: you benched Trevor Lawrence (31.2) and started Jordan Love (2.8) — it cost you the game**
 
-**4. [people] Week 1 pickup Daniel Jones gave you 156.8 points for $3**
+**4. [regret] Week 9: you started Rome Odunze (0 pts) and lost by 7.2**
 
-**5. [narrative] Round 11: Chris Boswell. 122 points from pick 109.**
+**5. [people] Week 1 pickup Daniel Jones gave you 156.8 points for $3**
 
-**6. [narrative] Weeks 4–8: 5 straight wins**
+**6. [narrative] Round 11: Chris Boswell. 122 points from pick 109.**
+
+**7. [narrative] Weeks 4–8: 5 straight wins**
 
 **FINALE — The Regular-Season Merchant**
 
@@ -24,7 +26,6 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
-- (68) [regret] Week 9: you started Rome Odunze (0 pts) and lost by 7.2
 - (64) [regret] 2 of your losses were already wins — if you'd started the right players. Weeks 3, 9.
 - (56) [narrative] Playoff exit: semifinal, knocked out by abchen by 11.5
 - (52) [narrative] Week 8: 163.7 points — the best score anyone managed that week

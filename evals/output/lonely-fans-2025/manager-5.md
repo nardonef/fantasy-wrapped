@@ -1,6 +1,6 @@
 # Manager 5
 
-_Lonely Fans · 2025 · engine 0.2.0_
+_Lonely Fans · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -10,17 +10,19 @@ _Lonely Fans · 2025 · engine 0.2.0_
 
 **3. [regret] 6 of your losses were already wins — if you'd started the right players. Weeks 5, 9, 10, 11, 13, 14.**
 
-**4. [regret] Week 5: you benched Emeka Egbuka (31.3) and started James Conner (0) — it cost you the game**
+**4. [regret] 504.6 points died on your bench this season (36/week), most in the league**
 
-**5. [luck] Week 8: you won with the 9th best score of the week (100.3)**
+**5. [regret] Week 5: you benched Emeka Egbuka (31.3) and started James Conner (0) — it cost you the game**
 
-**6. [people] Your MVP: Josh Allen — 374.6 points, 22% of everything you scored**
+**6. [luck] Week 8: you won with the 9th best score of the week (100.3)**
 
-**7. [people] frothydogs owned you this season: 2-0, by 87.3 total points**
+**7. [people] Your MVP: Josh Allen — 374.6 points, 22% of everything you scored**
 
-**8. [narrative] Weeks 9–14: 6 straight losses**
+**8. [people] frothydogs owned you this season: 2-0, by 87.3 total points**
 
-**9. [narrative] Dead last. 4-10.**
+**9. [narrative] Weeks 9–14: 6 straight losses**
+
+**10. [narrative] Dead last. 4-10.**
 
 **FINALE — The Saboteur**
 
@@ -31,7 +33,6 @@ _Lonely Fans · 2025 · engine 0.2.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
-- (92) [regret] 504.6 points died on your bench this season (36/week), most in the league
 - (74) [regret] You went 4-10. With perfect lineups you go 10-4.
 - (68) [regret] Week 9: you started Omarion Hampton (0 pts) and lost by 2.4
 - (66) [narrative] Week 12: 42.4 points — the single worst score anyone managed all year
