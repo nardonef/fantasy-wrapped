@@ -151,6 +151,7 @@ export const narrativeInsights: InsightModule[] = [
           pickNo: steal.pickNo,
           startedPoints: pts,
         },
+        refs: { player: steal.player },
       };
     },
   },

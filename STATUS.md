@@ -18,6 +18,9 @@ including for the repo owner — verified live, not just configured.
 - Copy layer: Claude-written card copy with number-fidelity validation,
   deterministic fallback when no API key or generation fails
 - Story player (mobile-first, tap-through), league superlatives ballot
+- Signal design system: near-black + electric blue, Geist/Geist Mono, with a
+  light surface for brag cards. Eight layout archetypes in the story player,
+  chosen per insight, replacing the single ghost-numeral card
 - Deployed on Vercel + Neon; CI (lint/typecheck/test/build/e2e) on every push
 
 ## Next
@@ -56,6 +59,14 @@ including for the repo owner — verified live, not just configured.
   losing the IR/healthy-bench distinction Sleeper provides. Bench-regret
   figures could be mildly inflated in the rare case where the best bench
   alternative was actually IR-ineligible that week.
+- The OG share image renders in system sans, not Geist, because `ImageResponse`
+  needs a font binary committed to the repo. The type is a shade off the
+  in-app finale card it mirrors.
+- A cached `wrapped_scripts` row is read back with `as CardScript` and no
+  validation. That is safe as long as any change to the script's SHAPE comes
+  with an `ENGINE_VERSION` bump (the rule already written in `version.ts`),
+  since rows are keyed on it — but a shape change without a bump will crash
+  the page for every already-cached team, not fail gracefully.
 - Vercel Deployment Protection was confirmed off for Production; Preview
   environment status wasn't re-checked after the toggle — verify before
   sharing preview links with anyone.

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { buildStoryCards } from "@/components/story/model";
 import { StoryPlayer } from "@/components/story/StoryPlayer";
 import type { Provider } from "@/db/schema";
+import { loadSeasonFacts } from "@/sync/load";
 import { getWrapped } from "@/sync/wrapped";
 
 export const dynamic = "force-dynamic";
@@ -56,7 +57,15 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
   );
   if (!wrapped) notFound();
 
-  const cards = buildStoryCards(wrapped.script, wrapped.copy);
+  // The layouts need the league-wide numbers the engine reasoned over, which
+  // the cached CardScript doesn't carry. Only this page pays for it — the OG
+  // image and metadata read the script alone.
+  const facts = await loadSeasonFacts(wrapped.leagueDbId);
+  if (!facts) notFound();
+  const team = facts.teams[parsed.rosterId];
+  if (!team) notFound();
+
+  const cards = buildStoryCards(wrapped.script, wrapped.copy, team, facts);
 
   return (
     <StoryPlayer

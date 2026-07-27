@@ -1,21 +1,60 @@
 @import "tailwindcss";
 
+/*
+ * Signal.
+ *
+ * The old palette was acid lime on charcoal with Anton uppercase — the default
+ * 2025 sports-app look. Signal keeps the same structural roles but swaps to a
+ * near-black + electric-blue precision-tech ground with a true-white surface
+ * for brag cards, so a celebration inverts the whole screen instead of just
+ * changing an accent colour.
+ *
+ * Role names are unchanged so existing class names keep working:
+ *   field        -> card surface (near-black)
+ *   field-raised -> raised surface
+ *   chalk        -> primary ink on dark
+ *   chalk-dim    -> secondary ink on dark
+ *   flag         -> positive / brag accent   (was acid lime)
+ *   card-red     -> regret / negative accent
+ */
+
 @theme inline {
+  /* Card surface. NOT the same as --color-page: the page sits a shade darker
+     than the card so the card edge reads on large screens. */
   --color-field: #0a0a0b;
-  --color-field-raised: #131315;
-  --color-chalk: #f2efe6;
-  --color-chalk-dim: #8f8c82;
-  --color-flag: #e8ff2b;
-  --color-card-red: #ff3b30;
-  --font-display: var(--font-anton), impact, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --color-page: #060607;
+  --color-field-raised: #16161a;
+  --color-field-raised-2: #1c1c21;
+
+  --color-chalk: #fafafa;
+  --color-chalk-dim: #a1a1aa;
+  --color-chalk-faint: #71717a;
+  --color-chalk-muted: #52525b;
+  --color-chalk-faintest: #3f3f46;
+
+  --color-flag: #5b8cff;
+  --color-card-red: #ff4a31;
+
+  /* Light surface: brag cards, the verdict finale, the share image. */
+  --color-paper: #fafafa;
+  --color-paper-ink: #0a0a0b;
+  --color-paper-ink-dim: #52525b;
+  /* The light-surface accents are darker on purpose. #5B8CFF on #FAFAFA is
+     about 2.3:1 and fails; #2148D8 passes. */
+  --color-flag-ink: #2148d8;
+  --color-card-red-ink: #b83523;
+
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 html,
 body {
-  background: var(--color-field);
+  background: var(--color-page);
   color: var(--color-chalk);
-  font-family: var(--font-mono);
+  /* Geist is the default; mono is opt-in via .label and font-mono, which is
+     where it belongs — kickers, meta and table labels, not body copy. */
+  font-family: var(--font-display);
   overscroll-behavior-y: none;
 }
 
@@ -24,42 +63,70 @@ body {
   color: var(--color-field);
 }
 
-/* Floodlight grain — the whole app sits under stadium lights. */
+/* Grain, unchanged in behaviour — lower opacity suits the darker ground. */
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Yard lines — faint horizontal field markings. */
-.yardlines {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 71px,
-    rgba(242, 239, 230, 0.05) 71px,
-    rgba(242, 239, 230, 0.05) 72px
-  );
-}
+/*
+ * Yard lines and hazard stripes are deliberately gone.
+ *
+ * Both competed with the numbers for attention, and the hazard diagonal on
+ * every regret card made half the deck look like roadworks. The regret signal
+ * now comes from the accent colour and the kicker alone — the numbers are the
+ * drama.
+ */
 
 .display {
   font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.92;
+  font-weight: 600;
+  letter-spacing: -0.038em;
+  line-height: 0.94;
+  /* No text-transform: Geist at 600 with tight tracking already reads as
+     display type, and sentence case lets long team names stay readable. */
 }
 
-/* Hazard stripes for regret / red-card moments. */
-.hazard {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent 0,
-    transparent 14px,
-    rgba(255, 59, 48, 0.07) 14px,
-    rgba(255, 59, 48, 0.07) 28px
-  );
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.8;
+}
+
+/* Footer / meta role. Kickers use the same face at 0.26em — see Kicker. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Hairline used for every table rule, on either surface. */
+.rule-dark {
+  background: rgb(250 250 250 / 0.13);
+}
+.rule-light {
+  background: rgb(10 10 11 / 0.15);
+}
+
+/* The story player animates through `motion`, which writes its timings to the
+   element's style attribute. Only !important outranks that, so honouring a
+   reduced-motion preference genuinely requires it here. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: see above */
+    animation-duration: 0.001s !important;
+    /* biome-ignore lint/complexity/noImportantStyles: see above */
+    transition-duration: 0.001s !important;
+  }
 }

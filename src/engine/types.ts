@@ -175,6 +175,13 @@ export type CandidateInsight = {
   headline: string;
   /** Exact numbers/names the copy layer must preserve verbatim. */
   facts: Record<string, string | number | boolean | null>;
+  /**
+   * The players this card is about, for the UI only — headshots, portraits.
+   * Deliberately outside `facts`: copy validation requires every number in
+   * `facts` to survive into the sentence verbatim, and a player id is not a
+   * number the LLM should ever be asked to reproduce.
+   */
+  refs?: Record<string, PlayerRef>;
 };
 
 export type WrappedCard = {
@@ -182,13 +189,22 @@ export type WrappedCard = {
   category: InsightCategory;
   headline: string;
   facts: Record<string, string | number | boolean | null>;
+  refs?: Record<string, PlayerRef>;
 };
 
 export type Archetype = {
   id: string;
   name: string;
-  /** The accusation, with the numbers that convict. */
-  evidence: Record<string, string | number>;
+  /**
+   * The accusation, with the numbers that convict, strongest first — the
+   * finale card shows the top three.
+   *
+   * An ordered array, not a Record, because scripts are cached as jsonb and
+   * Postgres normalises object keys by (length, bytes). A Record round-trips
+   * with its order scrambled, which silently reorders the evidence rows and
+   * changes which ones make the cut.
+   */
+  evidence: { key: string; value: string | number }[];
 };
 
 export type CardScript = {

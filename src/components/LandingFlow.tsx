@@ -20,6 +20,10 @@ type Phase =
   | { step: "teams"; synced: Synced };
 
 const SEASONS = [2025, 2024, 2023];
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+/** Every list on this page is hairline-ruled rather than boxed. */
+const LIST = "mt-3 divide-y divide-chalk/12 border-y border-chalk/12";
 
 export function LandingFlow() {
   const [phase, setPhase] = useState<Phase>({ step: "user" });
@@ -78,15 +82,12 @@ export function LandingFlow() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.3, ease: EASE }}
           >
-            <label
-              htmlFor="username"
-              className="block text-[10px] tracking-[0.3em] text-chalk-dim uppercase"
-            >
+            <label htmlFor="username" className="label block text-chalk-faint">
               Sleeper username
             </label>
-            <div className="mt-2 flex border-2 border-chalk/25 focus-within:border-flag">
+            <div className="mt-3 flex border border-chalk/20 transition-colors focus-within:border-flag">
               <input
                 id="username"
                 value={username}
@@ -95,12 +96,12 @@ export function LandingFlow() {
                 autoCapitalize="none"
                 autoCorrect="off"
                 spellCheck={false}
-                className="w-full bg-transparent px-4 py-3.5 font-mono text-base outline-none placeholder:text-chalk-dim/40"
+                className="w-full bg-transparent px-4 py-3.5 font-mono text-[15px] outline-none placeholder:text-chalk-faint"
               />
               <button
                 type="submit"
                 disabled={busy}
-                className="display shrink-0 bg-flag px-5 text-lg text-field disabled:opacity-60"
+                className="label shrink-0 bg-flag px-6 text-field disabled:opacity-60"
               >
                 {busy ? "…" : "Go"}
               </button>
@@ -111,10 +112,10 @@ export function LandingFlow() {
                   key={s}
                   type="button"
                   onClick={() => setSeason(s)}
-                  className={`border px-3 py-1 font-mono text-xs ${
+                  className={`border px-3.5 py-1.5 font-mono text-xs transition-colors ${
                     s === season
-                      ? "border-flag bg-flag/10 text-flag"
-                      : "border-chalk/20 text-chalk-dim"
+                      ? "border-flag text-flag"
+                      : "border-chalk/15 text-chalk-faint hover:border-chalk/30"
                   }`}
                 >
                   {s}
@@ -130,33 +131,33 @@ export function LandingFlow() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.3, ease: EASE }}
           >
-            <p className="text-[10px] tracking-[0.3em] text-chalk-dim uppercase">
-              Pick your league
-            </p>
-            <ul className="mt-3 divide-y divide-chalk/10 border-y border-chalk/10">
+            <p className="label text-chalk-faint">Pick your league</p>
+            <ul className={LIST}>
               {phase.leagues.map((league, i) => (
                 <motion.li
                   key={league.leagueId}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  transition={{ delay: i * 0.05, duration: 0.4, ease: EASE }}
                 >
                   <button
                     type="button"
                     onClick={() => syncLeague(league)}
-                    className="group flex w-full items-center justify-between px-1 py-4 text-left"
+                    className="group flex w-full items-center justify-between gap-4 py-4 text-left"
                   >
-                    <span>
-                      <span className="block font-mono text-sm font-bold group-hover:text-flag">
+                    <span className="min-w-0">
+                      <span className="display block truncate text-xl group-hover:text-flag">
                         {league.name}
                       </span>
-                      <span className="mt-0.5 block font-mono text-xs text-chalk-dim">
+                      <span className="label mt-1.5 block text-chalk-faint">
                         {league.teams} teams · {league.season}
                       </span>
                     </span>
-                    <span className="display text-2xl text-chalk-dim group-hover:text-flag">→</span>
+                    <span className="display shrink-0 text-xl text-chalk-faint group-hover:text-flag">
+                      →
+                    </span>
                   </button>
                 </motion.li>
               ))}
@@ -164,7 +165,7 @@ export function LandingFlow() {
             <button
               type="button"
               onClick={() => setPhase({ step: "user" })}
-              className="mt-4 font-mono text-xs text-chalk-dim underline underline-offset-4"
+              className="label mt-5 text-chalk-faint underline underline-offset-4"
             >
               different username
             </button>
@@ -179,14 +180,16 @@ export function LandingFlow() {
             exit={{ opacity: 0 }}
             className="py-6"
           >
-            <motion.div
-              className="h-1.5 w-full origin-left bg-flag"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: [0, 0.55, 0.8, 0.94] }}
-              transition={{ duration: 8, times: [0, 0.3, 0.7, 1], ease: "easeOut" }}
-            />
-            <p className="display mt-6 text-3xl">Pulling the tape…</p>
-            <p className="mt-2 font-mono text-xs text-chalk-dim">
+            <div className="h-px w-full bg-chalk/12">
+              <motion.div
+                className="h-full origin-left bg-flag"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: [0, 0.55, 0.8, 0.94] }}
+                transition={{ duration: 8, times: [0, 0.3, 0.7, 1], ease: "easeOut" }}
+              />
+            </div>
+            <p className="display mt-7 text-3xl">Pulling the tape…</p>
+            <p className="mt-3 text-[15px] leading-[1.55] text-chalk-dim">
               Reading every week of {phase.leagueName}. Nothing will be forgotten.
             </p>
           </motion.div>
@@ -197,34 +200,30 @@ export function LandingFlow() {
             key="teams"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.3, ease: EASE }}
           >
-            <p className="text-[10px] tracking-[0.3em] text-chalk-dim uppercase">
-              {phase.synced.name} · who are you?
-            </p>
-            <ul className="mt-3 divide-y divide-chalk/10 border-y border-chalk/10">
+            <p className="label text-chalk-faint">{phase.synced.name} · who are you?</p>
+            <ul className={LIST}>
               {phase.synced.teams.map((team, i) => (
                 <motion.li
                   key={team.rosterId}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04 }}
+                  transition={{ delay: i * 0.04, duration: 0.4, ease: EASE }}
                 >
                   <Link
                     href={`/w/sleeper/${phase.synced.leagueId}/${phase.synced.season}/${team.rosterId}`}
-                    className="group flex w-full items-center justify-between px-1 py-3.5"
+                    className="group flex w-full items-baseline justify-between gap-4 py-3.5"
                   >
-                    <span>
-                      <span className="block font-mono text-sm font-bold group-hover:text-flag">
+                    <span className="min-w-0">
+                      <span className="display block truncate text-lg group-hover:text-flag">
                         {team.displayName}
                       </span>
                       {team.teamName && (
-                        <span className="mt-0.5 block font-mono text-xs text-chalk-dim">
-                          {team.teamName}
-                        </span>
+                        <span className="label mt-1.5 block text-chalk-faint">{team.teamName}</span>
                       )}
                     </span>
-                    <span className="font-mono text-xs text-chalk-dim">{team.record}</span>
+                    <span className="label shrink-0 text-chalk-faint">{team.record}</span>
                   </Link>
                 </motion.li>
               ))}
@@ -237,7 +236,7 @@ export function LandingFlow() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mt-4 border-l-2 border-card-red pl-3 font-mono text-xs text-card-red"
+          className="mt-5 border-l-2 border-card-red bg-field-raised px-4 py-3 text-[14px] leading-[1.5] text-card-red"
           role="alert"
         >
           {error}

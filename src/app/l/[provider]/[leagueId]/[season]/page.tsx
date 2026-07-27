@@ -55,31 +55,29 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
     `/w/${p.provider}/${p.leagueId}/${facts.league.season}/${rosterId}`;
 
   return (
-    <main className="yardlines min-h-dvh px-6 py-14 sm:mx-auto sm:max-w-xl">
-      <p className="text-xs tracking-[0.35em] text-chalk-dim uppercase">
+    <main className="min-h-dvh px-7 py-16 sm:mx-auto sm:max-w-xl">
+      <p className="label text-chalk-faint">
         {facts.league.name} · {facts.league.season}
       </p>
-      <h1 className="display mt-3 text-[clamp(3rem,14vw,5rem)]">
+      <h1 className="display mt-5 text-[clamp(2.75rem,14vw,3.75rem)]">
         The <span className="text-flag">ballot.</span>
       </h1>
-      <p className="mt-3 font-mono text-sm text-chalk-dim">
+      <p className="mt-4 text-[15px] leading-[1.55] text-chalk-dim">
         The awards nobody asked for. Argue amongst yourselves.
       </p>
 
-      <section className="mt-10">
-        <ul className="divide-y divide-chalk/10 border-y border-chalk/10">
+      <section className="mt-12">
+        <ul className="divide-y divide-chalk/12 border-y border-chalk/12">
           {superlatives.map((award) => (
-            <li key={award.id} className="py-5">
-              <p className="font-mono text-[10px] font-bold tracking-[0.3em] text-flag uppercase">
-                {award.label}
-              </p>
+            <li key={award.id} className="py-6">
+              <p className="label text-flag">{award.label}</p>
               <Link
                 href={wrappedHref(award.rosterId)}
-                className="display mt-1 block text-3xl hover:text-flag"
+                className="display mt-2.5 block text-3xl hover:text-flag"
               >
                 {award.winner}
               </Link>
-              <p className="mt-1 font-mono text-xs leading-relaxed text-chalk-dim">
+              <p className="mt-2 text-[14px] leading-[1.5] text-pretty text-chalk-dim">
                 {award.detail}
               </p>
             </li>
@@ -87,21 +85,19 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
         </ul>
       </section>
 
-      <section className="mt-14">
-        <h2 className="font-mono text-[10px] tracking-[0.3em] text-chalk-dim uppercase">
-          Final verdicts · tap yours
-        </h2>
-        <ul className="mt-3 divide-y divide-chalk/10 border-y border-chalk/10">
+      <section className="mt-16">
+        <h2 className="label text-chalk-faint">Final verdicts · tap yours</h2>
+        <ul className="mt-3 divide-y divide-chalk/12 border-y border-chalk/12">
           {teams.map((team) => (
             <li key={team.rosterId}>
               <Link
                 href={wrappedHref(team.rosterId)}
-                className="group flex items-baseline justify-between py-3.5"
+                className="group flex items-baseline justify-between gap-4 py-4"
               >
-                <span className="font-mono text-sm font-bold group-hover:text-flag">
+                <span className="label shrink-0 text-chalk-faint group-hover:text-flag">
                   {team.displayName}
                 </span>
-                <span className="display text-lg text-chalk-dim group-hover:text-flag">
+                <span className="display truncate text-right text-lg group-hover:text-flag">
                   {archetypes.get(team.rosterId)?.name}
                 </span>
               </Link>

@@ -5,6 +5,10 @@ type ArchetypeRule = {
   id: string;
   name: string;
   matches: (facts: SeasonFacts, t: TeamSeasonFacts) => boolean;
+  /**
+   * Authored as an object literal for readability; declaration order is the
+   * evidence order and is preserved into the ordered array on Archetype.
+   */
   evidence: (facts: SeasonFacts, t: TeamSeasonFacts) => Record<string, string | number>;
   /** When several teams match, the highest strength claims the archetype. */
   strength?: (facts: SeasonFacts, t: TeamSeasonFacts) => number;
@@ -358,6 +362,11 @@ const RULES: ArchetypeRule[] = [
 
 const FALLBACK_RULE_ID = "the-middle-manager";
 
+/** Freeze the literal's declaration order before it can reach jsonb. */
+function toEvidence(record: Record<string, string | number>): Archetype["evidence"] {
+  return Object.entries(record).map(([key, value]) => ({ key, value }));
+}
+
 /**
  * Assign archetypes for the whole league at once. Each archetype is claimed
  * at most once per league (the finale is a group-chat comparison — ten
@@ -383,7 +392,7 @@ export function classifyLeagueArchetypes(facts: SeasonFacts): Map<string, Archet
     assigned.set(winner.rosterId, {
       id: rule.id,
       name: rule.name,
-      evidence: rule.evidence(facts, winner),
+      evidence: toEvidence(rule.evidence(facts, winner)),
     });
     unassigned.delete(winner.rosterId);
   }
@@ -395,7 +404,7 @@ export function classifyLeagueArchetypes(facts: SeasonFacts): Map<string, Archet
     assigned.set(rosterId, {
       id: fallback.id,
       name: fallback.name,
-      evidence: fallback.evidence(facts, t),
+      evidence: toEvidence(fallback.evidence(facts, t)),
     });
   }
   return assigned;

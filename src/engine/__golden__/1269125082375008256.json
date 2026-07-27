@@ -1,6 +1,6 @@
 [
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "1",
@@ -40,6 +40,13 @@
           "player": "Jared Goff",
           "droppedWeek": 1,
           "pointsAfterDrop": 161.6
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3163",
+            "name": "Jared Goff",
+            "position": "QB"
+          }
         }
       },
       {
@@ -64,6 +71,13 @@
           "startedPoints": 346.6,
           "shareOfTeamPct": 17,
           "startedWeeks": 16
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "9221",
+            "name": "Jahmyr Gibbs",
+            "position": "RB"
+          }
         }
       },
       {
@@ -75,6 +89,13 @@
           "round": 8,
           "pickNo": 78,
           "startedPoints": 286
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "6797",
+            "name": "Justin Herbert",
+            "position": "QB"
+          }
         }
       },
       {
@@ -92,16 +113,28 @@
     "archetype": {
       "id": "the-what-if",
       "name": "The What-If",
-      "evidence": {
-        "lossesYouCouldHaveWon": 4,
-        "actualRecord": "5-9",
-        "optimalRecord": "9-5",
-        "finish": "missed playoffs"
-      }
+      "evidence": [
+        {
+          "key": "lossesYouCouldHaveWon",
+          "value": 4
+        },
+        {
+          "key": "actualRecord",
+          "value": "5-9"
+        },
+        {
+          "key": "optimalRecord",
+          "value": "9-5"
+        },
+        {
+          "key": "finish",
+          "value": "missed playoffs"
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "2",
@@ -155,6 +188,18 @@
           "startedPoints": 0,
           "pointsLeftBehind": 24.4,
           "costTheGame": true
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "6786",
+            "name": "CeeDee Lamb",
+            "position": "WR"
+          },
+          "benched": {
+            "providerPlayerId": "8146",
+            "name": "Garrett Wilson",
+            "position": "WR"
+          }
         }
       },
       {
@@ -176,6 +221,13 @@
           "week": 1,
           "startedPointsAfter": 197.4,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "7588",
+            "name": "Javonte Williams",
+            "position": "RB"
+          }
         }
       },
       {
@@ -187,6 +239,13 @@
           "round": 2,
           "pickNo": 15,
           "startedPoints": 24
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11631",
+            "name": "Brian Thomas",
+            "position": "WR"
+          }
         }
       },
       {
@@ -226,16 +285,28 @@
     "archetype": {
       "id": "the-rollercoaster",
       "name": "The Rollercoaster",
-      "evidence": {
-        "bestWeek": 173,
-        "worstWeek": 55.7,
-        "topScoreWeeks": 1,
-        "worstScoreWeeks": 1
-      }
+      "evidence": [
+        {
+          "key": "bestWeek",
+          "value": 173
+        },
+        {
+          "key": "worstWeek",
+          "value": 55.7
+        },
+        {
+          "key": "topScoreWeeks",
+          "value": 1
+        },
+        {
+          "key": "worstScoreWeeks",
+          "value": 1
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "3",
@@ -296,6 +367,13 @@
           "week": 3,
           "startedPointsAfter": 162.5,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "8110",
+            "name": "Jake Ferguson",
+            "position": "TE"
+          }
         }
       },
       {
@@ -320,6 +398,13 @@
           "startedPoints": 363.5,
           "shareOfTeamPct": 16,
           "startedWeeks": 16
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "9509",
+            "name": "Bijan Robinson",
+            "position": "RB"
+          }
         }
       },
       {
@@ -331,6 +416,13 @@
           "round": 8,
           "pickNo": 80,
           "startedPoints": 150.1
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "10229",
+            "name": "Rashee Rice",
+            "position": "WR"
+          }
         }
       },
       {
@@ -348,16 +440,28 @@
     "archetype": {
       "id": "the-punching-bag",
       "name": "The Punching Bag",
-      "evidence": {
-        "pointsAgainst": 1897.1,
-        "pointsAgainstRank": 1,
-        "record": "8-6",
-        "finish": "playoff exit"
-      }
+      "evidence": [
+        {
+          "key": "pointsAgainst",
+          "value": 1897.1
+        },
+        {
+          "key": "pointsAgainstRank",
+          "value": 1
+        },
+        {
+          "key": "record",
+          "value": "8-6"
+        },
+        {
+          "key": "finish",
+          "value": "playoff exit"
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "4",
@@ -386,6 +490,13 @@
           "player": "Drake Maye",
           "droppedWeek": 1,
           "pointsAfterDrop": 280.9
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11564",
+            "name": "Drake Maye",
+            "position": "QB"
+          }
         }
       },
       {
@@ -408,6 +519,13 @@
           "week": 5,
           "startedPointsAfter": 138.9,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "421",
+            "name": "Matthew Stafford",
+            "position": "QB"
+          }
         }
       },
       {
@@ -431,6 +549,13 @@
           "round": 8,
           "pickNo": 71,
           "startedPoints": 160
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "6790",
+            "name": "D'Andre Swift",
+            "position": "RB"
+          }
         }
       },
       {
@@ -447,16 +572,28 @@
     "archetype": {
       "id": "the-regifter",
       "name": "The Regifter",
-      "evidence": {
-        "dropped": "Drake Maye",
-        "droppedWeek": 1,
-        "pointsAfterDrop": 280.9,
-        "record": "8-6"
-      }
+      "evidence": [
+        {
+          "key": "dropped",
+          "value": "Drake Maye"
+        },
+        {
+          "key": "droppedWeek",
+          "value": 1
+        },
+        {
+          "key": "pointsAfterDrop",
+          "value": 280.9
+        },
+        {
+          "key": "record",
+          "value": "8-6"
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "5",
@@ -508,6 +645,18 @@
           "startedPoints": 0,
           "pointsLeftBehind": 31.3,
           "costTheGame": true
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "4137",
+            "name": "James Conner",
+            "position": "RB"
+          },
+          "benched": {
+            "providerPlayerId": "12514",
+            "name": "Emeka Egbuka",
+            "position": "WR"
+          }
         }
       },
       {
@@ -530,6 +679,13 @@
           "startedPoints": 374.6,
           "shareOfTeamPct": 22,
           "startedWeeks": 17
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "4984",
+            "name": "Josh Allen",
+            "position": "QB"
+          }
         }
       },
       {
@@ -569,16 +725,28 @@
     "archetype": {
       "id": "the-saboteur",
       "name": "The Saboteur",
-      "evidence": {
-        "benchPointsWasted": 504.6,
-        "lossesYouCouldHaveWon": 6,
-        "actualRecord": "4-10",
-        "optimalRecord": "10-4"
-      }
+      "evidence": [
+        {
+          "key": "benchPointsWasted",
+          "value": 504.6
+        },
+        {
+          "key": "lossesYouCouldHaveWon",
+          "value": 6
+        },
+        {
+          "key": "actualRecord",
+          "value": "4-10"
+        },
+        {
+          "key": "optimalRecord",
+          "value": "10-4"
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "6",
@@ -618,6 +786,13 @@
           "player": "Jaxson Dart",
           "droppedWeek": 4,
           "pointsAfterDrop": 165.2
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "12508",
+            "name": "Jaxson Dart",
+            "position": "QB"
+          }
         }
       },
       {
@@ -652,6 +827,18 @@
           "gave": "Tony Pollard, Ricky Pearsall",
           "netPoints": -140.4,
           "wonTheTrade": false
+        },
+        "refs": {
+          "got": {
+            "providerPlayerId": "2216",
+            "name": "Mike Evans",
+            "position": "WR"
+          },
+          "gave": {
+            "providerPlayerId": "5967",
+            "name": "Tony Pollard",
+            "position": "RB"
+          }
         }
       },
       {
@@ -663,6 +850,13 @@
           "week": 7,
           "startedPointsAfter": 98.6,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "8126",
+            "name": "Wan'Dale Robinson",
+            "position": "WR"
+          }
         }
       },
       {
@@ -704,15 +898,24 @@
     "archetype": {
       "id": "the-late-bloomer",
       "name": "The Late Bloomer",
-      "evidence": {
-        "firstHalf": "2-5",
-        "secondHalf": "5-2",
-        "finish": 5
-      }
+      "evidence": [
+        {
+          "key": "firstHalf",
+          "value": "2-5"
+        },
+        {
+          "key": "secondHalf",
+          "value": "5-2"
+        },
+        {
+          "key": "finish",
+          "value": 5
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "7",
@@ -741,6 +944,13 @@
           "player": "Javonte Williams",
           "droppedWeek": 1,
           "pointsAfterDrop": 222.4
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "7588",
+            "name": "Javonte Williams",
+            "position": "RB"
+          }
         }
       },
       {
@@ -755,6 +965,18 @@
           "startedPoints": 2.4,
           "pointsLeftBehind": 24.1,
           "costTheGame": false
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "11628",
+            "name": "Marvin Harrison",
+            "position": "WR"
+          },
+          "benched": {
+            "providerPlayerId": "9487",
+            "name": "Parker Washington",
+            "position": "WR"
+          }
         }
       },
       {
@@ -776,6 +998,13 @@
           "week": 1,
           "startedPointsAfter": 111.1,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "9754",
+            "name": "Quentin Johnston",
+            "position": "WR"
+          }
         }
       },
       {
@@ -800,6 +1029,13 @@
           "startedPoints": 349,
           "shareOfTeamPct": 17,
           "startedWeeks": 15
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "9493",
+            "name": "Puka Nacua",
+            "position": "WR"
+          }
         }
       },
       {
@@ -828,15 +1064,24 @@
     "archetype": {
       "id": "the-first-one-out",
       "name": "The First One Out",
-      "evidence": {
-        "record": "6-8",
-        "standingsRank": 7,
-        "playoffSpots": 6
-      }
+      "evidence": [
+        {
+          "key": "record",
+          "value": "6-8"
+        },
+        {
+          "key": "standingsRank",
+          "value": 7
+        },
+        {
+          "key": "playoffSpots",
+          "value": 6
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "8",
@@ -877,6 +1122,18 @@
           "startedPoints": 0,
           "pointsLeftBehind": 22,
           "costTheGame": false
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "3214",
+            "name": "Hunter Henry",
+            "position": "TE"
+          },
+          "benched": {
+            "providerPlayerId": "12489",
+            "name": "RJ Harvey",
+            "position": "RB"
+          }
         }
       },
       {
@@ -898,6 +1155,13 @@
           "week": 3,
           "startedPointsAfter": 245.6,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11564",
+            "name": "Drake Maye",
+            "position": "QB"
+          }
         }
       },
       {
@@ -911,6 +1175,18 @@
           "gave": "Mike Evans, Keon Coleman",
           "netPoints": 140.4,
           "wonTheTrade": true
+        },
+        "refs": {
+          "got": {
+            "providerPlayerId": "5967",
+            "name": "Tony Pollard",
+            "position": "RB"
+          },
+          "gave": {
+            "providerPlayerId": "2216",
+            "name": "Mike Evans",
+            "position": "WR"
+          }
         }
       },
       {
@@ -922,6 +1198,13 @@
           "round": 1,
           "pickNo": 5,
           "startedPoints": 57.1
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "11632",
+            "name": "Malik Nabers",
+            "position": "WR"
+          }
         }
       },
       {
@@ -939,16 +1222,28 @@
     "archetype": {
       "id": "the-scavenger",
       "name": "The Scavenger",
-      "evidence": {
-        "pickup": "Drake Maye",
-        "week": 3,
-        "pointsAfterPickup": 245.6,
-        "faab": 0
-      }
+      "evidence": [
+        {
+          "key": "pickup",
+          "value": "Drake Maye"
+        },
+        {
+          "key": "week",
+          "value": 3
+        },
+        {
+          "key": "pointsAfterPickup",
+          "value": 245.6
+        },
+        {
+          "key": "faab",
+          "value": 0
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "9",
@@ -985,6 +1280,13 @@
           "player": "Wan'Dale Robinson",
           "droppedWeek": 4,
           "pointsAfterDrop": 141.6
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "8126",
+            "name": "Wan'Dale Robinson",
+            "position": "WR"
+          }
         }
       },
       {
@@ -1027,6 +1329,13 @@
           "week": 6,
           "startedPointsAfter": 118.5,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "7525",
+            "name": "DeVonta Smith",
+            "position": "WR"
+          }
         }
       },
       {
@@ -1039,6 +1348,13 @@
           "startedPoints": 404.9,
           "shareOfTeamPct": 18,
           "startedWeeks": 16
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "4034",
+            "name": "Christian McCaffrey",
+            "position": "RB"
+          }
         }
       },
       {
@@ -1066,15 +1382,24 @@
     "archetype": {
       "id": "the-almost",
       "name": "The Almost",
-      "evidence": {
-        "finish": "runner-up",
-        "finalMargin": 12.6,
-        "record": "12-2"
-      }
+      "evidence": [
+        {
+          "key": "finish",
+          "value": "runner-up"
+        },
+        {
+          "key": "finalMargin",
+          "value": 12.6
+        },
+        {
+          "key": "record",
+          "value": "12-2"
+        }
+      ]
     }
   },
   {
-    "engineVersion": "0.1.0",
+    "engineVersion": "0.2.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "10",
@@ -1126,6 +1451,13 @@
           "player": "Jared Goff",
           "droppedWeek": 4,
           "pointsAfterDrop": 148.9
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "3163",
+            "name": "Jared Goff",
+            "position": "QB"
+          }
         }
       },
       {
@@ -1148,6 +1480,13 @@
           "week": 4,
           "startedPointsAfter": 149.5,
           "faabSpent": null
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "5870",
+            "name": "Daniel Jones",
+            "position": "QB"
+          }
         }
       },
       {
@@ -1159,6 +1498,13 @@
           "round": 9,
           "pickNo": 84,
           "startedPoints": 214.8
+        },
+        "refs": {
+          "player": {
+            "providerPlayerId": "8144",
+            "name": "Chris Olave",
+            "position": "WR"
+          }
         }
       },
       {
@@ -1175,12 +1521,24 @@
     "archetype": {
       "id": "the-inevitable",
       "name": "The Inevitable",
-      "evidence": {
-        "finish": "champion",
-        "record": "8-6",
-        "allPlay": "85-41",
-        "pointsForRank": 1
-      }
+      "evidence": [
+        {
+          "key": "finish",
+          "value": "champion"
+        },
+        {
+          "key": "record",
+          "value": "8-6"
+        },
+        {
+          "key": "allPlay",
+          "value": "85-41"
+        },
+        {
+          "key": "pointsForRank",
+          "value": 1
+        }
+      ]
     }
   }
 ]

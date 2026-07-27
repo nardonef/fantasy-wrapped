@@ -1,6 +1,6 @@
 # 2KSports
 
-_Lonely Fans · 2025 · engine 0.1.0_
+_Lonely Fans · 2025 · engine 0.2.0_
 
 ## The story
 
