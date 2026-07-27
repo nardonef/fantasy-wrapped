@@ -1,6 +1,6 @@
 # jawuwu
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -12,15 +12,17 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 **4. [regret] 3 of your losses were already wins — if you'd started the right players. Weeks 1, 6, 8.**
 
-**5. [luck] Week 4: you won with the 9th best score of the week (121.4)**
+**5. [regret] Week 8: you started Jake Ferguson (0 pts) and lost by 10.4**
 
-**6. [people] Week 2 pickup Dak Prescott gave you 248.5 points for $1**
+**6. [luck] Week 4: you won with the 9th best score of the week (121.4)**
 
-**7. [people] misterchef owned you this season: 2-0, by 70.9 total points**
+**7. [people] Week 2 pickup Dak Prescott gave you 248.5 points for $1**
 
-**8. [narrative] Round 14: Dak Prescott. 248.5 points from pick 135.**
+**8. [people] misterchef owned you this season: 2-0, by 70.9 total points**
 
-**9. [narrative] Week 10: 192.5 points — the best score anyone managed that week**
+**9. [narrative] Round 14: Dak Prescott. 248.5 points from pick 135.**
+
+**10. [narrative] Week 10: 192.5 points — the best score anyone managed that week**
 
 **FINALE — The Empire of Nothing**
 
@@ -30,7 +32,6 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
-- (68) [regret] Week 8: you started Jake Ferguson (0 pts) and lost by 10.4
 - (58) [regret] You went 9-5. With perfect lineups you go 12-1-1.
 - (56) [identity] 3 weeks with the best score in the league
 - (52) [narrative] Weeks 2–5: 4 straight wins

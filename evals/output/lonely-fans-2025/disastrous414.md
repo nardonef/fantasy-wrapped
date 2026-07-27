@@ -1,6 +1,6 @@
 # Disastrous414 — “Pick 8”
 
-_Lonely Fans · 2025 · engine 0.2.0_
+_Lonely Fans · 2025 · engine 0.3.0_
 
 ## The story
 

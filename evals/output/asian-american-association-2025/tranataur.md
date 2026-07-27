@@ -1,6 +1,6 @@
 # tranataur — “WWJD?”
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -12,15 +12,17 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 **4. [regret] 3 of your losses were already wins — if you'd started the right players. Weeks 1, 7, 11.**
 
-**5. [people] You fleeced abchen: got Deebo Samuel, Tee Higgins, Woody Marks, gave Jaylen Waddle, Omarion Hampton — up 84.5 points on the deal**
+**5. [regret] Week 1: you started Xavier Worthy (0 pts) and lost by 6.6**
 
-**6. [people] misterchef owned you this season: 2-0, by 80.7 total points**
+**6. [people] You fleeced abchen: got Deebo Samuel, Tee Higgins, Woody Marks, gave Jaylen Waddle, Omarion Hampton — up 84.5 points on the deal**
 
-**7. [people] Week 5 pickup Kimani Vidal gave you 70.9 points for $11**
+**7. [people] misterchef owned you this season: 2-0, by 80.7 total points**
 
-**8. [narrative] Week 7: 59.2 points — the single worst score anyone managed all year**
+**8. [people] Week 5 pickup Kimani Vidal gave you 70.9 points for $11**
 
-**9. [narrative] Round 8: Jaylen Waddle. 102.8 points from pick 79.**
+**9. [narrative] Week 7: 59.2 points — the single worst score anyone managed all year**
+
+**10. [narrative] Round 8: Jaylen Waddle. 102.8 points from pick 79.**
 
 **FINALE — The Middle Manager**
 
@@ -31,7 +33,6 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
-- (68) [regret] Week 1: you started Xavier Worthy (0 pts) and lost by 6.6
 - (68) [regret] You dropped Jared Goff in week 7. 145.9 points after that.
 - (60) [people] jonappetit was your personal win button: 3-0, +104.8 points
 - (58) [regret] You went 6-8. With perfect lineups you go 9-5.

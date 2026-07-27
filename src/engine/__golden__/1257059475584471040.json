@@ -1,6 +1,6 @@
 [
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "1",
@@ -47,6 +47,16 @@
           "weeks": "4, 14",
           "missedPlayoffs": false,
           "actualRecord": "10-4"
+        }
+      },
+      {
+        "insightId": "bench-points-total",
+        "category": "regret",
+        "headline": "180.2 points died on your bench this season (12.9/week)",
+        "facts": {
+          "totalBenchPoints": 180.2,
+          "perWeek": 12.9,
+          "leagueRank": 9
         }
       },
       {
@@ -98,25 +108,6 @@
           "winsAgainstThem": 1,
           "totalMargin": 2.3,
           "swept": false
-        }
-      },
-      {
-        "insightId": "mvp",
-        "category": "people",
-        "headline": "Your MVP: Christian McCaffrey — 402.9 points, 18% of everything you scored",
-        "facts": {
-          "mvp": "Christian McCaffrey",
-          "position": "RB",
-          "startedPoints": 402.9,
-          "shareOfTeamPct": 18,
-          "startedWeeks": 16
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "4034",
-            "name": "Christian McCaffrey",
-            "position": "RB"
-          }
         }
       },
       {
@@ -173,7 +164,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "2",
@@ -324,7 +315,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "3",
@@ -381,6 +372,17 @@
           "weeks": "1, 6, 8",
           "missedPlayoffs": false,
           "actualRecord": "9-5"
+        }
+      },
+      {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 8: you started Jake Ferguson (0 pts) and lost by 10.4",
+        "facts": {
+          "week": 8,
+          "player": "Jake Ferguson",
+          "playerPoints": 0,
+          "lossMargin": 10.4
         }
       },
       {
@@ -473,7 +475,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "4",
@@ -634,7 +636,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "5",
@@ -698,6 +700,17 @@
           "weeks": "1, 7, 11",
           "missedPlayoffs": true,
           "actualRecord": "6-8"
+        }
+      },
+      {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 1: you started Xavier Worthy (0 pts) and lost by 6.6",
+        "facts": {
+          "week": 1,
+          "player": "Xavier Worthy",
+          "playerPoints": 0,
+          "lossMargin": 6.6
         }
       },
       {
@@ -809,7 +822,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "6",
@@ -854,6 +867,32 @@
           "player": {
             "providerPlayerId": "3294",
             "name": "Dak Prescott",
+            "position": "QB"
+          }
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 7: you benched Jaxson Dart (29.4) and started Caleb Williams (3.7) — it cost you the game",
+        "facts": {
+          "week": 7,
+          "benchedPlayer": "Jaxson Dart",
+          "benchedPoints": 29.4,
+          "startedPlayer": "Caleb Williams",
+          "startedPoints": 3.7,
+          "pointsLeftBehind": 25.7,
+          "costTheGame": true
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "11560",
+            "name": "Caleb Williams",
+            "position": "QB"
+          },
+          "benched": {
+            "providerPlayerId": "12508",
+            "name": "Jaxson Dart",
             "position": "QB"
           }
         }
@@ -950,7 +989,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "7",
@@ -1009,6 +1048,17 @@
         }
       },
       {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 8: you started Quentin Johnston (0 pts) and lost by 10.3",
+        "facts": {
+          "week": 8,
+          "player": "Quentin Johnston",
+          "playerPoints": 0,
+          "lossMargin": 10.3
+        }
+      },
+      {
         "insightId": "schedule-luck",
         "category": "luck",
         "headline": "Unluckiest schedule in the league: you played like 6.4 wins and got 3.",
@@ -1017,16 +1067,6 @@
           "deservedWins": 6.4,
           "allPlayRecord": "58-68",
           "games": 14
-        }
-      },
-      {
-        "insightId": "opponent-season-highs",
-        "category": "luck",
-        "headline": "2 different opponents had their best week of the season against you (tranataur, MrHippo)",
-        "facts": {
-          "count": 2,
-          "opponents": "tranataur, MrHippo",
-          "weeks": "5, 11"
         }
       },
       {
@@ -1113,7 +1153,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "8",
@@ -1175,6 +1215,17 @@
             "name": "Trevor Lawrence",
             "position": "QB"
           }
+        }
+      },
+      {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 9: you started Rome Odunze (0 pts) and lost by 7.2",
+        "facts": {
+          "week": 9,
+          "player": "Rome Odunze",
+          "playerPoints": 0,
+          "lossMargin": 7.2
         }
       },
       {
@@ -1245,7 +1296,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "9",
@@ -1407,7 +1458,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "10",
@@ -1453,6 +1504,17 @@
             "name": "Justin Herbert",
             "position": "QB"
           }
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "2 of your losses were already wins — if you'd started the right players. Weeks 2, 6.",
+        "facts": {
+          "flippableLosses": 2,
+          "weeks": "2, 6",
+          "missedPlayoffs": false,
+          "actualRecord": "8-6"
         }
       },
       {

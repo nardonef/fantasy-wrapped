@@ -1,6 +1,6 @@
 [
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "1",
@@ -47,6 +47,17 @@
             "name": "Jared Goff",
             "position": "QB"
           }
+        }
+      },
+      {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 15: you started Nick Chubb (0 pts) and lost by 4.5",
+        "facts": {
+          "week": 15,
+          "player": "Nick Chubb",
+          "playerPoints": 0,
+          "lossMargin": 4.5
         }
       },
       {
@@ -134,7 +145,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "2",
@@ -200,6 +211,17 @@
             "name": "Garrett Wilson",
             "position": "WR"
           }
+        }
+      },
+      {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 3: you started CeeDee Lamb (0 pts) and lost by 12.1",
+        "facts": {
+          "week": 3,
+          "player": "CeeDee Lamb",
+          "playerPoints": 0,
+          "lossMargin": 12.1
         }
       },
       {
@@ -270,16 +292,6 @@
           "leagueSeasonLow": false,
           "seasonAverage": 122
         }
-      },
-      {
-        "insightId": "playoff-story",
-        "category": "narrative",
-        "headline": "Playoff exit: third_place, knocked out by frothydogs by 51.2",
-        "facts": {
-          "finish": "third_place",
-          "knockedOutBy": "frothydogs",
-          "margin": 51.2
-        }
       }
     ],
     "archetype": {
@@ -306,7 +318,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "3",
@@ -461,7 +473,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "4",
@@ -508,6 +520,17 @@
           "weeks": "1, 6, 9, 10",
           "missedPlayoffs": false,
           "actualRecord": "8-6"
+        }
+      },
+      {
+        "insightId": "zero-hero",
+        "category": "regret",
+        "headline": "Week 1: you started Xavier Worthy (0 pts) and lost by 8.9",
+        "facts": {
+          "week": 1,
+          "player": "Xavier Worthy",
+          "playerPoints": 0,
+          "lossMargin": 8.9
         }
       },
       {
@@ -593,7 +616,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "5",
@@ -631,6 +654,16 @@
           "weeks": "5, 9, 10, 11, 13, 14",
           "missedPlayoffs": true,
           "actualRecord": "4-10"
+        }
+      },
+      {
+        "insightId": "bench-points-total",
+        "category": "regret",
+        "headline": "504.6 points died on your bench this season (36/week), most in the league",
+        "facts": {
+          "totalBenchPoints": 504.6,
+          "perWeek": 36,
+          "leagueRank": 1
         }
       },
       {
@@ -746,7 +779,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "6",
@@ -792,6 +825,32 @@
             "providerPlayerId": "12508",
             "name": "Jaxson Dart",
             "position": "QB"
+          }
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 17: you benched Zach Charbonnet (26.2) and started Josh Jacobs (1.3)",
+        "facts": {
+          "week": 17,
+          "benchedPlayer": "Zach Charbonnet",
+          "benchedPoints": 26.2,
+          "startedPlayer": "Josh Jacobs",
+          "startedPoints": 1.3,
+          "pointsLeftBehind": 24.9,
+          "costTheGame": false
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "5850",
+            "name": "Josh Jacobs",
+            "position": "RB"
+          },
+          "benched": {
+            "providerPlayerId": "9753",
+            "name": "Zach Charbonnet",
+            "position": "RB"
           }
         }
       },
@@ -860,18 +919,6 @@
         }
       },
       {
-        "insightId": "nemesis",
-        "category": "people",
-        "headline": "Your nemesis: frothydogs (1-2 against them)",
-        "facts": {
-          "nemesis": "frothydogs",
-          "lossesToThem": 2,
-          "winsAgainstThem": 1,
-          "totalMargin": 99.4,
-          "swept": false
-        }
-      },
-      {
         "insightId": "season-arc",
         "category": "narrative",
         "headline": "Started 2-5, finished 5-2. The second-half surge.",
@@ -915,7 +962,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "7",
@@ -977,6 +1024,17 @@
             "name": "Parker Washington",
             "position": "WR"
           }
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "1 of your losses were already wins — if you'd started the right players. Weeks 13.",
+        "facts": {
+          "flippableLosses": 1,
+          "weeks": "13",
+          "missedPlayoffs": true,
+          "actualRecord": "6-8"
         }
       },
       {
@@ -1081,7 +1139,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "8",
@@ -1144,6 +1202,17 @@
           "totalBenchPoints": 261.3,
           "perWeek": 18.7,
           "leagueRank": 2
+        }
+      },
+      {
+        "insightId": "flippable-losses",
+        "category": "regret",
+        "headline": "1 of your losses were already wins — if you'd started the right players. Weeks 11.",
+        "facts": {
+          "flippableLosses": 1,
+          "weeks": "11",
+          "missedPlayoffs": true,
+          "actualRecord": "5-9"
         }
       },
       {
@@ -1243,7 +1312,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "9",
@@ -1399,7 +1468,7 @@
     }
   },
   {
-    "engineVersion": "0.2.0",
+    "engineVersion": "0.3.0",
     "leagueName": "Lonely Fans",
     "season": 2025,
     "rosterId": "10",
@@ -1457,6 +1526,32 @@
             "providerPlayerId": "3163",
             "name": "Jared Goff",
             "position": "QB"
+          }
+        }
+      },
+      {
+        "insightId": "worst-benching",
+        "category": "regret",
+        "headline": "Week 9: you benched Rico Dowdle (28.1) and started Kimani Vidal (3)",
+        "facts": {
+          "week": 9,
+          "benchedPlayer": "Rico Dowdle",
+          "benchedPoints": 28.1,
+          "startedPlayer": "Kimani Vidal",
+          "startedPoints": 3,
+          "pointsLeftBehind": 25.1,
+          "costTheGame": false
+        },
+        "refs": {
+          "started": {
+            "providerPlayerId": "11647",
+            "name": "Kimani Vidal",
+            "position": "RB"
+          },
+          "benched": {
+            "providerPlayerId": "7021",
+            "name": "Rico Dowdle",
+            "position": "RB"
           }
         }
       },

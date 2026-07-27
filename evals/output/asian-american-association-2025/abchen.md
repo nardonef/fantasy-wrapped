@@ -1,6 +1,6 @@
 # abchen — “THERE’S NO 2ND BEST 😤😤”
 
-_Asian American Association · 2025 · engine 0.2.0_
+_Asian American Association · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -10,15 +10,17 @@ _Asian American Association · 2025 · engine 0.2.0_
 
 **3. [regret] You dropped Justin Herbert in week 1. 265 points after that.**
 
-**4. [people] The Jaylen Waddle, Omarion Hampton trade: tranataur beat you by 84.5 points of rest-of-season value**
+**4. [regret] 2 of your losses were already wins — if you'd started the right players. Weeks 2, 6.**
 
-**5. [people] Week 11 pickup Michael Wilson gave you 95.2 points**
+**5. [people] The Jaylen Waddle, Omarion Hampton trade: tranataur beat you by 84.5 points of rest-of-season value**
 
-**6. [people] Your nemesis: misterchef (1-2 against them)**
+**6. [people] Week 11 pickup Michael Wilson gave you 95.2 points**
 
-**7. [narrative] Week 12: 197.5 points — the highest score anyone posted all season**
+**7. [people] Your nemesis: misterchef (1-2 against them)**
 
-**8. [narrative] One game from the title. misterchef beat you in the final by 0.7.**
+**8. [narrative] Week 12: 197.5 points — the highest score anyone posted all season**
+
+**9. [narrative] One game from the title. misterchef beat you in the final by 0.7.**
 
 **FINALE — The Almost**
 
@@ -29,7 +31,6 @@ _Asian American Association · 2025 · engine 0.2.0_
 ## Cutting-room floor (candidates that didn't ship)
 
 - (66) [narrative] Round 11: Travis Etienne. 187.8 points from pick 104.
-- (64) [regret] 2 of your losses were already wins — if you'd started the right players. Weeks 2, 6.
 - (64) [narrative] Started 2-5, finished 6-1. The second-half surge.
 - (58) [regret] Week 15: you benched Kyle Pitts (45.6) and started Michael Wilson (16.4)
 - (57) [narrative] Weeks 8–12: 5 straight wins

@@ -20,7 +20,11 @@ export const regretInsights: InsightModule[] = [
       return {
         id: this.id,
         category: "regret",
-        topic: "optimal-lineup",
+        // Not `optimal-lineup`: "you wasted N points" is a different claim from
+        // "your record should have been X". flippable-losses and
+        // record-if-optimal are the same counterfactual twice and still dedupe
+        // against each other; this one stands on its own.
+        topic: "bench-waste",
         notability,
         headline:
           rank === 1

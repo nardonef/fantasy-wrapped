@@ -1,6 +1,6 @@
 # Lawman12
 
-_Lonely Fans · 2025 · engine 0.2.0_
+_Lonely Fans · 2025 · engine 0.3.0_
 
 ## The story
 
@@ -10,17 +10,19 @@ _Lonely Fans · 2025 · engine 0.2.0_
 
 **3. [regret] Week 16: you benched Parker Washington (26.5) and started Marvin Harrison (2.4)**
 
-**4. [luck] 2 different opponents had their best week of the season against you (Manager 5, Rodrigoooo)**
+**4. [regret] 1 of your losses were already wins — if you'd started the right players. Weeks 13.**
 
-**5. [people] Week 1 pickup Quentin Johnston gave you 111.1 points**
+**5. [luck] 2 different opponents had their best week of the season against you (Manager 5, Rodrigoooo)**
 
-**6. [people] Rodrigoooo owned you this season: 2-0, by 49.3 total points**
+**6. [people] Week 1 pickup Quentin Johnston gave you 111.1 points**
 
-**7. [people] Your MVP: Puka Nacua — 349 points, 17% of everything you scored**
+**7. [people] Rodrigoooo owned you this season: 2-0, by 49.3 total points**
 
-**8. [narrative] Week 9: 163.8 points — the best score anyone managed that week**
+**8. [people] Your MVP: Puka Nacua — 349 points, 17% of everything you scored**
 
-**9. [narrative] First team out. 6-8 and home for the playoffs.**
+**9. [narrative] Week 9: 163.8 points — the best score anyone managed that week**
+
+**10. [narrative] First team out. 6-8 and home for the playoffs.**
 
 **FINALE — The First One Out**
 
@@ -30,5 +32,4 @@ _Lonely Fans · 2025 · engine 0.2.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
-- (55) [regret] 1 of your losses were already wins — if you'd started the right players. Weeks 13.
 - (46) [narrative] Week 6: 74.7 points. We don't talk about week 6.
