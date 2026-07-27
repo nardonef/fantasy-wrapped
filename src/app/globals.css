@@ -117,11 +117,16 @@ body {
   background: rgb(10 10 11 / 0.15);
 }
 
+/* The story player animates through `motion`, which writes its timings to the
+   element's style attribute. Only !important outranks that, so honouring a
+   reduced-motion preference genuinely requires it here. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    /* biome-ignore lint/complexity/noImportantStyles: see above */
     animation-duration: 0.001s !important;
+    /* biome-ignore lint/complexity/noImportantStyles: see above */
     transition-duration: 0.001s !important;
   }
 }

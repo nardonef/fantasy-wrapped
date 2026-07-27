@@ -12,58 +12,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 122.12,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 130.2,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 147.22,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 143.88,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 142.14,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 132.94,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 105.04,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 129.22,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 131.42,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 156.9,
               "highlight": true
             },
             {
+              "week": 11,
               "value": 156.16,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 122.26,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 148.64,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 130.96,
               "highlight": false
             }
@@ -248,58 +262,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 122.12,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 130.2,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 147.22,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 143.88,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 142.14,
               "highlight": true
             },
             {
+              "week": 6,
               "value": 132.94,
               "highlight": true
             },
             {
+              "week": 7,
               "value": 105.04,
               "highlight": true
             },
             {
+              "week": 8,
               "value": 129.22,
               "highlight": true
             },
             {
+              "week": 9,
               "value": 131.42,
               "highlight": true
             },
             {
+              "week": 10,
               "value": 156.9,
               "highlight": true
             },
             {
+              "week": 11,
               "value": 156.16,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 122.26,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 148.64,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 130.96,
               "highlight": false
             }
@@ -364,58 +392,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 131.78,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 144.5,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 110.82,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 135.22,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 121.62,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 132.34,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 148.68,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 109.08,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 128.06,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 114.5,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 149.04,
               "highlight": true
             },
             {
+              "week": 12,
               "value": 123.36,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 147.28,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 97.74,
               "highlight": false
             }
@@ -566,58 +608,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 131.78,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 144.5,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 110.82,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 135.22,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 121.62,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 132.34,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 148.68,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 109.08,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 128.06,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 114.5,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 149.04,
               "highlight": true
             },
             {
+              "week": 12,
               "value": 123.36,
               "highlight": true
             },
             {
+              "week": 13,
               "value": 147.28,
               "highlight": true
             },
             {
+              "week": 14,
               "value": 97.74,
               "highlight": true
             }
@@ -682,58 +738,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 111.04,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 162.54,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 130.04,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 121.44,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 152.98,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 141.24,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 151.96,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 145.38,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 122.4,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 192.5,
               "highlight": true
             },
             {
+              "week": 11,
               "value": 143.62,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 114.96,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 172.5,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 132.04,
               "highlight": false
             }
@@ -948,58 +1018,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 108.52,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 112.44,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 113.92,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 102.96,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 132.68,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 91.04,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 106.32,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 127.68,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 90.94,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 129.8,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 89.9,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 126.52,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 99.22,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 145.14,
               "highlight": true
             }
@@ -1184,58 +1268,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 108.52,
               "highlight": true
             },
             {
+              "week": 2,
               "value": 112.44,
               "highlight": true
             },
             {
+              "week": 3,
               "value": 113.92,
               "highlight": true
             },
             {
+              "week": 4,
               "value": 102.96,
               "highlight": true
             },
             {
+              "week": 5,
               "value": 132.68,
               "highlight": true
             },
             {
+              "week": 6,
               "value": 91.04,
               "highlight": true
             },
             {
+              "week": 7,
               "value": 106.32,
               "highlight": true
             },
             {
+              "week": 8,
               "value": 127.68,
               "highlight": true
             },
             {
+              "week": 9,
               "value": 90.94,
               "highlight": true
             },
             {
+              "week": 10,
               "value": 129.8,
               "highlight": true
             },
             {
+              "week": 11,
               "value": 89.9,
               "highlight": true
             },
             {
+              "week": 12,
               "value": 126.52,
               "highlight": true
             },
             {
+              "week": 13,
               "value": 99.22,
               "highlight": true
             },
             {
+              "week": 14,
               "value": 145.14,
               "highlight": true
             }
@@ -1324,58 +1422,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 125.16,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 100.02,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 137.02,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 124.76,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 158.72,
               "highlight": true
             },
             {
+              "week": 6,
               "value": 116.32,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 59.24,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 148.22,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 118.02,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 123.74,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 137.48,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 92.02,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 99.32,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 152.64,
               "highlight": false
             }
@@ -1617,58 +1729,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 128.62,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 145.5,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 137.38,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 131.16,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 137.32,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 106.08,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 136.28,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 115.12,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 160.44,
               "highlight": true
             },
             {
+              "week": 10,
               "value": 122.68,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 112.62,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 145.16,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 126.66,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 110.52,
               "highlight": false
             }
@@ -1812,58 +1938,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 128.62,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 145.5,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 137.38,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 131.16,
               "highlight": true
             },
             {
+              "week": 5,
               "value": 137.32,
               "highlight": true
             },
             {
+              "week": 6,
               "value": 106.08,
               "highlight": true
             },
             {
+              "week": 7,
               "value": 136.28,
               "highlight": true
             },
             {
+              "week": 8,
               "value": 115.12,
               "highlight": true
             },
             {
+              "week": 9,
               "value": 160.44,
               "highlight": true
             },
             {
+              "week": 10,
               "value": 122.68,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 112.62,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 145.16,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 126.66,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 110.52,
               "highlight": false
             }
@@ -1952,58 +2092,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 123.52,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 120.08,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 93.9,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 148.52,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 139.02,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 145.96,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 154.4,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 123.28,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 173.9,
               "highlight": true
             },
             {
+              "week": 10,
               "value": 130.5,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 101.44,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 121.42,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 115.72,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 88.06,
               "highlight": false
             }
@@ -2206,58 +2360,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 123.52,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 120.08,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 93.9,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 148.52,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 139.02,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 145.96,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 154.4,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 123.28,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 173.9,
               "highlight": true
             },
             {
+              "week": 10,
               "value": 130.5,
               "highlight": true
             },
             {
+              "week": 11,
               "value": 101.44,
               "highlight": true
             },
             {
+              "week": 12,
               "value": 121.42,
               "highlight": true
             },
             {
+              "week": 13,
               "value": 115.72,
               "highlight": true
             },
             {
+              "week": 14,
               "value": 88.06,
               "highlight": true
             }
@@ -2322,58 +2490,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 128.3,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 153.04,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 135.32,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 141.98,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 150.08,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 144.38,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 155.36,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 163.74,
               "highlight": true
             },
             {
+              "week": 9,
               "value": 115.18,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 139.8,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 109.44,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 147.54,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 107.06,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 134.46,
               "highlight": false
             }
@@ -2485,58 +2667,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 128.3,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 153.04,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 135.32,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 141.98,
               "highlight": true
             },
             {
+              "week": 5,
               "value": 150.08,
               "highlight": true
             },
             {
+              "week": 6,
               "value": 144.38,
               "highlight": true
             },
             {
+              "week": 7,
               "value": 155.36,
               "highlight": true
             },
             {
+              "week": 8,
               "value": 163.74,
               "highlight": true
             },
             {
+              "week": 9,
               "value": 115.18,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 139.8,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 109.44,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 147.54,
               "highlight": false
             },
             {
+              "week": 13,
               "value": 107.06,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 134.46,
               "highlight": false
             }
@@ -2601,58 +2797,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 107.98,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 144.94,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 157.14,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 167.9,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 120.8,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 114.52,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 158.34,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 155.76,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 115.9,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 98.32,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 97.44,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 179.68,
               "highlight": true
             },
             {
+              "week": 13,
               "value": 136.84,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 97.5,
               "highlight": false
             }
@@ -2891,58 +3101,72 @@
         "view": {
           "bars": [
             {
+              "week": 1,
               "value": 127.36,
               "highlight": false
             },
             {
+              "week": 2,
               "value": 145.3,
               "highlight": false
             },
             {
+              "week": 3,
               "value": 122.92,
               "highlight": false
             },
             {
+              "week": 4,
               "value": 149.98,
               "highlight": false
             },
             {
+              "week": 5,
               "value": 123.4,
               "highlight": false
             },
             {
+              "week": 6,
               "value": 131.26,
               "highlight": false
             },
             {
+              "week": 7,
               "value": 133.84,
               "highlight": false
             },
             {
+              "week": 8,
               "value": 133.6,
               "highlight": false
             },
             {
+              "week": 9,
               "value": 138.56,
               "highlight": false
             },
             {
+              "week": 10,
               "value": 138.74,
               "highlight": false
             },
             {
+              "week": 11,
               "value": 136.32,
               "highlight": false
             },
             {
+              "week": 12,
               "value": 197.52,
               "highlight": true
             },
             {
+              "week": 13,
               "value": 84.44,
               "highlight": false
             },
             {
+              "week": 14,
               "value": 193.76,
               "highlight": false
             }

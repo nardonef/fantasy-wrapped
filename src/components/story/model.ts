@@ -31,7 +31,7 @@ export type CardView = {
   pair?: { label: string; value: string; accent: Accent }[];
   rows?: { label: string; value: string; accent: Accent }[];
   entries?: { label: string; text: string; accent: Accent }[];
-  bars?: { value: number; highlight?: boolean }[];
+  bars?: { week: number; value: number; highlight?: boolean }[];
   compare?: { label: string; value: string; width: string; positive: boolean }[];
   versus?: { label: string; name: string; photo?: string | null; positive: boolean }[];
   person?: { initials: string; name: string; meta: string; positive: boolean };

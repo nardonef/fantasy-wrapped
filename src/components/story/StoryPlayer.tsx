@@ -175,9 +175,7 @@ function Rows({
           }
         >
           <span className={`absolute inset-x-0 top-0 h-px ${rule(tone)}`} />
-          <span
-            className={`label shrink-0 ${variant === "inline" ? faint(tone) : r.accent}`}
-          >
+          <span className={`label shrink-0 ${variant === "inline" ? faint(tone) : r.accent}`}>
             {r.label}
           </span>
           <span
@@ -239,6 +237,7 @@ function Headshot({
   const [failed, setFailed] = useState(false);
   if (!photo || failed) return <PhotoSlot tone={tone} compact={compact} />;
   return (
+    // biome-ignore lint/performance/noImgElement: next/image would bill a Vercel image transformation to re-encode headshots Sleeper already serves at the right size (48px chips, one 208px portrait), and it swallows the load failure this component exists to handle.
     <img
       key={photo}
       src={photo}
@@ -344,8 +343,7 @@ function chart({ card, tone, accent }: ArchProps): Arch {
         <div className="mt-8 flex h-24 items-end gap-1">
           {bars.map((b, i) => (
             <motion.span
-              // Bars are positional; a week has no other stable identity here.
-              key={`${i}-${b.value}`}
+              key={b.week}
               data-testid="chart-bar"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
@@ -356,8 +354,8 @@ function chart({ card, tone, accent }: ArchProps): Arch {
           ))}
         </div>
         <div className="mt-2.5 flex justify-between">
-          <span className={`label ${faint(tone)}`}>WK 1</span>
-          <span className={`label ${faint(tone)}`}>WK {bars.length}</span>
+          <span className={`label ${faint(tone)}`}>WK {bars[0]?.week ?? 1}</span>
+          <span className={`label ${faint(tone)}`}>WK {bars[bars.length - 1]?.week ?? 1}</span>
         </div>
       </>
     ),
@@ -643,7 +641,10 @@ export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref
     >
       <div className="absolute inset-x-0 top-0 z-30 flex gap-1 px-3 pt-3">
         {cards.map((c, i) => (
-          <div key={c.key} className={`h-[3px] flex-1 ${light ? "bg-paper-ink/15" : "bg-chalk/15"}`}>
+          <div
+            key={c.key}
+            className={`h-[3px] flex-1 ${light ? "bg-paper-ink/15" : "bg-chalk/15"}`}
+          >
             <div
               className={`h-full ${light ? "bg-flag-ink" : "bg-flag"} ${i <= index ? "w-full" : "w-0"}`}
               style={i === index ? { transition: "width 0.3s" } : undefined}

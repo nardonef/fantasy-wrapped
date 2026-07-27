@@ -18,9 +18,7 @@ export function fallbackCopy(script: CardScript): WrappedCopy {
     })),
     archetype: {
       title: script.archetype.name,
-      body: script.archetype.evidence
-        .map((e) => `${humanize(e.key)}: ${e.value}`)
-        .join(". "),
+      body: script.archetype.evidence.map((e) => `${humanize(e.key)}: ${e.value}`).join(". "),
     },
   };
 }

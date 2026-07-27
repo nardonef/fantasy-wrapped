@@ -1,9 +1,9 @@
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 import { fallbackCopy } from "@/copy/fallback";
+import type { CardScript, SeasonFacts, WrappedCard } from "@/engine";
 import { computeSeasonFacts, generateCardScript } from "@/engine";
 import { allInsights } from "@/engine/insights";
-import type { CardScript, SeasonFacts, WrappedCard } from "@/engine";
 import { createFixtureSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 import { buildStoryCards, headshot, LAYOUT_BY_INSIGHT, toneFor } from "./model";
 

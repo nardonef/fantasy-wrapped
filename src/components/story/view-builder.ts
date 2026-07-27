@@ -104,7 +104,7 @@ export function buildView({ card, layout, tone, ghost, team, facts }: BuildViewI
       // scores as part of "the season on paper".
       v.bars = regular.map((w) => {
         const inRun = from != null && to != null && w.week >= from && w.week <= to;
-        return { value: w.score, highlight: w.week === peak || inRun };
+        return { week: w.week, value: w.score, highlight: w.week === peak || inRun };
       });
       v.rows = [
         {
