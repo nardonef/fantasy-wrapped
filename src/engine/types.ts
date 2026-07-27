@@ -195,8 +195,16 @@ export type WrappedCard = {
 export type Archetype = {
   id: string;
   name: string;
-  /** The accusation, with the numbers that convict. */
-  evidence: Record<string, string | number>;
+  /**
+   * The accusation, with the numbers that convict, strongest first — the
+   * finale card shows the top three.
+   *
+   * An ordered array, not a Record, because scripts are cached as jsonb and
+   * Postgres normalises object keys by (length, bytes). A Record round-trips
+   * with its order scrambled, which silently reorders the evidence rows and
+   * changes which ones make the cut.
+   */
+  evidence: { key: string; value: string | number }[];
 };
 
 export type CardScript = {

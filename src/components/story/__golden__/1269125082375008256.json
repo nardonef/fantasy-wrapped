@@ -66,18 +66,6 @@
             {
               "value": 137.36,
               "highlight": false
-            },
-            {
-              "value": 147.5,
-              "highlight": false
-            },
-            {
-              "value": 144.6,
-              "highlight": false
-            },
-            {
-              "value": 68.44,
-              "highlight": false
             }
           ],
           "rows": [
@@ -273,18 +261,6 @@
             {
               "value": 137.36,
               "highlight": false
-            },
-            {
-              "value": 147.5,
-              "highlight": false
-            },
-            {
-              "value": 144.6,
-              "highlight": false
-            },
-            {
-              "value": 68.44,
-              "highlight": false
             }
           ],
           "rows": [
@@ -400,18 +376,6 @@
             },
             {
               "value": 108.6,
-              "highlight": false
-            },
-            {
-              "value": 177.5,
-              "highlight": false
-            },
-            {
-              "value": 118,
-              "highlight": false
-            },
-            {
-              "value": 97.4,
               "highlight": false
             }
           ],
@@ -726,18 +690,6 @@
             {
               "value": 125.46,
               "highlight": false
-            },
-            {
-              "value": 116.1,
-              "highlight": false
-            },
-            {
-              "value": 101.74,
-              "highlight": false
-            },
-            {
-              "value": 87.5,
-              "highlight": false
             }
           ],
           "rows": [
@@ -1024,18 +976,6 @@
             {
               "value": 164.46,
               "highlight": true
-            },
-            {
-              "value": 214.2,
-              "highlight": false
-            },
-            {
-              "value": 111.36,
-              "highlight": false
-            },
-            {
-              "value": 148.62,
-              "highlight": false
             }
           ],
           "rows": [
@@ -1278,18 +1218,6 @@
             {
               "value": 112.44,
               "highlight": false
-            },
-            {
-              "value": 91.22,
-              "highlight": false
-            },
-            {
-              "value": 88.7,
-              "highlight": false
-            },
-            {
-              "value": 139.98,
-              "highlight": false
             }
           ],
           "rows": [
@@ -1503,18 +1431,6 @@
             {
               "value": 112.44,
               "highlight": true
-            },
-            {
-              "value": 91.22,
-              "highlight": false
-            },
-            {
-              "value": 88.7,
-              "highlight": false
-            },
-            {
-              "value": 139.98,
-              "highlight": false
             }
           ],
           "rows": [
@@ -1654,18 +1570,6 @@
             },
             {
               "value": 120.78,
-              "highlight": false
-            },
-            {
-              "value": 126.88,
-              "highlight": false
-            },
-            {
-              "value": 145.9,
-              "highlight": false
-            },
-            {
-              "value": 120.04,
               "highlight": false
             }
           ],
@@ -1872,7 +1776,7 @@
             },
             {
               "value": 120.28,
-              "highlight": false
+              "highlight": true
             },
             {
               "value": 149.54,
@@ -1896,18 +1800,6 @@
             },
             {
               "value": 120.78,
-              "highlight": true
-            },
-            {
-              "value": 126.88,
-              "highlight": true
-            },
-            {
-              "value": 145.9,
-              "highlight": true
-            },
-            {
-              "value": 120.04,
               "highlight": true
             }
           ],
@@ -1992,18 +1884,6 @@
             },
             {
               "value": 120.78,
-              "highlight": false
-            },
-            {
-              "value": 126.88,
-              "highlight": false
-            },
-            {
-              "value": 145.9,
-              "highlight": false
-            },
-            {
-              "value": 120.04,
               "highlight": false
             }
           ],
@@ -2120,18 +2000,6 @@
             },
             {
               "value": 133.5,
-              "highlight": false
-            },
-            {
-              "value": 117.06,
-              "highlight": false
-            },
-            {
-              "value": 101.72,
-              "highlight": false
-            },
-            {
-              "value": 96.02,
               "highlight": false
             }
           ],
@@ -2433,18 +2301,6 @@
             {
               "value": 85.9,
               "highlight": false
-            },
-            {
-              "value": 152,
-              "highlight": false
-            },
-            {
-              "value": 128.3,
-              "highlight": false
-            },
-            {
-              "value": 120.34,
-              "highlight": false
             }
           ],
           "rows": [
@@ -2698,18 +2554,6 @@
             },
             {
               "value": 108.78,
-              "highlight": false
-            },
-            {
-              "value": 99.16,
-              "highlight": false
-            },
-            {
-              "value": 141.06,
-              "highlight": false
-            },
-            {
-              "value": 106.28,
               "highlight": false
             }
           ],
@@ -2993,18 +2837,6 @@
             },
             {
               "value": 107.5,
-              "highlight": false
-            },
-            {
-              "value": 110.74,
-              "highlight": false
-            },
-            {
-              "value": 135.12,
-              "highlight": false
-            },
-            {
-              "value": 118.86,
               "highlight": false
             }
           ],

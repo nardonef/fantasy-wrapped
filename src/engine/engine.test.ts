@@ -35,7 +35,7 @@ describe.each(LEAGUES)("engine output for league %s", (leagueId) => {
       expect(script.cards.length).toBeGreaterThanOrEqual(4);
       expect(script.cards.length).toBeLessThanOrEqual(10);
       expect(script.archetype.name).toBeTruthy();
-      expect(Object.keys(script.archetype.evidence).length).toBeGreaterThan(0);
+      expect(script.archetype.evidence.length).toBeGreaterThan(0);
     }
   });
 

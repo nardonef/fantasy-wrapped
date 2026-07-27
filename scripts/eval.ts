@@ -52,8 +52,8 @@ async function renderLeague(leagueId: string): Promise<void> {
     });
     lines.push(`**FINALE — ${script.archetype.name}**`);
     lines.push("");
-    for (const [k, v] of Object.entries(script.archetype.evidence)) {
-      lines.push(`- ${k}: ${v}`);
+    for (const e of script.archetype.evidence) {
+      lines.push(`- ${e.key}: ${e.value}`);
     }
     lines.push("");
     lines.push("## Cutting-room floor (candidates that didn't ship)");

@@ -67,7 +67,10 @@ const script: CardScript = {
   archetype: {
     id: "the-saboteur",
     name: "The Saboteur",
-    evidence: { benchPointsWasted: 504.6, actualRecord: "4-10" },
+    evidence: [
+      { key: "benchPointsWasted", value: 504.6 },
+      { key: "actualRecord", value: "4-10" },
+    ],
   },
 };
 

@@ -96,7 +96,7 @@ export function LandingFlow() {
                 autoCapitalize="none"
                 autoCorrect="off"
                 spellCheck={false}
-                className="w-full bg-transparent px-4 py-3.5 font-mono text-[15px] outline-none placeholder:text-chalk-faintest"
+                className="w-full bg-transparent px-4 py-3.5 font-mono text-[15px] outline-none placeholder:text-chalk-faint"
               />
               <button
                 type="submit"

@@ -152,12 +152,24 @@
     "archetype": {
       "id": "the-middle-manager",
       "name": "The Middle Manager",
-      "evidence": {
-        "record": "10-4",
-        "standingsRank": 2,
-        "leagueSize": 10,
-        "pointsForRank": 4
-      }
+      "evidence": [
+        {
+          "key": "record",
+          "value": "10-4"
+        },
+        {
+          "key": "standingsRank",
+          "value": 2
+        },
+        {
+          "key": "leagueSize",
+          "value": 10
+        },
+        {
+          "key": "pointsForRank",
+          "value": 4
+        }
+      ]
     }
   },
   {
@@ -291,12 +303,24 @@
     "archetype": {
       "id": "the-lottery-winner",
       "name": "The Lottery Winner",
-      "evidence": {
-        "actualWins": 9,
-        "deservedWins": 6.2,
-        "pointsForRank": 7,
-        "finish": "made playoffs"
-      }
+      "evidence": [
+        {
+          "key": "actualWins",
+          "value": 9
+        },
+        {
+          "key": "deservedWins",
+          "value": 6.2
+        },
+        {
+          "key": "pointsForRank",
+          "value": 7
+        },
+        {
+          "key": "finish",
+          "value": "made playoffs"
+        }
+      ]
     }
   },
   {
@@ -432,11 +456,20 @@
     "archetype": {
       "id": "the-empire-of-nothing",
       "name": "The Empire of Nothing",
-      "evidence": {
-        "pointsFor": 1994.6,
-        "pointsForRank": 1,
-        "finish": "placement"
-      }
+      "evidence": [
+        {
+          "key": "pointsFor",
+          "value": 1994.6
+        },
+        {
+          "key": "pointsForRank",
+          "value": 1
+        },
+        {
+          "key": "finish",
+          "value": "placement"
+        }
+      ]
     }
   },
   {
@@ -580,12 +613,24 @@
     "archetype": {
       "id": "the-punching-bag",
       "name": "The Punching Bag",
-      "evidence": {
-        "pointsAgainst": 1960.7,
-        "pointsAgainstRank": 1,
-        "record": "1-13",
-        "finish": "missed playoffs"
-      }
+      "evidence": [
+        {
+          "key": "pointsAgainst",
+          "value": 1960.7
+        },
+        {
+          "key": "pointsAgainstRank",
+          "value": 1
+        },
+        {
+          "key": "record",
+          "value": "1-13"
+        },
+        {
+          "key": "finish",
+          "value": "missed playoffs"
+        }
+      ]
     }
   },
   {
@@ -743,12 +788,24 @@
     "archetype": {
       "id": "the-middle-manager",
       "name": "The Middle Manager",
-      "evidence": {
-        "record": "6-8",
-        "standingsRank": 8,
-        "leagueSize": 10,
-        "pointsForRank": 9
-      }
+      "evidence": [
+        {
+          "key": "record",
+          "value": "6-8"
+        },
+        {
+          "key": "standingsRank",
+          "value": 8
+        },
+        {
+          "key": "leagueSize",
+          "value": 10
+        },
+        {
+          "key": "pointsForRank",
+          "value": 9
+        }
+      ]
     }
   },
   {
@@ -876,11 +933,20 @@
     "archetype": {
       "id": "the-first-one-out",
       "name": "The First One Out",
-      "evidence": {
-        "record": "7-7",
-        "standingsRank": 7,
-        "playoffSpots": 6
-      }
+      "evidence": [
+        {
+          "key": "record",
+          "value": "7-7"
+        },
+        {
+          "key": "standingsRank",
+          "value": 7
+        },
+        {
+          "key": "playoffSpots",
+          "value": 6
+        }
+      ]
     }
   },
   {
@@ -1026,12 +1092,24 @@
     "archetype": {
       "id": "the-what-if",
       "name": "The What-If",
-      "evidence": {
-        "lossesYouCouldHaveWon": 6,
-        "actualRecord": "3-11",
-        "optimalRecord": "9-5",
-        "finish": "missed playoffs"
-      }
+      "evidence": [
+        {
+          "key": "lossesYouCouldHaveWon",
+          "value": 6
+        },
+        {
+          "key": "actualRecord",
+          "value": "3-11"
+        },
+        {
+          "key": "optimalRecord",
+          "value": "9-5"
+        },
+        {
+          "key": "finish",
+          "value": "missed playoffs"
+        }
+      ]
     }
   },
   {
@@ -1150,11 +1228,20 @@
     "archetype": {
       "id": "the-regular-season-merchant",
       "name": "The Regular-Season Merchant",
-      "evidence": {
-        "regularSeason": "10-4",
-        "seed": 1,
-        "finish": "semifinal"
-      }
+      "evidence": [
+        {
+          "key": "regularSeason",
+          "value": "10-4"
+        },
+        {
+          "key": "seed",
+          "value": 1
+        },
+        {
+          "key": "finish",
+          "value": "semifinal"
+        }
+      ]
     }
   },
   {
@@ -1299,12 +1386,24 @@
     "archetype": {
       "id": "the-heist",
       "name": "The Heist",
-      "evidence": {
-        "finish": "champion",
-        "deservedWins": 6.7,
-        "actualWins": 7,
-        "allPlayRank": 6
-      }
+      "evidence": [
+        {
+          "key": "finish",
+          "value": "champion"
+        },
+        {
+          "key": "deservedWins",
+          "value": 6.7
+        },
+        {
+          "key": "actualWins",
+          "value": 7
+        },
+        {
+          "key": "allPlayRank",
+          "value": 6
+        }
+      ]
     }
   },
   {
@@ -1436,11 +1535,20 @@
     "archetype": {
       "id": "the-almost",
       "name": "The Almost",
-      "evidence": {
-        "finish": "runner-up",
-        "finalMargin": 0.7,
-        "record": "8-6"
-      }
+      "evidence": [
+        {
+          "key": "finish",
+          "value": "runner-up"
+        },
+        {
+          "key": "finalMargin",
+          "value": 0.7
+        },
+        {
+          "key": "record",
+          "value": "8-6"
+        }
+      ]
     }
   }
 ]

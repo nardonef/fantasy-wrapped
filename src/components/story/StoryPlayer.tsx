@@ -292,20 +292,11 @@ type Arch = { top: React.ReactNode; bottom: React.ReactNode };
 function statement({ card, tone, accent }: ArchProps): Arch {
   const v = card.view;
   return {
+    // No ghosted numeral behind the type any more: the hero below IS that
+    // number, so the old jumbotron layer just printed it twice, and at
+    // full-bleed size it collided with the progress rail.
     top: (
       <>
-        {card.ghost && (
-          <motion.span
-            aria-hidden
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.07, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="display-xl pointer-events-none absolute inset-x-0 top-1/2 -translate-y-[62%] overflow-hidden text-center whitespace-nowrap"
-            style={{ fontSize: `min(42vh, ${Math.floor(150 / Math.max(2, card.ghost.length))}vw)` }}
-          >
-            {card.ghost}
-          </motion.span>
-        )}
         <Kicker text={card.kicker} accent={accent} />
         <Title text={card.title} />
       </>

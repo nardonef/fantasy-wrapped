@@ -85,20 +85,26 @@ export function buildView({ card, layout, tone, ghost, team, facts }: BuildViewI
   switch (layout) {
     case "chart": {
       // Weekly scores, with the relevant week or run highlighted.
+      const regular = team.weeks.filter((w) => !w.isPlayoff);
       let from: number | null = null;
       let to: number | null = null;
       if (card.insightId === "streak") {
         from = num(x.fromWeek);
         to = num(x.toWeek);
       } else if (card.insightId === "season-arc") {
-        from = Math.floor(team.weeks.length / 2) + 1;
-        to = team.weeks.length;
+        // Same split the insight itself uses, so the highlighted run is the
+        // second half the copy is talking about.
+        const played = regular.filter((w) => w.result !== null);
+        from = played[Math.floor(played.length / 2)]?.week ?? null;
+        to = played[played.length - 1]?.week ?? null;
       }
       const peak = team.highWeek?.week;
-      v.bars = team.weeks.map((w, i) => {
-        const wk = i + 1;
-        const inRun = from != null && to != null && wk >= from && wk <= to;
-        return { value: w.score, highlight: wk === peak || inRun };
+      // Regular season only. The record beside the chart counts those games,
+      // and a team knocked out in week 15 would otherwise show consolation
+      // scores as part of "the season on paper".
+      v.bars = regular.map((w) => {
+        const inRun = from != null && to != null && w.week >= from && w.week <= to;
+        return { value: w.score, highlight: w.week === peak || inRun };
       });
       v.rows = [
         {

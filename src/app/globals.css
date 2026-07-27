@@ -52,7 +52,9 @@ html,
 body {
   background: var(--color-page);
   color: var(--color-chalk);
-  font-family: var(--font-mono);
+  /* Geist is the default; mono is opt-in via .label and font-mono, which is
+     where it belongs — kickers, meta and table labels, not body copy. */
+  font-family: var(--font-display);
   overscroll-behavior-y: none;
 }
 

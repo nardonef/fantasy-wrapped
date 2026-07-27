@@ -207,13 +207,11 @@ export function buildStoryCards(
     layout: "verdict",
     tone: "light",
     view: {
-      rows: Object.entries(script.archetype.evidence)
-        .slice(0, 3)
-        .map(([key, value], i) => ({
-          label: humanize(key),
-          value: String(value),
-          accent: i === 0 ? "text-flag-ink" : "text-paper-ink",
-        })),
+      rows: script.archetype.evidence.slice(0, 3).map((e, i) => ({
+        label: humanize(e.key),
+        value: String(e.value),
+        accent: i === 0 ? "text-flag-ink" : "text-paper-ink",
+      })),
     },
     isFinale: true,
   });
