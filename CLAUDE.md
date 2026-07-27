@@ -34,7 +34,15 @@ Data flows one way:
 - `src/engine/` — pure, deterministic, no I/O. The product lives here. Insight modules are
   the unit of iteration: each is one file with `{ id, category, compute(facts, teamId) }`
   returning a candidate with a notability score, or null. See `docs/engine.md` (Phase 2).
-- `wrapped_scripts` table caches generated scripts per team per `engineVersion`.
+- `src/components/story/` — the presentation layer. `model.ts` maps each insight to one of
+  eight layout archetypes and a light/dark tone; `view-builder.ts` decides which numbers that
+  layout shows; `StoryPlayer.tsx` renders the result and never reaches into facts itself.
+  The engine stays presentation-free: the only thing it carries for the UI is `refs`, the
+  `PlayerRef`s behind a card's headshots, deliberately outside `facts` so copy validation
+  never asks the LLM to reproduce a player id.
+- `wrapped_scripts` table caches generated scripts per team per `engineVersion`. Scripts are
+  stored as jsonb, and Postgres normalizes object keys by (length, bytes) — anything whose
+  ORDER matters must be an array, not a `Record`, or it comes back scrambled.
 
 ## Rules
 
@@ -45,6 +53,9 @@ Data flows one way:
   the LLM may write the sentence, never the stats.
 - Tests are part of the same unit of work as the code. Engine changes must show their
   card-selection diff via golden files.
+- Every new user-facing flow or page ships with a Playwright e2e test (`tests/e2e/`)
+  covering its happy path before it's considered done — same rule as the engine's
+  golden-file requirement, applied to the UI layer.
 
 ## Eval loop (how to iterate on insight quality)
 
