@@ -1,4 +1,5 @@
 import { and, eq } from "drizzle-orm";
+import { cache } from "react";
 import { fallbackCopy } from "@/copy/fallback";
 import type { WrappedCopy } from "@/copy/schema";
 import { writeCopy } from "@/copy/writer";
@@ -23,12 +24,28 @@ export type WrappedPayload = {
  * Scripts cache per (team, engineVersion); copy caches alongside once
  * generated. Without an ANTHROPIC_API_KEY the deterministic fallback copy is
  * served and NOT cached, so adding a key later upgrades the copy.
+ *
+ * Wrapped in React's per-request `cache` because the page calls this twice —
+ * once from generateMetadata and once from the component. Uncached, a cold
+ * view runs two copy generations concurrently: double the latency the user
+ * waits through, and double the tokens billed for a result one of them throws
+ * away.
+ *
+ * `withCopy: false` skips generation for callers that only need the script —
+ * the OG image renders the archetype name and never reads a word of copy, and
+ * it runs as its own request, so the cache above can't spare it. Generating
+ * there means a link unfurl blocks on the LLM and times out in the chat app
+ * the share card exists for.
+ *
+ * The flag is a bare boolean, not an options object: `cache` keys on argument
+ * identity, and a fresh `{}` per call would never hit.
  */
-export async function getWrapped(
+export const getWrapped = cache(async function getWrapped(
   provider: Provider,
   providerLeagueId: string,
   season: number,
   rosterId: string,
+  withCopy = true,
 ): Promise<WrappedPayload | null> {
   const [league] = await db
     .select()
@@ -70,7 +87,11 @@ export async function getWrapped(
   }
 
   if (!copy) {
-    if (process.env.ANTHROPIC_API_KEY) {
+    if (!withCopy) {
+      // Caller only needs the script. Serve the deterministic copy so the
+      // payload shape is unchanged, without paying for a generation.
+      copy = fallbackCopy(script);
+    } else if (process.env.ANTHROPIC_API_KEY) {
       const result = await writeCopy(script);
       copy = result.copy;
       if (!result.usedFallback) {
@@ -113,4 +134,4 @@ export async function getWrapped(
       }))
       .sort((a, b) => Number(a.rosterId) - Number(b.rosterId)),
   };
-}
+});
