@@ -21,7 +21,10 @@ export default async function OgImage({ params }: { params: Promise<Params> }) {
   const p = await params;
   const wrapped =
     p.provider === "sleeper"
-      ? await getWrapped(p.provider as Provider, p.leagueId, Number(p.season), p.rosterId)
+      ? // withCopy: false — this image renders the archetype name and never
+        // reads copy. Generating it here would block a link unfurl on the LLM,
+        // and chat clients give up long before that finishes.
+        await getWrapped(p.provider as Provider, p.leagueId, Number(p.season), p.rosterId, false)
       : null;
 
   const archetype = wrapped?.script.archetype.name ?? "Fantasy Wrapped";
