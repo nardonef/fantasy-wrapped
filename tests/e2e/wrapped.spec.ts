@@ -84,6 +84,47 @@ test("the finale convicts with the archetype's evidence, strongest first", async
   await expect(rows.first()).toContainText("504.6");
 });
 
+test("the story holds a phone-shaped card on a wide desktop", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) < 640, "phones are full-bleed by design");
+  await page.goto(WRAPPED_URL);
+
+  const player = page.getByTestId("story-player");
+  await expect(player).toBeVisible();
+
+  const frame = await player.boundingBox();
+  const window = page.viewportSize();
+  if (!frame || !window) throw new Error("no layout box");
+
+  // Full-bleed on a 2560px monitor was the bug: the type sits at its clamp
+  // ceiling and strands itself in two metres of empty ground.
+  expect(frame.width).toBeLessThanOrEqual(520);
+  expect(frame.width).toBeLessThan(window.width / 2);
+  // Centred on the page ground, not pinned left.
+  expect(Math.abs(window.width - (frame.x * 2 + frame.width))).toBeLessThan(2);
+  // 9:16, the format the deck is actually written for.
+  expect(frame.height / frame.width).toBeCloseTo(16 / 9, 1);
+});
+
+test("story type sizes off the card, not the window", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) < 640, "phones are full-bleed by design");
+  await page.goto(WRAPPED_URL);
+  const title = page.getByTestId("story-player").locator("h2").first();
+  const titlePx = () =>
+    title.evaluate((el) => Number.parseFloat(getComputedStyle(el).fontSize));
+
+  await page.setViewportSize({ width: 2560, height: 1440 });
+  await expect(title).toBeVisible();
+  const tall = await titlePx();
+
+  // A short window makes the card narrower than a phone. Sized in vw the title
+  // would stay pinned at its full-viewport ceiling and overrun the card; sized
+  // in cqw it tracks the frame it is actually drawn in.
+  await page.setViewportSize({ width: 2560, height: 600 });
+  const short = await titlePx();
+
+  expect(short).toBeLessThan(tall);
+});
+
 test("league ballot page lists superlatives and links to wrappeds", async ({ page }) => {
   await page.goto("/l/sleeper/1269125082375008256/2025");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("ballot");
