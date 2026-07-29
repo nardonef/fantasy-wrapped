@@ -109,6 +109,35 @@ body {
   text-transform: uppercase;
 }
 
+/*
+ * The story frame.
+ *
+ * The deck is a 9:16 story, not a page. On a phone it is the whole screen, so
+ * nothing here applies. On a desktop it becomes a card centred on --color-page,
+ * which is what that token was always for: full-bleed on a 2560px monitor left
+ * the type at its clamp ceiling floating in two metres of empty ground.
+ *
+ * Height leads and the aspect ratio derives the width, so the card is as tall
+ * as the window allows and never wider than a phone. The container-type is
+ * load-bearing: the type inside sizes in cqw, so it reads off this frame
+ * rather than off the viewport it happens to be centred in.
+ */
+.story-frame {
+  width: 100%;
+  height: 100dvh;
+  container-type: inline-size;
+}
+
+@media (min-width: 640px) {
+  .story-frame {
+    width: auto;
+    /* 820px tall caps the card at ~461px wide — a phone, near enough. */
+    height: min(100dvh - 3rem, 820px);
+    aspect-ratio: 9 / 16;
+    box-shadow: 0 2.5rem 7.5rem -1.25rem rgb(0 0 0 / 0.55);
+  }
+}
+
 /* Hairline used for every table rule, on either surface. */
 .rule-dark {
   background: rgb(250 250 250 / 0.13);
