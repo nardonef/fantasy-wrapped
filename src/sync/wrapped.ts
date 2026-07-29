@@ -97,7 +97,12 @@ export const getWrapped = cache(async function getWrapped(
       if (!result.usedFallback) {
         await db
           .update(wrappedScripts)
-          .set({ copy, copyModel: result.model, updatedAt: new Date() })
+          .set({
+            copy,
+            copyModel: result.model,
+            copyUsage: result.telemetry,
+            updatedAt: new Date(),
+          })
           .where(
             and(
               eq(wrappedScripts.teamId, team.id),
