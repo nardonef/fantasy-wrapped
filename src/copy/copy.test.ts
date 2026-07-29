@@ -90,9 +90,16 @@ const goodCopy: WrappedCopy = {
   archetype: { title: "The Saboteur", body: "504.6 points dead on the bench. 4-10." },
 };
 
+const usage = {
+  inputTokens: 2000,
+  outputTokens: 500,
+  cacheReadInputTokens: 0,
+  cacheCreationInputTokens: 0,
+};
+
 describe("writeCopy", () => {
   it("returns generated copy when validation passes", async () => {
-    const result = await writeCopy(script, async () => goodCopy);
+    const result = await writeCopy(script, async () => ({ copy: goodCopy, usage }));
     expect(result.usedFallback).toBe(false);
     expect(result.copy.cards[1].title).toBe("Six wins, still on your bench");
   });
@@ -112,7 +119,7 @@ describe("writeCopy", () => {
     const prompts: string[] = [];
     const result = await writeCopy(script, async (prompt) => {
       prompts.push(prompt);
-      return badCopy;
+      return { copy: badCopy, usage };
     });
     expect(prompts).toHaveLength(2);
     expect(prompts[1]).toContain("missing the exact numbers: 6");
@@ -122,13 +129,39 @@ describe("writeCopy", () => {
     expect(result.copy.cards[1].body).toBe("6 of your losses were already wins");
   });
 
-  it("falls back entirely when generation throws", async () => {
+  it("falls back entirely when generation throws, and records why", async () => {
     const result = await writeCopy(script, async () => {
       throw new Error("api down");
     });
     expect(result.usedFallback).toBe(true);
     expect(result.model).toBe("fallback");
     expect(result.copy.cards).toHaveLength(2);
+    // The reason used to be swallowed, which made a bad key look like no key.
+    expect(result.telemetry.error).toBe("api down");
+    expect(result.telemetry.fellBack).toEqual(["season-summary", "flippable-losses"]);
+  });
+
+  it("reports tokens, attempts and cost so a generation is accountable", async () => {
+    const result = await writeCopy(script, async () => ({ copy: goodCopy, usage }));
+    expect(result.telemetry.attempts).toBe(1);
+    expect(result.telemetry.inputTokens).toBe(2000);
+    expect(result.telemetry.outputTokens).toBe(500);
+    expect(result.telemetry.error).toBeNull();
+    expect(result.telemetry.fellBack).toEqual([]);
+    expect(result.telemetry.durationMs).toBeGreaterThanOrEqual(0);
+    // Haiku 4.5: $1/M in, $5/M out — 2000 in + 500 out.
+    expect(result.telemetry.estimatedCostUsd).toBeCloseTo(0.002 + 0.0025, 6);
+  });
+
+  it("bills a retry too, rather than reporting only the last attempt", async () => {
+    const badCopy: WrappedCopy = {
+      ...goodCopy,
+      cards: [goodCopy.cards[0], { insightId: "flippable-losses", title: "x", body: "y" }],
+    };
+    const result = await writeCopy(script, async () => ({ copy: badCopy, usage }));
+    expect(result.telemetry.attempts).toBe(2);
+    expect(result.telemetry.inputTokens).toBe(4000);
+    expect(result.telemetry.outputTokens).toBe(1000);
   });
 
   it("builds a prompt embedding the tone guide and exact facts", () => {

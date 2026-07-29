@@ -1,0 +1,1 @@
+ALTER TABLE "wrapped_scripts" ADD COLUMN "copy_usage" jsonb;
