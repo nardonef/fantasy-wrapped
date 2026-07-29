@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
+import { PageviewTracker } from "@/components/analytics/PageviewTracker";
 import "./globals.css";
 
 const geist = Geist({
@@ -40,7 +42,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="grain min-h-full flex flex-col">{children}</body>
+      <body className="grain min-h-full flex flex-col">
+        <Suspense fallback={null}>
+          <PageviewTracker />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }

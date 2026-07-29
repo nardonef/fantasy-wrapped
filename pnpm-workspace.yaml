@@ -1,3 +1,6 @@
 allowBuilds:
+  # posthog-js pulls in core-js as a dependency. Its postinstall script only
+  # prints a sponsorship message — no build step the polyfill needs to work.
+  core-js: false
   esbuild: true
   sharp: true
