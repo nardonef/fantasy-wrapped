@@ -12,6 +12,12 @@ export default defineConfig({
       name: "mobile",
       use: { ...devices["Pixel 7"] },
     },
+    // The story is built phone-first, so a wide monitor is the case that
+    // regresses silently. 2560x1440 is the shape that exposed it.
+    {
+      name: "desktop",
+      use: { ...devices["Desktop Chrome"], viewport: { width: 2560, height: 1440 } },
+    },
   ],
   webServer: {
     command: "pnpm start -p 3199",
