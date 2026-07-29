@@ -213,6 +213,8 @@ export const wrappedScripts = pgTable(
     script: jsonb("script").notNull(),
     copy: jsonb("copy"),
     copyModel: text("copy_model"),
+    /** Tokens, duration and estimated cost of the generation that produced `copy`. */
+    copyUsage: jsonb("copy_usage"),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },

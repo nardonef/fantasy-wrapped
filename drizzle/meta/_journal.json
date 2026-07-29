@@ -8,6 +8,13 @@
       "when": 1784682875814,
       "tag": "0000_puzzling_captain_britain",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785285648886,
+      "tag": "0001_last_the_professor",
+      "breakpoints": true
     }
   ]
 }
