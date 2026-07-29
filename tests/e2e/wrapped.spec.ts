@@ -92,15 +92,15 @@ test("the story holds a phone-shaped card on a wide desktop", async ({ page, vie
   await expect(player).toBeVisible();
 
   const frame = await player.boundingBox();
-  const window = page.viewportSize();
-  if (!frame || !window) throw new Error("no layout box");
+  const vp = page.viewportSize();
+  if (!frame || !vp) throw new Error("no layout box");
 
   // Full-bleed on a 2560px monitor was the bug: the type sits at its clamp
   // ceiling and strands itself in two metres of empty ground.
   expect(frame.width).toBeLessThanOrEqual(520);
-  expect(frame.width).toBeLessThan(window.width / 2);
+  expect(frame.width).toBeLessThan(vp.width / 2);
   // Centred on the page ground, not pinned left.
-  expect(Math.abs(window.width - (frame.x * 2 + frame.width))).toBeLessThan(2);
+  expect(Math.abs(vp.width - (frame.x * 2 + frame.width))).toBeLessThan(2);
   // 9:16, the format the deck is actually written for.
   expect(frame.height / frame.width).toBeCloseTo(16 / 9, 1);
 });
@@ -109,8 +109,7 @@ test("story type sizes off the card, not the window", async ({ page, viewport })
   test.skip((viewport?.width ?? 0) < 640, "phones are full-bleed by design");
   await page.goto(WRAPPED_URL);
   const title = page.getByTestId("story-player").locator("h2").first();
-  const titlePx = () =>
-    title.evaluate((el) => Number.parseFloat(getComputedStyle(el).fontSize));
+  const titlePx = () => title.evaluate((el) => Number.parseFloat(getComputedStyle(el).fontSize));
 
   await page.setViewportSize({ width: 2560, height: 1440 });
   await expect(title).toBeVisible();

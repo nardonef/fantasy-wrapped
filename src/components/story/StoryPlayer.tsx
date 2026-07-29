@@ -642,95 +642,98 @@ export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref
         data-tone={tone}
         data-layout={card.layout}
       >
-      <div className="absolute inset-x-0 top-0 z-30 flex gap-1 px-3 pt-3">
-        {cards.map((c, i) => (
-          <div
-            key={c.key}
-            className={`h-[3px] flex-1 ${light ? "bg-paper-ink/15" : "bg-chalk/15"}`}
-          >
+        <div className="absolute inset-x-0 top-0 z-30 flex gap-1 px-3 pt-3">
+          {cards.map((c, i) => (
             <div
-              className={`h-full ${light ? "bg-flag-ink" : "bg-flag"} ${i <= index ? "w-full" : "w-0"}`}
-              style={i === index ? { transition: "width 0.3s" } : undefined}
-            />
-          </div>
-        ))}
-      </div>
+              key={c.key}
+              className={`h-[3px] flex-1 ${light ? "bg-paper-ink/15" : "bg-chalk/15"}`}
+            >
+              <div
+                className={`h-full ${light ? "bg-flag-ink" : "bg-flag"} ${i <= index ? "w-full" : "w-0"}`}
+                style={i === index ? { transition: "width 0.3s" } : undefined}
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="absolute inset-x-0 top-0 z-20 flex items-baseline gap-3 px-7 pt-8">
-        <span aria-hidden className={`label ${faint(tone)}`}>
-          ←
-        </span>
-        <span className={`label truncate ${faint(tone)}`}>
-          {leagueName} · {season}
-        </span>
-        <span className={`label ml-auto shrink-0 ${faint(tone)}`}>
-          {String(index + 1).padStart(2, "0")} / {String(cards.length).padStart(2, "0")}
-        </span>
-      </div>
+        <div className="absolute inset-x-0 top-0 z-20 flex items-baseline gap-3 px-7 pt-8">
+          <span aria-hidden className={`label ${faint(tone)}`}>
+            ←
+          </span>
+          <span className={`label truncate ${faint(tone)}`}>
+            {leagueName} · {season}
+          </span>
+          <span className={`label ml-auto shrink-0 ${faint(tone)}`}>
+            {String(index + 1).padStart(2, "0")} / {String(cards.length).padStart(2, "0")}
+          </span>
+        </div>
 
-      <button
-        type="button"
-        aria-label="previous card"
-        onClick={back}
-        className="absolute inset-y-0 left-0 z-10 w-1/3"
-      />
-      <button
-        type="button"
-        aria-label="next card"
-        onClick={advance}
-        className="absolute inset-y-0 right-0 z-10 w-2/3"
-      />
+        <button
+          type="button"
+          aria-label="previous card"
+          onClick={back}
+          className="absolute inset-y-0 left-0 z-10 w-1/3"
+        />
+        <button
+          type="button"
+          aria-label="next card"
+          onClick={advance}
+          className="absolute inset-y-0 right-0 z-10 w-2/3"
+        />
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={card.key}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.16 }}
-          className="relative flex flex-1 flex-col justify-between px-7 pt-[108px] pb-[78px]"
-        >
-          <div className="relative">{top}</div>
-          <div className="relative">
-            {bottom}
-            {card.isFinale && (
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6, ease: EASE }}
-                className="relative z-20 mt-7 flex items-center gap-5"
-              >
-                <button
-                  type="button"
-                  onClick={share}
-                  className={`label min-h-11 px-6 py-3.5 ${
-                    light ? "bg-paper-ink text-paper" : "bg-chalk text-field"
-                  }`}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={card.key}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.16 }}
+            className="relative flex flex-1 flex-col justify-between px-7 pt-[108px] pb-[78px]"
+          >
+            <div className="relative">{top}</div>
+            <div className="relative">
+              {bottom}
+              {card.isFinale && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6, ease: EASE }}
+                  className="relative z-20 mt-7 flex items-center gap-5"
                 >
-                  Send it to the chat
-                </button>
-                <a href={leagueHref} className={`label underline underline-offset-4 ${dim(tone)}`}>
-                  the ballot →
-                </a>
-              </motion.div>
-            )}
-          </div>
-        </motion.div>
-      </AnimatePresence>
+                  <button
+                    type="button"
+                    onClick={share}
+                    className={`label min-h-11 px-6 py-3.5 ${
+                      light ? "bg-paper-ink text-paper" : "bg-chalk text-field"
+                    }`}
+                  >
+                    Send it to the chat
+                  </button>
+                  <a
+                    href={leagueHref}
+                    className={`label underline underline-offset-4 ${dim(tone)}`}
+                  >
+                    the ballot →
+                  </a>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
-      <div className="absolute inset-x-0 bottom-6 z-20 flex items-baseline justify-between px-7">
-        <span className={`label truncate ${faint(tone)}`}>{managerName}</span>
-        <span className={`label shrink-0 ${faint(tone)}`}>Fantasy Wrapped</span>
-      </div>
+        <div className="absolute inset-x-0 bottom-6 z-20 flex items-baseline justify-between px-7">
+          <span className={`label truncate ${faint(tone)}`}>{managerName}</span>
+          <span className={`label shrink-0 ${faint(tone)}`}>Fantasy Wrapped</span>
+        </div>
 
-      {index < cards.length - 1 && (
-        <span
-          className={`label absolute inset-x-0 bottom-11 z-20 text-center ${faint(tone)}`}
-          aria-hidden
-        >
-          tap to continue
-        </span>
-      )}
+        {index < cards.length - 1 && (
+          <span
+            className={`label absolute inset-x-0 bottom-11 z-20 text-center ${faint(tone)}`}
+            aria-hidden
+          >
+            tap to continue
+          </span>
+        )}
       </div>
     </div>
   );
