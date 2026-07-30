@@ -24,6 +24,10 @@ jobs:
           --health-retries 10
     env:
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/fantasy_wrapped_test
+      # Not a secret (write-only client-side ingestion token) — set here so
+      # the build inlines it and e2e can assert PostHog capture calls fire.
+      NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: phc_ci_e2e_placeholder
+      NEXT_PUBLIC_POSTHOG_HOST: /ingest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

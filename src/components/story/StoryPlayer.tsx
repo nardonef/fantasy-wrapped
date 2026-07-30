@@ -16,7 +16,8 @@
  */
 
 import { AnimatePresence, motion } from "motion/react";
-import { useCallback, useEffect, useState } from "react";
+import posthog from "posthog-js";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { CardView, StoryCard, Tone } from "./model";
 
 type Props = {
@@ -25,6 +26,10 @@ type Props = {
   leagueName: string;
   season: number;
   leagueHref: string;
+  /** Telemetry only, not rendered: identifies the league/roster to PostHog. */
+  leagueId: string;
+  rosterId: string;
+  archetype: string;
 };
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -589,9 +594,20 @@ const ARCHETYPES: Record<string, (p: ArchProps) => Arch> = {
 
 /* ---------- player ---------- */
 
-export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref }: Props) {
+export function StoryPlayer({
+  cards,
+  managerName,
+  leagueName,
+  season,
+  leagueHref,
+  leagueId,
+  rosterId,
+  archetype,
+}: Props) {
   const [index, setIndex] = useState(0);
   const card = cards[index];
+  const prevIndex = useRef(0);
+  const completed = useRef(false);
 
   const advance = useCallback(
     () => setIndex((i) => Math.min(i + 1, cards.length - 1)),
@@ -608,13 +624,59 @@ export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref
     return () => window.removeEventListener("keydown", onKey);
   }, [advance, back]);
 
+  useEffect(() => {
+    if (!posthog.__loaded) return;
+    posthog.capture("wrapped_story_started", {
+      league_id: leagueId,
+      roster_id: rosterId,
+      season,
+      archetype,
+      card_count: cards.length,
+    });
+  }, [leagueId, rosterId, season, archetype, cards.length]);
+
+  useEffect(() => {
+    if (!posthog.__loaded) return;
+    const viewed = cards[index];
+    const direction = index >= prevIndex.current ? "forward" : "backward";
+    prevIndex.current = index;
+    posthog.capture("wrapped_card_viewed", {
+      league_id: leagueId,
+      roster_id: rosterId,
+      card_index: index,
+      card_key: viewed.key,
+      layout: viewed.layout,
+      tone: viewed.tone,
+      is_finale: viewed.isFinale,
+      direction,
+    });
+    if (viewed.isFinale && !completed.current) {
+      completed.current = true;
+      posthog.capture("wrapped_story_completed", { league_id: leagueId, roster_id: rosterId, season, archetype });
+    }
+  }, [index, cards, leagueId, rosterId, season, archetype]);
+
   async function share() {
     const url = window.location.href;
     const text = `${managerName}'s ${season} Fantasy Wrapped — ${leagueName}`;
+    const shareMethod = "share" in navigator ? "web_share" : "clipboard";
+    if (posthog.__loaded) {
+      posthog.capture("wrapped_share_clicked", {
+        league_id: leagueId,
+        roster_id: rosterId,
+        share_method: shareMethod,
+      });
+    }
     if (navigator.share) {
       await navigator.share({ title: text, url }).catch(() => {});
     } else {
       await navigator.clipboard.writeText(url);
+    }
+  }
+
+  function trackBallotClick() {
+    if (posthog.__loaded) {
+      posthog.capture("wrapped_ballot_link_clicked", { league_id: leagueId, roster_id: rosterId });
     }
   }
 
@@ -711,6 +773,7 @@ export function StoryPlayer({ cards, managerName, leagueName, season, leagueHref
                   </button>
                   <a
                     href={leagueHref}
+                    onClick={trackBallotClick}
                     className={`label underline underline-offset-4 ${dim(tone)}`}
                   >
                     the ballot →

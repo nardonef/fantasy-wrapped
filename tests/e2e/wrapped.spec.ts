@@ -1,6 +1,18 @@
-import { expect, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
 
 const WRAPPED_URL = "/w/sleeper/1269125082375008256/2025/5";
+
+/** Captures every PostHog event name sent through the /ingest proxy, in order. */
+function trackCapturedEvents(page: Page): string[] {
+  const events: string[] = [];
+  page.on("request", (request) => {
+    if (!request.url().includes("/ingest/") || request.method() !== "POST") return;
+    const body = request.postDataJSON() as { event?: string; batch?: { event: string }[] };
+    if (body.event) events.push(body.event);
+    for (const item of body.batch ?? []) events.push(item.event);
+  });
+  return events;
+}
 
 test("landing page renders the pitch and username form", async ({ page }) => {
   await page.goto("/");
@@ -135,4 +147,30 @@ test("league ballot page lists superlatives and links to wrappeds", async ({ pag
 test("unknown roster 404s", async ({ page }) => {
   const response = await page.goto("/w/sleeper/1269125082375008256/2025/99");
   expect(response?.status()).toBe(404);
+});
+
+test("playing through the story captures the expected PostHog events", async ({ page }) => {
+  const events = trackCapturedEvents(page);
+  await page.goto(WRAPPED_URL);
+  await expect(page.getByTestId("story-player")).toBeVisible();
+
+  const next = page.getByRole("button", { name: "next card" });
+  for (let i = 0; i < 10; i++) {
+    await next.click();
+  }
+  await page.getByRole("button", { name: /send it to the chat/i }).click();
+
+  // posthog-js batches capture calls, so give the queue time to flush before
+  // asserting rather than racing it. wrapped_ballot_link_clicked is left
+  // unasserted here: clicking it navigates away, which races (and can
+  // truncate) the capture request in a way that isn't worth chasing in a
+  // test — it's covered by code review, not e2e.
+  await expect
+    .poll(() => events.includes("wrapped_share_clicked"), { timeout: 10_000 })
+    .toBe(true);
+
+  expect(events.filter((e) => e === "wrapped_card_viewed")).toHaveLength(11);
+  expect(events).toEqual(
+    expect.arrayContaining(["wrapped_story_started", "wrapped_story_completed", "wrapped_share_clicked"]),
+  );
 });
