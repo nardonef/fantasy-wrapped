@@ -1,4 +1,4 @@
-import { and, eq } from "drizzle-orm";
+import { and, eq, isNull, lt, or } from "drizzle-orm";
 import { cache } from "react";
 import { fallbackCopy } from "@/copy/fallback";
 import type { WrappedCopy } from "@/copy/schema";
@@ -8,6 +8,43 @@ import type { Provider } from "@/db/schema";
 import { leagues, teams, wrappedScripts } from "@/db/schema";
 import { type CardScript, computeSeasonFacts, ENGINE_VERSION, generateCardScript } from "@/engine";
 import { loadBundle } from "./load";
+
+/**
+ * A claim older than this is treated as abandoned (the process that made it
+ * crashed, or Vercel killed the invocation) rather than still in flight, and
+ * is retried rather than left blocking that team's copy forever. Generous
+ * relative to a real Haiku call (low single-digit seconds) on purpose — the
+ * cost of guessing too short is a duplicate generation; too long just delays
+ * a retry after a genuine crash, which is rare.
+ */
+export const CLAIM_STALE_MS = 2 * 60 * 1000;
+
+/**
+ * Atomically claim the right to generate copy for one team, so two callers
+ * racing on the same team — a background league warm and a foreground page
+ * view, or two overlapping warms — don't both pay for the LLM call. The
+ * UPDATE only matches a row that's still uncopied and unclaimed (or whose
+ * claim has gone stale), so exactly one caller sees `returning` rows.
+ */
+export async function tryClaimGeneration(teamId: string): Promise<boolean> {
+  const staleThreshold = new Date(Date.now() - CLAIM_STALE_MS);
+  const claimed = await db
+    .update(wrappedScripts)
+    .set({ copyGenerationClaimedAt: new Date() })
+    .where(
+      and(
+        eq(wrappedScripts.teamId, teamId),
+        eq(wrappedScripts.engineVersion, ENGINE_VERSION),
+        isNull(wrappedScripts.copy),
+        or(
+          isNull(wrappedScripts.copyGenerationClaimedAt),
+          lt(wrappedScripts.copyGenerationClaimedAt, staleThreshold),
+        ),
+      ),
+    )
+    .returning({ id: wrappedScripts.id });
+  return claimed.length > 0;
+}
 
 export type WrappedPayload = {
   script: CardScript;
@@ -92,23 +129,41 @@ export const getWrapped = cache(async function getWrapped(
       // payload shape is unchanged, without paying for a generation.
       copy = fallbackCopy(script);
     } else if (process.env.ANTHROPIC_API_KEY) {
-      const result = await writeCopy(script);
-      copy = result.copy;
-      if (!result.usedFallback) {
-        await db
-          .update(wrappedScripts)
-          .set({
-            copy,
-            copyModel: result.model,
-            copyUsage: result.telemetry,
-            updatedAt: new Date(),
-          })
+      if (await tryClaimGeneration(team.id)) {
+        const result = await writeCopy(script);
+        copy = result.copy;
+        if (!result.usedFallback) {
+          await db
+            .update(wrappedScripts)
+            .set({
+              copy,
+              copyModel: result.model,
+              copyUsage: result.telemetry,
+              updatedAt: new Date(),
+            })
+            .where(
+              and(
+                eq(wrappedScripts.teamId, team.id),
+                eq(wrappedScripts.engineVersion, ENGINE_VERSION),
+              ),
+            );
+        }
+      } else {
+        // Someone else claimed this team's generation — re-read rather than
+        // assume it's still running. If they already finished, serve the
+        // real copy instead of needlessly falling back; if they haven't,
+        // this one request falls back rather than wait on a call it isn't
+        // paying for.
+        const [recheck] = await db
+          .select({ copy: wrappedScripts.copy })
+          .from(wrappedScripts)
           .where(
             and(
               eq(wrappedScripts.teamId, team.id),
               eq(wrappedScripts.engineVersion, ENGINE_VERSION),
             ),
           );
+        copy = (recheck?.copy as WrappedCopy | null) ?? fallbackCopy(script);
       }
     } else {
       copy = fallbackCopy(script);
@@ -140,3 +195,58 @@ export const getWrapped = cache(async function getWrapped(
       .sort((a, b) => Number(a.rosterId) - Number(b.rosterId)),
   };
 });
+
+/**
+ * Background-generate copy for every OTHER team in a league — called after a
+ * sync (excluding the roster the syncing user is about to view themselves)
+ * and again from every wrapped-page view (excluding the one being viewed) as
+ * backfill, so a league synced before this shipped — or a warm that got cut
+ * off — still catches up the next time anyone looks at it.
+ *
+ * Cheap to call unconditionally: for an already-fully-warmed league this is
+ * just N no-op reads, since each team's own claim inside getWrapped is what
+ * actually gates the LLM call, not this function.
+ *
+ * Sequential, not parallel. A league tops out around 10-14 teams and Haiku
+ * without thinking runs a few seconds each, so there's nothing to gain from
+ * concurrency here and a burst of simultaneous calls is the more likely way
+ * to trip a rate limit.
+ */
+export async function warmLeagueCopy(
+  provider: Provider,
+  providerLeagueId: string,
+  season: number,
+  excludeRosterId?: string,
+): Promise<void> {
+  if (!process.env.ANTHROPIC_API_KEY) return;
+
+  const [league] = await db
+    .select()
+    .from(leagues)
+    .where(
+      and(
+        eq(leagues.provider, provider),
+        eq(leagues.providerLeagueId, providerLeagueId),
+        eq(leagues.season, season),
+      ),
+    );
+  if (league?.syncStatus !== "synced") return;
+
+  const teamRows = await db.select().from(teams).where(eq(teams.leagueId, league.id));
+  for (const team of teamRows) {
+    if (team.providerRosterId === excludeRosterId) continue;
+    try {
+      await getWrapped(provider, providerLeagueId, season, team.providerRosterId);
+    } catch (error) {
+      // One team's failure — a transient API error, a bad script — must not
+      // stop the rest of the league from warming.
+      console.error(
+        JSON.stringify({
+          event: "copy.warm_failed",
+          rosterId: team.providerRosterId,
+          error: error instanceof Error ? error.message : String(error),
+        }),
+      );
+    }
+  }
+}
