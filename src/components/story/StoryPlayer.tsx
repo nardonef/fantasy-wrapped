@@ -652,7 +652,12 @@ export function StoryPlayer({
     });
     if (viewed.isFinale && !completed.current) {
       completed.current = true;
-      posthog.capture("wrapped_story_completed", { league_id: leagueId, roster_id: rosterId, season, archetype });
+      posthog.capture("wrapped_story_completed", {
+        league_id: leagueId,
+        roster_id: rosterId,
+        season,
+        archetype,
+      });
     }
   }, [index, cards, leagueId, rosterId, season, archetype]);
 

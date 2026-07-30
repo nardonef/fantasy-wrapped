@@ -165,12 +165,14 @@ test("playing through the story captures the expected PostHog events", async ({ 
   // unasserted here: clicking it navigates away, which races (and can
   // truncate) the capture request in a way that isn't worth chasing in a
   // test — it's covered by code review, not e2e.
-  await expect
-    .poll(() => events.includes("wrapped_share_clicked"), { timeout: 10_000 })
-    .toBe(true);
+  await expect.poll(() => events.includes("wrapped_share_clicked"), { timeout: 10_000 }).toBe(true);
 
   expect(events.filter((e) => e === "wrapped_card_viewed")).toHaveLength(11);
   expect(events).toEqual(
-    expect.arrayContaining(["wrapped_story_started", "wrapped_story_completed", "wrapped_share_clicked"]),
+    expect.arrayContaining([
+      "wrapped_story_started",
+      "wrapped_story_completed",
+      "wrapped_share_clicked",
+    ]),
   );
 });
