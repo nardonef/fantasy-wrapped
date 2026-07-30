@@ -21,10 +21,19 @@ export function wrappedDistinctId(
   return `wrapped:${provider}:${providerLeagueId}:${season}:${rosterId}`;
 }
 
+export function ballotDistinctId(
+  provider: string,
+  providerLeagueId: string,
+  season: number,
+): string {
+  return `ballot:${provider}:${providerLeagueId}:${season}`;
+}
+
 export async function captureServerEvent(
   event: string,
   distinctId: string,
   properties: Record<string, unknown> = {},
+  groups?: Record<string, string>,
 ): Promise<void> {
   const token = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
   if (!token) return;
@@ -33,6 +42,7 @@ export async function captureServerEvent(
     distinctId,
     event,
     properties: { ...properties, environment: getPostHogEnvironment() },
+    groups,
   });
   await client.shutdown();
 }
