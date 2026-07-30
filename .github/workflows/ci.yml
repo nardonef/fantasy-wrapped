@@ -28,11 +28,12 @@ jobs:
       # the build inlines it and e2e can assert PostHog capture calls fire.
       NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: phc_ci_e2e_placeholder
       NEXT_PUBLIC_POSTHOG_HOST: /ingest
-      # posthog-js otherwise silently drops every capture() call from
-      # Playwright's webdriver-controlled browser (correct default
-      # behavior: bot traffic shouldn't count in real analytics). CI is
-      # the one place that should see through it.
-      NEXT_PUBLIC_POSTHOG_E2E_ALLOW_BOT_CAPTURE: "true"
+      # Skips the /flags round-trip (the placeholder token 401s it, which
+      # would otherwise leave the SDK permanently un-loaded) and opts back
+      # into capture from a webdriver-controlled browser, which posthog-js
+      # otherwise silently drops as bot traffic. Production leaves this
+      # unset, so neither behavior applies to real users.
+      NEXT_PUBLIC_POSTHOG_E2E_MODE: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
