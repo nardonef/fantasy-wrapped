@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { after } from "next/server";
 import { buildStoryCards } from "@/components/story/model";
 import { StoryPlayer } from "@/components/story/StoryPlayer";
 import type { Provider } from "@/db/schema";
 import { loadSeasonFacts } from "@/sync/load";
-import { getWrapped, warmLeagueCopy } from "@/sync/wrapped";
+import { getWrapped } from "@/sync/wrapped";
 
 export const dynamic = "force-dynamic";
 
@@ -67,12 +66,6 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
   if (!team) notFound();
 
   const cards = buildStoryCards(wrapped.script, wrapped.copy, team, facts);
-
-  // Backfill for leagues synced before this shipped, or a sync-time warm that
-  // got cut off: idempotent and cheap when the league is already warm, since
-  // each team's own claim inside getWrapped — not this call — is what
-  // actually gates the LLM spend.
-  after(() => warmLeagueCopy(parsed.provider, parsed.leagueId, parsed.season, parsed.rosterId));
 
   return (
     <StoryPlayer

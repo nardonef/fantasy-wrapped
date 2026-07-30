@@ -1,19 +1,13 @@
-import { after, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/db";
 import { pruneRateLimitWindows, rateLimit } from "@/lib/rate-limit";
 import { createHttpSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 import { persistBundle } from "@/sync/persist";
 import { resolveYourRosterId } from "@/sync/resolve-roster";
-import { warmLeagueCopy } from "@/sync/wrapped";
 
 export const dynamic = "force-dynamic";
-// Bumped from 120: the response itself still returns as soon as sync
-// finishes (warming runs in `after()`, after the response is sent, and
-// doesn't delay it), but the background warm loop for the rest of the
-// league — sequential, one Haiku call per team — needs headroom to finish
-// within the same invocation for a full-sized league.
-export const maxDuration = 300;
+export const maxDuration = 120;
 
 const bodySchema = z.object({ leagueId: z.string().min(1), userId: z.string().optional() });
 const SYNCS_PER_HOUR = 12;
@@ -49,22 +43,6 @@ export async function POST(request: Request) {
     await persistBundle(db, bundle);
 
     const yourRosterId = resolveYourRosterId(bundle.teams, parsed.data.userId);
-
-    // Runs after the response is sent, so it never delays the client — the
-    // point is to overlap this league's copy generation with the "Pulling
-    // the tape…" animation and the navigation that follows, rather than pay
-    // for it cold when the user (or the next manager to open their own
-    // share link) lands on a wrapped page. Excludes the syncing user's own
-    // roster: that page is about to be viewed synchronously, which is the
-    // faster and already-deduped path (see getWrapped's `cache` wrapper).
-    after(() =>
-      warmLeagueCopy(
-        "sleeper",
-        bundle.league.providerLeagueId,
-        bundle.league.season,
-        yourRosterId ?? undefined,
-      ),
-    );
 
     return NextResponse.json({
       provider: "sleeper",
