@@ -1,12 +1,13 @@
 import { and, eq } from "drizzle-orm";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BallotLink } from "@/components/ballot/BallotLink";
 import { db } from "@/db";
 import type { Provider } from "@/db/schema";
 import { leagues } from "@/db/schema";
 import { classifyLeagueArchetypes, computeSeasonFacts } from "@/engine";
 import { computeSuperlatives } from "@/engine/superlatives";
+import { ballotDistinctId, captureServerEvent } from "@/lib/posthog-server";
 import { loadBundle } from "@/sync/load";
 
 export const dynamic = "force-dynamic";
@@ -54,6 +55,17 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
   const wrappedHref = (rosterId: string) =>
     `/w/${p.provider}/${p.leagueId}/${facts.league.season}/${rosterId}`;
 
+  await captureServerEvent(
+    "league_ballot_viewed",
+    ballotDistinctId(p.provider, p.leagueId, facts.league.season),
+    {
+      team_count: teams.length,
+      superlative_count: superlatives.length,
+      season: facts.league.season,
+    },
+    { league: p.leagueId },
+  );
+
   return (
     <main className="min-h-dvh px-7 py-16 sm:mx-auto sm:max-w-xl">
       <p className="label text-chalk-faint">
@@ -71,12 +83,16 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
           {superlatives.map((award) => (
             <li key={award.id} className="py-6">
               <p className="label text-flag">{award.label}</p>
-              <Link
+              <BallotLink
                 href={wrappedHref(award.rosterId)}
+                leagueId={p.leagueId}
+                rosterId={award.rosterId}
+                linkType="award"
+                awardId={award.id}
                 className="display mt-2.5 block text-3xl hover:text-flag"
               >
                 {award.winner}
-              </Link>
+              </BallotLink>
               <p className="mt-2 text-[14px] leading-[1.5] text-pretty text-chalk-dim">
                 {award.detail}
               </p>
@@ -90,8 +106,11 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
         <ul className="mt-3 divide-y divide-chalk/12 border-y border-chalk/12">
           {teams.map((team) => (
             <li key={team.rosterId}>
-              <Link
+              <BallotLink
                 href={wrappedHref(team.rosterId)}
+                leagueId={p.leagueId}
+                rosterId={team.rosterId}
+                linkType="team"
                 className="group flex items-baseline justify-between gap-4 py-4"
               >
                 <span className="label shrink-0 text-chalk-faint group-hover:text-flag">
@@ -100,7 +119,7 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
                 <span className="display truncate text-right text-lg group-hover:text-flag">
                   {archetypes.get(team.rosterId)?.name}
                 </span>
-              </Link>
+              </BallotLink>
             </li>
           ))}
         </ul>

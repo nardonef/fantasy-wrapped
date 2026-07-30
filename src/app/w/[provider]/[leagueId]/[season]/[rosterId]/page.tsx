@@ -60,6 +60,7 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
         rawParams.rosterId,
       ),
       { reason: "bad_params" },
+      { league: rawParams.leagueId },
     );
     notFound();
   }
@@ -76,7 +77,14 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
     parsed.rosterId,
   );
   if (!wrapped) {
-    await captureServerEvent("wrapped_not_found", distinctId, { reason: "wrapped_missing" });
+    await captureServerEvent(
+      "wrapped_not_found",
+      distinctId,
+      { reason: "wrapped_missing" },
+      {
+        league: parsed.leagueId,
+      },
+    );
     notFound();
   }
 
@@ -85,12 +93,26 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
   // image and metadata read the script alone.
   const facts = await loadSeasonFacts(wrapped.leagueDbId);
   if (!facts) {
-    await captureServerEvent("wrapped_not_found", distinctId, { reason: "facts_missing" });
+    await captureServerEvent(
+      "wrapped_not_found",
+      distinctId,
+      { reason: "facts_missing" },
+      {
+        league: parsed.leagueId,
+      },
+    );
     notFound();
   }
   const team = facts.teams[parsed.rosterId];
   if (!team) {
-    await captureServerEvent("wrapped_not_found", distinctId, { reason: "team_missing" });
+    await captureServerEvent(
+      "wrapped_not_found",
+      distinctId,
+      { reason: "team_missing" },
+      {
+        league: parsed.leagueId,
+      },
+    );
     notFound();
   }
 

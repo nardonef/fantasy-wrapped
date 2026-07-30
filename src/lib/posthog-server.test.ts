@@ -13,12 +13,22 @@ const { capture, shutdown, PostHog } = vi.hoisted(() => {
 
 vi.mock("posthog-node", () => ({ PostHog }));
 
-const { captureServerEvent, wrappedDistinctId } = await import("./posthog-server");
+const { ballotDistinctId, captureServerEvent, wrappedDistinctId } = await import(
+  "./posthog-server"
+);
 
 describe("wrappedDistinctId", () => {
   it("builds a stable id from the route's identifying params", () => {
     expect(wrappedDistinctId("sleeper", "1269125082375008256", 2025, "5")).toBe(
       "wrapped:sleeper:1269125082375008256:2025:5",
+    );
+  });
+});
+
+describe("ballotDistinctId", () => {
+  it("builds a stable id from the league route's identifying params", () => {
+    expect(ballotDistinctId("sleeper", "1269125082375008256", 2025)).toBe(
+      "ballot:sleeper:1269125082375008256:2025",
     );
   });
 });
@@ -59,5 +69,19 @@ describe("captureServerEvent", () => {
       }),
     );
     expect(shutdown).toHaveBeenCalled();
+  });
+
+  it("passes groups through to capture for group analytics", async () => {
+    process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN = "phc_test_token";
+    await captureServerEvent(
+      "league_ballot_viewed",
+      "ballot:sleeper:1:2025",
+      { team_count: 10 },
+      { league: "1269125082375008256" },
+    );
+
+    expect(capture).toHaveBeenCalledWith(
+      expect.objectContaining({ groups: { league: "1269125082375008256" } }),
+    );
   });
 });

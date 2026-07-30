@@ -626,6 +626,10 @@ export function StoryPlayer({
 
   useEffect(() => {
     if (!posthog.__loaded) return;
+    // Associates this and every subsequent event in the session with the
+    // league group, so PostHog's League Activity dashboard can roll both
+    // surfaces (this page and the ballot) up by league.
+    posthog.group("league", leagueId);
     posthog.capture("wrapped_story_started", {
       league_id: leagueId,
       roster_id: rosterId,
