@@ -13,6 +13,12 @@ if (token) {
     // App Router navigations don't fire browser page loads; PageviewTracker
     // captures $pageview explicitly on route change instead.
     capture_pageview: false,
+    // Not using feature flags/experiments in this phase. Skipping the
+    // flags round-trip also means init doesn't block on it succeeding —
+    // without this, an invalid/unrecognized token (e.g. CI's placeholder)
+    // leaves the SDK stuck un-loaded and every capture() call a silent
+    // no-op, even though the actual capture endpoint accepts any token.
+    advanced_disable_flags: true,
   });
   posthog.register({ environment: getPostHogEnvironment() });
 }
