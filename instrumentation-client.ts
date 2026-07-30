@@ -19,6 +19,15 @@ if (token) {
     // leaves the SDK stuck un-loaded and every capture() call a silent
     // no-op, even though the actual capture endpoint accepts any token.
     advanced_disable_flags: true,
+    // posthog-js silently drops every capture() call from a
+    // webdriver-controlled browser (correct behavior in production: bot
+    // traffic shouldn't count as real users). e2e tests are exactly such a
+    // browser, so CI alone opts back in via this undocumented,
+    // posthog-js-internal flag -- never set outside CI, so production
+    // traffic is still filtered normally.
+    ...(process.env.NEXT_PUBLIC_POSTHOG_E2E_ALLOW_BOT_CAPTURE === "true"
+      ? { __preview_capture_bot_pageviews: true }
+      : {}),
   });
   posthog.register({ environment: getPostHogEnvironment() });
 }

@@ -1,13 +1,24 @@
+import { gunzipSync } from "node:zlib";
 import { expect, type Page, test } from "@playwright/test";
 
 const WRAPPED_URL = "/w/sleeper/1269125082375008256/2025/5";
 
-/** Captures every PostHog event name sent through the /ingest proxy, in order. */
+/**
+ * Captures every PostHog event name sent through the /ingest proxy, in
+ * order. posthog-js sends capture bodies gzip-compressed (as text/plain, to
+ * dodge a CORS preflight) rather than as plain JSON, so this decompresses
+ * before parsing.
+ */
 function trackCapturedEvents(page: Page): string[] {
   const events: string[] = [];
   page.on("request", (request) => {
     if (!request.url().includes("/ingest/") || request.method() !== "POST") return;
-    const body = request.postDataJSON() as { event?: string; batch?: { event: string }[] };
+    const buf = request.postDataBuffer();
+    if (!buf) return;
+    const body = JSON.parse(gunzipSync(buf).toString("utf-8")) as {
+      event?: string;
+      batch?: { event: string }[];
+    };
     if (body.event) events.push(body.event);
     for (const item of body.batch ?? []) events.push(item.event);
   });
