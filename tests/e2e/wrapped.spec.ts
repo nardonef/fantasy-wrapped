@@ -27,7 +27,7 @@ function trackCapturedEvents(page: Page): string[] {
 
 test("landing page renders the pitch and username form", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("told straight");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Wrapped");
   await expect(page.getByLabel("Sleeper username")).toBeVisible();
 });
 

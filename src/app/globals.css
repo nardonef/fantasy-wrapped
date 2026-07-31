@@ -146,6 +146,37 @@ body {
   background: rgb(10 10 11 / 0.15);
 }
 
+/*
+ * Scoreboard — the entry-screen palette.
+ *
+ * A green-on-near-black treatment used only on the landing flow (username +
+ * league/year picker), deliberately separate from Signal. Scoped as local
+ * custom properties on `.scoreboard` rather than folded into the `--color-*`
+ * theme tokens above, per the handoff: this is an experiment, not a Signal
+ * replacement.
+ */
+.scoreboard {
+  --sb-bg: #0d1f17;
+  --sb-strip: #0a1712;
+  --sb-raised: #10241c;
+  --sb-ink: #f4fbf6;
+  --sb-ink-secondary: rgb(244 251 246 / 0.6);
+  --sb-ink-tertiary: rgb(244 251 246 / 0.45);
+  --sb-hairline: rgb(244 251 246 / 0.16);
+  --sb-hairline-strong: rgb(244 251 246 / 0.18);
+  --sb-accent: #6fe39b;
+  --sb-ticker-ink: rgb(111 227 155 / 0.6);
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* The story player animates through `motion`, which writes its timings to the
    element's style attribute. Only !important outranks that, so honouring a
    reduced-motion preference genuinely requires it here. */
