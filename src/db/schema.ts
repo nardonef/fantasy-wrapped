@@ -217,11 +217,11 @@ export const wrappedScripts = pgTable(
     copyUsage: jsonb("copy_usage"),
     /**
      * Set immediately before a generation starts, cleared never — only read.
-     * Lets two concurrent callers (a background league warm and a foreground
-     * page view, or two overlapping warms) agree on which one pays for the
-     * LLM call: whoever's claim UPDATE actually matches a row wins, the loser
-     * serves fallback copy for that one request instead of generating too. A
-     * stale claim (crashed before finishing) is retried after `CLAIM_STALE_MS`.
+     * Lets two concurrent page views of the same never-viewed team agree on
+     * which one pays for the LLM call: whoever's claim UPDATE actually
+     * matches a row wins, the loser serves fallback copy for that one
+     * request instead of generating too. A stale claim (crashed before
+     * finishing) is retried after `CLAIM_STALE_MS`.
      */
     copyGenerationClaimedAt: timestamp("copy_generation_claimed_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),

@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { PendingStoryOverlay } from "@/components/PendingStoryOverlay";
 
 type League = { leagueId: string; name: string; season: number; status: string; teams: number };
 type SyncedTeam = {
@@ -198,18 +200,10 @@ export function LandingFlow() {
             exit={{ opacity: 0 }}
             className="py-6"
           >
-            <div className="h-px w-full bg-chalk/12">
-              <motion.div
-                className="h-full origin-left bg-flag"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: [0, 0.55, 0.8, 0.94] }}
-                transition={{ duration: 8, times: [0, 0.3, 0.7, 1], ease: "easeOut" }}
-              />
-            </div>
-            <p className="display mt-7 text-3xl">Pulling the tape…</p>
-            <p className="mt-3 text-[15px] leading-[1.55] text-chalk-dim">
-              Reading every week of {phase.leagueName}. Nothing will be forgotten.
-            </p>
+            <LoadingScreen
+              title="Pulling the tape…"
+              description={`Reading every week of ${phase.leagueName}. Nothing will be forgotten.`}
+            />
           </motion.div>
         )}
 
@@ -242,6 +236,7 @@ export function LandingFlow() {
                       )}
                     </span>
                     <span className="label shrink-0 text-chalk-faint">{team.record}</span>
+                    <PendingStoryOverlay />
                   </Link>
                 </motion.li>
               ))}
