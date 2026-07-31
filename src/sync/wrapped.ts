@@ -1,4 +1,4 @@
-import { and, eq } from "drizzle-orm";
+import { and, eq, isNull, lt, or } from "drizzle-orm";
 import { cache } from "react";
 import { fallbackCopy } from "@/copy/fallback";
 import type { WrappedCopy } from "@/copy/schema";
@@ -8,6 +8,44 @@ import type { Provider } from "@/db/schema";
 import { leagues, teams, wrappedScripts } from "@/db/schema";
 import { type CardScript, computeSeasonFacts, ENGINE_VERSION, generateCardScript } from "@/engine";
 import { loadBundle } from "./load";
+
+/**
+ * A claim older than this is treated as abandoned (the process that made it
+ * crashed, or Vercel killed the invocation) rather than still in flight, and
+ * is retried rather than left blocking that team's copy forever. Generous
+ * relative to a real Haiku call (low single-digit seconds) on purpose — the
+ * cost of guessing too short is a duplicate generation; too long just delays
+ * a retry after a genuine crash, which is rare.
+ */
+export const CLAIM_STALE_MS = 2 * 60 * 1000;
+
+/**
+ * Atomically claim the right to generate copy for one team, so two callers
+ * racing on the same team — most plausibly two people opening the same
+ * never-viewed share link within moments of each other — don't both pay for
+ * the LLM call. The UPDATE only matches a row that's still uncopied and
+ * unclaimed (or whose claim has gone stale), so exactly one caller sees
+ * `returning` rows.
+ */
+export async function tryClaimGeneration(teamId: string): Promise<boolean> {
+  const staleThreshold = new Date(Date.now() - CLAIM_STALE_MS);
+  const claimed = await db
+    .update(wrappedScripts)
+    .set({ copyGenerationClaimedAt: new Date() })
+    .where(
+      and(
+        eq(wrappedScripts.teamId, teamId),
+        eq(wrappedScripts.engineVersion, ENGINE_VERSION),
+        isNull(wrappedScripts.copy),
+        or(
+          isNull(wrappedScripts.copyGenerationClaimedAt),
+          lt(wrappedScripts.copyGenerationClaimedAt, staleThreshold),
+        ),
+      ),
+    )
+    .returning({ id: wrappedScripts.id });
+  return claimed.length > 0;
+}
 
 export type WrappedPayload = {
   script: CardScript;
@@ -92,23 +130,41 @@ export const getWrapped = cache(async function getWrapped(
       // payload shape is unchanged, without paying for a generation.
       copy = fallbackCopy(script);
     } else if (process.env.ANTHROPIC_API_KEY) {
-      const result = await writeCopy(script);
-      copy = result.copy;
-      if (!result.usedFallback) {
-        await db
-          .update(wrappedScripts)
-          .set({
-            copy,
-            copyModel: result.model,
-            copyUsage: result.telemetry,
-            updatedAt: new Date(),
-          })
+      if (await tryClaimGeneration(team.id)) {
+        const result = await writeCopy(script);
+        copy = result.copy;
+        if (!result.usedFallback) {
+          await db
+            .update(wrappedScripts)
+            .set({
+              copy,
+              copyModel: result.model,
+              copyUsage: result.telemetry,
+              updatedAt: new Date(),
+            })
+            .where(
+              and(
+                eq(wrappedScripts.teamId, team.id),
+                eq(wrappedScripts.engineVersion, ENGINE_VERSION),
+              ),
+            );
+        }
+      } else {
+        // Someone else claimed this team's generation — re-read rather than
+        // assume it's still running. If they already finished, serve the
+        // real copy instead of needlessly falling back; if they haven't,
+        // this one request falls back rather than wait on a call it isn't
+        // paying for.
+        const [recheck] = await db
+          .select({ copy: wrappedScripts.copy })
+          .from(wrappedScripts)
           .where(
             and(
               eq(wrappedScripts.teamId, team.id),
               eq(wrappedScripts.engineVersion, ENGINE_VERSION),
             ),
           );
+        copy = (recheck?.copy as WrappedCopy | null) ?? fallbackCopy(script);
       }
     } else {
       copy = fallbackCopy(script);
