@@ -2,6 +2,7 @@ import { and, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PendingStoryOverlay } from "@/components/PendingStoryOverlay";
 import { db } from "@/db";
 import type { Provider } from "@/db/schema";
 import { leagues } from "@/db/schema";
@@ -76,6 +77,7 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
                 className="display mt-2.5 block text-3xl hover:text-flag"
               >
                 {award.winner}
+                <PendingStoryOverlay />
               </Link>
               <p className="mt-2 text-[14px] leading-[1.5] text-pretty text-chalk-dim">
                 {award.detail}
@@ -100,6 +102,7 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
                 <span className="display truncate text-right text-lg group-hover:text-flag">
                   {archetypes.get(team.rosterId)?.name}
                 </span>
+                <PendingStoryOverlay />
               </Link>
             </li>
           ))}
