@@ -752,14 +752,24 @@ export function StoryPlayer({
           className="absolute inset-y-0 right-0 z-10 w-2/3"
         />
 
-        <AnimatePresence mode="wait">
+        {/*
+         * mode="wait" strictly sequences exit-then-enter, which under rapid
+         * clicking can leave the exit animation stuck: the index (and the
+         * counter above, which reads it directly) advances immediately, but
+         * Framer Motion never fires the enter for the true latest card. The
+         * default (overlapping) mode can't get stuck that way, so the two
+         * cards are pulled out of flex flow (absolute inset-0, sized by the
+         * frame's fixed height) so a brief crossfade doesn't double the
+         * layout height.
+         */}
+        <AnimatePresence>
           <motion.div
             key={card.key}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.16 }}
-            className="relative flex flex-1 flex-col justify-between px-7 pt-[108px] pb-[78px]"
+            className="absolute inset-0 flex flex-col justify-between px-7 pt-[108px] pb-[78px]"
           >
             <div className="relative">{top}</div>
             <div className="relative">
