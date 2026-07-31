@@ -2,7 +2,10 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { PendingStoryOverlay } from "@/components/PendingStoryOverlay";
 
 type League = { leagueId: string; name: string; season: number; status: string; teams: number };
 type SyncedTeam = {
@@ -11,7 +14,14 @@ type SyncedTeam = {
   teamName: string | null;
   record: string;
 };
-type Synced = { leagueId: string; season: number; name: string; teams: SyncedTeam[] };
+type Synced = {
+  leagueId: string;
+  season: number;
+  name: string;
+  teams: SyncedTeam[];
+  /** The syncing user's own roster, when Sleeper's owner id matched one. */
+  yourRosterId: string | null;
+};
 
 type Phase =
   | { step: "user" }
@@ -26,9 +36,11 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const LIST = "mt-3 divide-y divide-chalk/12 border-y border-chalk/12";
 
 export function LandingFlow() {
+  const router = useRouter();
   const [phase, setPhase] = useState<Phase>({ step: "user" });
   const [username, setUsername] = useState("");
   const [season, setSeason] = useState(SEASONS[0]);
+  const [userId, setUserId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -46,6 +58,7 @@ export function LandingFlow() {
       if (data.leagues.length === 0) {
         throw new Error(`No ${season} leagues found for “${username.trim()}”`);
       }
+      setUserId(data.userId);
       setPhase({ step: "leagues", leagues: data.leagues });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
@@ -61,10 +74,17 @@ export function LandingFlow() {
       const res = await fetch("/api/sync", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ leagueId: league.leagueId }),
+        body: JSON.stringify({ leagueId: league.leagueId, userId }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Sync failed");
+      if (data.yourRosterId) {
+        // Known team — skip the picker and go straight to the story. Stay on
+        // the "syncing" phase (and its animation) until the new route takes
+        // over, rather than flash the team list first.
+        router.push(`/w/sleeper/${data.leagueId}/${data.season}/${data.yourRosterId}`);
+        return;
+      }
       setPhase({ step: "teams", synced: data });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Sync failed");
@@ -180,18 +200,10 @@ export function LandingFlow() {
             exit={{ opacity: 0 }}
             className="py-6"
           >
-            <div className="h-px w-full bg-chalk/12">
-              <motion.div
-                className="h-full origin-left bg-flag"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: [0, 0.55, 0.8, 0.94] }}
-                transition={{ duration: 8, times: [0, 0.3, 0.7, 1], ease: "easeOut" }}
-              />
-            </div>
-            <p className="display mt-7 text-3xl">Pulling the tape…</p>
-            <p className="mt-3 text-[15px] leading-[1.55] text-chalk-dim">
-              Reading every week of {phase.leagueName}. Nothing will be forgotten.
-            </p>
+            <LoadingScreen
+              title="Pulling the tape…"
+              description={`Reading every week of ${phase.leagueName}. Nothing will be forgotten.`}
+            />
           </motion.div>
         )}
 
@@ -224,6 +236,7 @@ export function LandingFlow() {
                       )}
                     </span>
                     <span className="label shrink-0 text-chalk-faint">{team.record}</span>
+                    <PendingStoryOverlay />
                   </Link>
                 </motion.li>
               ))}

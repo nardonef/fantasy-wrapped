@@ -4,11 +4,12 @@ import { db } from "@/db";
 import { pruneRateLimitWindows, rateLimit } from "@/lib/rate-limit";
 import { createHttpSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 import { persistBundle } from "@/sync/persist";
+import { resolveYourRosterId } from "@/sync/resolve-roster";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-const bodySchema = z.object({ leagueId: z.string().min(1) });
+const bodySchema = z.object({ leagueId: z.string().min(1), userId: z.string().optional() });
 const SYNCS_PER_HOUR = 12;
 
 /**
@@ -40,11 +41,15 @@ export async function POST(request: Request) {
       );
     }
     await persistBundle(db, bundle);
+
+    const yourRosterId = resolveYourRosterId(bundle.teams, parsed.data.userId);
+
     return NextResponse.json({
       provider: "sleeper",
       leagueId: bundle.league.providerLeagueId,
       season: bundle.league.season,
       name: bundle.league.name,
+      yourRosterId,
       teams: bundle.teams
         .map((t) => ({
           rosterId: t.providerRosterId,
