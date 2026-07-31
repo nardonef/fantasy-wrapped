@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { buildStoryCards } from "@/components/story/model";
 import { StoryPlayer } from "@/components/story/StoryPlayer";
 import type { Provider } from "@/db/schema";
+import { captureServerEvent, wrappedDistinctId } from "@/lib/posthog-server";
 import { loadSeasonFacts } from "@/sync/load";
 import { getWrapped } from "@/sync/wrapped";
 
@@ -47,23 +48,73 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 export default async function WrappedPage({ params }: { params: Promise<Params> }) {
-  const parsed = parseParams(await params);
-  if (!parsed) notFound();
+  const rawParams = await params;
+  const parsed = parseParams(rawParams);
+  if (!parsed) {
+    await captureServerEvent(
+      "wrapped_not_found",
+      wrappedDistinctId(
+        rawParams.provider,
+        rawParams.leagueId,
+        Number.parseInt(rawParams.season, 10),
+        rawParams.rosterId,
+      ),
+      { reason: "bad_params" },
+      { league: rawParams.leagueId },
+    );
+    notFound();
+  }
+  const distinctId = wrappedDistinctId(
+    parsed.provider,
+    parsed.leagueId,
+    parsed.season,
+    parsed.rosterId,
+  );
   const wrapped = await getWrapped(
     parsed.provider,
     parsed.leagueId,
     parsed.season,
     parsed.rosterId,
   );
-  if (!wrapped) notFound();
+  if (!wrapped) {
+    await captureServerEvent(
+      "wrapped_not_found",
+      distinctId,
+      { reason: "wrapped_missing" },
+      {
+        league: parsed.leagueId,
+      },
+    );
+    notFound();
+  }
 
   // The layouts need the league-wide numbers the engine reasoned over, which
   // the cached CardScript doesn't carry. Only this page pays for it — the OG
   // image and metadata read the script alone.
   const facts = await loadSeasonFacts(wrapped.leagueDbId);
-  if (!facts) notFound();
+  if (!facts) {
+    await captureServerEvent(
+      "wrapped_not_found",
+      distinctId,
+      { reason: "facts_missing" },
+      {
+        league: parsed.leagueId,
+      },
+    );
+    notFound();
+  }
   const team = facts.teams[parsed.rosterId];
-  if (!team) notFound();
+  if (!team) {
+    await captureServerEvent(
+      "wrapped_not_found",
+      distinctId,
+      { reason: "team_missing" },
+      {
+        league: parsed.leagueId,
+      },
+    );
+    notFound();
+  }
 
   const cards = buildStoryCards(wrapped.script, wrapped.copy, team, facts);
 
@@ -74,6 +125,9 @@ export default async function WrappedPage({ params }: { params: Promise<Params> 
       leagueName={wrapped.league.name}
       season={wrapped.league.season}
       leagueHref={`/l/${parsed.provider}/${parsed.leagueId}/${parsed.season}`}
+      leagueId={parsed.leagueId}
+      rosterId={parsed.rosterId}
+      archetype={wrapped.script.archetype.name}
     />
   );
 }

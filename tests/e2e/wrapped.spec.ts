@@ -1,6 +1,29 @@
-import { expect, test } from "@playwright/test";
+import { gunzipSync } from "node:zlib";
+import { expect, type Page, test } from "@playwright/test";
 
 const WRAPPED_URL = "/w/sleeper/1269125082375008256/2025/5";
+
+/**
+ * Captures every PostHog event name sent through the /ingest proxy, in
+ * order. posthog-js sends capture bodies gzip-compressed (as text/plain, to
+ * dodge a CORS preflight) rather than as plain JSON, so this decompresses
+ * before parsing.
+ */
+function trackCapturedEvents(page: Page): string[] {
+  const events: string[] = [];
+  page.on("request", (request) => {
+    if (!request.url().includes("/ingest/") || request.method() !== "POST") return;
+    const buf = request.postDataBuffer();
+    if (!buf) return;
+    const body = JSON.parse(gunzipSync(buf).toString("utf-8")) as {
+      event?: string;
+      batch?: { event: string }[];
+    };
+    if (body.event) events.push(body.event);
+    for (const item of body.batch ?? []) events.push(item.event);
+  });
+  return events;
+}
 
 test("landing page renders the pitch and username form", async ({ page }) => {
   await page.goto("/");
@@ -132,7 +155,49 @@ test("league ballot page lists superlatives and links to wrappeds", async ({ pag
   await expect(page.getByText("Final verdicts")).toBeVisible();
 });
 
+test("ballot links still navigate normally with the click-tracking handler attached", async ({
+  page,
+}) => {
+  await page.goto("/l/sleeper/1269125082375008256/2025");
+  // BallotLink wraps next/link's onClick to fire a capture call first — this
+  // catches a regression where that wrapper swallows the click or calls
+  // preventDefault instead of just observing it. league_ballot_link_clicked
+  // itself isn't asserted here for the same reason wrapped_ballot_link_clicked
+  // isn't in the test above: the click navigates away, racing the capture
+  // request in a way that isn't worth chasing in a test.
+  await page.locator('a[href^="/w/sleeper/1269125082375008256/2025/"]').first().click();
+  await expect(page).toHaveURL(/\/w\/sleeper\/1269125082375008256\/2025\/\d+/);
+});
+
 test("unknown roster 404s", async ({ page }) => {
   const response = await page.goto("/w/sleeper/1269125082375008256/2025/99");
   expect(response?.status()).toBe(404);
+});
+
+test("playing through the story captures the expected PostHog events", async ({ page }) => {
+  const events = trackCapturedEvents(page);
+  await page.goto(WRAPPED_URL);
+  await expect(page.getByTestId("story-player")).toBeVisible();
+
+  const next = page.getByRole("button", { name: "next card" });
+  for (let i = 0; i < 10; i++) {
+    await next.click();
+  }
+  await page.getByRole("button", { name: /send it to the chat/i }).click();
+
+  // posthog-js batches capture calls, so give the queue time to flush before
+  // asserting rather than racing it. wrapped_ballot_link_clicked is left
+  // unasserted here: clicking it navigates away, which races (and can
+  // truncate) the capture request in a way that isn't worth chasing in a
+  // test — it's covered by code review, not e2e.
+  await expect.poll(() => events.includes("wrapped_share_clicked"), { timeout: 10_000 }).toBe(true);
+
+  expect(events.filter((e) => e === "wrapped_card_viewed")).toHaveLength(11);
+  expect(events).toEqual(
+    expect.arrayContaining([
+      "wrapped_story_started",
+      "wrapped_story_completed",
+      "wrapped_share_clicked",
+    ]),
+  );
 });

@@ -24,6 +24,16 @@ jobs:
           --health-retries 10
     env:
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/fantasy_wrapped_test
+      # Not a secret (write-only client-side ingestion token) — set here so
+      # the build inlines it and e2e can assert PostHog capture calls fire.
+      NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: phc_ci_e2e_placeholder
+      NEXT_PUBLIC_POSTHOG_HOST: /ingest
+      # Skips the /flags round-trip (the placeholder token 401s it, which
+      # would otherwise leave the SDK permanently un-loaded) and opts back
+      # into capture from a webdriver-controlled browser, which posthog-js
+      # otherwise silently drops as bot traffic. Production leaves this
+      # unset, so neither behavior applies to real users.
+      NEXT_PUBLIC_POSTHOG_E2E_MODE: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
