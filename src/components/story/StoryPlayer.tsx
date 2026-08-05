@@ -608,13 +608,20 @@ export function StoryPlayer({
   const card = cards[index];
   const prevIndex = useRef(0);
   const completed = useRef(false);
+  const navMethod = useRef<"sequential" | "jump">("sequential");
 
-  const advance = useCallback(
-    () => setIndex((i) => Math.min(i + 1, cards.length - 1)),
-    [cards.length],
-  );
-  const back = useCallback(() => setIndex((i) => Math.max(i - 1, 0)), []);
-  const goTo = useCallback((i: number) => setIndex(i), []);
+  const advance = useCallback(() => {
+    navMethod.current = "sequential";
+    setIndex((i) => Math.min(i + 1, cards.length - 1));
+  }, [cards.length]);
+  const back = useCallback(() => {
+    navMethod.current = "sequential";
+    setIndex((i) => Math.max(i - 1, 0));
+  }, []);
+  const goTo = useCallback((i: number) => {
+    navMethod.current = "jump";
+    setIndex(i);
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -654,6 +661,7 @@ export function StoryPlayer({
       tone: viewed.tone,
       is_finale: viewed.isFinale,
       direction,
+      nav_method: navMethod.current,
     });
     if (viewed.isFinale && !completed.current) {
       completed.current = true;
@@ -662,6 +670,7 @@ export function StoryPlayer({
         roster_id: rosterId,
         season,
         archetype,
+        nav_method: navMethod.current,
       });
     }
   }, [index, cards, leagueId, rosterId, season, archetype]);
@@ -708,7 +717,7 @@ export function StoryPlayer({
         aria-hidden="true"
         className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end"
       >
-        <span className={`label tracking-[0.2em] [writing-mode:vertical-rl] ${faint(tone)}`}>
+        <span className="label tracking-[0.2em] text-chalk-faintest [writing-mode:vertical-rl]">
           {managerName} · {leagueName} · {season}
         </span>
       </div>
@@ -839,10 +848,10 @@ export function StoryPlayer({
             aria-current={i === index ? "true" : undefined}
             onClick={() => goTo(i)}
             className={`label text-left tracking-[0.1em] transition-colors ${
-              i === index ? (light ? "text-flag-ink" : "text-flag") : `${faint(tone)} hover:opacity-80`
+              i === index ? "text-flag" : "text-chalk-faint hover:text-chalk-dim"
             }`}
           >
-            {i === index ? "→ " : ""}
+            {i === index && <span aria-hidden="true">→ </span>}
             {c.kicker}
           </button>
         ))}

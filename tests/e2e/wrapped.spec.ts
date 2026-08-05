@@ -54,6 +54,9 @@ test("landing stays a single stacked column on mobile", async ({ page, viewport 
   if (!headerBox || !panelBox) throw new Error("no layout box");
   // Stacked: the panel starts below the header, not beside it.
   expect(panelBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
+  // No card chrome on mobile: the lg:border/lg:bg classes must not apply
+  // unconditionally, or the panel would look like something was added.
+  await expect(panel).toHaveCSS("border-top-width", "0px");
 });
 
 test("wrapped story plays through to the archetype finale", async ({ page }) => {
@@ -211,8 +214,13 @@ test("ballot pins the title while the right column scrolls independently", async
   test.skip((viewport?.width ?? 0) < 1024, "narrow layouts scroll as one page");
   await page.goto("/l/sleeper/1269125082375008256/2025");
   const heading = page.getByRole("heading", { level: 1 });
+  const scroller = page.getByTestId("ballot-scroll");
   const before = await heading.boundingBox();
-  await page.getByTestId("ballot-scroll").evaluate((el) => el.scrollBy(0, 400));
+  await scroller.evaluate((el) => el.scrollBy(0, 400));
+  // Positive control: the scroll container actually scrolled. Without this,
+  // the heading-position assertion below passes even if lg:overflow-y-auto
+  // were removed entirely, since the heading lives in a sibling column.
+  expect(await scroller.evaluate((el) => el.scrollTop)).toBeGreaterThan(0);
   const after = await heading.boundingBox();
   if (!before || !after) throw new Error("no layout box");
   expect(after.y).toBeCloseTo(before.y, 0);

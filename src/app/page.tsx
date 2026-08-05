@@ -18,7 +18,7 @@ export default function Home() {
 
       <div
         data-testid="landing-panel"
-        className="lg:border lg:border-chalk/15 lg:bg-field-raised lg:p-10"
+        className="lg:border lg:border-chalk/15 lg:bg-field-raised lg:p-10 lg:pt-0"
       >
         <LandingFlow />
       </div>
