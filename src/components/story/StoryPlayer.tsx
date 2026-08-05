@@ -614,6 +614,7 @@ export function StoryPlayer({
     [cards.length],
   );
   const back = useCallback(() => setIndex((i) => Math.max(i - 1, 0)), []);
+  const goTo = useCallback((i: number) => setIndex(i), []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -702,7 +703,15 @@ export function StoryPlayer({
   const { top, bottom } = (ARCHETYPES[card.layout] ?? statement)({ card, tone, accent });
 
   return (
-    <div className="grid min-h-dvh place-items-center bg-page">
+    <div className="grid min-h-dvh place-items-center bg-page lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-8 lg:px-8">
+      <div
+        aria-hidden="true"
+        className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end"
+      >
+        <span className={`label tracking-[0.2em] [writing-mode:vertical-rl] ${faint(tone)}`}>
+          {managerName} · {leagueName} · {season}
+        </span>
+      </div>
       <div
         className={`story-frame relative flex flex-col overflow-hidden transition-colors duration-500 sm:border ${
           light
@@ -817,6 +826,27 @@ export function StoryPlayer({
           </span>
         )}
       </div>
+
+      <nav
+        aria-label="Jump to card"
+        className="hidden lg:flex lg:h-full lg:flex-col lg:justify-center lg:justify-self-start lg:gap-2.5"
+      >
+        {cards.map((c, i) => (
+          <button
+            key={c.key}
+            type="button"
+            data-testid="chapter-link"
+            aria-current={i === index ? "true" : undefined}
+            onClick={() => goTo(i)}
+            className={`label text-left tracking-[0.1em] transition-colors ${
+              i === index ? (light ? "text-flag-ink" : "text-flag") : `${faint(tone)} hover:opacity-80`
+            }`}
+          >
+            {i === index ? "→ " : ""}
+            {c.kicker}
+          </button>
+        ))}
+      </nav>
     </div>
   );
 }

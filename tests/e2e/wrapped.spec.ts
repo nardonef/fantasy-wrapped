@@ -172,6 +172,30 @@ test("story type sizes off the card, not the window", async ({ page, viewport })
   expect(short).toBeLessThan(tall);
 });
 
+test("the chapter rail lets you jump straight to any card on desktop", async ({
+  page,
+  viewport,
+}) => {
+  test.skip((viewport?.width ?? 0) < 1024, "the rail is desktop-only");
+  await page.goto(WRAPPED_URL);
+  const player = page.getByTestId("story-player");
+  await expect(player).toContainText("01 / 11");
+
+  const links = page.getByTestId("chapter-link");
+  await expect(links).toHaveCount(11);
+  await links.nth(3).click();
+
+  await expect(player).toContainText("04 / 11");
+  await expect(links.nth(3)).toHaveAttribute("aria-current", "true");
+});
+
+test("the chapter rail is not shown on mobile", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) >= 1024, "the rail only renders on desktop");
+  await page.goto(WRAPPED_URL);
+  await expect(page.getByTestId("story-player")).toBeVisible();
+  await expect(page.getByTestId("chapter-link").first()).toBeHidden();
+});
+
 test("league ballot page lists superlatives and links to wrappeds", async ({ page }) => {
   await page.goto("/l/sleeper/1269125082375008256/2025");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("ballot");
