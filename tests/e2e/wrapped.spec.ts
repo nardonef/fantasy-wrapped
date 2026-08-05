@@ -180,6 +180,31 @@ test("league ballot page lists superlatives and links to wrappeds", async ({ pag
   await expect(page.getByText("Final verdicts")).toBeVisible();
 });
 
+test("ballot pins the title while the right column scrolls independently", async ({
+  page,
+  viewport,
+}) => {
+  test.skip((viewport?.width ?? 0) < 1024, "narrow layouts scroll as one page");
+  await page.goto("/l/sleeper/1269125082375008256/2025");
+  const heading = page.getByRole("heading", { level: 1 });
+  const before = await heading.boundingBox();
+  await page.getByTestId("ballot-scroll").evaluate((el) => el.scrollBy(0, 400));
+  const after = await heading.boundingBox();
+  if (!before || !after) throw new Error("no layout box");
+  expect(after.y).toBeCloseTo(before.y, 0);
+});
+
+test("ballot scrolls as a single page on mobile", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) >= 1024, "desktop pins the title in its own column");
+  await page.goto("/l/sleeper/1269125082375008256/2025");
+  const heading = page.getByRole("heading", { level: 1 });
+  const before = await heading.boundingBox();
+  await page.mouse.wheel(0, 400);
+  const after = await heading.boundingBox();
+  if (!before || !after) throw new Error("no layout box");
+  expect(after.y).toBeLessThan(before.y);
+});
+
 test("ballot links still navigate normally with the click-tracking handler attached", async ({
   page,
 }) => {
