@@ -31,6 +31,31 @@ test("landing page renders the pitch and username form", async ({ page }) => {
   await expect(page.getByLabel("Sleeper username")).toBeVisible();
 });
 
+test("landing splits into two columns on a wide desktop", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) < 1024, "narrow layouts stay single-column");
+  await page.goto("/");
+  const header = page.locator("header");
+  const panel = page.getByTestId("landing-panel");
+  await expect(panel).toBeVisible();
+  const headerBox = await header.boundingBox();
+  const panelBox = await panel.boundingBox();
+  if (!headerBox || !panelBox) throw new Error("no layout box");
+  // Side by side, not stacked: the panel starts to the right of the header.
+  expect(panelBox.x).toBeGreaterThan(headerBox.x + headerBox.width);
+});
+
+test("landing stays a single stacked column on mobile", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) >= 1024, "desktop gets the split layout");
+  await page.goto("/");
+  const header = page.locator("header");
+  const panel = page.getByTestId("landing-panel");
+  const headerBox = await header.boundingBox();
+  const panelBox = await panel.boundingBox();
+  if (!headerBox || !panelBox) throw new Error("no layout box");
+  // Stacked: the panel starts below the header, not beside it.
+  expect(panelBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
+});
+
 test("wrapped story plays through to the archetype finale", async ({ page }) => {
   await page.goto(WRAPPED_URL);
 
