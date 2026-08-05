@@ -199,7 +199,7 @@ test("ballot scrolls as a single page on mobile", async ({ page, viewport }) => 
   await page.goto("/l/sleeper/1269125082375008256/2025");
   const heading = page.getByRole("heading", { level: 1 });
   const before = await heading.boundingBox();
-  await page.mouse.wheel(0, 400);
+  await page.evaluate(() => window.scrollBy(0, 400));
   const after = await heading.boundingBox();
   if (!before || !after) throw new Error("no layout box");
   expect(after.y).toBeLessThan(before.y);
