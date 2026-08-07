@@ -229,3 +229,33 @@ export const wrappedScripts = pgTable(
   },
   (t) => [uniqueIndex("wrapped_scripts_team_engine_ux").on(t.teamId, t.engineVersion)],
 );
+
+/**
+ * Derived per-team-season stats used only for cross-league comparison
+ * ("global" insight category) — the values powering percentile lookups.
+ * Written once per team-season during sync, one row per (team, engineVersion)
+ * so a formula change doesn't silently mix definitions in the same pool.
+ */
+export const teamSeasonStats = pgTable(
+  "team_season_stats",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    teamId: uuid("team_id")
+      .notNull()
+      .references(() => teams.id, { onDelete: "cascade" }),
+    engineVersion: text("engine_version").notNull(),
+    /** benchRegretTotal / pointsFor — lower is better. */
+    benchRegretRate: doublePrecision("bench_regret_rate").notNull(),
+    /** flippableLosses.length / regularSeasonWeeks.length — lower is better. */
+    flippableLossRate: doublePrecision("flippable_loss_rate").notNull(),
+    allPlayWinPct: doublePrecision("all_play_win_pct").notNull(),
+    /** actual win% − all-play win% — higher is luckier. */
+    luckDelta: doublePrecision("luck_delta").notNull(),
+    longestWinStreak: integer("longest_win_streak").notNull(),
+    longestLossStreak: integer("longest_loss_streak").notNull(),
+    transactionTotal: integer("transaction_total").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex("team_season_stats_team_engine_ux").on(t.teamId, t.engineVersion)],
+);
