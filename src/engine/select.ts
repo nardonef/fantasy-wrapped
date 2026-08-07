@@ -16,10 +16,20 @@ const CATEGORY_CAPS: Record<InsightCategory, number> = {
   people: 3,
   narrative: 2,
   identity: 1, // the opener is already an identity card
+  global: 2,
 };
 
-/** Narrative grammar: the order categories appear in the story. */
-const CATEGORY_ORDER: InsightCategory[] = ["identity", "regret", "luck", "people", "narrative"];
+// Narrative grammar: the order categories appear in the story.
+// "global" lands last, before the finish card — a zoom-out beat right before
+// the story ends: how you stack up against everyone, not just your league.
+const CATEGORY_ORDER: InsightCategory[] = [
+  "identity",
+  "regret",
+  "luck",
+  "people",
+  "narrative",
+  "global",
+];
 
 function summaryCard(facts: SeasonFacts, rosterId: string): WrappedCard {
   const t = facts.teams[rosterId];
@@ -71,6 +81,7 @@ export function selectCards(facts: SeasonFacts, rosterId: string): WrappedCard[]
     people: 0,
     narrative: 0,
     identity: 0,
+    global: 0,
   };
   for (const c of chosen) {
     if (counts[c.category] >= CATEGORY_CAPS[c.category]) continue;

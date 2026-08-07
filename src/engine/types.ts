@@ -162,7 +162,25 @@ export type SeasonFacts = {
   };
 };
 
-export type InsightCategory = "regret" | "luck" | "people" | "narrative" | "identity";
+export type InsightCategory = "regret" | "luck" | "people" | "narrative" | "identity" | "global";
+
+/** One stat's standing against every team-season the app has ever synced. */
+export type GlobalStatEntry = { percentile: number; poolSize: number };
+
+/**
+ * Cross-league comparison data for one team-season, fetched outside src/engine/
+ * (DB I/O) and passed in as a plain argument — a missing key means the pool for
+ * that stat was below the minimum size, not that the value was zero.
+ */
+export type GlobalStats = {
+  benchRegretRatePercentile?: GlobalStatEntry;
+  flippableLossRatePercentile?: GlobalStatEntry;
+  allPlayWinPctPercentile?: GlobalStatEntry;
+  luckDeltaPercentile?: GlobalStatEntry;
+  longestWinStreakPercentile?: GlobalStatEntry;
+  longestLossStreakPercentile?: GlobalStatEntry;
+  transactionTotalPercentile?: GlobalStatEntry;
+};
 
 export type CandidateInsight = {
   id: string;
