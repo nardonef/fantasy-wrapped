@@ -1078,11 +1078,20 @@ git commit -m "refactor: thread GlobalStats through the engine's public entrypoi
 - Create: `src/engine/insights/global.ts`
 - Test: `src/engine/insights/global.test.ts`
 - Modify: `src/engine/insights/index.ts`
+- Modify: `src/components/story/model.ts`
 
 **Interfaces:**
 - Consumes: `GlobalStats`/`GlobalStatEntry` (Task 2), `InsightModule` (Task 6).
 - Produces: `globalInsights: InsightModule[]`, registered into `allInsights` — from this
   task on, a populated `GlobalStats` argument can produce `category: "global"` candidates.
+
+**Note (found during implementation, not in the original plan):** `src/components/story/
+model.ts` maps each insight to a layout archetype by insight *id*, not by category
+(`LAYOUT_BY_INSIGHT: Record<string, LayoutArchetype>`), and `model.test.ts` has an
+existing completeness gate asserting every id in `allInsights` has an entry ("a new
+insight module with no layout would silently render as `statement`"). Add all 7 new ids
+to `LAYOUT_BY_INSIGHT`, mapped to `"statement"` — reusing an existing archetype, not
+adding a new one, consistent with the spec's "no new UI component required for v1."
 
 - [ ] **Step 1: Write the failing unit tests**
 
@@ -1327,6 +1336,25 @@ export const allInsights: InsightModule[] = [
 ];
 ```
 
+- [ ] **Step 4b: Add layout entries for the 7 new insight ids**
+
+In `src/components/story/model.ts`, add 7 entries to `LAYOUT_BY_INSIGHT` (an existing
+`Record<string, LayoutArchetype>` keyed by insight id, not category), reusing the
+existing `"statement"` archetype — no new layout component needed:
+
+```ts
+  "global-bench-regret-rate": "statement",
+  "global-flippable-loss-rate": "statement",
+  "global-all-play-win-pct": "statement",
+  "global-luck-delta": "statement",
+  "global-longest-win-streak": "statement",
+  "global-longest-loss-streak": "statement",
+  "global-transaction-activity": "statement",
+```
+
+This is required by `src/components/story/model.test.ts`'s existing completeness gate,
+which asserts every id in `allInsights` has a `LAYOUT_BY_INSIGHT` entry.
+
 - [ ] **Step 5: Run tests to verify they pass**
 
 Run: `./node_modules/.bin/vitest run src/engine/insights/global.test.ts`
@@ -1335,12 +1363,14 @@ Expected: PASS (7 tests).
 Run: `./node_modules/.bin/vitest run`
 Expected: PASS — `engine.test.ts`'s golden snapshot is still unchanged, because it still
 passes `{}` for `globalStats` (Task 6, Step 5) — the new modules exist but are inert until
-Task 9 populates real data.
+Task 9 populates real data. `src/components/story/model.test.ts`'s completeness gate now
+passes because of Step 4b.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-git add src/engine/insights/global.ts src/engine/insights/global.test.ts src/engine/insights/index.ts
+git add src/engine/insights/global.ts src/engine/insights/global.test.ts \
+  src/engine/insights/index.ts src/components/story/model.ts
 git commit -m "feat: add the 7 global-comparison insight modules"
 ```
 
