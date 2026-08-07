@@ -1,5 +1,6 @@
 import type { CandidateInsight, GlobalStats, SeasonFacts } from "../types";
 import type { InsightModule } from "./helpers";
+import { globalInsights } from "./global";
 import { identityInsights } from "./identity";
 import { luckInsights } from "./luck";
 import { narrativeInsights } from "./narrative";
@@ -12,6 +13,7 @@ export const allInsights: InsightModule[] = [
   ...peopleInsights,
   ...narrativeInsights,
   ...identityInsights,
+  ...globalInsights,
 ];
 
 export function computeCandidates(

@@ -98,6 +98,13 @@ export const LAYOUT_BY_INSIGHT: Record<string, LayoutArchetype> = {
   volatility: "statement",
   "crowns-and-stinkers": "statement",
   "points-machine": "statement",
+  "global-bench-regret-rate": "statement",
+  "global-flippable-loss-rate": "statement",
+  "global-all-play-win-pct": "statement",
+  "global-luck-delta": "statement",
+  "global-longest-win-streak": "statement",
+  "global-longest-loss-streak": "statement",
+  "global-transaction-activity": "statement",
 };
 
 /**
