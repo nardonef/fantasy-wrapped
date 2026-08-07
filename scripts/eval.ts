@@ -32,8 +32,8 @@ async function renderLeague(leagueId: string): Promise<void> {
   ];
 
   for (const rosterId of Object.keys(facts.teams).sort((a, b) => Number(a) - Number(b))) {
-    const script = generateCardScript(facts, rosterId);
-    const candidates = computeCandidates(facts, rosterId);
+    const script = generateCardScript(facts, rosterId, {});
+    const candidates = computeCandidates(facts, rosterId, {});
     const slug = script.managerName.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
 
     const lines: string[] = [

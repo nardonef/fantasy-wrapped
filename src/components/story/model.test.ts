@@ -73,7 +73,7 @@ describe.each(LEAGUES)("buildStoryCards over real fixture data (league %s)", (le
     facts = computeSeasonFacts(bundle);
     scripts = Object.keys(facts.teams)
       .sort((a, b) => Number(a) - Number(b))
-      .map((rosterId) => ({ rosterId, script: generateCardScript(facts, rosterId) }));
+      .map((rosterId) => ({ rosterId, script: generateCardScript(facts, rosterId, {}) }));
   });
 
   it("builds a view for every card of every manager without throwing", () => {

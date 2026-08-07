@@ -22,7 +22,7 @@ describe.each(LEAGUES)("engine output for league %s", (leagueId) => {
       leagueId,
     );
     facts = computeSeasonFacts(bundle);
-    scripts = generateLeagueWrapped(bundle);
+    scripts = generateLeagueWrapped(bundle, {});
   });
 
   it("generates a script for every manager", () => {

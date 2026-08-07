@@ -2,7 +2,7 @@ import type { NormalizedLeagueBundle } from "@/providers/types";
 import { classifyArchetype } from "./archetype";
 import { computeSeasonFacts } from "./facts";
 import { selectCards } from "./select";
-import type { CardScript, SeasonFacts } from "./types";
+import type { CardScript, GlobalStats, SeasonFacts } from "./types";
 import { ENGINE_VERSION } from "./version";
 
 export { classifyArchetype, classifyLeagueArchetypes } from "./archetype";
@@ -12,7 +12,11 @@ export { selectCards } from "./select";
 export * from "./types";
 export { ENGINE_VERSION } from "./version";
 
-export function generateCardScript(facts: SeasonFacts, rosterId: string): CardScript {
+export function generateCardScript(
+  facts: SeasonFacts,
+  rosterId: string,
+  globalStats: GlobalStats,
+): CardScript {
   const t = facts.teams[rosterId];
   if (!t) throw new Error(`Unknown rosterId ${rosterId}`);
   return {
@@ -22,15 +26,20 @@ export function generateCardScript(facts: SeasonFacts, rosterId: string): CardSc
     rosterId,
     managerName: t.displayName,
     teamName: t.teamName,
-    cards: selectCards(facts, rosterId),
+    cards: selectCards(facts, rosterId, globalStats),
     archetype: classifyArchetype(facts, rosterId),
   };
 }
 
 /** One Wrapped per manager in the league. */
-export function generateLeagueWrapped(bundle: NormalizedLeagueBundle): CardScript[] {
+export function generateLeagueWrapped(
+  bundle: NormalizedLeagueBundle,
+  globalStatsByRosterId: Record<string, GlobalStats>,
+): CardScript[] {
   const facts = computeSeasonFacts(bundle);
   return Object.keys(facts.teams)
     .sort((a, b) => Number(a) - Number(b))
-    .map((rosterId) => generateCardScript(facts, rosterId));
+    .map((rosterId) =>
+      generateCardScript(facts, rosterId, globalStatsByRosterId[rosterId] ?? {}),
+    );
 }

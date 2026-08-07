@@ -27,7 +27,7 @@ describe.each(LEAGUES)("story cards for league %s", (leagueId) => {
     const rendered = Object.keys(facts.teams)
       .sort((a, b) => Number(a) - Number(b))
       .map((rosterId) => {
-        const script = generateCardScript(facts, rosterId);
+        const script = generateCardScript(facts, rosterId, {});
         const cards = buildStoryCards(script, fallbackCopy(script), facts.teams[rosterId], facts);
         return {
           manager: script.managerName,

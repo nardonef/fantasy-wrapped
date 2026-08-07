@@ -117,7 +117,7 @@ export const getWrapped = cache(async function getWrapped(
     const bundle = await loadBundle(league.id);
     if (!bundle) return null;
     const facts = computeSeasonFacts(bundle);
-    script = generateCardScript(facts, rosterId);
+    script = generateCardScript(facts, rosterId, {});
     await db
       .insert(wrappedScripts)
       .values({ teamId: team.id, engineVersion: ENGINE_VERSION, script })

@@ -1,9 +1,19 @@
-import type { CandidateInsight, InsightCategory, SeasonFacts, TeamSeasonFacts } from "../types";
+import type {
+  CandidateInsight,
+  GlobalStats,
+  InsightCategory,
+  SeasonFacts,
+  TeamSeasonFacts,
+} from "../types";
 
 export type InsightModule = {
   id: string;
   category: InsightCategory;
-  compute: (facts: SeasonFacts, rosterId: string) => CandidateInsight | null;
+  compute: (
+    facts: SeasonFacts,
+    rosterId: string,
+    globalStats: GlobalStats,
+  ) => CandidateInsight | null;
 };
 
 /** 1-based rank of a roster in one of the precomputed orderings. */
