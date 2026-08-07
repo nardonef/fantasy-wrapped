@@ -839,6 +839,7 @@ git commit -m "feat: add getGlobalStats percentile query"
 - Modify: `src/components/story/model.test.ts`
 - Modify: `src/components/story/view-builder.test.ts`
 - Modify: `src/engine/engine.test.ts`
+- Modify: `src/sync/wrapped.ts`
 
 **Interfaces:**
 - Consumes: `GlobalStats` (Task 2).
@@ -1041,6 +1042,15 @@ In `src/engine/engine.test.ts`, change line 25 from `generateLeagueWrapped(bundl
 to actually exercise global cards in the golden snapshot — leave it empty here so this
 task's diff is a pure signature change with zero behavior change.)
 
+In `src/sync/wrapped.ts`, change line 120 from `script = generateCardScript(facts,
+rosterId);` to `script = generateCardScript(facts, rosterId, {});`. This is a live
+production call site (the cache-miss path in `getWrapped`), not a test/eval script — it
+was missed in an earlier pass of this plan and must be included here or the repo fails to
+typecheck for the rest of this task's lifetime. (Task 9 replaces this `{}` with a real
+`getGlobalStats(db, team.id)` call — leave it empty here, same reasoning as the
+`engine.test.ts` change above: this task's diff must be a pure signature change with zero
+behavior change.)
+
 - [ ] **Step 6: Run the full test suite and typecheck**
 
 Run: `pnpm typecheck`
@@ -1056,7 +1066,7 @@ insight module produces `category: "global"` yet).
 git add src/engine/insights/helpers.ts src/engine/insights/index.ts src/engine/select.ts \
   src/engine/index.ts scripts/eval.ts scripts/copy-eval.ts \
   src/components/story/model.test.ts src/components/story/view-builder.test.ts \
-  src/engine/engine.test.ts
+  src/engine/engine.test.ts src/sync/wrapped.ts
 git commit -m "refactor: thread GlobalStats through the engine's public entrypoints"
 ```
 
@@ -1517,8 +1527,10 @@ Change:
     const bundle = await loadBundle(league.id);
     if (!bundle) return null;
     const facts = computeSeasonFacts(bundle);
-    script = generateCardScript(facts, rosterId);
+    script = generateCardScript(facts, rosterId, {});
 ```
+
+(The `{}` is what Task 6 left here — a placeholder so the file compiled once `generateCardScript`'s signature gained a required third parameter, before this task wires in the real value.)
 
 to:
 
