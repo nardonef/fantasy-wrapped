@@ -1,3 +1,6 @@
+import { sql } from "drizzle-orm";
+import type { db as Database } from "@/db";
+import { teamSeasonStats } from "@/db/schema";
 import { ENGINE_VERSION, type SeasonFacts } from "@/engine";
 
 export type TeamSeasonStatsRow = {
@@ -35,4 +38,27 @@ export function computeTeamSeasonStatsRows(
     });
   }
   return rows;
+}
+
+export async function upsertTeamSeasonStats(
+  db: typeof Database,
+  rows: TeamSeasonStatsRow[],
+): Promise<void> {
+  if (rows.length === 0) return;
+  await db
+    .insert(teamSeasonStats)
+    .values(rows)
+    .onConflictDoUpdate({
+      target: [teamSeasonStats.teamId, teamSeasonStats.engineVersion],
+      set: {
+        benchRegretRate: sql`excluded.bench_regret_rate`,
+        flippableLossRate: sql`excluded.flippable_loss_rate`,
+        allPlayWinPct: sql`excluded.all_play_win_pct`,
+        luckDelta: sql`excluded.luck_delta`,
+        longestWinStreak: sql`excluded.longest_win_streak`,
+        longestLossStreak: sql`excluded.longest_loss_streak`,
+        transactionTotal: sql`excluded.transaction_total`,
+        updatedAt: sql`now()`,
+      },
+    });
 }
