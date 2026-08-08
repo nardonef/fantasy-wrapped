@@ -119,6 +119,25 @@
           "fromWeek": 1,
           "toWeek": 6
         }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
+        }
       }
     ],
     "archetype": {
@@ -164,16 +183,6 @@
           "finalRank": 4,
           "standingsRank": 6,
           "leagueSize": 10
-        }
-      },
-      {
-        "insightId": "volatility",
-        "category": "identity",
-        "headline": "Most volatile team in the league: 173 one week, 55.7 another",
-        "facts": {
-          "stdev": 30.3,
-          "highScore": 173,
-          "lowScore": 55.7
         }
       },
       {
@@ -283,14 +292,22 @@
         }
       },
       {
-        "insightId": "collapse-week",
-        "category": "narrative",
-        "headline": "Week 10: 55.7 points. We don't talk about week 10.",
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
         "facts": {
-          "week": 10,
-          "score": 55.7,
-          "leagueSeasonLow": false,
-          "seasonAverage": 122
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -401,25 +418,6 @@
         }
       },
       {
-        "insightId": "mvp",
-        "category": "people",
-        "headline": "Your MVP: Bijan Robinson — 363.5 points, 16% of everything you scored",
-        "facts": {
-          "mvp": "Bijan Robinson",
-          "position": "RB",
-          "startedPoints": 363.5,
-          "shareOfTeamPct": 16,
-          "startedWeeks": 16
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "9509",
-            "name": "Bijan Robinson",
-            "position": "RB"
-          }
-        }
-      },
-      {
         "insightId": "draft-steal",
         "category": "narrative",
         "headline": "Round 8: Rashee Rice. 150.1 points from pick 80.",
@@ -446,6 +444,25 @@
           "score": 173.7,
           "leagueSeasonHigh": false,
           "seasonAverage": 137.8
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -582,6 +599,25 @@
         }
       },
       {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
+        }
+      },
+      {
         "insightId": "playoff-story",
         "category": "narrative",
         "headline": "Playoff exit: semifinal, knocked out by Disastrous414 by 29.7",
@@ -638,14 +674,6 @@
         }
       },
       {
-        "insightId": "crowns-and-stinkers",
-        "category": "identity",
-        "headline": "5 weeks with the worst score in the league",
-        "facts": {
-          "worstScoreWeeks": 5
-        }
-      },
-      {
         "insightId": "flippable-losses",
         "category": "regret",
         "headline": "6 of your losses were already wins — if you'd started the right players. Weeks 5, 9, 10, 11, 13, 14.",
@@ -693,16 +721,6 @@
         }
       },
       {
-        "insightId": "daylight-robbery-win",
-        "category": "luck",
-        "headline": "Week 8: you won with the 9th best score of the week (100.3)",
-        "facts": {
-          "week": 8,
-          "score": 100.3,
-          "weeklyRank": 9
-        }
-      },
-      {
         "insightId": "mvp",
         "category": "people",
         "headline": "Your MVP: Josh Allen — 374.6 points, 22% of everything you scored",
@@ -742,6 +760,25 @@
           "length": 6,
           "fromWeek": 9,
           "toWeek": 14
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {
@@ -866,16 +903,6 @@
         }
       },
       {
-        "insightId": "opponent-season-highs",
-        "category": "luck",
-        "headline": "2 different opponents had their best week of the season against you (InfinityStoner, frothydogs)",
-        "facts": {
-          "count": 2,
-          "opponents": "InfinityStoner, frothydogs",
-          "weeks": "7, 14"
-        }
-      },
-      {
         "insightId": "trade-verdict",
         "category": "people",
         "headline": "The Mike Evans, Keon Coleman trade: eco1990 beat you by 140.4 points of rest-of-season value",
@@ -901,24 +928,6 @@
         }
       },
       {
-        "insightId": "waiver-steal",
-        "category": "people",
-        "headline": "Week 7 pickup Wan'Dale Robinson gave you 98.6 points",
-        "facts": {
-          "pickup": "Wan'Dale Robinson",
-          "week": 7,
-          "startedPointsAfter": 98.6,
-          "faabSpent": null
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "8126",
-            "name": "Wan'Dale Robinson",
-            "position": "WR"
-          }
-        }
-      },
-      {
         "insightId": "season-arc",
         "category": "narrative",
         "headline": "Started 2-5, finished 5-2. The second-half surge.",
@@ -939,6 +948,25 @@
           "length": 5,
           "fromWeek": 8,
           "toWeek": 12
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -1078,33 +1106,22 @@
         }
       },
       {
-        "insightId": "mvp",
-        "category": "people",
-        "headline": "Your MVP: Puka Nacua — 349 points, 17% of everything you scored",
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
         "facts": {
-          "mvp": "Puka Nacua",
-          "position": "WR",
-          "startedPoints": 349,
-          "shareOfTeamPct": 17,
-          "startedWeeks": 15
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "9493",
-            "name": "Puka Nacua",
-            "position": "WR"
-          }
+          "percentile": 96,
+          "poolSize": 340
         }
       },
       {
-        "insightId": "peak-week",
-        "category": "narrative",
-        "headline": "Week 9: 163.8 points — the best score anyone managed that week",
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
         "facts": {
-          "week": 9,
-          "score": 163.8,
-          "leagueSeasonHigh": false,
-          "seasonAverage": 120.3
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {
@@ -1277,14 +1294,22 @@
         }
       },
       {
-        "insightId": "collapse-week",
-        "category": "narrative",
-        "headline": "Week 4: 84.1 points. We don't talk about week 4.",
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
         "facts": {
-          "week": 4,
-          "score": 84.1,
-          "leagueSeasonLow": false,
-          "seasonAverage": 113.6
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -1359,16 +1384,6 @@
         }
       },
       {
-        "insightId": "bench-points-total",
-        "category": "regret",
-        "headline": "196.9 points died on your bench this season (14.1/week)",
-        "facts": {
-          "totalBenchPoints": 196.9,
-          "perWeek": 14.1,
-          "leagueRank": 5
-        }
-      },
-      {
         "insightId": "schedule-luck",
         "category": "luck",
         "headline": "Luckiest schedule in the league: you won 12 but earned 9.3. The schedule carried you.",
@@ -1408,25 +1423,6 @@
         }
       },
       {
-        "insightId": "mvp",
-        "category": "people",
-        "headline": "Your MVP: Christian McCaffrey — 404.9 points, 18% of everything you scored",
-        "facts": {
-          "mvp": "Christian McCaffrey",
-          "position": "RB",
-          "startedPoints": 404.9,
-          "shareOfTeamPct": 18,
-          "startedWeeks": 16
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "4034",
-            "name": "Christian McCaffrey",
-            "position": "RB"
-          }
-        }
-      },
-      {
         "insightId": "peak-week",
         "category": "narrative",
         "headline": "Week 7: 209.5 points — the highest score anyone posted all season",
@@ -1435,6 +1431,25 @@
           "score": 209.5,
           "leagueSeasonHigh": true,
           "seasonAverage": 139.9
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {
@@ -1530,32 +1545,6 @@
         }
       },
       {
-        "insightId": "worst-benching",
-        "category": "regret",
-        "headline": "Week 9: you benched Rico Dowdle (28.1) and started Kimani Vidal (3)",
-        "facts": {
-          "week": 9,
-          "benchedPlayer": "Rico Dowdle",
-          "benchedPoints": 28.1,
-          "startedPlayer": "Kimani Vidal",
-          "startedPoints": 3,
-          "pointsLeftBehind": 25.1,
-          "costTheGame": false
-        },
-        "refs": {
-          "started": {
-            "providerPlayerId": "11647",
-            "name": "Kimani Vidal",
-            "position": "RB"
-          },
-          "benched": {
-            "providerPlayerId": "7021",
-            "name": "Rico Dowdle",
-            "position": "RB"
-          }
-        }
-      },
-      {
         "insightId": "schedule-luck",
         "category": "luck",
         "headline": "Unluckiest schedule in the league: you played like 9.4 wins and got 8.",
@@ -1600,6 +1589,25 @@
             "name": "Chris Olave",
             "position": "WR"
           }
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {
