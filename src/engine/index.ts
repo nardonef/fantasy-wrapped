@@ -39,7 +39,5 @@ export function generateLeagueWrapped(
   const facts = computeSeasonFacts(bundle);
   return Object.keys(facts.teams)
     .sort((a, b) => Number(a) - Number(b))
-    .map((rosterId) =>
-      generateCardScript(facts, rosterId, globalStatsByRosterId[rosterId] ?? {}),
-    );
+    .map((rosterId) => generateCardScript(facts, rosterId, globalStatsByRosterId[rosterId] ?? {}));
 }

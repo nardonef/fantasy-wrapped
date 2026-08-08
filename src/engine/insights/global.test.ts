@@ -56,16 +56,30 @@ describe("globalInsights", () => {
     const insight = moduleById("global-longest-loss-streak").compute(FACTS, ROSTER_ID, globalStats);
     expect(insight?.notability).toBeGreaterThanOrEqual(70);
     expect(insight?.facts.percentile).toBe(92);
+    expect(insight?.facts.direction).toBeUndefined();
+  });
+
+  it("longest-win-streak: unidirectional, fires at a high percentile", () => {
+    const globalStats: GlobalStats = {
+      longestWinStreakPercentile: { percentile: 88, poolSize: 300 },
+    };
+    const insight = moduleById("global-longest-win-streak").compute(FACTS, ROSTER_ID, globalStats);
+    expect(insight?.notability).toBeGreaterThanOrEqual(62);
+    expect(insight?.facts.percentile).toBe(88);
+    expect(insight?.facts.direction).toBeUndefined();
   });
 
   it("transaction-activity: fires only at a high percentile, null otherwise", () => {
     const module = moduleById("global-transaction-activity");
     expect(
-      module.compute(FACTS, ROSTER_ID, { transactionTotalPercentile: { percentile: 93, poolSize: 300 } })
-        ?.notability,
+      module.compute(FACTS, ROSTER_ID, {
+        transactionTotalPercentile: { percentile: 93, poolSize: 300 },
+      })?.notability,
     ).toBeGreaterThanOrEqual(70);
     expect(
-      module.compute(FACTS, ROSTER_ID, { transactionTotalPercentile: { percentile: 20, poolSize: 300 } }),
+      module.compute(FACTS, ROSTER_ID, {
+        transactionTotalPercentile: { percentile: 20, poolSize: 300 },
+      }),
     ).toBeNull();
   });
 
@@ -74,4 +88,33 @@ describe("globalInsights", () => {
     expect(new Set(ids).size).toBe(ids.length);
     for (const m of globalInsights) expect(m.category).toBe("global");
   });
+});
+
+describe("notabilityFromExtremity thresholds", () => {
+  // Test boundary values through a unidirectional module
+  const module = moduleById("global-longest-win-streak");
+
+  const boundaryTests = [
+    { percentile: 59, expected: null },
+    { percentile: 60, expected: 48 },
+    { percentile: 79, expected: 48 },
+    { percentile: 80, expected: 62 },
+    { percentile: 89, expected: 62 },
+    { percentile: 90, expected: 78 },
+    { percentile: 94, expected: 78 },
+    { percentile: 95, expected: 90 },
+  ];
+
+  for (const { percentile, expected } of boundaryTests) {
+    it(`percentile ${percentile} yields notability ${expected}`, () => {
+      const insight = module.compute(FACTS, ROSTER_ID, {
+        longestWinStreakPercentile: { percentile, poolSize: 300 },
+      });
+      if (expected === null) {
+        expect(insight).toBeNull();
+      } else {
+        expect(insight?.notability).toBe(expected);
+      }
+    });
+  }
 });

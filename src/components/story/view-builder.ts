@@ -60,6 +60,13 @@ const HERO_LABEL: Record<string, string> = {
   "points-machine": "Points scored",
   // volatility and crowns-and-stinkers each have two branches that produce
   // different facts, so their labels are chosen in the switch below.
+  "global-bench-regret-rate": "Bench regret, ranked against everyone",
+  "global-flippable-loss-rate": "Losses flipped to wins, ranked",
+  "global-all-play-win-pct": "All-play win rate, ranked",
+  "global-luck-delta": "Luck ranking",
+  "global-longest-win-streak": "Longest winning streak, ranked",
+  "global-longest-loss-streak": "Longest losing streak, ranked",
+  "global-transaction-activity": "Transaction volume, ranked",
 };
 
 type BuildViewInput = {
@@ -302,6 +309,15 @@ export function buildView({ card, layout, tone, ghost, team, facts }: BuildViewI
       v.heroAccent = a(tone === "light" ? "pos" : "neg");
 
       switch (card.insightId) {
+        case "global-bench-regret-rate":
+        case "global-flippable-loss-rate":
+        case "global-all-play-win-pct":
+        case "global-luck-delta":
+        case "global-longest-win-streak":
+        case "global-longest-loss-streak":
+        case "global-transaction-activity":
+          v.hero = String(x.percentile);
+          break;
         case "dropped-league-winner":
           v.player = {
             name: String(x.player),

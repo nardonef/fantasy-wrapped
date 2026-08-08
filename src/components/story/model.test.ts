@@ -6,6 +6,7 @@ import { computeSeasonFacts, generateCardScript } from "@/engine";
 import { allInsights } from "@/engine/insights";
 import { createFixtureSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 import { buildStoryCards, headshot, LAYOUT_BY_INSIGHT, toneFor } from "./model";
+import { buildView } from "./view-builder";
 
 const LEAGUES = ["1269125082375008256", "1257059475584471040"];
 
@@ -58,6 +59,32 @@ describe("headshot", () => {
     const ref = { providerPlayerId: "4046", name: "Patrick Mahomes", position: "QB" };
     expect(headshot(ref)).toBe("https://sleepercdn.com/content/nfl/players/4046.jpg");
     expect(headshot(ref, true)).toBe("https://sleepercdn.com/content/nfl/players/thumb/4046.jpg");
+  });
+});
+
+describe("global card view building", () => {
+  it("shows percentile as hero, not poolSize, with a non-empty label", () => {
+    const wrappedCard = card("global-bench-regret-rate", {
+      category: "global",
+      facts: { percentile: 84, poolSize: 340, direction: "brag" },
+    });
+    const mockFacts = {
+      league: { totalTeams: 12 },
+      teams: {},
+    } as never;
+    const mockTeam = {} as never;
+
+    const view = buildView({
+      card: wrappedCard,
+      layout: "statement",
+      tone: "light",
+      ghost: "340",
+      team: mockTeam,
+      facts: mockFacts,
+    });
+
+    expect(view.hero).toBe("84");
+    expect(view.heroLabel).not.toBe("");
   });
 });
 

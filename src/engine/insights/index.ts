@@ -1,6 +1,6 @@
 import type { CandidateInsight, GlobalStats, SeasonFacts } from "../types";
-import type { InsightModule } from "./helpers";
 import { globalInsights } from "./global";
+import type { InsightModule } from "./helpers";
 import { identityInsights } from "./identity";
 import { luckInsights } from "./luck";
 import { narrativeInsights } from "./narrative";
