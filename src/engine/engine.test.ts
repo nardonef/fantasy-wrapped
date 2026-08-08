@@ -11,11 +11,14 @@ const LEAGUES = ["1269125082375008256", "1257059475584471040"];
 // A fixed, representative GlobalStats fixture so global-category cards are
 // exercised in the golden snapshot for review — not meant to represent any
 // real pool, just enough variety to hit both brag and wince branches.
+// inversePercentile is queried independently of percentile in production
+// (see BidirectionalGlobalStatEntry); 100 - percentile is a fine choice here
+// since this fixture only needs to be illustrative, not realistic.
 const FIXTURE_GLOBAL_STATS: GlobalStats = {
-  benchRegretRatePercentile: { percentile: 84, poolSize: 340 },
-  flippableLossRatePercentile: { percentile: 47, poolSize: 340 },
-  allPlayWinPctPercentile: { percentile: 93, poolSize: 340 },
-  luckDeltaPercentile: { percentile: 9, poolSize: 340 },
+  benchRegretRatePercentile: { percentile: 84, inversePercentile: 16, poolSize: 340 },
+  flippableLossRatePercentile: { percentile: 47, inversePercentile: 53, poolSize: 340 },
+  allPlayWinPctPercentile: { percentile: 93, inversePercentile: 7, poolSize: 340 },
+  luckDeltaPercentile: { percentile: 9, inversePercentile: 91, poolSize: 340 },
   longestWinStreakPercentile: { percentile: 88, poolSize: 340 },
   longestLossStreakPercentile: { percentile: 31, poolSize: 340 },
   transactionTotalPercentile: { percentile: 96, poolSize: 340 },

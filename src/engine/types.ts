@@ -168,15 +168,24 @@ export type InsightCategory = "regret" | "luck" | "people" | "narrative" | "iden
 export type GlobalStatEntry = { percentile: number; poolSize: number };
 
 /**
+ * A stat that can be notable in either direction (brag or wince) carries both
+ * percentiles, each queried independently — `inversePercentile` is NOT
+ * `100 - percentile`. With real tie mass (e.g. a quantized rate that's
+ * commonly zero), the two directions' strict counts don't sum to the pool
+ * size, so deriving one from the other silently inflates it.
+ */
+export type BidirectionalGlobalStatEntry = GlobalStatEntry & { inversePercentile: number };
+
+/**
  * Cross-league comparison data for one team-season, fetched outside src/engine/
  * (DB I/O) and passed in as a plain argument — a missing key means the pool for
  * that stat was below the minimum size, not that the value was zero.
  */
 export type GlobalStats = {
-  benchRegretRatePercentile?: GlobalStatEntry;
-  flippableLossRatePercentile?: GlobalStatEntry;
-  allPlayWinPctPercentile?: GlobalStatEntry;
-  luckDeltaPercentile?: GlobalStatEntry;
+  benchRegretRatePercentile?: BidirectionalGlobalStatEntry;
+  flippableLossRatePercentile?: BidirectionalGlobalStatEntry;
+  allPlayWinPctPercentile?: BidirectionalGlobalStatEntry;
+  luckDeltaPercentile?: BidirectionalGlobalStatEntry;
   longestWinStreakPercentile?: GlobalStatEntry;
   longestLossStreakPercentile?: GlobalStatEntry;
   transactionTotalPercentile?: GlobalStatEntry;

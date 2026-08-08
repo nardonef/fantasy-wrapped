@@ -14,6 +14,7 @@ import {
   fetchSleeperLeagueBundle,
 } from "@/providers/sleeper";
 import { persistBundle } from "@/sync/persist";
+import { writeTeamSeasonStats } from "@/sync/team-season-stats";
 
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
@@ -29,7 +30,8 @@ async function main(): Promise<void> {
     : createHttpSleeperApi();
 
   const bundle = await fetchSleeperLeagueBundle(api, leagueId);
-  const { leagueId: dbId } = await persistBundle(db, bundle);
+  const { leagueId: dbId, teamIdByRoster } = await persistBundle(db, bundle);
+  await writeTeamSeasonStats(db, bundle, teamIdByRoster);
   console.log(
     `Synced ${bundle.league.name} (${bundle.league.season}) → leagues.id=${dbId}: ` +
       `${bundle.teams.length} teams, ${bundle.matchups.length} matchups, ` +

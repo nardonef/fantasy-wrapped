@@ -1,6 +1,6 @@
 # TheHatrickSwayze — “The Wu Tang Plan”
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -14,15 +14,15 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **5. [luck] Week 1: you scored 144.7 — 2nd best in the league — and still lost**
 
-**6. [luck] 2 different opponents had their best week of the season against you (InfinityStoner, frothydogs)**
+**6. [people] The Mike Evans, Keon Coleman trade: eco1990 beat you by 140.4 points of rest-of-season value**
 
-**7. [people] The Mike Evans, Keon Coleman trade: eco1990 beat you by 140.4 points of rest-of-season value**
+**7. [narrative] Started 2-5, finished 5-2. The second-half surge.**
 
-**8. [people] Week 7 pickup Wan'Dale Robinson gave you 98.6 points**
+**8. [narrative] Weeks 8–12: 5 straight wins**
 
-**9. [narrative] Started 2-5, finished 5-2. The second-half surge.**
+**9. [global] You're luckier than 95% of 340 team-seasons tracked**
 
-**10. [narrative] Weeks 8–12: 5 straight wins**
+**10. [global] Your bench regret rate beats 91% of 340 team-seasons tracked**
 
 **FINALE — The Late Bloomer**
 
@@ -32,7 +32,12 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your longest win streak beats 93% of 340 team-seasons tracked
+- (62) [global] Your all-play win rate beats 88% of 340 team-seasons tracked
+- (62) [global] You leave more losses on the table than 85% of 340 team-seasons tracked
 - (58) [regret] You went 7-7. With perfect lineups you go 10-4.
+- (56) [luck] 2 different opponents had their best week of the season against you (InfinityStoner, frothydogs)
+- (56) [people] Week 7 pickup Wan'Dale Robinson gave you 98.6 points
 - (50) [regret] 189 points died on your bench this season (13.5/week)
 - (48) [people] Your nemesis: frothydogs (1-2 against them)
 - (46) [people] Your MVP: Jaxon Smith-Njigba — 345.5 points, 16% of everything you scored

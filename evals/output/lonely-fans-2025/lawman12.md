@@ -1,6 +1,6 @@
 # Lawman12
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -18,9 +18,9 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **7. [people] Rodrigoooo owned you this season: 2-0, by 49.3 total points**
 
-**8. [people] Your MVP: Puka Nacua — 349 points, 17% of everything you scored**
+**8. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
 
-**9. [narrative] Week 9: 163.8 points — the best score anyone managed that week**
+**9. [global] You made more moves than 97% of 340 team-seasons tracked**
 
 **10. [narrative] First team out. 6-8 and home for the playoffs.**
 
@@ -32,4 +32,10 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
+- (52) [narrative] Week 9: 163.8 points — the best score anyone managed that week
 - (46) [narrative] Week 6: 74.7 points. We don't talk about week 6.
+- (46) [people] Your MVP: Puka Nacua — 349 points, 17% of everything you scored

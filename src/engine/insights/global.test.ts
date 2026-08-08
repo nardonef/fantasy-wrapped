@@ -21,7 +21,7 @@ describe("globalInsights", () => {
 
   it("bench-regret-rate: brags at a high percentile", () => {
     const globalStats: GlobalStats = {
-      benchRegretRatePercentile: { percentile: 96, poolSize: 300 },
+      benchRegretRatePercentile: { percentile: 96, inversePercentile: 2, poolSize: 300 },
     };
     const insight = moduleById("global-bench-regret-rate").compute(FACTS, ROSTER_ID, globalStats);
     expect(insight?.notability).toBeGreaterThanOrEqual(80);
@@ -31,18 +31,21 @@ describe("globalInsights", () => {
   });
 
   it("bench-regret-rate: winces at a low percentile", () => {
+    // inversePercentile is queried independently of percentile — it is NOT
+    // 100 - percentile. With real tie mass those two numbers diverge, which
+    // is exactly the bug this fixture guards against (see BidirectionalGlobalStatEntry).
     const globalStats: GlobalStats = {
-      benchRegretRatePercentile: { percentile: 4, poolSize: 300 },
+      benchRegretRatePercentile: { percentile: 4, inversePercentile: 91, poolSize: 300 },
     };
     const insight = moduleById("global-bench-regret-rate").compute(FACTS, ROSTER_ID, globalStats);
-    expect(insight?.notability).toBeGreaterThanOrEqual(80);
+    expect(insight?.notability).toBeGreaterThanOrEqual(70);
     expect(insight?.facts.direction).toBe("wince");
-    expect(insight?.facts.percentile).toBe(96); // 100 - 4, reframed toward the wince
+    expect(insight?.facts.percentile).toBe(91);
   });
 
   it("bench-regret-rate: null in the unremarkable middle", () => {
     const globalStats: GlobalStats = {
-      benchRegretRatePercentile: { percentile: 55, poolSize: 300 },
+      benchRegretRatePercentile: { percentile: 55, inversePercentile: 40, poolSize: 300 },
     };
     expect(
       moduleById("global-bench-regret-rate").compute(FACTS, ROSTER_ID, globalStats),

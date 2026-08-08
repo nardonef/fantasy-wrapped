@@ -1,6 +1,6 @@
 # Manager 5
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -39,3 +39,5 @@ _Lonely Fans · 2025 · engine 0.3.0_
 - (60) [narrative] Round 15: Chase McLaughlin. 140 points from pick 142.
 - (60) [identity] 1394.4 points scored — fewest in the league
 - (58) [identity] 0 roster moves all season. You drafted a team and walked away.
+- (48) [global] Your all-play win rate beats 60% of 340 team-seasons tracked
+- (48) [global] You made more moves than 65% of 340 team-seasons tracked

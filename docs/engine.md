@@ -18,7 +18,7 @@ depend on byte-identical output for identical input.
 
 ## Adding an insight module
 
-1. Pick the category file in `src/engine/insights/` (regret/luck/people/narrative/identity).
+1. Pick the category file in `src/engine/insights/` (regret/luck/people/narrative/identity/global).
 2. Add a module: `{ id, category, compute(facts, rosterId) → CandidateInsight | null }`.
    - Return `null` aggressively. A card that is merely accurate has failed.
    - `notability` 0–100: 45 is the shipping floor; 60+ means "group chat would react";

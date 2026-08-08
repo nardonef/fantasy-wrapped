@@ -37,15 +37,21 @@ vi.mock("@/providers/sleeper", async (importOriginal) => {
 });
 
 // Force the team_season_stats write to fail so we can prove the route's
-// inner try/catch actually contains the failure (the point of Task 8) rather
-// than relying on a manual code trace.
-vi.mock("@/sync/team-season-stats", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@/sync/team-season-stats")>();
+// fail-open handling (src/sync/team-season-stats.ts's writeTeamSeasonStats)
+// actually contains the failure. Mocking upsertTeamSeasonStats directly
+// would NOT work here: writeTeamSeasonStats lives in the same module and
+// calls it via a same-module binding, which vi.mock's module-level
+// replacement does not intercept (that only affects callers in OTHER
+// modules). computeSeasonFacts is imported from a genuinely different
+// module (@/engine), so mocking it there is correctly seen by every
+// consumer, including writeTeamSeasonStats.
+vi.mock("@/engine", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/engine")>();
   return {
     ...actual,
-    upsertTeamSeasonStats: vi.fn(() => {
-      throw new Error("simulated team_season_stats upsert failure");
-    }),
+    computeSeasonFacts: () => {
+      throw new Error("simulated team_season_stats computation failure");
+    },
   };
 });
 

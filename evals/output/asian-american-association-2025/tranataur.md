@@ -1,6 +1,6 @@
 # tranataur — “WWJD?”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -38,4 +38,6 @@ _Asian American Association · 2025 · engine 0.3.0_
 - (58) [regret] You went 6-8. With perfect lineups you go 9-5.
 - (52) [narrative] Week 5: 158.7 points — the best score anyone managed that week
 - (50) [regret] 276.5 points died on your bench this season (19.8/week)
+- (48) [global] Your all-play win rate beats 60% of 340 team-seasons tracked
+- (48) [global] You made more moves than 65% of 340 team-seasons tracked
 - (46) [people] Your MVP: Josh Allen — 367.6 points, 18% of everything you scored

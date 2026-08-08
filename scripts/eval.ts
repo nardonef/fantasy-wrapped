@@ -7,11 +7,52 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
+import type { GlobalStats } from "@/engine";
 import { computeCandidates, computeSeasonFacts, generateCardScript } from "@/engine";
 import { createFixtureSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 
 const FIXTURES_ROOT = path.join("fixtures", "sleeper");
 const OUTPUT_ROOT = path.join("evals", "output");
+
+// A few varied GlobalStats profiles, cycled by rosterId, so eval output
+// exercises more of the 7 global insight modules across different managers
+// than one uniform fixture would. Not meant to represent a real pool.
+const GLOBAL_STATS_PROFILES: GlobalStats[] = [
+  // Mostly a brag: strong across the board.
+  {
+    benchRegretRatePercentile: { percentile: 91, inversePercentile: 6, poolSize: 340 },
+    flippableLossRatePercentile: { percentile: 12, inversePercentile: 85, poolSize: 340 },
+    allPlayWinPctPercentile: { percentile: 88, inversePercentile: 9, poolSize: 340 },
+    luckDeltaPercentile: { percentile: 95, inversePercentile: 3, poolSize: 340 },
+    longestWinStreakPercentile: { percentile: 93, poolSize: 340 },
+    longestLossStreakPercentile: { percentile: 20, poolSize: 340 },
+    transactionTotalPercentile: { percentile: 40, poolSize: 340 },
+  },
+  // Mostly a wince: rough across the board.
+  {
+    benchRegretRatePercentile: { percentile: 8, inversePercentile: 90, poolSize: 340 },
+    flippableLossRatePercentile: { percentile: 95, inversePercentile: 2, poolSize: 340 },
+    allPlayWinPctPercentile: { percentile: 15, inversePercentile: 82, poolSize: 340 },
+    luckDeltaPercentile: { percentile: 6, inversePercentile: 92, poolSize: 340 },
+    longestWinStreakPercentile: { percentile: 35, poolSize: 340 },
+    longestLossStreakPercentile: { percentile: 91, poolSize: 340 },
+    transactionTotalPercentile: { percentile: 97, poolSize: 340 },
+  },
+  // Unremarkable middle: mostly below the notability floor.
+  {
+    benchRegretRatePercentile: { percentile: 55, inversePercentile: 43, poolSize: 340 },
+    flippableLossRatePercentile: { percentile: 50, inversePercentile: 48, poolSize: 340 },
+    allPlayWinPctPercentile: { percentile: 60, inversePercentile: 38, poolSize: 340 },
+    luckDeltaPercentile: { percentile: 45, inversePercentile: 53, poolSize: 340 },
+    longestWinStreakPercentile: { percentile: 50, poolSize: 340 },
+    longestLossStreakPercentile: { percentile: 50, poolSize: 340 },
+    transactionTotalPercentile: { percentile: 65, poolSize: 340 },
+  },
+];
+
+function globalStatsFor(rosterId: string): GlobalStats {
+  return GLOBAL_STATS_PROFILES[Number(rosterId) % GLOBAL_STATS_PROFILES.length] ?? {};
+}
 
 async function renderLeague(leagueId: string): Promise<void> {
   const api = createFixtureSleeperApi(path.join(FIXTURES_ROOT, leagueId));
@@ -32,8 +73,9 @@ async function renderLeague(leagueId: string): Promise<void> {
   ];
 
   for (const rosterId of Object.keys(facts.teams).sort((a, b) => Number(a) - Number(b))) {
-    const script = generateCardScript(facts, rosterId, {});
-    const candidates = computeCandidates(facts, rosterId, {});
+    const globalStats = globalStatsFor(rosterId);
+    const script = generateCardScript(facts, rosterId, globalStats);
+    const candidates = computeCandidates(facts, rosterId, globalStats);
     const slug = script.managerName.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
 
     const lines: string[] = [

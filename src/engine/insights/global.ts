@@ -14,6 +14,13 @@ function poolPhrase(poolSize: number): string {
   return `${poolSize} team-seasons tracked`;
 }
 
+/** The 4 GlobalStats keys notable in either direction — see BidirectionalGlobalStatEntry. */
+type BidirectionalStatKey =
+  | "benchRegretRatePercentile"
+  | "flippableLossRatePercentile"
+  | "allPlayWinPctPercentile"
+  | "luckDeltaPercentile";
+
 /**
  * A stat where a high percentile is a brag and a low percentile is a wince
  * (e.g. "beats 92%" vs. "worse than 90%"), sharing one GlobalStats entry.
@@ -21,7 +28,7 @@ function poolPhrase(poolSize: number): string {
  */
 function bidirectional(
   id: string,
-  key: keyof GlobalStats,
+  key: BidirectionalStatKey,
   bragHeadline: (pct: number, pool: number) => string,
   winceHeadline: (pct: number, pool: number) => string,
 ): InsightModule {
@@ -32,7 +39,9 @@ function bidirectional(
       const entry = globalStats[key];
       if (!entry) return null;
       const bragNotability = notabilityFromExtremity(entry.percentile);
-      const wincePct = 100 - entry.percentile;
+      // Queried independently, not derived as 100 - percentile — with real
+      // tie mass those two numbers diverge (see BidirectionalGlobalStatEntry).
+      const wincePct = entry.inversePercentile;
       const winceNotability = notabilityFromExtremity(wincePct);
       if (
         bragNotability !== null &&

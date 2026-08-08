@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/db";
-import { computeSeasonFacts } from "@/engine";
 import { pruneRateLimitWindows, rateLimit } from "@/lib/rate-limit";
 import { createHttpSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 import { persistBundle } from "@/sync/persist";
 import { resolveYourRosterId } from "@/sync/resolve-roster";
-import { computeTeamSeasonStatsRows, upsertTeamSeasonStats } from "@/sync/team-season-stats";
+import { writeTeamSeasonStats } from "@/sync/team-season-stats";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -44,16 +43,7 @@ export async function POST(request: Request) {
     }
     const { teamIdByRoster } = await persistBundle(db, bundle);
 
-    try {
-      const facts = computeSeasonFacts(bundle);
-      const rows = computeTeamSeasonStatsRows(facts, teamIdByRoster);
-      await upsertTeamSeasonStats(db, rows);
-    } catch (error) {
-      // Global-comparison data is a side effect of sync, not sync's primary
-      // job — a failure here must not turn a successful league sync into an
-      // error response.
-      console.error("team_season_stats upsert failed", error);
-    }
+    await writeTeamSeasonStats(db, bundle, teamIdByRoster);
 
     const yourRosterId = resolveYourRosterId(bundle.teams, parsed.data.userId);
 

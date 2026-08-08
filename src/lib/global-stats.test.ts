@@ -98,6 +98,31 @@ describe("getGlobalStats (integration)", () => {
     // itself — the ceiling with 25 total rows is round(24/25 * 100) = 96, not 100.
     expect(stats.benchRegretRatePercentile?.percentile).toBe(96);
     expect(stats.allPlayWinPctPercentile?.percentile).toBe(96);
+    // "own" is strictly best on both stats among these 25 rows — nobody else
+    // is strictly better, so the independently-queried inverse percentile
+    // should read low (0), not the naive (and, with ties, wrong) 100 - 96 = 4.
+    expect(stats.benchRegretRatePercentile?.inversePercentile).toBe(0);
+    expect(stats.allPlayWinPctPercentile?.inversePercentile).toBe(0);
+  });
+
+  it("keeps inversePercentile sane under real tie mass, not a naive 100 - percentile", async () => {
+    const engineVersion = `test-ties-${Math.random()}`;
+    // All 25 rows -- including "own" -- share the same flippableLossRate.
+    // Nobody is strictly worse and nobody is strictly better than "own", so
+    // both directions must read 0. The pre-fix code derived the wince
+    // direction as `100 - percentile`, which would have reported this
+    // tied-best team's inversePercentile as 100 -- "you left more losses on
+    // the table than 100% of everyone" for a team with the best rate in the
+    // pool. That's the exact regression this test guards against.
+    let ownTeamId = "";
+    for (let i = 0; i < 25; i++) {
+      const teamId = await seedTeam(engineVersion, { flippableLossRate: 0 });
+      if (i === 24) ownTeamId = teamId;
+    }
+    const stats = await getGlobalStats(db, ownTeamId, engineVersion);
+    expect(stats.flippableLossRatePercentile?.poolSize).toBe(25);
+    expect(stats.flippableLossRatePercentile?.percentile).toBe(0);
+    expect(stats.flippableLossRatePercentile?.inversePercentile).toBe(0);
   });
 
   it("returns {} for a team with no row for the current engine version", async () => {

@@ -1,6 +1,6 @@
 # Disastrous414 — “Pick 8”
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -10,17 +10,17 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **3. [regret] You dropped Wan'Dale Robinson in week 4. 141.6 points after that.**
 
-**4. [regret] 196.9 points died on your bench this season (14.1/week)**
+**4. [luck] Luckiest schedule in the league: you won 12 but earned 9.3. The schedule carried you.**
 
-**5. [luck] Luckiest schedule in the league: you won 12 but earned 9.3. The schedule carried you.**
+**5. [luck] 3-0 in games decided by 6 points or fewer. The coin kept landing heads.**
 
-**6. [luck] 3-0 in games decided by 6 points or fewer. The coin kept landing heads.**
+**6. [people] Week 6 pickup DeVonta Smith gave you 118.5 points**
 
-**7. [people] Week 6 pickup DeVonta Smith gave you 118.5 points**
+**7. [narrative] Week 7: 209.5 points — the highest score anyone posted all season**
 
-**8. [people] Your MVP: Christian McCaffrey — 404.9 points, 18% of everything you scored**
+**8. [global] You're luckier than 95% of 340 team-seasons tracked**
 
-**9. [narrative] Week 7: 209.5 points — the highest score anyone posted all season**
+**9. [global] Your bench regret rate beats 91% of 340 team-seasons tracked**
 
 **10. [narrative] One game from the title. 2KSports beat you in the final by 12.6.**
 
@@ -32,9 +32,14 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your longest win streak beats 93% of 340 team-seasons tracked
+- (62) [global] Your all-play win rate beats 88% of 340 team-seasons tracked
+- (62) [global] You leave more losses on the table than 85% of 340 team-seasons tracked
 - (62) [narrative] Weeks 9–14: 6 straight wins
 - (56) [narrative] Round 12: Dak Prescott. 108.6 points from pick 113.
+- (50) [regret] 196.9 points died on your bench this season (14.1/week)
 - (50) [luck] 1531.6 points against — softest schedule in the league
+- (46) [people] Your MVP: Christian McCaffrey — 404.9 points, 18% of everything you scored
 - (42) [regret] 1 of your losses were already wins — if you'd started the right players. Weeks 5.
 - (42) [people] InfinityStoner was your personal win button: 2-0, +29.3 points
 - (40) [regret] Week 7: you benched Travis Hunter (24.1) and started Nico Collins (6.7)

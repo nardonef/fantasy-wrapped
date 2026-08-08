@@ -8,9 +8,13 @@ const MIN_GLOBAL_POOL = 25;
 
 type PoolRow = {
   bench_regret_worse: string;
+  bench_regret_better: string;
   flippable_loss_worse: string;
+  flippable_loss_better: string;
   all_play_worse: string;
+  all_play_better: string;
   luck_worse: string;
+  luck_better: string;
   win_streak_worse: string;
   loss_streak_worse: string;
   transaction_worse: string;
@@ -40,9 +44,13 @@ export async function getGlobalStats(
     const [row] = (await db.execute(sql`
       SELECT
         count(*) FILTER (WHERE bench_regret_rate > ${own.benchRegretRate}) AS bench_regret_worse,
+        count(*) FILTER (WHERE bench_regret_rate < ${own.benchRegretRate}) AS bench_regret_better,
         count(*) FILTER (WHERE flippable_loss_rate > ${own.flippableLossRate}) AS flippable_loss_worse,
+        count(*) FILTER (WHERE flippable_loss_rate < ${own.flippableLossRate}) AS flippable_loss_better,
         count(*) FILTER (WHERE all_play_win_pct < ${own.allPlayWinPct}) AS all_play_worse,
+        count(*) FILTER (WHERE all_play_win_pct > ${own.allPlayWinPct}) AS all_play_better,
         count(*) FILTER (WHERE luck_delta < ${own.luckDelta}) AS luck_worse,
+        count(*) FILTER (WHERE luck_delta > ${own.luckDelta}) AS luck_better,
         count(*) FILTER (WHERE longest_win_streak < ${own.longestWinStreak}) AS win_streak_worse,
         count(*) FILTER (WHERE longest_loss_streak < ${own.longestLossStreak}) AS loss_streak_worse,
         count(*) FILTER (WHERE transaction_total < ${own.transactionTotal}) AS transaction_worse,
@@ -52,15 +60,31 @@ export async function getGlobalStats(
     `)) as unknown as PoolRow[];
 
     const total = Number(row.total);
-    if (total < MIN_GLOBAL_POOL) return {};
+    if (!Number.isFinite(total) || total < MIN_GLOBAL_POOL) return {};
 
     const pct = (worse: string) => Math.round((Number(worse) / total) * 100);
 
     return {
-      benchRegretRatePercentile: { percentile: pct(row.bench_regret_worse), poolSize: total },
-      flippableLossRatePercentile: { percentile: pct(row.flippable_loss_worse), poolSize: total },
-      allPlayWinPctPercentile: { percentile: pct(row.all_play_worse), poolSize: total },
-      luckDeltaPercentile: { percentile: pct(row.luck_worse), poolSize: total },
+      benchRegretRatePercentile: {
+        percentile: pct(row.bench_regret_worse),
+        inversePercentile: pct(row.bench_regret_better),
+        poolSize: total,
+      },
+      flippableLossRatePercentile: {
+        percentile: pct(row.flippable_loss_worse),
+        inversePercentile: pct(row.flippable_loss_better),
+        poolSize: total,
+      },
+      allPlayWinPctPercentile: {
+        percentile: pct(row.all_play_worse),
+        inversePercentile: pct(row.all_play_better),
+        poolSize: total,
+      },
+      luckDeltaPercentile: {
+        percentile: pct(row.luck_worse),
+        inversePercentile: pct(row.luck_better),
+        poolSize: total,
+      },
       longestWinStreakPercentile: { percentile: pct(row.win_streak_worse), poolSize: total },
       longestLossStreakPercentile: { percentile: pct(row.loss_streak_worse), poolSize: total },
       transactionTotalPercentile: { percentile: pct(row.transaction_worse), poolSize: total },

@@ -1,11 +1,11 @@
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 import { fallbackCopy } from "@/copy/fallback";
-import type { CardScript, SeasonFacts, WrappedCard } from "@/engine";
+import type { CardScript, InsightCategory, SeasonFacts, WrappedCard } from "@/engine";
 import { computeSeasonFacts, generateCardScript } from "@/engine";
 import { allInsights } from "@/engine/insights";
 import { createFixtureSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
-import { buildStoryCards, headshot, LAYOUT_BY_INSIGHT, toneFor } from "./model";
+import { buildStoryCards, CATEGORY_LABEL, headshot, LAYOUT_BY_INSIGHT, toneFor } from "./model";
 import { buildView } from "./view-builder";
 
 const LEAGUES = ["1269125082375008256", "1257059475584471040"];
@@ -28,6 +28,33 @@ describe("LAYOUT_BY_INSIGHT", () => {
   });
 });
 
+describe("CATEGORY_LABEL", () => {
+  // Object literal keyed by InsightCategory, not a hardcoded array — TS
+  // itself catches a missing or stale key here if InsightCategory ever
+  // changes, so this list can't silently drift from the union type.
+  const allCategories: Record<InsightCategory, true> = {
+    identity: true,
+    regret: true,
+    luck: true,
+    people: true,
+    narrative: true,
+    global: true,
+  };
+
+  it("labels every insight category", () => {
+    const mapped = new Set(Object.keys(CATEGORY_LABEL));
+    const categories = Object.keys(allCategories);
+    // A category with no kicker label would silently render its raw enum
+    // value, e.g. the literal word "global", in the UI.
+    expect(categories.filter((c) => !mapped.has(c))).toEqual([]);
+  });
+
+  it("labels nothing that isn't a real category", () => {
+    const categories = new Set(Object.keys(allCategories));
+    expect(Object.keys(CATEGORY_LABEL).filter((c) => !categories.has(c))).toEqual([]);
+  });
+});
+
 describe("toneFor", () => {
   it("keeps every regret card on the dark surface", () => {
     expect(toneFor(card("peak-week", { category: "regret" }))).toBe("dark");
@@ -47,6 +74,26 @@ describe("toneFor", () => {
   it("inverts the surface for a brag and keeps the rest dark", () => {
     expect(toneFor(card("mvp"))).toBe("light");
     expect(toneFor(card("nemesis"))).toBe("dark");
+  });
+
+  it("reads bidirectional global cards off facts.direction, not category", () => {
+    for (const id of [
+      "global-bench-regret-rate",
+      "global-flippable-loss-rate",
+      "global-all-play-win-pct",
+      "global-luck-delta",
+    ]) {
+      expect(toneFor(card(id, { category: "global", facts: { direction: "brag" } }))).toBe("light");
+      expect(toneFor(card(id, { category: "global", facts: { direction: "wince" } }))).toBe("dark");
+    }
+  });
+
+  it("gives unidirectional global cards a fixed tone matching their only direction", () => {
+    // A brag card's hero number must not render in the regret/wince red.
+    expect(toneFor(card("global-longest-win-streak", { category: "global" }))).toBe("light");
+    expect(toneFor(card("global-transaction-activity", { category: "global" }))).toBe("light");
+    // A losing streak is only ever a wince — dark via the default case.
+    expect(toneFor(card("global-longest-loss-streak", { category: "global" }))).toBe("dark");
   });
 });
 

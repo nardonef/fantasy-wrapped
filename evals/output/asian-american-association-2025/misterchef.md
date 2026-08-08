@@ -1,6 +1,6 @@
 # misterchef — “Second Best”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -14,13 +14,13 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 **5. [luck] Week 12: you scored 179.7 — 2nd best in the league — and still lost**
 
-**6. [luck] Week 11: you won with the 9th best score of the week (97.4)**
+**6. [people] Week 3 pickup Dallas Goedert gave you 117.1 points**
 
-**7. [people] Week 3 pickup Dallas Goedert gave you 117.1 points**
+**7. [narrative] Round 14: Javonte Williams. 220.4 points from pick 132.**
 
-**8. [people] 2KSports owned you this season: 2-0, by 45 total points**
+**8. [global] You're luckier than 95% of 340 team-seasons tracked**
 
-**9. [narrative] Round 14: Javonte Williams. 220.4 points from pick 132.**
+**9. [global] Your bench regret rate beats 91% of 340 team-seasons tracked**
 
 **10. [narrative] Champion. Won the final by 0.7.**
 
@@ -33,7 +33,12 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your longest win streak beats 93% of 340 team-seasons tracked
 - (74) [regret] You went 7-7. With perfect lineups you go 12-2.
+- (62) [global] Your all-play win rate beats 88% of 340 team-seasons tracked
+- (62) [global] You leave more losses on the table than 85% of 340 team-seasons tracked
+- (62) [people] 2KSports owned you this season: 2-0, by 45 total points
+- (60) [luck] Week 11: you won with the 9th best score of the week (97.4)
 - (58) [regret] Week 6: you benched Dallas Goedert (26) and started Kenneth Walker (4.7)
 - (50) [regret] 281.6 points died on your bench this season (20.1/week)
 - (50) [identity] Most volatile team in the league: 179.7 one week, 97.4 another

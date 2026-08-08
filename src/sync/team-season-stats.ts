@@ -1,7 +1,8 @@
 import { sql } from "drizzle-orm";
 import type { db as Database } from "@/db";
 import { teamSeasonStats } from "@/db/schema";
-import { ENGINE_VERSION, type SeasonFacts } from "@/engine";
+import { computeSeasonFacts, ENGINE_VERSION, type SeasonFacts } from "@/engine";
+import type { NormalizedLeagueBundle } from "@/providers/types";
 
 export type TeamSeasonStatsRow = {
   teamId: string;
@@ -61,4 +62,25 @@ export async function upsertTeamSeasonStats(
         updatedAt: sql`now()`,
       },
     });
+}
+
+/**
+ * Compute and upsert this sync's team_season_stats rows, fail-open: a
+ * failure here must never turn a successful league sync into an error.
+ * Global-comparison data is a side effect of sync, not sync's primary job.
+ * Shared by both production sync entrypoints (the API route and the CLI
+ * sync script) so there is exactly one copy of this sequence.
+ */
+export async function writeTeamSeasonStats(
+  db: typeof Database,
+  bundle: NormalizedLeagueBundle,
+  teamIdByRoster: Map<string, string>,
+): Promise<void> {
+  try {
+    const facts = computeSeasonFacts(bundle);
+    const rows = computeTeamSeasonStatsRows(facts, teamIdByRoster);
+    await upsertTeamSeasonStats(db, rows);
+  } catch (error) {
+    console.error("team_season_stats upsert failed", error);
+  }
 }
