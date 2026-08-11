@@ -713,7 +713,13 @@ export function StoryPlayer({
 
   return (
     <div className="grid min-h-dvh place-items-center bg-page lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-8 lg:px-8">
-      <div className="hidden lg:flex lg:h-full lg:flex-col lg:items-center lg:justify-center lg:justify-self-end lg:gap-8">
+      <div className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end lg:gap-6">
+        <span
+          aria-hidden="true"
+          className="label tracking-[0.2em] text-chalk-faintest [writing-mode:vertical-rl]"
+        >
+          {managerName} · {leagueName} · {season}
+        </span>
         <button
           type="button"
           aria-label="Previous"
@@ -725,12 +731,6 @@ export function StoryPlayer({
             ‹
           </span>
         </button>
-        <span
-          aria-hidden="true"
-          className="label tracking-[0.2em] text-chalk-faintest [writing-mode:vertical-rl]"
-        >
-          {managerName} · {leagueName} · {season}
-        </span>
       </div>
       <div
         className={`story-frame relative flex flex-col overflow-hidden transition-colors duration-500 sm:border ${
@@ -771,14 +771,16 @@ export function StoryPlayer({
         <button
           type="button"
           aria-label="previous card"
+          tabIndex={-1}
           onClick={back}
-          className="absolute inset-y-0 left-0 z-10 w-1/3"
+          className="absolute inset-y-0 left-0 z-10 w-1/3 focus:outline-none"
         />
         <button
           type="button"
           aria-label="next card"
+          tabIndex={-1}
           onClick={advance}
-          className="absolute inset-y-0 right-0 z-10 w-2/3"
+          className="absolute inset-y-0 right-0 z-10 w-2/3 focus:outline-none"
         />
 
         {/*
@@ -847,7 +849,18 @@ export function StoryPlayer({
         )}
       </div>
 
-      <div className="hidden lg:flex lg:h-full lg:flex-col lg:items-start lg:justify-center lg:justify-self-start lg:gap-8">
+      <div className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-start lg:gap-6">
+        <button
+          type="button"
+          aria-label="Next"
+          onClick={advance}
+          disabled={index === cards.length - 1}
+          className="grid size-11 shrink-0 place-items-center border border-chalk/15 text-chalk-dim transition-colors hover:border-chalk/30 hover:text-chalk disabled:pointer-events-none disabled:opacity-20"
+        >
+          <span aria-hidden="true" className="text-base leading-none">
+            ›
+          </span>
+        </button>
         <nav aria-label="Jump to card" className="flex flex-col gap-3">
           {cards.map((c, i) => (
             <button
@@ -865,17 +878,6 @@ export function StoryPlayer({
             </button>
           ))}
         </nav>
-        <button
-          type="button"
-          aria-label="Next"
-          onClick={advance}
-          disabled={index === cards.length - 1}
-          className="grid size-11 shrink-0 place-items-center border border-chalk/15 text-chalk-dim transition-colors hover:border-chalk/30 hover:text-chalk disabled:pointer-events-none disabled:opacity-20"
-        >
-          <span aria-hidden="true" className="text-base leading-none">
-            ›
-          </span>
-        </button>
       </div>
     </div>
   );

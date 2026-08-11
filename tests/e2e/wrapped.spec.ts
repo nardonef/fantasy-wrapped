@@ -216,6 +216,37 @@ test("explicit previous/next controls flank the card on desktop", async ({ page,
 
   await prevControl.click();
   await expect(player).toContainText("01 / 11");
+
+  // Their vertical position is independent of the chapter list's length, so
+  // they land level with each other rather than one riding low with the list.
+  const prevBox = await prevControl.boundingBox();
+  const nextBox = await nextControl.boundingBox();
+  if (!prevBox || !nextBox) throw new Error("no layout box");
+  expect(Math.abs(prevBox.y - nextBox.y)).toBeLessThan(2);
+});
+
+test("clicking the card doesn't leave a stray focus outline after an arrow key", async ({
+  page,
+  viewport,
+}) => {
+  test.skip((viewport?.width ?? 0) < 640, "phones don't take a keyboard");
+  await page.goto(WRAPPED_URL);
+  const player = page.getByTestId("story-player");
+
+  // These large tap zones are a mouse/touch affordance only: real keyboard
+  // users get the window-level arrow-key listener and (on desktop) the
+  // explicit Previous/Next buttons, so the zones opt out of both the tab
+  // order and any focus outline a click would otherwise leave behind.
+  const next = page.getByRole("button", { name: "next card" });
+  await next.click();
+  await page.keyboard.press("ArrowRight");
+  await expect(player).toContainText("03 / 11");
+  await expect(next).toHaveCSS("outline-style", "none");
+  await expect(next).toHaveAttribute("tabindex", "-1");
+  await expect(page.getByRole("button", { name: "previous card" })).toHaveAttribute(
+    "tabindex",
+    "-1",
+  );
 });
 
 test("league ballot page lists superlatives and links to wrappeds", async ({ page }) => {
