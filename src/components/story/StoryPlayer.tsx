@@ -713,11 +713,22 @@ export function StoryPlayer({
 
   return (
     <div className="grid min-h-dvh place-items-center bg-page lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-8 lg:px-8">
-      <div
-        aria-hidden="true"
-        className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end"
-      >
-        <span className="label tracking-[0.2em] text-chalk-faintest [writing-mode:vertical-rl]">
+      <div className="hidden lg:flex lg:h-full lg:flex-col lg:items-center lg:justify-center lg:justify-self-end lg:gap-8">
+        <button
+          type="button"
+          aria-label="Previous"
+          onClick={back}
+          disabled={index === 0}
+          className="grid size-11 shrink-0 place-items-center border border-chalk/15 text-chalk-dim transition-colors hover:border-chalk/30 hover:text-chalk disabled:pointer-events-none disabled:opacity-20"
+        >
+          <span aria-hidden="true" className="text-base leading-none">
+            ‹
+          </span>
+        </button>
+        <span
+          aria-hidden="true"
+          className="label tracking-[0.2em] text-chalk-faintest [writing-mode:vertical-rl]"
+        >
           {managerName} · {leagueName} · {season}
         </span>
       </div>
@@ -836,26 +847,36 @@ export function StoryPlayer({
         )}
       </div>
 
-      <nav
-        aria-label="Jump to card"
-        className="hidden lg:flex lg:h-full lg:flex-col lg:justify-center lg:justify-self-start lg:gap-2.5"
-      >
-        {cards.map((c, i) => (
-          <button
-            key={c.key}
-            type="button"
-            data-testid="chapter-link"
-            aria-current={i === index ? "true" : undefined}
-            onClick={() => goTo(i)}
-            className={`label text-left tracking-[0.1em] transition-colors ${
-              i === index ? "text-flag" : "text-chalk-faint hover:text-chalk-dim"
-            }`}
-          >
-            {i === index && <span aria-hidden="true">→ </span>}
-            {c.kicker}
-          </button>
-        ))}
-      </nav>
+      <div className="hidden lg:flex lg:h-full lg:flex-col lg:items-start lg:justify-center lg:justify-self-start lg:gap-8">
+        <nav aria-label="Jump to card" className="flex flex-col gap-3">
+          {cards.map((c, i) => (
+            <button
+              key={c.key}
+              type="button"
+              data-testid="chapter-link"
+              aria-current={i === index ? "true" : undefined}
+              onClick={() => goTo(i)}
+              className={`py-0.5 text-left font-mono text-[11px] font-medium tracking-[0.12em] uppercase transition-colors ${
+                i === index ? "text-flag" : "text-chalk-faint hover:text-chalk-dim"
+              }`}
+            >
+              {i === index && <span aria-hidden="true">→ </span>}
+              {c.kicker}
+            </button>
+          ))}
+        </nav>
+        <button
+          type="button"
+          aria-label="Next"
+          onClick={advance}
+          disabled={index === cards.length - 1}
+          className="grid size-11 shrink-0 place-items-center border border-chalk/15 text-chalk-dim transition-colors hover:border-chalk/30 hover:text-chalk disabled:pointer-events-none disabled:opacity-20"
+        >
+          <span aria-hidden="true" className="text-base leading-none">
+            ›
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

@@ -199,6 +199,25 @@ test("the chapter rail is not shown on mobile", async ({ page, viewport }) => {
   await expect(page.getByTestId("chapter-link").first()).toBeHidden();
 });
 
+test("explicit previous/next controls flank the card on desktop", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) < 1024, "the flanking controls are desktop-only");
+  await page.goto(WRAPPED_URL);
+  const player = page.getByTestId("story-player");
+  const prevControl = page.getByRole("button", { name: "Previous", exact: true });
+  const nextControl = page.getByRole("button", { name: "Next", exact: true });
+
+  await expect(player).toContainText("01 / 11");
+  await expect(prevControl).toBeDisabled();
+  await expect(nextControl).toBeEnabled();
+
+  await nextControl.click();
+  await expect(player).toContainText("02 / 11");
+  await expect(prevControl).toBeEnabled();
+
+  await prevControl.click();
+  await expect(player).toContainText("01 / 11");
+});
+
 test("league ballot page lists superlatives and links to wrappeds", async ({ page }) => {
   await page.goto("/l/sleeper/1269125082375008256/2025");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("ballot");
