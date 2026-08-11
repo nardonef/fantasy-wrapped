@@ -24,6 +24,24 @@ if (!testUrl.includes("test")) {
 const originalDatabaseUrl = process.env.DATABASE_URL;
 process.env.DATABASE_URL = testUrl;
 
+// The route defers writeTeamSeasonStats via next/server's after(), which
+// requires a real Next.js request-scoped context to register its callback —
+// calling the exported POST() directly (as this test does, bypassing Next's
+// own server runtime) throws "after() was called outside a request scope".
+// Mock after() to run its callback immediately instead, collecting the
+// resulting promise so the test can await it deterministically before
+// asserting on the deferred work's side effects (the console.error below).
+const afterCallbacks: Promise<unknown>[] = [];
+vi.mock("next/server", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("next/server")>();
+  return {
+    ...actual,
+    after: (fn: () => unknown) => {
+      afterCallbacks.push(Promise.resolve().then(fn));
+    },
+  };
+});
+
 // The route calls createHttpSleeperApi(), which hits the real Sleeper API.
 // Swap it for the fixture-backed implementation so this test never touches
 // the network, while leaving the rest of the module (fetchSleeperLeagueBundle,
@@ -75,8 +93,9 @@ describe("POST /api/sync fail-open behavior (integration)", () => {
     process.env.DATABASE_URL = originalDatabaseUrl;
   });
 
-  it("still returns 200 with the normal sync payload when the team_season_stats upsert throws", async () => {
+  it("still returns 200 with the normal sync payload when the deferred team_season_stats write throws", async () => {
     const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    afterCallbacks.length = 0;
 
     const request = new Request("http://localhost/api/sync", {
       method: "POST",
@@ -89,14 +108,22 @@ describe("POST /api/sync fail-open behavior (integration)", () => {
 
     const response = await POST(request);
 
-    // The assertion that actually proves fail-open: a thrown stats upsert
-    // must not surface as the route's 502 error response.
+    // The stats write now runs via after(), deferred past the response, so
+    // the response can never carry its failure — this always returns 200.
+    // The real assertion this test exists for is below: the deferred write's
+    // own fail-open handling (inside writeTeamSeasonStats) still catches and
+    // logs the failure rather than letting it go unhandled.
     expect(response.status).toBe(200);
 
     const body = await response.json();
     expect(body.leagueId).toBe(LEAGUE_ID);
     expect(Array.isArray(body.teams)).toBe(true);
     expect(body.teams.length).toBeGreaterThan(0);
+
+    // Wait for the after()-deferred work this test's mock collected, the way
+    // Next.js/Vercel guarantees it runs to completion before the response's
+    // handling of this invocation is considered done.
+    await Promise.all(afterCallbacks);
 
     // The failure was still logged, not silently dropped.
     expect(consoleErrorSpy).toHaveBeenCalledWith(
