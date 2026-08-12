@@ -712,14 +712,8 @@ export function StoryPlayer({
   const { top, bottom } = (ARCHETYPES[card.layout] ?? statement)({ card, tone, accent });
 
   return (
-    <div className="grid min-h-dvh place-items-center bg-page lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-8 lg:px-8">
-      <div className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end lg:gap-6">
-        <span
-          aria-hidden="true"
-          className="label tracking-[0.2em] text-chalk-faintest [writing-mode:vertical-rl]"
-        >
-          {managerName} · {leagueName} · {season}
-        </span>
+    <div className="relative grid min-h-dvh place-items-center bg-page lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-8 lg:px-8">
+      <div className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end">
         <button
           type="button"
           aria-label="Previous"
@@ -879,6 +873,13 @@ export function StoryPlayer({
           ))}
         </nav>
       </div>
+
+      <span
+        aria-hidden="true"
+        className="label absolute inset-x-0 bottom-8 hidden text-center tracking-[0.2em] text-chalk-faint lg:block"
+      >
+        {managerName} · {leagueName} · {season}
+      </span>
     </div>
   );
 }
