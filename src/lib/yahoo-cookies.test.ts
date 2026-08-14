@@ -36,7 +36,7 @@ describe("yahoo cookie encryption", () => {
   });
 
   it("throws a clear error when YAHOO_COOKIE_SECRET is unset", () => {
-    process.env.YAHOO_COOKIE_SECRET = undefined;
+    delete process.env.YAHOO_COOKIE_SECRET;
     expect(() => encryptCookieValue("x")).toThrow("YAHOO_COOKIE_SECRET");
   });
 });
