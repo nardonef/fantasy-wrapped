@@ -676,9 +676,13 @@ describe("cleanYahoo", () => {
     expect(cleanYahoo(["QB", "RB", "WR"])).toEqual(["QB", "RB", "WR"]);
   });
 
-  it("recurses into nested objects and arrays", () => {
+  it("recurses into nested objects and arrays, applying the same-key-unwrap rule at every depth", () => {
+    // A numbered collection of one item whose sole element is itself a
+    // single-key wrapper ({"inner": {...}}) is structurally identical to
+    // the manager/matchup cases above — same-key-unwrap correctly fires
+    // here too (this is the same rule, not a special case).
     const input = { outer: { "0": { inner: [{ a: 1 }, { b: 2 }] }, count: 1 } };
-    expect(cleanYahoo(input)).toEqual({ outer: [{ inner: { a: 1, b: 2 } }] });
+    expect(cleanYahoo(input)).toEqual({ outer: [{ a: 1, b: 2 }] });
   });
 
   it("cleans a realistic nested league+scoreboard+matchup+teams shape end to end", () => {
