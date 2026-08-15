@@ -257,5 +257,10 @@ export const teamSeasonStats = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
-  (t) => [uniqueIndex("team_season_stats_team_engine_ux").on(t.teamId, t.engineVersion)],
+  (t) => [
+    uniqueIndex("team_season_stats_team_engine_ux").on(t.teamId, t.engineVersion),
+    // getGlobalStats filters WHERE engine_version = current on every cache-miss
+    // Wrapped generation — without this, that's a full table scan.
+    index("team_season_stats_engine_version_ix").on(t.engineVersion),
+  ],
 );
