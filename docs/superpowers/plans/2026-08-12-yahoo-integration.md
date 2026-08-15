@@ -1532,8 +1532,17 @@ function toFloat(value: string | number): number {
 }
 
 function normalizeTransactionType(type: string): TransactionType {
-  if (type === "trade" || type === "waiver" || type === "add") return type === "add" ? "free_agent" : type;
+  if (type === "trade" || type === "waiver") return type;
+  if (type === "add" || type === "drop") return "free_agent";
   return "commissioner";
+}
+
+/** Yahoo's player_key is `{game_key}.p.{player_id}` — extract the bare id so
+ * transaction/draft-pick player refs land in the same id space as
+ * players[]/playerWeeks[] (which use the bare numeric player_id). Mirrors
+ * the .split(".t.")[1] pattern already used for team keys below. */
+function barePlayerId(playerKey: string): string {
+  return playerKey.split(".p.")[1];
 }
 
 export function normalizeYahooLeague(payloads: YahooLeaguePayloads): NormalizedLeagueBundle {
@@ -1580,7 +1589,12 @@ export function normalizeYahooLeague(payloads: YahooLeaguePayloads): NormalizedL
     };
     const scoreboard = yahooScoreboardSchema.parse(cleaned.fantasy_content?.league?.scoreboard);
     for (const matchup of scoreboard.matchups as YahooScoreboardMatchup[]) {
-      const [teamA, teamB] = matchup.teams;
+      // teamA must be the lower providerRosterId (see NormalizedMatchup's
+      // doc comment and the unique index in db/schema.ts) — Yahoo's own
+      // team order in the response isn't guaranteed to satisfy that.
+      const [teamA, teamB] = [...matchup.teams].sort(
+        (a, b) => Number(a.team_key.split(".t.")[1]) - Number(b.team_key.split(".t.")[1]),
+      );
       if (!teamA) continue;
       matchups.push({
         week,
@@ -1648,14 +1662,14 @@ export function normalizeYahooLeague(payloads: YahooLeaguePayloads): NormalizedL
       for (const p of tx.players ?? []) {
         const data = p.transaction_data;
         if (!data) continue;
-        referencedPlayerIds.add(p.player_key);
+        referencedPlayerIds.add(barePlayerId(p.player_key));
         if (data.destination_team_key) {
           const rosterId = data.destination_team_key.split(".t.")[1];
-          (adds[rosterId] ??= []).push(p.player_key);
+          (adds[rosterId] ??= []).push(barePlayerId(p.player_key));
         }
         if (data.source_team_key) {
           const rosterId = data.source_team_key.split(".t.")[1];
-          (drops[rosterId] ??= []).push(p.player_key);
+          (drops[rosterId] ??= []).push(barePlayerId(p.player_key));
         }
       }
       const assets: TransactionAssets = { adds, drops };
@@ -1665,6 +1679,11 @@ export function normalizeYahooLeague(payloads: YahooLeaguePayloads): NormalizedL
       }
       return {
         providerTxId: tx.transaction_key,
+        // Yahoo's transaction resource carries a timestamp but no week
+        // number, and no task in this plan fetches NFL week-date
+        // boundaries to derive one — known limitation, documented in
+        // STATUS.md's "Known limitations" (Task 14). Revisit if/when
+        // week-accurate transaction attribution is needed for Yahoo.
         week: 0,
         type: normalizeTransactionType(tx.type),
         rosterIds: [...new Set([...Object.keys(adds), ...Object.keys(drops)])],
@@ -1680,12 +1699,12 @@ export function normalizeYahooLeague(payloads: YahooLeaguePayloads): NormalizedL
     draftResultsCleaned.fantasy_content?.league?.draft_results ?? [],
   );
   const draftPicks: NormalizedDraftPick[] = rawDraftResults.map((pick) => {
-    if (pick.player_key) referencedPlayerIds.add(pick.player_key);
+    if (pick.player_key) referencedPlayerIds.add(barePlayerId(pick.player_key));
     return {
       round: toInt(pick.round),
       pickNo: toInt(pick.pick),
       providerRosterId: pick.team_key.split(".t.")[1] ?? null,
-      providerPlayerId: pick.player_key ?? null,
+      providerPlayerId: pick.player_key ? barePlayerId(pick.player_key) : null,
       isKeeper: false,
       amount: pick.cost != null ? toInt(pick.cost) : null,
     };
