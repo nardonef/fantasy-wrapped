@@ -12,7 +12,9 @@ describe("createHttpYahooApi", () => {
   it("sends a bearer token and hits the expected Yahoo endpoints", async () => {
     const fetchSpy = vi
       .spyOn(global, "fetch")
-      .mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+      .mockImplementation(() =>
+        Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 })),
+      );
     const api = createHttpYahooApi("test-token");
 
     await api.getLeague("423.l.11184");
@@ -38,7 +40,7 @@ describe("createHttpYahooApi", () => {
     vi.useFakeTimers();
     const fetchSpy = vi
       .spyOn(global, "fetch")
-      .mockResolvedValue(new Response("rate limited", { status: 429 }));
+      .mockImplementation(() => Promise.resolve(new Response("rate limited", { status: 429 })));
     const api = createHttpYahooApi("test-token");
 
     const promise = api.getLeague("423.l.11184").catch((e) => e);

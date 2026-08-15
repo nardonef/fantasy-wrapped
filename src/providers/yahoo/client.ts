@@ -29,7 +29,7 @@ async function fetchJson(url: string, accessToken: string): Promise<unknown> {
       } else if (!res.ok) {
         throw new Error(`Yahoo ${res.status} for ${url}`);
       } else {
-        return await res.clone().json();
+        return await res.json();
       }
     } catch (error) {
       lastError = error;
