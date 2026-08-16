@@ -93,9 +93,10 @@ describe("POST /api/yahoo/sync", () => {
     expect(response.cookies.get(YAHOO_TOKEN_COOKIE)?.value).toBe("");
   });
 
-  it("422s when the league has no scored weeks", async () => {
+  it("422s when the league has no scored weeks and clears the token cookie", async () => {
     vi.spyOn(yahooProvider, "fetchYahooLeagueBundle").mockResolvedValue({ ...BUNDLE, matchups: [] });
     const response = await POST(postRequest({ leagueKey: "423.l.1" }, "real-token"));
     expect(response.status).toBe(422);
+    expect(response.cookies.get(YAHOO_TOKEN_COOKIE)?.value).toBe("");
   });
 });

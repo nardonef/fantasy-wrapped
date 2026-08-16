@@ -42,10 +42,14 @@ export async function POST(request: NextRequest) {
   try {
     const bundle = await fetchYahooLeagueBundle(createHttpYahooApi(token), parsed.data.leagueKey);
     if (bundle.matchups.length === 0) {
-      return NextResponse.json(
+      // The token was already used above — clear it here too, same as every
+      // other exit path past the auth check, so a retry can't replay it.
+      const response = NextResponse.json(
         { error: "This league has no scored weeks yet — Wrapped needs a played season." },
         { status: 422 },
       );
+      response.cookies.delete(YAHOO_TOKEN_COOKIE);
+      return response;
     }
     await persistBundle(db, bundle);
 
@@ -71,9 +75,11 @@ export async function POST(request: NextRequest) {
     return response;
   } catch (error) {
     console.error("yahoo sync failed", error);
-    return NextResponse.json(
+    const response = NextResponse.json(
       { error: "Could not sync that league from Yahoo. Try connecting again." },
       { status: 502 },
     );
+    response.cookies.delete(YAHOO_TOKEN_COOKIE);
+    return response;
   }
 }
