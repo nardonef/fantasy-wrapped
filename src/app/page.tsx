@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LandingFlow } from "@/components/LandingFlow";
 
 export default function Home() {
@@ -18,9 +19,14 @@ export default function Home() {
 
       <LandingFlow />
 
-      <footer className="label mt-auto pt-12 text-chalk-faint">
-        Sleeper leagues · ESPN &amp; Yahoo coming
-      </footer>
+      <Link
+        href="/api/auth/yahoo/start"
+        className="label mt-6 block border border-chalk/20 px-4 py-3.5 text-center transition-colors hover:border-flag hover:text-flag"
+      >
+        Connect Yahoo instead
+      </Link>
+
+      <footer className="label mt-auto pt-12 text-chalk-faint">Sleeper &amp; Yahoo leagues · ESPN coming</footer>
     </main>
   );
 }
