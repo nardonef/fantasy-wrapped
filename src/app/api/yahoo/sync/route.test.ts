@@ -58,7 +58,7 @@ const BUNDLE: NormalizedLeagueBundle = {
 describe("POST /api/yahoo/sync", () => {
   beforeEach(() => {
     process.env.YAHOO_COOKIE_SECRET = Buffer.alloc(32, 7).toString("base64");
-    vi.spyOn(persistModule, "persistBundle").mockResolvedValue(undefined);
+    vi.spyOn(persistModule, "persistBundle").mockResolvedValue({ leagueId: "423.l.1" });
   });
 
   afterEach(() => {
