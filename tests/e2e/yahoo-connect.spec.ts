@@ -37,9 +37,14 @@ test.describe("Yahoo connect flow", () => {
 
   test("shows an error state when Yahoo league discovery fails", async ({ page }) => {
     await page.route("**/api/yahoo/leagues", async (route) => {
-      await route.fulfill({ status: 401, json: { error: "Your Yahoo session expired — sign in again." } });
+      await route.fulfill({
+        status: 401,
+        json: { error: "Your Yahoo session expired — sign in again." },
+      });
     });
     await page.goto("/connect/yahoo");
-    await expect(page.getByRole("alert").filter({ hasText: "Your Yahoo session expired — sign in again." })).toHaveText("Your Yahoo session expired — sign in again.");
+    await expect(
+      page.getByRole("alert").filter({ hasText: "Your Yahoo session expired — sign in again." }),
+    ).toHaveText("Your Yahoo session expired — sign in again.");
   });
 });

@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { YAHOO_TOKEN_COOKIE, decryptCookieValue } from "@/lib/yahoo-cookies";
+import { decryptCookieValue, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 import { createHttpYahooApi } from "@/providers/yahoo/client";
 import { yahooUsersSchema } from "@/providers/yahoo/schemas";
 import { cleanYahoo } from "@/providers/yahoo/yahoo-json";
@@ -11,7 +11,10 @@ export async function GET(request: NextRequest) {
   const encrypted = request.cookies.get(YAHOO_TOKEN_COOKIE)?.value;
   const token = encrypted ? decryptCookieValue(encrypted) : null;
   if (!token) {
-    return NextResponse.json({ error: "Your Yahoo session expired — sign in again." }, { status: 401 });
+    return NextResponse.json(
+      { error: "Your Yahoo session expired — sign in again." },
+      { status: 401 },
+    );
   }
 
   try {

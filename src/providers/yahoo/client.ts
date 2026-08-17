@@ -45,7 +45,8 @@ export function createHttpYahooApi(accessToken: string): YahooApi {
     getUser: () => get(`${BASE_URL}/users;use_login=1?format=json`),
     getUserLeagues: () =>
       get(`${BASE_URL}/users;use_login=1/games;game_codes=nfl/leagues?format=json`),
-    getLeague: (leagueKey) => get(`${BASE_URL}/league/${leagueKey};out=settings,standings?format=json`),
+    getLeague: (leagueKey) =>
+      get(`${BASE_URL}/league/${leagueKey};out=settings,standings?format=json`),
     getScoreboard: (leagueKey, week) =>
       get(`${BASE_URL}/league/${leagueKey}/scoreboard;week=${week}?format=json`),
     getRoster: (teamKey, week) =>

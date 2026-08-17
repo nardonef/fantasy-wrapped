@@ -26,7 +26,10 @@ describe("cleanYahoo", () => {
   });
 
   it("unwraps a list of same-key-wrapped items into a plain array, without merging them", () => {
-    const input = [{ roster_position: { position: "QB" } }, { roster_position: { position: "RB" } }];
+    const input = [
+      { roster_position: { position: "QB" } },
+      { roster_position: { position: "RB" } },
+    ];
     expect(cleanYahoo(input)).toEqual([{ position: "QB" }, { position: "RB" }]);
   });
 
@@ -88,7 +91,10 @@ describe("cleanYahoo", () => {
       fantasy_content: {
         league: {
           league_key: string;
-          scoreboard: { week: string; matchups: { week: string; is_playoffs: string; teams: unknown[] }[] };
+          scoreboard: {
+            week: string;
+            matchups: { week: string; is_playoffs: string; teams: unknown[] }[];
+          };
         };
       };
     };

@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { YAHOO_TOKEN_COOKIE, encryptCookieValue } from "@/lib/yahoo-cookies";
+import { encryptCookieValue, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 import type { NormalizedLeagueBundle } from "@/providers/types";
 import * as yahooProvider from "@/providers/yahoo";
 import * as persistModule from "@/sync/persist";
@@ -48,7 +48,17 @@ const BUNDLE: NormalizedLeagueBundle = {
       raw: {},
     },
   ],
-  matchups: [{ week: 1, teamA: "1", teamB: null, teamAScore: 100, teamBScore: null, isPlayoff: false, bracketRound: null }],
+  matchups: [
+    {
+      week: 1,
+      teamA: "1",
+      teamB: null,
+      teamAScore: 100,
+      teamBScore: null,
+      isPlayoff: false,
+      bracketRound: null,
+    },
+  ],
   playerWeeks: [],
   players: [],
   transactions: [],
@@ -78,7 +88,9 @@ describe("POST /api/yahoo/sync", () => {
   it("syncs, persists, resolves the caller's own roster by guid, and clears the token cookie", async () => {
     vi.spyOn(yahooProvider, "fetchYahooLeagueBundle").mockResolvedValue(BUNDLE);
 
-    const response = await POST(postRequest({ leagueKey: "423.l.1", guid: "GUID-1" }, "real-token"));
+    const response = await POST(
+      postRequest({ leagueKey: "423.l.1", guid: "GUID-1" }, "real-token"),
+    );
     const data = await response.json();
 
     expect(response.status).toBe(200);
@@ -94,7 +106,10 @@ describe("POST /api/yahoo/sync", () => {
   });
 
   it("422s when the league has no scored weeks and clears the token cookie", async () => {
-    vi.spyOn(yahooProvider, "fetchYahooLeagueBundle").mockResolvedValue({ ...BUNDLE, matchups: [] });
+    vi.spyOn(yahooProvider, "fetchYahooLeagueBundle").mockResolvedValue({
+      ...BUNDLE,
+      matchups: [],
+    });
     const response = await POST(postRequest({ leagueKey: "423.l.1" }, "real-token"));
     expect(response.status).toBe(422);
     expect(response.cookies.get(YAHOO_TOKEN_COOKIE)?.value).toBe("");

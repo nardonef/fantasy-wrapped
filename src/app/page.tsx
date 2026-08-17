@@ -26,7 +26,9 @@ export default function Home() {
         Connect Yahoo instead
       </Link>
 
-      <footer className="label mt-auto pt-12 text-chalk-faint">Sleeper &amp; Yahoo leagues · ESPN coming</footer>
+      <footer className="label mt-auto pt-12 text-chalk-faint">
+        Sleeper &amp; Yahoo leagues · ESPN coming
+      </footer>
     </main>
   );
 }

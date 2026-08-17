@@ -7,8 +7,8 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { createHttpYahooApi } from "@/providers/yahoo/client";
 import { fetchYahooPayloads } from "@/providers/yahoo";
+import { createHttpYahooApi } from "@/providers/yahoo/client";
 
 async function main(): Promise<void> {
   const [leagueKey, accessToken] = process.argv.slice(2);

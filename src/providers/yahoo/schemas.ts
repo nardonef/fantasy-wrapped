@@ -2,7 +2,9 @@ import { z } from "zod";
 
 const numericString = z.union([z.string(), z.number()]);
 
-export const yahooManagerSchema = z.object({ guid: z.string(), nickname: z.string().nullish() }).loose();
+export const yahooManagerSchema = z
+  .object({ guid: z.string(), nickname: z.string().nullish() })
+  .loose();
 export type YahooManager = z.infer<typeof yahooManagerSchema>;
 
 export const yahooTeamSchema = z
@@ -31,7 +33,9 @@ export const yahooTeamSchema = z
   .loose();
 export type YahooTeam = z.infer<typeof yahooTeamSchema>;
 
-export const yahooRosterPositionSchema = z.object({ position: z.string(), count: numericString.nullish() }).loose();
+export const yahooRosterPositionSchema = z
+  .object({ position: z.string(), count: numericString.nullish() })
+  .loose();
 
 export const yahooLeagueSettingsSchema = z
   .object({
@@ -100,10 +104,12 @@ export type YahooRosterPlayer = z.infer<typeof yahooRosterPlayerSchema>;
 
 export const yahooRosterSchema = z
   .object({
-    roster: z.object({
-      week: numericString.nullish(),
-      players: z.array(yahooRosterPlayerSchema).nullish(),
-    }).loose(),
+    roster: z
+      .object({
+        week: numericString.nullish(),
+        players: z.array(yahooRosterPlayerSchema).nullish(),
+      })
+      .loose(),
   })
   .loose();
 export type YahooRoster = z.infer<typeof yahooRosterSchema>;
@@ -162,7 +168,9 @@ export type YahooUserLeague = z.infer<typeof yahooUserLeagueSchema>;
 export const yahooUserSchema = z
   .object({
     guid: z.string(),
-    games: z.array(z.object({ leagues: z.array(yahooUserLeagueSchema).nullish() }).loose()).nullish(),
+    games: z
+      .array(z.object({ leagues: z.array(yahooUserLeagueSchema).nullish() }).loose())
+      .nullish(),
   })
   .loose();
 export type YahooUser = z.infer<typeof yahooUserSchema>;

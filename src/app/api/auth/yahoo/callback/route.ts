@@ -1,10 +1,10 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import {
+  encryptCookieValue,
   YAHOO_STATE_COOKIE,
   YAHOO_TOKEN_COOKIE,
   YAHOO_TOKEN_COOKIE_MAX_AGE_S,
-  encryptCookieValue,
 } from "@/lib/yahoo-cookies";
 import { exchangeCodeForToken } from "@/lib/yahoo-oauth";
 

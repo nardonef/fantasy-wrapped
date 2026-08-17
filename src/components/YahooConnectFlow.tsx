@@ -8,8 +8,19 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { PendingStoryOverlay } from "@/components/PendingStoryOverlay";
 
 type League = { leagueKey: string; name: string; season: number; teams: number };
-type SyncedTeam = { rosterId: string; displayName: string; teamName: string | null; record: string };
-type Synced = { leagueId: string; season: number; name: string; teams: SyncedTeam[]; yourRosterId: string | null };
+type SyncedTeam = {
+  rosterId: string;
+  displayName: string;
+  teamName: string | null;
+  record: string;
+};
+type Synced = {
+  leagueId: string;
+  season: number;
+  name: string;
+  teams: SyncedTeam[];
+  yourRosterId: string | null;
+};
 
 type Phase =
   | { step: "loading" }
@@ -33,14 +44,20 @@ export function YahooConnectFlow() {
         if (!res.ok) throw new Error(data.error ?? "Could not load your Yahoo leagues.");
         if (cancelled) return;
         if (data.leagues.length === 0) {
-          setPhase({ step: "error", message: "No NFL fantasy leagues found on this Yahoo account." });
+          setPhase({
+            step: "error",
+            message: "No NFL fantasy leagues found on this Yahoo account.",
+          });
           return;
         }
         setPhase({ step: "leagues", leagues: data.leagues, guid: data.guid });
       })
       .catch((err) => {
         if (!cancelled) {
-          setPhase({ step: "error", message: err instanceof Error ? err.message : "Something went wrong" });
+          setPhase({
+            step: "error",
+            message: err instanceof Error ? err.message : "Something went wrong",
+          });
         }
       });
     return () => {
@@ -72,7 +89,12 @@ export function YahooConnectFlow() {
     <div className="mt-10">
       <AnimatePresence mode="wait">
         {phase.step === "loading" && (
-          <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-6">
+          <motion.div
+            key="loading"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="py-6"
+          >
             <LoadingScreen title="Checking your Yahoo leagues…" description="One second." />
           </motion.div>
         )}
@@ -100,12 +122,16 @@ export function YahooConnectFlow() {
                     className="group flex w-full items-center justify-between gap-4 py-4 text-left"
                   >
                     <span className="min-w-0">
-                      <span className="display block truncate text-xl group-hover:text-flag">{league.name}</span>
+                      <span className="display block truncate text-xl group-hover:text-flag">
+                        {league.name}
+                      </span>
                       <span className="label mt-1.5 block text-chalk-faint">
                         {league.teams} teams · {league.season}
                       </span>
                     </span>
-                    <span className="display shrink-0 text-xl text-chalk-faint group-hover:text-flag">→</span>
+                    <span className="display shrink-0 text-xl text-chalk-faint group-hover:text-flag">
+                      →
+                    </span>
                   </button>
                 </motion.li>
               ))}
@@ -114,7 +140,13 @@ export function YahooConnectFlow() {
         )}
 
         {phase.step === "syncing" && (
-          <motion.div key="syncing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="py-6">
+          <motion.div
+            key="syncing"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="py-6"
+          >
             <LoadingScreen
               title="Pulling the tape…"
               description={`Reading every week of ${phase.leagueName}. Nothing will be forgotten.`}
@@ -123,7 +155,12 @@ export function YahooConnectFlow() {
         )}
 
         {phase.step === "teams" && (
-          <motion.div key="teams" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: EASE }}>
+          <motion.div
+            key="teams"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: EASE }}
+          >
             <p className="label text-chalk-faint">{phase.synced.name} · who are you?</p>
             <ul className={LIST}>
               {phase.synced.teams.map((team, i) => (
@@ -138,8 +175,12 @@ export function YahooConnectFlow() {
                     className="group flex w-full items-baseline justify-between gap-4 py-3.5"
                   >
                     <span className="min-w-0">
-                      <span className="display block truncate text-lg group-hover:text-flag">{team.displayName}</span>
-                      {team.teamName && <span className="label mt-1.5 block text-chalk-faint">{team.teamName}</span>}
+                      <span className="display block truncate text-lg group-hover:text-flag">
+                        {team.displayName}
+                      </span>
+                      {team.teamName && (
+                        <span className="label mt-1.5 block text-chalk-faint">{team.teamName}</span>
+                      )}
                     </span>
                     <span className="label shrink-0 text-chalk-faint">{team.record}</span>
                     <PendingStoryOverlay />

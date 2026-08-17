@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { YAHOO_TOKEN_COOKIE, encryptCookieValue } from "@/lib/yahoo-cookies";
+import { encryptCookieValue, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 import * as yahooClient from "@/providers/yahoo/client";
 import { GET } from "./route";
 
@@ -23,7 +23,14 @@ const RAW_DISCOVERY_RESPONSE = {
                   [{ game_key: "423" }, { code: "nfl" }],
                   {
                     leagues: {
-                      "0": { league: [{ league_key: "423.l.1" }, { name: "My League" }, { season: "2025" }, { num_teams: 10 }] },
+                      "0": {
+                        league: [
+                          { league_key: "423.l.1" },
+                          { name: "My League" },
+                          { season: "2025" },
+                          { num_teams: 10 },
+                        ],
+                      },
                       count: 1,
                     },
                   },
@@ -67,6 +74,8 @@ describe("GET /api/yahoo/leagues", () => {
 
     expect(response.status).toBe(200);
     expect(data.guid).toBe("GUID-1");
-    expect(data.leagues).toEqual([{ leagueKey: "423.l.1", name: "My League", season: 2025, teams: 10 }]);
+    expect(data.leagues).toEqual([
+      { leagueKey: "423.l.1", name: "My League", season: 2025, teams: 10 },
+    ]);
   });
 });

@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { YAHOO_STATE_COOKIE, YAHOO_TOKEN_COOKIE, decryptCookieValue } from "@/lib/yahoo-cookies";
+import { decryptCookieValue, YAHOO_STATE_COOKIE, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 import * as yahooOauth from "@/lib/yahoo-oauth";
 import { GET } from "./route";
 

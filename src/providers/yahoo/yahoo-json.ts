@@ -38,7 +38,10 @@ function postprocessArray(cleaned: unknown[]): unknown {
     for (const shard of cleaned) Object.assign(merged, shard);
     return merged;
   }
-  if (cleaned.length >= 1 && cleaned.every((el) => isPlainObject(el) && Object.keys(el).length === 1)) {
+  if (
+    cleaned.length >= 1 &&
+    cleaned.every((el) => isPlainObject(el) && Object.keys(el).length === 1)
+  ) {
     const keys = cleaned.map((el) => Object.keys(el as Record<string, unknown>)[0]);
     if (new Set(keys).size === 1) {
       const [key] = keys;

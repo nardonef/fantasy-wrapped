@@ -1,9 +1,9 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { db } from "@/db";
-import { YAHOO_TOKEN_COOKIE, decryptCookieValue } from "@/lib/yahoo-cookies";
-import { pruneRateLimitWindows, rateLimit } from "@/lib/rate-limit";
 import { z } from "zod";
+import { db } from "@/db";
+import { pruneRateLimitWindows, rateLimit } from "@/lib/rate-limit";
+import { decryptCookieValue, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 import { createHttpYahooApi, fetchYahooLeagueBundle } from "@/providers/yahoo";
 import { persistBundle } from "@/sync/persist";
 import { resolveYourRosterId } from "@/sync/resolve-roster";
@@ -31,7 +31,10 @@ export async function POST(request: NextRequest) {
   const encrypted = request.cookies.get(YAHOO_TOKEN_COOKIE)?.value;
   const token = encrypted ? decryptCookieValue(encrypted) : null;
   if (!token) {
-    return NextResponse.json({ error: "Your Yahoo session expired — sign in again." }, { status: 401 });
+    return NextResponse.json(
+      { error: "Your Yahoo session expired — sign in again." },
+      { status: 401 },
+    );
   }
 
   const parsed = bodySchema.safeParse(await request.json().catch(() => null));
