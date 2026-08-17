@@ -25,6 +25,8 @@ including for the repo owner — verified live, not just configured.
   record-counterfactual cards, and regret is capped at 3. The
   notability-92 bench card that `docs/tone.md` calibrates against now ships
 - Deployed on Vercel + Neon; CI (lint/typecheck/test/build/e2e) on every push
+- Yahoo ingest (OAuth 2.0, ephemeral access-token-only — no refresh token
+  persisted) → normalized bundle → Postgres, same engine/story path as Sleeper
 
 ## Next
 
@@ -59,7 +61,6 @@ including for the repo owner — verified live, not just configured.
 
 ## Blocked on Frank
 
-- [ ] Yahoo developer app credentials → Yahoo adapter (Phase 6)
 - [ ] ESPN credentials/cookie auth → ESPN adapter (after Yahoo)
 
 ## Not started / deferred
@@ -96,3 +97,8 @@ including for the repo owner — verified live, not just configured.
 - Vercel Deployment Protection was confirmed off for Production; Preview
   environment status wasn't re-checked after the toggle — verify before
   sharing preview links with anyone.
+- Yahoo transactions all record `week: 0` (`src/providers/yahoo/normalize.ts`) —
+  Yahoo's transaction resource carries a timestamp but no week number, and
+  syncing one doesn't fetch NFL week-date boundaries to derive one. Waiver/pickup-value
+  insights for Yahoo leagues may show inflated "points since pickup" until this
+  is revisited with real week-boundary data.
