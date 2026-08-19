@@ -1,6 +1,6 @@
 # justinhuang — “Rebuild Year 2?”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -10,19 +10,19 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 **3. [regret] 2 of your losses were already wins — if you'd started the right players. Weeks 4, 14.**
 
-**4. [regret] 180.2 points died on your bench this season (12.9/week)**
+**4. [luck] Week 10: you scored 156.9 — 2nd best in the league — and still lost**
 
-**5. [luck] Week 10: you scored 156.9 — 2nd best in the league — and still lost**
+**5. [luck] Week 7: you won with the 9th best score of the week (105)**
 
-**6. [luck] Week 7: you won with the 9th best score of the week (105)**
+**6. [people] Week 8 pickup TreVeyon Henderson gave you 136.2 points for $2**
 
-**7. [people] Week 8 pickup TreVeyon Henderson gave you 136.2 points for $2**
+**7. [narrative] Round 11: Cameron Dicker. 163 points from pick 103.**
 
-**8. [people] Your nemesis: caffyfun (1-2 against them)**
+**8. [narrative] Weeks 5–9: 5 straight wins**
 
-**9. [narrative] Round 11: Cameron Dicker. 163 points from pick 103.**
+**9. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
 
-**10. [narrative] Weeks 5–9: 5 straight wins**
+**10. [global] You made more moves than 97% of 340 team-seasons tracked**
 
 **FINALE — The Middle Manager**
 
@@ -33,8 +33,14 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
 - (56) [luck] 2 different opponents had their best week of the season against you (jawuwu, vrdevaraj)
+- (50) [regret] 180.2 points died on your bench this season (12.9/week)
 - (50) [luck] 1683.9 points against — softest schedule in the league
+- (48) [people] Your nemesis: caffyfun (1-2 against them)
 - (46) [people] Your MVP: Christian McCaffrey — 402.9 points, 18% of everything you scored
 - (46) [narrative] Playoff exit: third_place, knocked out by caffyfun by 26.1
 - (44) [regret] You went 10-4. With perfect lineups you go 12-2.

@@ -1,6 +1,6 @@
 # MrHippo — “MrHippo”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -19,6 +19,10 @@ _Asian American Association · 2025 · engine 0.3.0_
 **7. [narrative] Round 10: Drake Maye. 336.2 points from pick 92.**
 
 **8. [narrative] Weeks 11–14: 4 straight wins**
+
+**9. [global] Your all-play win rate beats 60% of 340 team-seasons tracked**
+
+**10. [global] You made more moves than 65% of 340 team-seasons tracked**
 
 **FINALE — The Lottery Winner**
 

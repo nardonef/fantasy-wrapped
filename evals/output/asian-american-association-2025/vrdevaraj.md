@@ -1,6 +1,6 @@
 # vrdevaraj — “Hospital Squad”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -12,15 +12,15 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 **4. [regret] Week 3: you benched David Montgomery (29.4) and started Zay Flowers (3.3) — it cost you the game**
 
-**5. [luck] 1960.7 points against — the league's heaviest fire, and it all landed on you**
+**5. [people] Week 5 pickup Matthew Stafford gave you 225.2 points**
 
-**6. [luck] 2 different opponents had their best week of the season against you (caffyfun, jonappetit)**
+**6. [people] 2KSports owned you this season: 3-0, by 71 total points**
 
-**7. [people] Week 5 pickup Matthew Stafford gave you 225.2 points**
+**7. [narrative] Weeks 1–13: 13 straight losses**
 
-**8. [people] 2KSports owned you this season: 3-0, by 71 total points**
+**8. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
 
-**9. [narrative] Weeks 1–13: 13 straight losses**
+**9. [global] You made more moves than 97% of 340 team-seasons tracked**
 
 **10. [narrative] Dead last. 1-13.**
 
@@ -33,9 +33,15 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
 - (74) [regret] You went 1-13. With perfect lineups you go 6-8.
 - (68) [narrative] Round 8: Zay Flowers. 202.9 points from pick 75.
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
 - (60) [identity] 1577.1 points scored — fewest in the league
+- (58) [luck] 1960.7 points against — the league's heaviest fire, and it all landed on you
+- (56) [luck] 2 different opponents had their best week of the season against you (caffyfun, jonappetit)
 - (50) [regret] 263.2 points died on your bench this season (18.8/week)
 - (50) [regret] You dropped Joe Burrow in week 2. 101.5 points after that.
 - (48) [identity] $100 of FAAB spent — league high, topped by $27 on Darren Waller

@@ -55,12 +55,13 @@ export type StoryCard = {
   isFinale: boolean;
 };
 
-const CATEGORY_LABEL: Record<string, string> = {
+export const CATEGORY_LABEL: Record<string, string> = {
   identity: "Identity",
   regret: "Regret",
   luck: "The football gods",
   people: "Personnel",
   narrative: "The story",
+  global: "The whole league of leagues",
 };
 
 /** One layout per insight. Anything unmapped falls back to `statement`. */
@@ -98,6 +99,13 @@ export const LAYOUT_BY_INSIGHT: Record<string, LayoutArchetype> = {
   volatility: "statement",
   "crowns-and-stinkers": "statement",
   "points-machine": "statement",
+  "global-bench-regret-rate": "statement",
+  "global-flippable-loss-rate": "statement",
+  "global-all-play-win-pct": "statement",
+  "global-luck-delta": "statement",
+  "global-longest-win-streak": "statement",
+  "global-longest-loss-streak": "statement",
+  "global-transaction-activity": "statement",
 };
 
 /**
@@ -115,6 +123,13 @@ const ALWAYS_LIGHT = new Set([
   "daylight-robbery-win",
   "punching-bag",
   "faab-story",
+  // A long win streak is unambiguously good — unidirectional, only ever fires
+  // as a brag. (global-longest-loss-streak is the wince mirror and is left
+  // out of this set on purpose: dark via the default case is already correct.)
+  "global-longest-win-streak",
+  // "Most active manager" is framed as fun in this app's voice, not a moral
+  // judgment — same treatment as waiver-steal/draft-steal above.
+  "global-transaction-activity",
 ]);
 
 export function toneFor(card: WrappedCard): Tone {
@@ -134,6 +149,13 @@ export function toneFor(card: WrappedCard): Tone {
       return f.worstScoreWeeks == null ? "light" : "dark";
     case "transaction-extreme":
       return "dark";
+    case "global-bench-regret-rate":
+    case "global-flippable-loss-rate":
+    case "global-all-play-win-pct":
+    case "global-luck-delta":
+      // bidirectional() in the engine is the only thing that ever sets
+      // facts.direction, and it only ever sets "brag" or "wince".
+      return f.direction === "brag" ? "light" : "dark";
     default:
       return ALWAYS_LIGHT.has(card.insightId) ? "light" : "dark";
   }
