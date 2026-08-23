@@ -24,7 +24,7 @@ async function main(): Promise<void> {
 
   const api = createFixtureSleeperApi(path.join("fixtures", "sleeper", leagueId));
   const bundle = await fetchSleeperLeagueBundle(api, leagueId);
-  const scripts = generateLeagueWrapped(bundle).slice(0, limit);
+  const scripts = generateLeagueWrapped(bundle, {}).slice(0, limit);
 
   const outDir = path.join("evals", "output", "copy", leagueId);
   await fs.mkdir(outDir, { recursive: true });

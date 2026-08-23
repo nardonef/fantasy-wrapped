@@ -1,6 +1,6 @@
 # frothydogs — “frothydogs”
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -18,7 +18,11 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **7. [narrative] Round 8: D'Andre Swift. 160 points from pick 71.**
 
-**8. [narrative] Playoff exit: semifinal, knocked out by Disastrous414 by 29.7**
+**8. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
+
+**9. [global] You made more moves than 97% of 340 team-seasons tracked**
+
+**10. [narrative] Playoff exit: semifinal, knocked out by Disastrous414 by 29.7**
 
 **FINALE — The Regifter**
 
@@ -29,7 +33,11 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
 - (74) [regret] You went 8-6. With perfect lineups you go 12-2.
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
 - (60) [people] Bgomez626 was your personal win button: 3-0, +116.6 points
 - (58) [regret] Week 16: you benched Ashton Jeanty (31.8) and started TreVeyon Henderson (2.2)
 - (52) [narrative] Week 14: 164.5 points — the best score anyone managed that week

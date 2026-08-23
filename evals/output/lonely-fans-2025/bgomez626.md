@@ -1,6 +1,6 @@
 # Bgomez626 — “Asskickersunited”
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -22,7 +22,7 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **9. [people] frothydogs owned you this season: 3-0, by 116.6 total points**
 
-**10. [narrative] Week 10: 55.7 points. We don't talk about week 10.**
+**10. [global] Your all-play win rate beats 60% of 340 team-seasons tracked**
 
 **FINALE — The Rollercoaster**
 
@@ -36,5 +36,7 @@ _Lonely Fans · 2025 · engine 0.3.0_
 - (74) [regret] You went 7-7. With perfect lineups you go 11-3.
 - (65) [narrative] Round 11: Brandon Aubrey. 179.6 points from pick 106.
 - (50) [regret] 196.7 points died on your bench this season (14.1/week)
+- (48) [global] You made more moves than 65% of 340 team-seasons tracked
+- (46) [narrative] Week 10: 55.7 points. We don't talk about week 10.
 - (46) [narrative] Playoff exit: third_place, knocked out by frothydogs by 51.2
 - (38) [people] Your MVP: Jalen Hurts — 305.1 points, 15% of everything you scored

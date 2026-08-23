@@ -28,7 +28,7 @@ function chunk<T>(rows: T[], size: number): T[][] {
 export async function persistBundle(
   db: typeof Database,
   bundle: NormalizedLeagueBundle,
-): Promise<{ leagueId: string }> {
+): Promise<{ leagueId: string; teamIdByRoster: Map<string, string> }> {
   return db.transaction(async (tx) => {
     const [league] = await tx
       .insert(leagues)
@@ -222,6 +222,6 @@ export async function persistBundle(
       await tx.delete(teams).where(inArray(teams.id, staleIds));
     }
 
-    return { leagueId };
+    return { leagueId, teamIdByRoster };
   });
 }

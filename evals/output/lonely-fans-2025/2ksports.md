@@ -1,6 +1,6 @@
 # 2KSports
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -12,15 +12,17 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **4. [regret] You dropped Jared Goff in week 4. 148.9 points after that.**
 
-**5. [regret] Week 9: you benched Rico Dowdle (28.1) and started Kimani Vidal (3)**
+**5. [luck] Unluckiest schedule in the league: you played like 9.4 wins and got 8.**
 
-**6. [luck] Unluckiest schedule in the league: you played like 9.4 wins and got 8.**
+**6. [people] Week 4 pickup Daniel Jones gave you 149.5 points**
 
-**7. [people] Week 4 pickup Daniel Jones gave you 149.5 points**
+**7. [narrative] Round 9: Chris Olave. 214.8 points from pick 84.**
 
-**8. [narrative] Round 9: Chris Olave. 214.8 points from pick 84.**
+**8. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
 
-**9. [narrative] Champion. Won the final by 12.6.**
+**9. [global] You made more moves than 97% of 340 team-seasons tracked**
+
+**10. [narrative] Champion. Won the final by 12.6.**
 
 **FINALE — The Inevitable**
 
@@ -31,7 +33,12 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
 - (58) [regret] You went 8-6. With perfect lineups you go 11-3.
+- (58) [regret] Week 9: you benched Rico Dowdle (28.1) and started Kimani Vidal (3)
 - (56) [identity] 5 weeks with the best score in the league
 - (52) [narrative] Week 6: 190.6 points — the best score anyone managed that week
 - (42) [people] frothydogs was your personal win button: 2-0, +36.2 points

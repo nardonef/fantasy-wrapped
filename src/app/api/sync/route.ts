@@ -1,10 +1,11 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/db";
 import { pruneRateLimitWindows, rateLimit } from "@/lib/rate-limit";
 import { createHttpSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
 import { persistBundle } from "@/sync/persist";
 import { resolveYourRosterId } from "@/sync/resolve-roster";
+import { writeTeamSeasonStats } from "@/sync/team-season-stats";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -40,7 +41,12 @@ export async function POST(request: Request) {
         { status: 422 },
       );
     }
-    await persistBundle(db, bundle);
+    const { teamIdByRoster } = await persistBundle(db, bundle);
+
+    // Global-comparison data is a side effect of sync, not something this
+    // response depends on — defer it past the response so it doesn't add
+    // to the user-facing sync latency, while still completing server-side.
+    after(() => writeTeamSeasonStats(db, bundle, teamIdByRoster));
 
     const yourRosterId = resolveYourRosterId(bundle.teams, parsed.data.userId);
 

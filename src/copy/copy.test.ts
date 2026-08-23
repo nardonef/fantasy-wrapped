@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { CardScript, WrappedCard } from "@/engine";
-import { fallbackCopy } from "./fallback";
+import { allInsights } from "@/engine/insights";
+import { FALLBACK_TITLES, fallbackCopy } from "./fallback";
 import type { WrappedCopy } from "./schema";
 import { validateCardCopy } from "./validate";
 import { buildPrompt, writeCopy } from "./writer";
@@ -178,5 +179,30 @@ describe("fallbackCopy", () => {
     expect(fb.cards[1].body).toBe("6 of your losses were already wins");
     expect(fb.archetype.title).toBe("The Saboteur");
     expect(fb.archetype.body).toContain("504.6");
+  });
+});
+
+describe("FALLBACK_TITLES", () => {
+  // "season-summary" is deliberately excluded: fallbackCopy() special-cases
+  // it to "The season on paper" before ever consulting this map.
+  const shippable = allInsights.map((m) => m.id);
+
+  it("titles every insight the engine can ship", () => {
+    const mapped = new Set(Object.keys(FALLBACK_TITLES));
+    // Two cards sharing a title is invisible in a diff but not in the app —
+    // the global category ships 2 cards back-to-back every time, so a
+    // missing entry here silently duplicates "For the record".
+    expect(shippable.filter((id) => !mapped.has(id))).toEqual([]);
+  });
+
+  it("titles nothing the engine cannot produce", () => {
+    const shippableSet = new Set(shippable);
+    expect(Object.keys(FALLBACK_TITLES).filter((id) => !shippableSet.has(id))).toEqual([]);
+  });
+
+  it("gives the two global cards that always ship together distinct titles", () => {
+    const globalIds = allInsights.filter((m) => m.category === "global").map((m) => m.id);
+    const titles = globalIds.map((id) => FALLBACK_TITLES[id]);
+    expect(new Set(titles).size).toBe(titles.length);
   });
 });
