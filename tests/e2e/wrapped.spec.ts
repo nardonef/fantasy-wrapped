@@ -35,28 +35,40 @@ test("landing splits into two columns on a wide desktop", async ({ page, viewpor
   test.skip((viewport?.width ?? 0) < 1024, "narrow layouts stay single-column");
   await page.goto("/");
   const header = page.locator("header");
-  const panel = page.getByTestId("landing-panel");
-  await expect(panel).toBeVisible();
+  const form = page.getByTestId("landing-form");
+  await expect(form).toBeVisible();
   const headerBox = await header.boundingBox();
-  const panelBox = await panel.boundingBox();
-  if (!headerBox || !panelBox) throw new Error("no layout box");
-  // Side by side, not stacked: the panel starts to the right of the header.
-  expect(panelBox.x).toBeGreaterThan(headerBox.x + headerBox.width);
+  const formBox = await form.boundingBox();
+  if (!headerBox || !formBox) throw new Error("no layout box");
+  // Side by side, not stacked: the form starts to the right of the header.
+  expect(formBox.x).toBeGreaterThan(headerBox.x + headerBox.width);
+  // No card chrome around the form itself — just the input row's own border.
+  await expect(form).toHaveCSS("border-top-width", "0px");
 });
 
 test("landing stays a single stacked column on mobile", async ({ page, viewport }) => {
   test.skip((viewport?.width ?? 0) >= 1024, "desktop gets the split layout");
   await page.goto("/");
   const header = page.locator("header");
-  const panel = page.getByTestId("landing-panel");
+  const form = page.getByTestId("landing-form");
   const headerBox = await header.boundingBox();
-  const panelBox = await panel.boundingBox();
-  if (!headerBox || !panelBox) throw new Error("no layout box");
-  // Stacked: the panel starts below the header, not beside it.
-  expect(panelBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
-  // No card chrome on mobile: the lg:border/lg:bg classes must not apply
-  // unconditionally, or the panel would look like something was added.
-  await expect(panel).toHaveCSS("border-top-width", "0px");
+  const formBox = await form.boundingBox();
+  if (!headerBox || !formBox) throw new Error("no layout box");
+  // Stacked: the form starts below the header, not beside it.
+  expect(formBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
+});
+
+test("Enter in the username field submits like clicking Go", async ({ page }) => {
+  await page.goto("/");
+  const username = page.getByLabel("Sleeper username");
+  await username.press("Enter");
+  // Empty input: no request fires, the form stays on the username step.
+  await expect(username).toBeVisible();
+
+  await username.fill("frothydogs");
+  const leaguesRequest = page.waitForRequest((req) => req.url().includes("/api/sleeper/leagues"));
+  await username.press("Enter");
+  await leaguesRequest;
 });
 
 test("wrapped story plays through to the archetype finale", async ({ page }) => {
