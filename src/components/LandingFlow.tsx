@@ -93,7 +93,7 @@ export function LandingFlow() {
   }
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 lg:mt-0">
       <AnimatePresence mode="wait">
         {phase.step === "user" && (
           <motion.form
@@ -103,11 +103,12 @@ export function LandingFlow() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: EASE }}
+            className="lg:flex lg:flex-col lg:gap-[14px]"
           >
             <label htmlFor="username" className="label block text-chalk-faint">
               Sleeper username
             </label>
-            <div className="mt-3 flex border border-chalk/20 transition-colors focus-within:border-flag">
+            <div className="mt-3 flex items-stretch border border-chalk/15 bg-field-raised transition-colors focus-within:border-flag lg:mt-0">
               <input
                 id="username"
                 value={username}
@@ -116,26 +117,26 @@ export function LandingFlow() {
                 autoCapitalize="none"
                 autoCorrect="off"
                 spellCheck={false}
-                className="w-full bg-transparent px-4 py-3.5 font-mono text-[15px] outline-none placeholder:text-chalk-faint"
+                className="min-w-0 flex-1 bg-transparent px-[18px] py-4 font-mono text-[15px] outline-none placeholder:text-chalk-faint"
               />
               <button
                 type="submit"
                 disabled={busy}
-                className="label shrink-0 bg-flag px-6 text-field disabled:opacity-60"
+                className="label flex shrink-0 items-center justify-center bg-flag px-[26px] text-[11px] tracking-[0.18em] text-field transition-opacity hover:opacity-90 disabled:opacity-60"
               >
                 {busy ? "…" : "Go"}
               </button>
             </div>
-            <div className="mt-3 flex gap-2">
+            <div className="mt-3 flex gap-2 lg:mt-0">
               {SEASONS.map((s) => (
                 <button
                   key={s}
                   type="button"
                   onClick={() => setSeason(s)}
-                  className={`border px-3.5 py-1.5 font-mono text-xs transition-colors ${
+                  className={`border px-4 py-2 font-mono text-[13px] transition-colors ${
                     s === season
                       ? "border-flag text-flag"
-                      : "border-chalk/15 text-chalk-faint hover:border-chalk/30"
+                      : "border-chalk/15 text-chalk-faint hover:border-chalk-muted"
                   }`}
                 >
                   {s}

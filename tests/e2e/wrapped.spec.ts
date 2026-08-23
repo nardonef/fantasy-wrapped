@@ -31,6 +31,46 @@ test("landing page renders the pitch and username form", async ({ page }) => {
   await expect(page.getByLabel("Sleeper username")).toBeVisible();
 });
 
+test("landing splits into two columns on a wide desktop", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) < 1024, "narrow layouts stay single-column");
+  await page.goto("/");
+  const header = page.locator("header");
+  const form = page.getByTestId("landing-form");
+  await expect(form).toBeVisible();
+  const headerBox = await header.boundingBox();
+  const formBox = await form.boundingBox();
+  if (!headerBox || !formBox) throw new Error("no layout box");
+  // Side by side, not stacked: the form starts to the right of the header.
+  expect(formBox.x).toBeGreaterThan(headerBox.x + headerBox.width);
+  // No card chrome around the form itself — just the input row's own border.
+  await expect(form).toHaveCSS("border-top-width", "0px");
+});
+
+test("landing stays a single stacked column on mobile", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) >= 1024, "desktop gets the split layout");
+  await page.goto("/");
+  const header = page.locator("header");
+  const form = page.getByTestId("landing-form");
+  const headerBox = await header.boundingBox();
+  const formBox = await form.boundingBox();
+  if (!headerBox || !formBox) throw new Error("no layout box");
+  // Stacked: the form starts below the header, not beside it.
+  expect(formBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
+});
+
+test("Enter in the username field submits like clicking Go", async ({ page }) => {
+  await page.goto("/");
+  const username = page.getByLabel("Sleeper username");
+  await username.press("Enter");
+  // Empty input: no request fires, the form stays on the username step.
+  await expect(username).toBeVisible();
+
+  await username.fill("frothydogs");
+  const leaguesRequest = page.waitForRequest((req) => req.url().includes("/api/sleeper/leagues"));
+  await username.press("Enter");
+  await leaguesRequest;
+});
+
 test("wrapped story plays through to the archetype finale", async ({ page }) => {
   await page.goto(WRAPPED_URL);
 
@@ -147,12 +187,116 @@ test("story type sizes off the card, not the window", async ({ page, viewport })
   expect(short).toBeLessThan(tall);
 });
 
+test("the chapter rail lets you jump straight to any card on desktop", async ({
+  page,
+  viewport,
+}) => {
+  test.skip((viewport?.width ?? 0) < 1024, "the rail is desktop-only");
+  await page.goto(WRAPPED_URL);
+  const player = page.getByTestId("story-player");
+  await expect(player).toContainText("01 / 11");
+
+  const links = page.getByTestId("chapter-link");
+  await expect(links).toHaveCount(11);
+  await links.nth(3).click();
+
+  await expect(player).toContainText("04 / 11");
+  await expect(links.nth(3)).toHaveAttribute("aria-current", "true");
+});
+
+test("the chapter rail is not shown on mobile", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) >= 1024, "the rail only renders on desktop");
+  await page.goto(WRAPPED_URL);
+  await expect(page.getByTestId("story-player")).toBeVisible();
+  await expect(page.getByTestId("chapter-link").first()).toBeHidden();
+});
+
+test("explicit previous/next controls flank the card on desktop", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) < 1024, "the flanking controls are desktop-only");
+  await page.goto(WRAPPED_URL);
+  const player = page.getByTestId("story-player");
+  const prevControl = page.getByRole("button", { name: "Previous", exact: true });
+  const nextControl = page.getByRole("button", { name: "Next", exact: true });
+
+  await expect(player).toContainText("01 / 11");
+  await expect(prevControl).toBeDisabled();
+  await expect(nextControl).toBeEnabled();
+
+  await nextControl.click();
+  await expect(player).toContainText("02 / 11");
+  await expect(prevControl).toBeEnabled();
+
+  await prevControl.click();
+  await expect(player).toContainText("01 / 11");
+
+  // Their vertical position is independent of the chapter list's length, so
+  // they land level with each other rather than one riding low with the list.
+  const prevBox = await prevControl.boundingBox();
+  const nextBox = await nextControl.boundingBox();
+  if (!prevBox || !nextBox) throw new Error("no layout box");
+  expect(Math.abs(prevBox.y - nextBox.y)).toBeLessThan(2);
+});
+
+test("clicking the card doesn't leave a stray focus outline after an arrow key", async ({
+  page,
+  viewport,
+}) => {
+  test.skip((viewport?.width ?? 0) < 640, "phones don't take a keyboard");
+  await page.goto(WRAPPED_URL);
+  const player = page.getByTestId("story-player");
+
+  // These large tap zones are a mouse/touch affordance only: real keyboard
+  // users get the window-level arrow-key listener and (on desktop) the
+  // explicit Previous/Next buttons, so the zones opt out of both the tab
+  // order and any focus outline a click would otherwise leave behind.
+  const next = page.getByRole("button", { name: "next card" });
+  await next.click();
+  await page.keyboard.press("ArrowRight");
+  await expect(player).toContainText("03 / 11");
+  await expect(next).toHaveCSS("outline-style", "none");
+  await expect(next).toHaveAttribute("tabindex", "-1");
+  await expect(page.getByRole("button", { name: "previous card" })).toHaveAttribute(
+    "tabindex",
+    "-1",
+  );
+});
+
 test("league ballot page lists superlatives and links to wrappeds", async ({ page }) => {
   await page.goto("/l/sleeper/1269125082375008256/2025");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("ballot");
   await expect(page.getByText("The Ring")).toBeVisible();
   // Every team gets a final verdict row.
   await expect(page.getByText("Final verdicts")).toBeVisible();
+});
+
+test("ballot pins the title while the right column scrolls independently", async ({
+  page,
+  viewport,
+}) => {
+  test.skip((viewport?.width ?? 0) < 1024, "narrow layouts scroll as one page");
+  await page.goto("/l/sleeper/1269125082375008256/2025");
+  const heading = page.getByRole("heading", { level: 1 });
+  const scroller = page.getByTestId("ballot-scroll");
+  const before = await heading.boundingBox();
+  await scroller.evaluate((el) => el.scrollBy(0, 400));
+  // Positive control: the scroll container actually scrolled. Without this,
+  // the heading-position assertion below passes even if lg:overflow-y-auto
+  // were removed entirely, since the heading lives in a sibling column.
+  expect(await scroller.evaluate((el) => el.scrollTop)).toBeGreaterThan(0);
+  const after = await heading.boundingBox();
+  if (!before || !after) throw new Error("no layout box");
+  expect(after.y).toBeCloseTo(before.y, 0);
+});
+
+test("ballot scrolls as a single page on mobile", async ({ page, viewport }) => {
+  test.skip((viewport?.width ?? 0) >= 1024, "desktop pins the title in its own column");
+  await page.goto("/l/sleeper/1269125082375008256/2025");
+  const heading = page.getByRole("heading", { level: 1 });
+  const before = await heading.boundingBox();
+  await page.evaluate(() => window.scrollBy(0, 400));
+  const after = await heading.boundingBox();
+  if (!before || !after) throw new Error("no layout box");
+  expect(after.y).toBeLessThan(before.y);
 });
 
 test("ballot links still navigate normally with the click-tracking handler attached", async ({

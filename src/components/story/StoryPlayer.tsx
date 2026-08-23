@@ -608,12 +608,20 @@ export function StoryPlayer({
   const card = cards[index];
   const prevIndex = useRef(0);
   const completed = useRef(false);
+  const navMethod = useRef<"sequential" | "jump">("sequential");
 
-  const advance = useCallback(
-    () => setIndex((i) => Math.min(i + 1, cards.length - 1)),
-    [cards.length],
-  );
-  const back = useCallback(() => setIndex((i) => Math.max(i - 1, 0)), []);
+  const advance = useCallback(() => {
+    navMethod.current = "sequential";
+    setIndex((i) => Math.min(i + 1, cards.length - 1));
+  }, [cards.length]);
+  const back = useCallback(() => {
+    navMethod.current = "sequential";
+    setIndex((i) => Math.max(i - 1, 0));
+  }, []);
+  const goTo = useCallback((i: number) => {
+    navMethod.current = "jump";
+    setIndex(i);
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -653,6 +661,7 @@ export function StoryPlayer({
       tone: viewed.tone,
       is_finale: viewed.isFinale,
       direction,
+      nav_method: navMethod.current,
     });
     if (viewed.isFinale && !completed.current) {
       completed.current = true;
@@ -661,6 +670,7 @@ export function StoryPlayer({
         roster_id: rosterId,
         season,
         archetype,
+        nav_method: navMethod.current,
       });
     }
   }, [index, cards, leagueId, rosterId, season, archetype]);
@@ -702,7 +712,20 @@ export function StoryPlayer({
   const { top, bottom } = (ARCHETYPES[card.layout] ?? statement)({ card, tone, accent });
 
   return (
-    <div className="grid min-h-dvh place-items-center bg-page">
+    <div className="relative grid min-h-dvh place-items-center bg-page lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-8 lg:px-8">
+      <div className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-end">
+        <button
+          type="button"
+          aria-label="Previous"
+          onClick={back}
+          disabled={index === 0}
+          className="grid size-11 shrink-0 place-items-center border border-chalk/15 text-chalk-dim transition-colors hover:border-chalk/30 hover:text-chalk disabled:pointer-events-none disabled:opacity-20"
+        >
+          <span aria-hidden="true" className="text-base leading-none">
+            ‹
+          </span>
+        </button>
+      </div>
       <div
         className={`story-frame relative flex flex-col overflow-hidden transition-colors duration-500 sm:border ${
           light
@@ -742,14 +765,16 @@ export function StoryPlayer({
         <button
           type="button"
           aria-label="previous card"
+          tabIndex={-1}
           onClick={back}
-          className="absolute inset-y-0 left-0 z-10 w-1/3"
+          className="absolute inset-y-0 left-0 z-10 w-1/3 focus:outline-none"
         />
         <button
           type="button"
           aria-label="next card"
+          tabIndex={-1}
           onClick={advance}
-          className="absolute inset-y-0 right-0 z-10 w-2/3"
+          className="absolute inset-y-0 right-0 z-10 w-2/3 focus:outline-none"
         />
 
         {/*
@@ -817,6 +842,44 @@ export function StoryPlayer({
           </span>
         )}
       </div>
+
+      <div className="hidden lg:flex lg:h-full lg:items-center lg:justify-self-start lg:gap-6">
+        <button
+          type="button"
+          aria-label="Next"
+          onClick={advance}
+          disabled={index === cards.length - 1}
+          className="grid size-11 shrink-0 place-items-center border border-chalk/15 text-chalk-dim transition-colors hover:border-chalk/30 hover:text-chalk disabled:pointer-events-none disabled:opacity-20"
+        >
+          <span aria-hidden="true" className="text-base leading-none">
+            ›
+          </span>
+        </button>
+        <nav aria-label="Jump to card" className="flex flex-col gap-3">
+          {cards.map((c, i) => (
+            <button
+              key={c.key}
+              type="button"
+              data-testid="chapter-link"
+              aria-current={i === index ? "true" : undefined}
+              onClick={() => goTo(i)}
+              className={`py-0.5 text-left font-mono text-[11px] font-medium tracking-[0.12em] uppercase transition-colors ${
+                i === index ? "text-flag" : "text-chalk-faint hover:text-chalk-dim"
+              }`}
+            >
+              {i === index && <span aria-hidden="true">→ </span>}
+              {c.kicker}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      <span
+        aria-hidden="true"
+        className="label absolute inset-x-0 bottom-8 hidden text-center tracking-[0.2em] text-chalk-faint lg:block"
+      >
+        {managerName} · {leagueName} · {season}
+      </span>
     </div>
   );
 }
