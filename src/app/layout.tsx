@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   // The page ground, a shade darker than the card surface.
-  themeColor: "#060607",
+  themeColor: "#071310",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,

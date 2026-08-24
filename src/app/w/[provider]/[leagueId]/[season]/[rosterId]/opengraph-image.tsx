@@ -40,8 +40,8 @@ export default async function OgImage({ params }: { params: Promise<Params> }) {
         flexDirection: "column",
         justifyContent: "flex-end",
         padding: 72,
-        backgroundColor: "#FAFAFA",
-        color: "#0A0A0B",
+        backgroundColor: "#F4FBF6",
+        color: "#0A1712",
         fontFamily: "sans-serif",
       }}
     >
@@ -50,8 +50,8 @@ export default async function OgImage({ params }: { params: Promise<Params> }) {
           fontSize: 22,
           letterSpacing: 6,
           textTransform: "uppercase",
-          // The light-surface accent. #5B8CFF on #FAFAFA is about 2.3:1.
-          color: "#2148D8",
+          // The light-surface accent. #6FE39B on #F4FBF6 is about 1.4:1.
+          color: "#0E7048",
         }}
       >
         {league}
@@ -73,11 +73,11 @@ export default async function OgImage({ params }: { params: Promise<Params> }) {
           justifyContent: "space-between",
           marginTop: 48,
           paddingTop: 28,
-          borderTop: "1px solid rgba(10, 10, 11, 0.15)",
+          borderTop: "1px solid rgba(10, 23, 18, 0.15)",
           fontSize: 22,
           letterSpacing: 6,
           textTransform: "uppercase",
-          color: "#52525B",
+          color: "#4A6355",
         }}
       >
         <span>{manager}</span>

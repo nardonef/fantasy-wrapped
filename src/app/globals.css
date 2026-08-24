@@ -1,48 +1,54 @@
 @import "tailwindcss";
 
 /*
- * Signal.
+ * Scoreboard.
  *
- * The old palette was acid lime on charcoal with Anton uppercase — the default
- * 2025 sports-app look. Signal keeps the same structural roles but swaps to a
- * near-black + electric-blue precision-tech ground with a true-white surface
- * for brag cards, so a celebration inverts the whole screen instead of just
- * changing an accent colour.
+ * The old palette (Signal) was near-black + electric blue. Scoreboard keeps
+ * the same structural roles but moves to a deep field-green ground with a
+ * single bright green accent — a broadcast scoreboard, not a sports app. Act
+ * III still inverts to a light surface, so a celebration changes ground
+ * rather than just an accent colour.
+ *
+ * This palette is app-wide: cover, league picker, error states, all eight
+ * story layouts, verdict and share card. There is no second palette anywhere.
  *
  * Role names are unchanged so existing class names keep working:
  *   field        -> card surface (near-black)
  *   field-raised -> raised surface
  *   chalk        -> primary ink on dark
  *   chalk-dim    -> secondary ink on dark
- *   flag         -> positive / brag accent   (was acid lime)
+ *   flag         -> positive / brag accent   (was acid lime, then blue)
  *   card-red     -> regret / negative accent
  */
 
 @theme inline {
   /* Card surface. NOT the same as --color-page: the page sits a shade darker
      than the card so the card edge reads on large screens. */
-  --color-field: #0a0a0b;
-  --color-page: #060607;
-  --color-field-raised: #16161a;
-  --color-field-raised-2: #1c1c21;
+  --color-field: #0d1f17;
+  --color-page: #071310;
+  --color-field-raised: #12291e;
+  --color-field-raised-2: #173326;
 
-  --color-chalk: #fafafa;
-  --color-chalk-dim: #a1a1aa;
-  --color-chalk-faint: #71717a;
-  --color-chalk-muted: #52525b;
-  --color-chalk-faintest: #3f3f46;
+  --color-chalk: #f4fbf6;
+  --color-chalk-dim: #9bb8a7;
+  --color-chalk-faint: #6e8b7b;
+  --color-chalk-muted: #55705f;
+  --color-chalk-faintest: #42594b;
 
-  --color-flag: #5b8cff;
-  --color-card-red: #ff4a31;
+  --color-flag: #6fe39b;
+  --color-card-red: #ff5c45;
 
   /* Light surface: brag cards, the verdict finale, the share image. */
-  --color-paper: #fafafa;
-  --color-paper-ink: #0a0a0b;
-  --color-paper-ink-dim: #52525b;
-  /* The light-surface accents are darker on purpose. #5B8CFF on #FAFAFA is
-     about 2.3:1 and fails; #2148D8 passes. */
-  --color-flag-ink: #2148d8;
+  --color-paper: #f4fbf6;
+  --color-paper-ink: #0a1712;
+  --color-paper-ink-dim: #4a6355;
+  /* The light-surface accents are darker on purpose. #6FE39B on #F4FBF6 is
+     about 1.4:1 and fails badly; #0E7048 passes at 4.8:1. */
+  --color-flag-ink: #0e7048;
   --color-card-red-ink: #b83523;
+
+  /* Ticker strip on the cover — the one surface darker than --color-page. */
+  --color-ticker: rgb(0 0 0 / 0.32);
 
   --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -84,19 +90,21 @@ body {
  * drama.
  */
 
+/* Scoreboard runs the display face heavier and looser than Signal did — the
+   weight is what carries the broadcast read, so do not drop back to 600. */
 .display {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.038em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 0.94;
-  /* No text-transform: Geist at 600 with tight tracking already reads as
-     display type, and sentence case lets long team names stay readable. */
+  /* No text-transform: sentence case lets long team names stay readable. The
+     cover headline is the one deliberate uppercase exception. */
 }
 
 .display-xl {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.045em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 0.8;
 }
 
@@ -140,10 +148,21 @@ body {
 
 /* Hairline used for every table rule, on either surface. */
 .rule-dark {
-  background: rgb(250 250 250 / 0.13);
+  background: rgb(244 251 246 / 0.13);
 }
 .rule-light {
-  background: rgb(10 10 11 / 0.15);
+  background: rgb(10 23 18 / 0.15);
+}
+
+/* The cover ticker's seamless loop: content is doubled back-to-back and the
+   track translates exactly -50%. */
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* The story player animates through `motion`, which writes its timings to the
@@ -157,5 +176,11 @@ body {
     animation-duration: 0.001s !important;
     /* biome-ignore lint/complexity/noImportantStyles: see above */
     transition-duration: 0.001s !important;
+  }
+
+  /* The ticker is an infinite loop, not a one-shot transition — collapsing
+     its duration to 0.001s would spin it, not stop it. Freeze it instead. */
+  .ticker-track {
+    animation-play-state: paused;
   }
 }

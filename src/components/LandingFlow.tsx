@@ -105,10 +105,13 @@ export function LandingFlow() {
             transition={{ duration: 0.3, ease: EASE }}
             className="lg:flex lg:flex-col lg:gap-[14px]"
           >
-            <label htmlFor="username" className="label block text-chalk-faint">
+            <label
+              htmlFor="username"
+              className="font-mono text-[9px] font-medium uppercase tracking-[0.2em] text-chalk-faint"
+            >
               Sleeper username
             </label>
-            <div className="mt-3 flex items-stretch border border-chalk/15 bg-field-raised transition-colors focus-within:border-flag lg:mt-0">
+            <div className="mt-3 flex items-stretch gap-[10px] lg:mt-0">
               <input
                 id="username"
                 value={username}
@@ -117,23 +120,23 @@ export function LandingFlow() {
                 autoCapitalize="none"
                 autoCorrect="off"
                 spellCheck={false}
-                className="min-w-0 flex-1 bg-transparent px-[18px] py-4 font-mono text-[15px] outline-none placeholder:text-chalk-faint"
+                className="min-h-11 min-w-0 flex-1 border border-chalk/15 bg-transparent px-[12px] py-[14px] font-mono text-[15px] text-chalk outline-none transition-colors placeholder:text-chalk-faint focus:border-flag"
               />
               <button
                 type="submit"
                 disabled={busy}
-                className="label flex shrink-0 items-center justify-center bg-flag px-[26px] text-[11px] tracking-[0.18em] text-field transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="flex h-[46px] shrink-0 items-center justify-center bg-flag px-[18px] font-mono text-[12px] font-bold tracking-[0.06em] text-field transition-opacity hover:opacity-85 disabled:opacity-60"
               >
-                {busy ? "…" : "Go"}
+                {busy ? "…" : "GO"}
               </button>
             </div>
-            <div className="mt-3 flex gap-2 lg:mt-0">
+            <div className="mt-5 flex gap-2 lg:mt-4">
               {SEASONS.map((s) => (
                 <button
                   key={s}
                   type="button"
                   onClick={() => setSeason(s)}
-                  className={`border px-4 py-2 font-mono text-[13px] transition-colors ${
+                  className={`border px-[13px] py-[7px] font-mono text-[10px] font-medium tracking-[0.12em] transition-colors ${
                     s === season
                       ? "border-flag text-flag"
                       : "border-chalk/15 text-chalk-faint hover:border-chalk-muted"
