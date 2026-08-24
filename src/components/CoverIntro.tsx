@@ -25,7 +25,7 @@ export function CoverIntro() {
         initial={{ clipPath: "inset(0 100% 0 0)" }}
         animate={{ clipPath: "inset(0 0% 0 0)" }}
         transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-        style={{ fontSize: "clamp(50px, 7.2vw, 116px)" }}
+        style={{ fontSize: "clamp(50px, 6vw, 96px)" }}
         className="mt-[22px] font-extrabold uppercase leading-[0.92] tracking-[-0.01em]"
       >
         Your season.

@@ -93,7 +93,7 @@ export function LandingFlow() {
   }
 
   return (
-    <div className="mt-10 lg:mt-8">
+    <div className="mt-10 lg:mt-0">
       <AnimatePresence mode="wait">
         {phase.step === "user" && (
           <motion.form
