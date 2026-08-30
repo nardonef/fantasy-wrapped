@@ -13,7 +13,7 @@ export default function Home() {
           <span className="text-flag">Wrapped.</span>
         </h1>
         <p className="mt-5 max-w-[34ch] text-[15px] leading-[1.55] text-pretty text-chalk-dim lg:mt-0 lg:max-w-[30ch] lg:text-[17px] lg:leading-[1.6]">
-          Every start, sit, trade and bad beat — called live, replayed forever.
+          Every start, sit, trade and bad beat. Nothing forgotten, nothing forgiven.
         </p>
       </header>
 
