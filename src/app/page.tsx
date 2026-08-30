@@ -8,13 +8,14 @@ export default function Home() {
           Fantasy Football · 2025
         </p>
         <h1 className="display mt-5 text-[clamp(2.75rem,14vw,3.75rem)] lg:mt-0 lg:text-[clamp(48px,5.6vw,88px)] lg:font-bold lg:leading-[0.98] lg:tracking-[-0.03em]">
-          Your season,
+          Your season.
           <br />
-          <span className="text-flag">told straight.</span>
+          <span className="text-flag">Wrapped.</span>
         </h1>
         <p className="mt-5 max-w-[34ch] text-[15px] leading-[1.55] text-pretty text-chalk-dim lg:mt-0 lg:max-w-[30ch] lg:text-[17px] lg:leading-[1.6]">
-          Every start, sit, trade and bad beat — handed back to you with precision and a little
-          cruelty. Built to be screenshotted.
+          Every start, sit, trade and bad beat.
+          <br />
+          Nothing forgotten, nothing forgiven.
         </p>
       </header>
 
