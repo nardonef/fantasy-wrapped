@@ -141,27 +141,35 @@ export function LandingFlow() {
               </button>
             </div>
 
-            <div role="radiogroup" aria-label="Season" className="flex flex-wrap items-center gap-2 pt-2">
+            <div
+              role="radiogroup"
+              aria-label="Season"
+              className="flex flex-wrap items-center gap-2 pt-2"
+            >
               <span className="pr-1.5 font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.32)] uppercase">
                 Season
               </span>
               {SEASONS.map((s) => {
                 const selected = s === season;
                 return (
-                  <button
+                  <label
                     key={s}
-                    type="button"
-                    role="radio"
-                    aria-checked={selected}
-                    onClick={() => setSeason(s)}
-                    className={`min-h-8 rounded-[3px] border px-[14px] py-[9px] font-mono text-xs leading-none tracking-[0.06em] transition-all duration-150 ease-out [@media(pointer:coarse)]:min-h-11 ${
+                    className={`min-h-8 cursor-pointer rounded-[3px] border px-[14px] py-[9px] font-mono text-xs leading-none tracking-[0.06em] transition-all duration-150 ease-out [@media(pointer:coarse)]:min-h-11 ${
                       selected
                         ? "border-[#5b83ff] bg-[rgba(91,131,255,0.14)] text-[#f4f4f6]"
                         : "border-[rgba(244,244,246,0.14)] text-[rgba(244,244,246,0.46)] hover:border-[rgba(244,244,246,0.28)] hover:text-[rgba(244,244,246,0.70)]"
                     }`}
                   >
+                    <input
+                      type="radio"
+                      name="season"
+                      value={s}
+                      checked={selected}
+                      onChange={() => setSeason(s)}
+                      className="sr-only"
+                    />
                     {s}
-                  </button>
+                  </label>
                 );
               })}
             </div>
