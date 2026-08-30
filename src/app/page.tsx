@@ -2,30 +2,54 @@ import { LandingFlow } from "@/components/LandingFlow";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-dvh flex-col px-7 pt-16 pb-10 sm:mx-auto sm:w-full sm:max-w-md lg:mx-auto lg:grid lg:max-w-none lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:items-center lg:gap-x-[clamp(1.5rem,3vw,3rem)] lg:px-[clamp(2rem,6vw,7.5rem)] lg:py-0">
-      <header className="lg:col-start-1 lg:col-span-6 lg:flex lg:flex-col lg:gap-[28px]">
-        <p className="label text-chalk-faint lg:text-[12px] lg:tracking-[0.18em]">
-          Fantasy Football · 2025
+    <div className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-[#08080a] px-[clamp(28px,5vw,72px)] pt-9 pb-8 text-[#f4f4f6]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 opacity-70"
+        style={{
+          background: "radial-gradient(90% 60% at 50% 34%, rgba(88,120,255,0.11), transparent 62%)",
+        }}
+      />
+
+      <header className="relative z-10 flex items-baseline justify-between gap-6">
+        <p className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[rgba(244,244,246,0.52)] uppercase">
+          FANTASY FOOTBALL
+          <span className="px-2 text-[rgba(244,244,246,0.24)]">/</span>
+          2025
         </p>
-        <h1 className="display mt-5 text-[clamp(2.75rem,14vw,3.75rem)] lg:mt-0 lg:text-[clamp(48px,5.6vw,88px)] lg:font-bold lg:leading-[0.98] lg:tracking-[-0.03em]">
-          Your season.
-          <br />
-          <span className="text-flag">Wrapped.</span>
-        </h1>
-        <p className="mt-5 max-w-[34ch] text-[15px] leading-[1.55] text-pretty text-chalk-dim lg:mt-0 lg:max-w-[30ch] lg:text-[17px] lg:leading-[1.6]">
-          Every start, sit, trade and bad beat.
-          <br />
-          Nothing forgotten, nothing forgiven.
+        <p className="font-mono text-[11px] leading-none font-normal tracking-[0.16em] text-[rgba(244,244,246,0.32)] uppercase">
+          SEASON RECAP
         </p>
       </header>
 
-      <div data-testid="landing-form" className="lg:col-start-8 lg:col-span-4">
-        <LandingFlow />
-      </div>
+      <main className="relative z-10 flex flex-1 flex-col items-center justify-center py-[clamp(40px,7vh,88px)] text-center">
+        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.22em] text-[rgba(244,244,246,0.34)] uppercase">
+          YOUR YEAR IN THE LEAGUE
+        </p>
 
-      <footer className="label mt-auto pt-12 text-chalk-faint lg:col-span-12 lg:row-start-2 lg:mt-0 lg:pt-0 lg:pb-10 lg:text-[11px] lg:tracking-[0.18em] lg:text-chalk-muted">
-        Sleeper leagues · ESPN &amp; Yahoo coming
+        <h1 className="mt-7 max-w-[9em] font-display text-[clamp(52px,9.2vw,148px)] font-bold leading-[0.86] tracking-[-0.045em]">
+          Your season.
+          <br />
+          <span className="text-[#5b83ff]">Wrapped.</span>
+        </h1>
+
+        <p className="mt-8 max-w-[38ch] text-[clamp(16px,1.2vw,19px)] leading-[1.55] tracking-[-0.005em] text-pretty text-[rgba(244,244,246,0.58)]">
+          Every start, sit, trade and bad beat — nothing forgotten, nothing forgiven.
+        </p>
+
+        <LandingFlow />
+      </main>
+
+      <footer className="relative z-10 flex items-baseline justify-between gap-6 border-t border-[rgba(244,244,246,0.08)] pt-[18px]">
+        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.34)] uppercase">
+          SLEEPER LEAGUES
+          <span className="px-2.5 text-[rgba(244,244,246,0.18)]">/</span>
+          ESPN &amp; YAHOO COMING
+        </p>
+        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.22)] uppercase">
+          V1
+        </p>
       </footer>
-    </main>
+    </div>
   );
 }
