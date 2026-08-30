@@ -31,8 +31,7 @@ test("landing page renders the pitch and username form", async ({ page }) => {
   await expect(page.getByLabel("Sleeper username")).toBeVisible();
 });
 
-test("landing splits into two columns on a wide desktop", async ({ page, viewport }) => {
-  test.skip((viewport?.width ?? 0) < 1024, "narrow layouts stay single-column");
+test("landing stays a single stacked column at every width", async ({ page }) => {
   await page.goto("/");
   const header = page.locator("header");
   const form = page.getByTestId("landing-form");
@@ -40,22 +39,11 @@ test("landing splits into two columns on a wide desktop", async ({ page, viewpor
   const headerBox = await header.boundingBox();
   const formBox = await form.boundingBox();
   if (!headerBox || !formBox) throw new Error("no layout box");
-  // Side by side, not stacked: the form starts to the right of the header.
-  expect(formBox.x).toBeGreaterThan(headerBox.x + headerBox.width);
+  // Stacked on one vertical axis: the form starts below the header, never
+  // beside it — there is no column relationship to break at any breakpoint.
+  expect(formBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
   // No card chrome around the form itself — just the input row's own border.
   await expect(form).toHaveCSS("border-top-width", "0px");
-});
-
-test("landing stays a single stacked column on mobile", async ({ page, viewport }) => {
-  test.skip((viewport?.width ?? 0) >= 1024, "desktop gets the split layout");
-  await page.goto("/");
-  const header = page.locator("header");
-  const form = page.getByTestId("landing-form");
-  const headerBox = await header.boundingBox();
-  const formBox = await form.boundingBox();
-  if (!headerBox || !formBox) throw new Error("no layout box");
-  // Stacked: the form starts below the header, not beside it.
-  expect(formBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
 });
 
 test("Enter in the username field submits like clicking Go", async ({ page }) => {
