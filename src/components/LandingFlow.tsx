@@ -154,7 +154,7 @@ export function LandingFlow() {
                 return (
                   <label
                     key={s}
-                    className={`min-h-8 cursor-pointer rounded-[3px] border px-[14px] py-[9px] font-mono text-xs leading-none tracking-[0.06em] transition-all duration-150 ease-out [@media(pointer:coarse)]:min-h-11 ${
+                    className={`inline-flex min-h-8 cursor-pointer items-center justify-center rounded-[3px] border px-[14px] pt-[11px] pb-[7px] font-mono text-xs leading-none tracking-[0.06em] transition-all duration-150 ease-out [@media(pointer:coarse)]:min-h-11 ${
                       selected
                         ? "border-[#5b83ff] bg-[rgba(91,131,255,0.14)] text-[#f4f4f6]"
                         : "border-[rgba(244,244,246,0.14)] text-[rgba(244,244,246,0.46)] hover:border-[rgba(244,244,246,0.28)] hover:text-[rgba(244,244,246,0.70)]"

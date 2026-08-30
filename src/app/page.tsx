@@ -11,17 +11,6 @@ export default function Home() {
         }}
       />
 
-      <header className="relative z-10 flex items-baseline justify-between gap-6">
-        <p className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[rgba(244,244,246,0.52)] uppercase">
-          FANTASY FOOTBALL
-          <span className="px-2 text-[rgba(244,244,246,0.24)]">/</span>
-          2025
-        </p>
-        <p className="font-mono text-[11px] leading-none font-normal tracking-[0.16em] text-[rgba(244,244,246,0.32)] uppercase">
-          SEASON RECAP
-        </p>
-      </header>
-
       <main className="relative z-10 flex flex-1 flex-col items-center justify-center py-[clamp(40px,7vh,88px)] text-center">
         <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.22em] text-[rgba(244,244,246,0.34)] uppercase">
           YOUR YEAR IN THE LEAGUE
@@ -40,14 +29,11 @@ export default function Home() {
         <LandingFlow />
       </main>
 
-      <footer className="relative z-10 flex items-baseline justify-between gap-6 border-t border-[rgba(244,244,246,0.08)] pt-[18px]">
+      <footer className="relative z-10 border-t border-[rgba(244,244,246,0.08)] pt-[18px]">
         <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.34)] uppercase">
           SLEEPER LEAGUES
           <span className="px-2.5 text-[rgba(244,244,246,0.18)]">/</span>
           ESPN &amp; YAHOO COMING
-        </p>
-        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.22)] uppercase">
-          V1
         </p>
       </footer>
     </div>
