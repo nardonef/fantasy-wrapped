@@ -12,6 +12,7 @@ export function buildAuthorizationUrl(state: string): string {
   url.searchParams.set("client_id", requireEnv("YAHOO_CLIENT_ID"));
   url.searchParams.set("redirect_uri", requireEnv("YAHOO_REDIRECT_URI"));
   url.searchParams.set("response_type", "code");
+  url.searchParams.set("scope", "fspt-r");
   url.searchParams.set("state", state);
   return url.toString();
 }

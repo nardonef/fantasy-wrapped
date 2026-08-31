@@ -15,6 +15,7 @@ describe("buildAuthorizationUrl", () => {
       "https://example.vercel.app/api/auth/yahoo/callback",
     );
     expect(url.searchParams.get("response_type")).toBe("code");
+    expect(url.searchParams.get("scope")).toBe("fspt-r");
     expect(url.searchParams.get("state")).toBe("state-123");
   });
 
