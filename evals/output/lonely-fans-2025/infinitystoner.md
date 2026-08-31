@@ -1,6 +1,6 @@
 # InfinityStoner — “Its Always Sunny ”
 
-_Lonely Fans · 2025 · engine 0.3.0_
+_Lonely Fans · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -20,6 +20,10 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 **8. [narrative] Weeks 1–6: 6 straight losses**
 
+**9. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
+
+**10. [global] You made more moves than 97% of 340 team-seasons tracked**
+
 **FINALE — The What-If**
 
 - lossesYouCouldHaveWon: 4
@@ -29,7 +33,11 @@ _Lonely Fans · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
 - (74) [regret] You went 5-9. With perfect lineups you go 9-5.
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
 - (58) [narrative] Started 1-6, finished 4-3. The second-half surge.
 - (58) [regret] Week 17: you benched Rhamondre Stevenson (27.2) and started Nick Chubb (0.1)
 - (50) [regret] 228.9 points died on your bench this season (16.4/week)

@@ -1,11 +1,12 @@
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 import { fallbackCopy } from "@/copy/fallback";
-import type { CardScript, SeasonFacts, WrappedCard } from "@/engine";
+import type { CardScript, InsightCategory, SeasonFacts, WrappedCard } from "@/engine";
 import { computeSeasonFacts, generateCardScript } from "@/engine";
 import { allInsights } from "@/engine/insights";
 import { createFixtureSleeperApi, fetchSleeperLeagueBundle } from "@/providers/sleeper";
-import { buildStoryCards, headshot, LAYOUT_BY_INSIGHT, toneFor } from "./model";
+import { buildStoryCards, CATEGORY_LABEL, headshot, LAYOUT_BY_INSIGHT, toneFor } from "./model";
+import { buildView } from "./view-builder";
 
 const LEAGUES = ["1269125082375008256", "1257059475584471040"];
 
@@ -24,6 +25,33 @@ describe("LAYOUT_BY_INSIGHT", () => {
   it("maps nothing the engine cannot produce", () => {
     const shippable = new Set(["season-summary", ...allInsights.map((m) => m.id)]);
     expect(Object.keys(LAYOUT_BY_INSIGHT).filter((id) => !shippable.has(id))).toEqual([]);
+  });
+});
+
+describe("CATEGORY_LABEL", () => {
+  // Object literal keyed by InsightCategory, not a hardcoded array — TS
+  // itself catches a missing or stale key here if InsightCategory ever
+  // changes, so this list can't silently drift from the union type.
+  const allCategories: Record<InsightCategory, true> = {
+    identity: true,
+    regret: true,
+    luck: true,
+    people: true,
+    narrative: true,
+    global: true,
+  };
+
+  it("labels every insight category", () => {
+    const mapped = new Set(Object.keys(CATEGORY_LABEL));
+    const categories = Object.keys(allCategories);
+    // A category with no kicker label would silently render its raw enum
+    // value, e.g. the literal word "global", in the UI.
+    expect(categories.filter((c) => !mapped.has(c))).toEqual([]);
+  });
+
+  it("labels nothing that isn't a real category", () => {
+    const categories = new Set(Object.keys(allCategories));
+    expect(Object.keys(CATEGORY_LABEL).filter((c) => !categories.has(c))).toEqual([]);
   });
 });
 
@@ -47,6 +75,26 @@ describe("toneFor", () => {
     expect(toneFor(card("mvp"))).toBe("light");
     expect(toneFor(card("nemesis"))).toBe("dark");
   });
+
+  it("reads bidirectional global cards off facts.direction, not category", () => {
+    for (const id of [
+      "global-bench-regret-rate",
+      "global-flippable-loss-rate",
+      "global-all-play-win-pct",
+      "global-luck-delta",
+    ]) {
+      expect(toneFor(card(id, { category: "global", facts: { direction: "brag" } }))).toBe("light");
+      expect(toneFor(card(id, { category: "global", facts: { direction: "wince" } }))).toBe("dark");
+    }
+  });
+
+  it("gives unidirectional global cards a fixed tone matching their only direction", () => {
+    // A brag card's hero number must not render in the regret/wince red.
+    expect(toneFor(card("global-longest-win-streak", { category: "global" }))).toBe("light");
+    expect(toneFor(card("global-transaction-activity", { category: "global" }))).toBe("light");
+    // A losing streak is only ever a wince — dark via the default case.
+    expect(toneFor(card("global-longest-loss-streak", { category: "global" }))).toBe("dark");
+  });
 });
 
 describe("headshot", () => {
@@ -58,6 +106,32 @@ describe("headshot", () => {
     const ref = { providerPlayerId: "4046", name: "Patrick Mahomes", position: "QB" };
     expect(headshot(ref)).toBe("https://sleepercdn.com/content/nfl/players/4046.jpg");
     expect(headshot(ref, true)).toBe("https://sleepercdn.com/content/nfl/players/thumb/4046.jpg");
+  });
+});
+
+describe("global card view building", () => {
+  it("shows percentile as hero, not poolSize, with a non-empty label", () => {
+    const wrappedCard = card("global-bench-regret-rate", {
+      category: "global",
+      facts: { percentile: 84, poolSize: 340, direction: "brag" },
+    });
+    const mockFacts = {
+      league: { totalTeams: 12 },
+      teams: {},
+    } as never;
+    const mockTeam = {} as never;
+
+    const view = buildView({
+      card: wrappedCard,
+      layout: "statement",
+      tone: "light",
+      ghost: "340",
+      team: mockTeam,
+      facts: mockFacts,
+    });
+
+    expect(view.hero).toBe("84");
+    expect(view.heroLabel).not.toBe("");
   });
 });
 
@@ -73,7 +147,7 @@ describe.each(LEAGUES)("buildStoryCards over real fixture data (league %s)", (le
     facts = computeSeasonFacts(bundle);
     scripts = Object.keys(facts.teams)
       .sort((a, b) => Number(a) - Number(b))
-      .map((rosterId) => ({ rosterId, script: generateCardScript(facts, rosterId) }));
+      .map((rosterId) => ({ rosterId, script: generateCardScript(facts, rosterId, {}) }));
   });
 
   it("builds a view for every card of every manager without throwing", () => {

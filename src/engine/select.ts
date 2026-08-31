@@ -1,6 +1,12 @@
 import { computeCandidates } from "./insights";
 import { formatRecord, ordinal, round1 } from "./insights/helpers";
-import type { CandidateInsight, InsightCategory, SeasonFacts, WrappedCard } from "./types";
+import type {
+  CandidateInsight,
+  GlobalStats,
+  InsightCategory,
+  SeasonFacts,
+  WrappedCard,
+} from "./types";
 
 /** Below this, a card never ships. Boring managers get shorter Wrappeds. */
 const NOTABILITY_FLOOR = 45;
@@ -16,10 +22,20 @@ const CATEGORY_CAPS: Record<InsightCategory, number> = {
   people: 3,
   narrative: 2,
   identity: 1, // the opener is already an identity card
+  global: 2,
 };
 
-/** Narrative grammar: the order categories appear in the story. */
-const CATEGORY_ORDER: InsightCategory[] = ["identity", "regret", "luck", "people", "narrative"];
+// Narrative grammar: the order categories appear in the story.
+// "global" lands last, before the finish card — a zoom-out beat right before
+// the story ends: how you stack up against everyone, not just your league.
+const CATEGORY_ORDER: InsightCategory[] = [
+  "identity",
+  "regret",
+  "luck",
+  "people",
+  "narrative",
+  "global",
+];
 
 function summaryCard(facts: SeasonFacts, rosterId: string): WrappedCard {
   const t = facts.teams[rosterId];
@@ -50,8 +66,12 @@ function summaryCard(facts: SeasonFacts, rosterId: string): WrappedCard {
  * Dedupe by topic (best wins), floor on notability, cap per category,
  * then order by narrative grammar with the finish card last.
  */
-export function selectCards(facts: SeasonFacts, rosterId: string): WrappedCard[] {
-  const candidates = computeCandidates(facts, rosterId);
+export function selectCards(
+  facts: SeasonFacts,
+  rosterId: string,
+  globalStats: GlobalStats,
+): WrappedCard[] {
+  const candidates = computeCandidates(facts, rosterId, globalStats);
 
   const byTopic = new Map<string, CandidateInsight>();
   const chosen: CandidateInsight[] = [];
@@ -71,6 +91,7 @@ export function selectCards(facts: SeasonFacts, rosterId: string): WrappedCard[]
     people: 0,
     narrative: 0,
     identity: 0,
+    global: 0,
   };
   for (const c of chosen) {
     if (counts[c.category] >= CATEGORY_CAPS[c.category]) continue;

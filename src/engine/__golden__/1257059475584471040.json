@@ -1,6 +1,6 @@
 [
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "1",
@@ -50,16 +50,6 @@
         }
       },
       {
-        "insightId": "bench-points-total",
-        "category": "regret",
-        "headline": "180.2 points died on your bench this season (12.9/week)",
-        "facts": {
-          "totalBenchPoints": 180.2,
-          "perWeek": 12.9,
-          "leagueRank": 9
-        }
-      },
-      {
         "insightId": "robbed-week",
         "category": "luck",
         "headline": "Week 10: you scored 156.9 — 2nd best in the league — and still lost",
@@ -99,18 +89,6 @@
         }
       },
       {
-        "insightId": "nemesis",
-        "category": "people",
-        "headline": "Your nemesis: caffyfun (1-2 against them)",
-        "facts": {
-          "nemesis": "caffyfun",
-          "lossesToThem": 2,
-          "winsAgainstThem": 1,
-          "totalMargin": 2.3,
-          "swept": false
-        }
-      },
-      {
         "insightId": "draft-steal",
         "category": "narrative",
         "headline": "Round 11: Cameron Dicker. 163 points from pick 103.",
@@ -138,6 +116,25 @@
           "fromWeek": 5,
           "toWeek": 9
         }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
+        }
       }
     ],
     "archetype": {
@@ -164,7 +161,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "2",
@@ -289,6 +286,25 @@
           "fromWeek": 11,
           "toWeek": 14
         }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
+        }
       }
     ],
     "archetype": {
@@ -315,7 +331,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "3",
@@ -334,16 +350,6 @@
           "finalRank": 6,
           "standingsRank": 3,
           "leagueSize": 10
-        }
-      },
-      {
-        "insightId": "points-machine",
-        "category": "identity",
-        "headline": "1994.6 points — the most in the league. Rings given for it: zero.",
-        "facts": {
-          "pointsFor": 1994.6,
-          "leagueRank": 1,
-          "champion": false
         }
       },
       {
@@ -444,14 +450,22 @@
         }
       },
       {
-        "insightId": "peak-week",
-        "category": "narrative",
-        "headline": "Week 10: 192.5 points — the best score anyone managed that week",
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
         "facts": {
-          "week": 10,
-          "score": 192.5,
-          "leagueSeasonHigh": false,
-          "seasonAverage": 142.5
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -475,7 +489,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "4",
@@ -542,25 +556,6 @@
         }
       },
       {
-        "insightId": "points-against-extreme",
-        "category": "luck",
-        "headline": "1960.7 points against — the league's heaviest fire, and it all landed on you",
-        "facts": {
-          "pointsAgainst": 1960.7,
-          "leagueRank": 1
-        }
-      },
-      {
-        "insightId": "opponent-season-highs",
-        "category": "luck",
-        "headline": "2 different opponents had their best week of the season against you (caffyfun, jonappetit)",
-        "facts": {
-          "count": 2,
-          "opponents": "caffyfun, jonappetit",
-          "weeks": "8, 9"
-        }
-      },
-      {
         "insightId": "waiver-steal",
         "category": "people",
         "headline": "Week 5 pickup Matthew Stafford gave you 225.2 points",
@@ -602,6 +597,25 @@
         }
       },
       {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
+        }
+      },
+      {
         "insightId": "playoff-story",
         "category": "narrative",
         "headline": "Dead last. 1-13.",
@@ -636,7 +650,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "5",
@@ -751,24 +765,6 @@
         }
       },
       {
-        "insightId": "waiver-steal",
-        "category": "people",
-        "headline": "Week 5 pickup Kimani Vidal gave you 70.9 points for $11",
-        "facts": {
-          "pickup": "Kimani Vidal",
-          "week": 5,
-          "startedPointsAfter": 70.9,
-          "faabSpent": 11
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "11647",
-            "name": "Kimani Vidal",
-            "position": "RB"
-          }
-        }
-      },
-      {
         "insightId": "collapse-week",
         "category": "narrative",
         "headline": "Week 7: 59.2 points — the single worst score anyone managed all year",
@@ -780,21 +776,22 @@
         }
       },
       {
-        "insightId": "draft-steal",
-        "category": "narrative",
-        "headline": "Round 8: Jaylen Waddle. 102.8 points from pick 79.",
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
         "facts": {
-          "steal": "Jaylen Waddle",
-          "round": 8,
-          "pickNo": 79,
-          "startedPoints": 102.8
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "7526",
-            "name": "Jaylen Waddle",
-            "position": "WR"
-          }
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -822,7 +819,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "6",
@@ -928,25 +925,6 @@
         }
       },
       {
-        "insightId": "mvp",
-        "category": "people",
-        "headline": "Your MVP: Puka Nacua — 348 points, 16% of everything you scored",
-        "facts": {
-          "mvp": "Puka Nacua",
-          "position": "WR",
-          "startedPoints": 348,
-          "shareOfTeamPct": 16,
-          "startedWeeks": 15
-        },
-        "refs": {
-          "player": {
-            "providerPlayerId": "9493",
-            "name": "Puka Nacua",
-            "position": "WR"
-          }
-        }
-      },
-      {
         "insightId": "streak",
         "category": "narrative",
         "headline": "Weeks 4–8: 5 straight losses",
@@ -955,6 +933,25 @@
           "length": 5,
           "fromWeek": 4,
           "toWeek": 8
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {
@@ -989,7 +986,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "7",
@@ -1008,15 +1005,6 @@
           "finalRank": 8,
           "standingsRank": 9,
           "leagueSize": 10
-        }
-      },
-      {
-        "insightId": "crowns-and-stinkers",
-        "category": "identity",
-        "headline": "2 weeks as the league's top score. 2 weeks as its worst. No in-between.",
-        "facts": {
-          "topScoreWeeks": 2,
-          "worstScoreWeeks": 2
         }
       },
       {
@@ -1118,14 +1106,22 @@
         }
       },
       {
-        "insightId": "streak",
-        "category": "narrative",
-        "headline": "Weeks 10–14: 5 straight losses",
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
         "facts": {
-          "streakType": "losing",
-          "length": 5,
-          "fromWeek": 10,
-          "toWeek": 14
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       }
     ],
@@ -1153,7 +1149,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "8",
@@ -1274,6 +1270,25 @@
           "fromWeek": 4,
           "toWeek": 8
         }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
+        }
       }
     ],
     "archetype": {
@@ -1296,7 +1311,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "9",
@@ -1366,16 +1381,6 @@
         }
       },
       {
-        "insightId": "daylight-robbery-win",
-        "category": "luck",
-        "headline": "Week 11: you won with the 9th best score of the week (97.4)",
-        "facts": {
-          "week": 11,
-          "score": 97.4,
-          "weeklyRank": 9
-        }
-      },
-      {
         "insightId": "waiver-steal",
         "category": "people",
         "headline": "Week 3 pickup Dallas Goedert gave you 117.1 points",
@@ -1394,18 +1399,6 @@
         }
       },
       {
-        "insightId": "nemesis",
-        "category": "people",
-        "headline": "2KSports owned you this season: 2-0, by 45 total points",
-        "facts": {
-          "nemesis": "2KSports",
-          "lossesToThem": 2,
-          "winsAgainstThem": 0,
-          "totalMargin": 45,
-          "swept": true
-        }
-      },
-      {
         "insightId": "draft-steal",
         "category": "narrative",
         "headline": "Round 14: Javonte Williams. 220.4 points from pick 132.",
@@ -1421,6 +1414,25 @@
             "name": "Javonte Williams",
             "position": "RB"
           }
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {
@@ -1458,7 +1470,7 @@
     }
   },
   {
-    "engineVersion": "0.3.0",
+    "engineVersion": "0.4.0",
     "leagueName": "Asian American Association",
     "season": 2025,
     "rosterId": "10",
@@ -1561,18 +1573,6 @@
         }
       },
       {
-        "insightId": "nemesis",
-        "category": "people",
-        "headline": "Your nemesis: misterchef (1-2 against them)",
-        "facts": {
-          "nemesis": "misterchef",
-          "lossesToThem": 2,
-          "winsAgainstThem": 1,
-          "totalMargin": 17.1,
-          "swept": false
-        }
-      },
-      {
         "insightId": "peak-week",
         "category": "narrative",
         "headline": "Week 12: 197.5 points — the highest score anyone posted all season",
@@ -1581,6 +1581,25 @@
           "score": 197.5,
           "leagueSeasonHigh": true,
           "seasonAverage": 139.8
+        }
+      },
+      {
+        "insightId": "global-transaction-activity",
+        "category": "global",
+        "headline": "You made more moves than 96% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 96,
+          "poolSize": 340
+        }
+      },
+      {
+        "insightId": "global-all-play-win-pct",
+        "category": "global",
+        "headline": "Your all-play win rate beats 93% of 340 team-seasons tracked",
+        "facts": {
+          "percentile": 93,
+          "poolSize": 340,
+          "direction": "brag"
         }
       },
       {

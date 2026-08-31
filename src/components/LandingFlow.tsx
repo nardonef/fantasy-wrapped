@@ -93,7 +93,10 @@ export function LandingFlow() {
   }
 
   return (
-    <div className="mt-10">
+    <div
+      data-testid="landing-form"
+      className="mt-[clamp(40px,6vh,72px)] w-full max-w-[520px] text-left"
+    >
       <AnimatePresence mode="wait">
         {phase.step === "user" && (
           <motion.form
@@ -103,45 +106,84 @@ export function LandingFlow() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: EASE }}
+            className="flex w-full flex-col items-stretch gap-3"
           >
-            <label htmlFor="username" className="label block text-chalk-faint">
+            <label
+              htmlFor="username"
+              className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.46)] uppercase"
+            >
               Sleeper username
             </label>
-            <div className="mt-3 flex border border-chalk/20 transition-colors focus-within:border-flag">
+
+            <div
+              className={`flex items-stretch overflow-hidden rounded-[4px] border bg-[rgba(244,244,246,0.035)] transition-colors duration-150 ease-out focus-within:border-[#5b83ff] focus-within:ring-2 focus-within:ring-[rgba(91,131,255,0.35)] ${
+                error ? "border-[rgba(242,84,45,0.6)]" : "border-[rgba(244,244,246,0.14)]"
+              }`}
+            >
               <input
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="e.g. frothydogs"
+                placeholder="frothydogs"
+                autoComplete="off"
                 autoCapitalize="none"
                 autoCorrect="off"
                 spellCheck={false}
-                className="w-full bg-transparent px-4 py-3.5 font-mono text-[15px] outline-none placeholder:text-chalk-faint"
+                disabled={busy}
+                className="h-[60px] min-w-0 flex-1 bg-transparent px-5 font-mono text-[15px] tracking-[0.01em] text-[#f4f4f6] outline-none placeholder:text-[rgba(255,255,255,0.26)] disabled:opacity-60"
               />
               <button
                 type="submit"
                 disabled={busy}
-                className="label shrink-0 bg-flag px-6 text-field disabled:opacity-60"
+                className="flex w-[92px] shrink-0 items-center justify-center bg-[#5b83ff] font-mono text-[11px] font-medium tracking-[0.20em] text-[#08080a] uppercase transition-colors duration-150 ease-out hover:bg-[#7c9dff] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {busy ? "…" : "Go"}
               </button>
             </div>
-            <div className="mt-3 flex gap-2">
-              {SEASONS.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setSeason(s)}
-                  className={`border px-3.5 py-1.5 font-mono text-xs transition-colors ${
-                    s === season
-                      ? "border-flag text-flag"
-                      : "border-chalk/15 text-chalk-faint hover:border-chalk/30"
-                  }`}
-                >
-                  {s}
-                </button>
-              ))}
+
+            <div
+              role="radiogroup"
+              aria-label="Season"
+              className="flex flex-wrap items-center gap-2 pt-2"
+            >
+              <span className="pr-1.5 font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.32)] uppercase">
+                Season
+              </span>
+              {SEASONS.map((s) => {
+                const selected = s === season;
+                return (
+                  <label
+                    key={s}
+                    className={`inline-flex min-h-8 cursor-pointer items-center justify-center rounded-[3px] border px-[14px] pt-[11px] pb-[7px] font-mono text-xs leading-none tracking-[0.06em] transition-all duration-150 ease-out [@media(pointer:coarse)]:min-h-11 ${
+                      selected
+                        ? "border-[#5b83ff] bg-[rgba(91,131,255,0.14)] text-[#f4f4f6]"
+                        : "border-[rgba(244,244,246,0.14)] text-[rgba(244,244,246,0.46)] hover:border-[rgba(244,244,246,0.28)] hover:text-[rgba(244,244,246,0.70)]"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="season"
+                      value={s}
+                      checked={selected}
+                      onChange={() => setSeason(s)}
+                      className="sr-only"
+                    />
+                    {s}
+                  </label>
+                );
+              })}
             </div>
+
+            <p
+              role="alert"
+              className="min-h-[14px] font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[#ff4a31] uppercase"
+            >
+              {error}
+            </p>
+
+            <p className="text-[13px] leading-[1.6] text-[rgba(244,244,246,0.36)]">
+              Public leagues only. We never ask for a password.
+            </p>
           </motion.form>
         )}
 
@@ -244,17 +286,6 @@ export function LandingFlow() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {error && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="mt-5 border-l-2 border-card-red bg-field-raised px-4 py-3 text-[14px] leading-[1.5] text-card-red"
-          role="alert"
-        >
-          {error}
-        </motion.p>
-      )}
     </div>
   );
 }

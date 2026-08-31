@@ -12,9 +12,13 @@ depend on byte-identical output for identical input.
       → classifyLeagueArchetypes()  archetype.ts unique-per-league finale
       → CardScript                  what the copy layer and UI consume
 
+    (GlobalStats, fetched outside the engine via src/lib/global-stats.ts, flows into
+     computeCandidates/selectCards/generateCardScript as a plain argument — the one
+     input to the pipeline that isn't derived from computeSeasonFacts.)
+
 ## Adding an insight module
 
-1. Pick the category file in `src/engine/insights/` (regret/luck/people/narrative/identity).
+1. Pick the category file in `src/engine/insights/` (regret/luck/people/narrative/identity/global).
 2. Add a module: `{ id, category, compute(facts, rosterId) → CandidateInsight | null }`.
    - Return `null` aggressively. A card that is merely accurate has failed.
    - `notability` 0–100: 45 is the shipping floor; 60+ means "group chat would react";
@@ -29,6 +33,16 @@ depend on byte-identical output for identical input.
 4. Run `pnpm test` — golden files will show the exact selection diff. If the diff is
    intended, update snapshots (`pnpm vitest run -u`) and bump `ENGINE_VERSION` if the
    output shape or meaning changed.
+
+## The `global` category
+
+Unlike every other category, `global` insight modules (`src/engine/insights/global.ts`)
+don't read `facts` — they read a `GlobalStats` object, fetched by `src/lib/global-stats.ts`
+via a percentile query against `team_season_stats` (one row per team-season, written
+during sync). A missing key in `GlobalStats` means the pool for that stat was below the
+minimum size (25 team-seasons) — the module returns `null`, same as any other weak
+insight. Global cards are computed once, at first Wrapped generation, and frozen in the
+same `wrapped_scripts` cache as every other card.
 
 ## Notability calibration notes (learned from real leagues)
 

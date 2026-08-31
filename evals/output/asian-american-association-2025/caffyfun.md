@@ -1,6 +1,6 @@
 # caffyfun — “Chase-ing My Ship”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -17,6 +17,10 @@ _Asian American Association · 2025 · engine 0.3.0_
 **6. [narrative] Round 11: Chris Boswell. 122 points from pick 109.**
 
 **7. [narrative] Weeks 4–8: 5 straight wins**
+
+**8. [global] Your all-play win rate beats 60% of 340 team-seasons tracked**
+
+**9. [global] You made more moves than 65% of 340 team-seasons tracked**
 
 **FINALE — The Regular-Season Merchant**
 

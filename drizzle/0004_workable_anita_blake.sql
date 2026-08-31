@@ -1,0 +1,1 @@
+CREATE INDEX "team_season_stats_engine_version_ix" ON "team_season_stats" USING btree ("engine_version");

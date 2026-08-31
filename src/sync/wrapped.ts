@@ -7,6 +7,7 @@ import { db } from "@/db";
 import type { Provider } from "@/db/schema";
 import { leagues, teams, wrappedScripts } from "@/db/schema";
 import { type CardScript, computeSeasonFacts, ENGINE_VERSION, generateCardScript } from "@/engine";
+import { getGlobalStats } from "@/lib/global-stats";
 import { loadBundle } from "./load";
 
 /**
@@ -117,7 +118,8 @@ export const getWrapped = cache(async function getWrapped(
     const bundle = await loadBundle(league.id);
     if (!bundle) return null;
     const facts = computeSeasonFacts(bundle);
-    script = generateCardScript(facts, rosterId);
+    const globalStats = await getGlobalStats(db, team.id);
+    script = generateCardScript(facts, rosterId, globalStats);
     await db
       .insert(wrappedScripts)
       .values({ teamId: team.id, engineVersion: ENGINE_VERSION, script })

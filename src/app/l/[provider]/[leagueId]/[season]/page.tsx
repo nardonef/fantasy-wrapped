@@ -68,65 +68,69 @@ export default async function LeaguePage({ params }: { params: Promise<Params> }
   );
 
   return (
-    <main className="min-h-dvh px-7 py-16 sm:mx-auto sm:max-w-xl">
-      <p className="label text-chalk-faint">
-        {facts.league.name} · {facts.league.season}
-      </p>
-      <h1 className="display mt-5 text-[clamp(2.75rem,14vw,3.75rem)]">
-        The <span className="text-flag">ballot.</span>
-      </h1>
-      <p className="mt-4 text-[15px] leading-[1.55] text-chalk-dim">
-        The awards nobody asked for. Argue amongst yourselves.
-      </p>
+    <main className="min-h-dvh px-7 py-16 sm:mx-auto sm:max-w-xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-16 lg:px-16 lg:py-0">
+      <div className="lg:flex lg:h-dvh lg:flex-col lg:justify-center">
+        <p className="label text-chalk-faint">
+          {facts.league.name} · {facts.league.season}
+        </p>
+        <h1 className="display mt-5 text-[clamp(2.75rem,14vw,3.75rem)]">
+          The <span className="text-flag">ballot.</span>
+        </h1>
+        <p className="mt-4 text-[15px] leading-[1.55] text-chalk-dim">
+          The awards nobody asked for. Argue amongst yourselves.
+        </p>
+      </div>
 
-      <section className="mt-12">
-        <ul className="divide-y divide-chalk/12 border-y border-chalk/12">
-          {superlatives.map((award) => (
-            <li key={award.id} className="py-6">
-              <p className="label text-flag">{award.label}</p>
-              <BallotLink
-                href={wrappedHref(award.rosterId)}
-                leagueId={p.leagueId}
-                rosterId={award.rosterId}
-                linkType="award"
-                awardId={award.id}
-                className="display mt-2.5 block text-3xl hover:text-flag"
-              >
-                {award.winner}
-                <PendingStoryOverlay />
-              </BallotLink>
-              <p className="mt-2 text-[14px] leading-[1.5] text-pretty text-chalk-dim">
-                {award.detail}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div data-testid="ballot-scroll" className="lg:h-dvh lg:overflow-y-auto lg:py-16">
+        <section className="mt-12 lg:mt-0">
+          <ul className="divide-y divide-chalk/12 border-y border-chalk/12">
+            {superlatives.map((award) => (
+              <li key={award.id} className="py-6">
+                <p className="label text-flag">{award.label}</p>
+                <BallotLink
+                  href={wrappedHref(award.rosterId)}
+                  leagueId={p.leagueId}
+                  rosterId={award.rosterId}
+                  linkType="award"
+                  awardId={award.id}
+                  className="display mt-2.5 block text-3xl hover:text-flag"
+                >
+                  {award.winner}
+                  <PendingStoryOverlay />
+                </BallotLink>
+                <p className="mt-2 text-[14px] leading-[1.5] text-pretty text-chalk-dim">
+                  {award.detail}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="mt-16">
-        <h2 className="label text-chalk-faint">Final verdicts · tap yours</h2>
-        <ul className="mt-3 divide-y divide-chalk/12 border-y border-chalk/12">
-          {teams.map((team) => (
-            <li key={team.rosterId}>
-              <BallotLink
-                href={wrappedHref(team.rosterId)}
-                leagueId={p.leagueId}
-                rosterId={team.rosterId}
-                linkType="team"
-                className="group flex items-baseline justify-between gap-4 py-4"
-              >
-                <span className="label shrink-0 text-chalk-faint group-hover:text-flag">
-                  {team.displayName}
-                </span>
-                <span className="display truncate text-right text-lg group-hover:text-flag">
-                  {archetypes.get(team.rosterId)?.name}
-                </span>
-                <PendingStoryOverlay />
-              </BallotLink>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className="mt-16">
+          <h2 className="label text-chalk-faint">Final verdicts · tap yours</h2>
+          <ul className="mt-3 divide-y divide-chalk/12 border-y border-chalk/12">
+            {teams.map((team) => (
+              <li key={team.rosterId}>
+                <BallotLink
+                  href={wrappedHref(team.rosterId)}
+                  leagueId={p.leagueId}
+                  rosterId={team.rosterId}
+                  linkType="team"
+                  className="group flex items-baseline justify-between gap-4 py-4"
+                >
+                  <span className="label shrink-0 text-chalk-faint group-hover:text-flag">
+                    {team.displayName}
+                  </span>
+                  <span className="display truncate text-right text-lg group-hover:text-flag">
+                    {archetypes.get(team.rosterId)?.name}
+                  </span>
+                  <PendingStoryOverlay />
+                </BallotLink>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }

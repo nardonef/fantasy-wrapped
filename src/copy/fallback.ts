@@ -24,7 +24,7 @@ export function fallbackCopy(script: CardScript): WrappedCopy {
 }
 
 /** Varied per insight so consecutive fallback cards never share a title. */
-const FALLBACK_TITLES: Record<string, string> = {
+export const FALLBACK_TITLES: Record<string, string> = {
   "bench-points-total": "Dead points society",
   "flippable-losses": "The wins were right there",
   "record-if-optimal": "On paper, a contender",
@@ -57,6 +57,13 @@ const FALLBACK_TITLES: Record<string, string> = {
   volatility: "The variance",
   "crowns-and-stinkers": "No in-between",
   "points-machine": "The scoreboard",
+  "global-bench-regret-rate": "The bench regret leaderboard",
+  "global-flippable-loss-rate": "The flip rate, ranked",
+  "global-all-play-win-pct": "Where you'd actually rank",
+  "global-luck-delta": "The luck leaderboard",
+  "global-longest-win-streak": "Your streak, ranked",
+  "global-longest-loss-streak": "Your skid, ranked",
+  "global-transaction-activity": "The manager leaderboard",
 };
 
 function titleFor(category: string, insightId: string): string {

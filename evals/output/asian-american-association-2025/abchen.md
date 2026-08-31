@@ -1,6 +1,6 @@
 # abchen — “THERE’S NO 2ND BEST 😤😤”
 
-_Asian American Association · 2025 · engine 0.3.0_
+_Asian American Association · 2025 · engine 0.4.0_
 
 ## The story
 
@@ -16,11 +16,13 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 **6. [people] Week 11 pickup Michael Wilson gave you 95.2 points**
 
-**7. [people] Your nemesis: misterchef (1-2 against them)**
+**7. [narrative] Week 12: 197.5 points — the highest score anyone posted all season**
 
-**8. [narrative] Week 12: 197.5 points — the highest score anyone posted all season**
+**8. [global] You flip losses into wins better than 95% of 340 team-seasons tracked**
 
-**9. [narrative] One game from the title. misterchef beat you in the final by 0.7.**
+**9. [global] You made more moves than 97% of 340 team-seasons tracked**
+
+**10. [narrative] One game from the title. misterchef beat you in the final by 0.7.**
 
 **FINALE — The Almost**
 
@@ -30,10 +32,15 @@ _Asian American Association · 2025 · engine 0.3.0_
 
 ## Cutting-room floor (candidates that didn't ship)
 
+- (78) [global] Your bench regret rate is worse than 90% of 340 team-seasons tracked
+- (78) [global] Your longest losing streak is longer than 91% of 340 team-seasons tracked
+- (78) [global] You're unluckier than 92% of 340 team-seasons tracked
 - (66) [narrative] Round 11: Travis Etienne. 187.8 points from pick 104.
 - (64) [narrative] Started 2-5, finished 6-1. The second-half surge.
+- (62) [global] Your all-play win rate trails 82% of 340 team-seasons tracked
 - (58) [regret] Week 15: you benched Kyle Pitts (45.6) and started Michael Wilson (16.4)
 - (57) [narrative] Weeks 8–12: 5 straight wins
+- (48) [people] Your nemesis: misterchef (1-2 against them)
 - (46) [narrative] Week 13: 84.4 points. We don't talk about week 13.
 - (44) [people] Your best week (197.5) came against misterchef — the eventual champ
 - (44) [regret] You went 8-6. With perfect lineups you go 10-4.
