@@ -19,7 +19,7 @@ export default function Home() {
         </h1>
 
         <p className="mt-8 max-w-[38ch] text-[clamp(16px,1.2vw,19px)] leading-[1.55] tracking-[-0.005em] text-pretty text-[rgba(244,244,246,0.58)]">
-          Every start, sit, trade and bad beat
+          Every start, sit, trade and bad beat,
           <br />
           nothing forgotten, nothing forgiven.
         </p>
