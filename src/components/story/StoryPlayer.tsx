@@ -828,11 +828,6 @@ export function StoryPlayer({
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-x-0 bottom-6 z-20 flex items-baseline justify-between px-7">
-          <span className={`label truncate ${faint(tone)}`}>{managerName}</span>
-          <span className={`label shrink-0 ${faint(tone)}`}>Fantasy Wrapped</span>
-        </div>
-
         {index < cards.length - 1 && (
           <span
             className={`label absolute inset-x-0 bottom-11 z-20 text-center ${faint(tone)}`}
@@ -873,13 +868,6 @@ export function StoryPlayer({
           ))}
         </nav>
       </div>
-
-      <span
-        aria-hidden="true"
-        className="label absolute inset-x-0 bottom-8 hidden text-center tracking-[0.2em] text-chalk-faint lg:block"
-      >
-        {managerName} · {leagueName} · {season}
-      </span>
     </div>
   );
 }
