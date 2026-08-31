@@ -48,7 +48,63 @@ describe("createHttpYahooApi", () => {
     const result = await promise;
 
     expect(result).toBeInstanceOf(Error);
+    expect((result as Error).message).toContain("Yahoo 429");
+    expect((result as Error).message).toContain("rate limited");
     expect(fetchSpy).toHaveBeenCalledTimes(4);
+    vi.useRealTimers();
+  });
+
+  it("includes response body in error message for 429 responses", async () => {
+    vi.useFakeTimers();
+    const errorBody = "Rate limit exceeded: quota=100 remaining=0";
+    vi.spyOn(global, "fetch").mockImplementation(() =>
+      Promise.resolve(new Response(errorBody, { status: 429 })),
+    );
+    const api = createHttpYahooApi("test-token");
+
+    const promise = api.getLeague("423.l.11184").catch((e) => e);
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toBeInstanceOf(Error);
+    expect((result as Error).message).toContain("Yahoo 429");
+    expect((result as Error).message).toContain(errorBody);
+    vi.useRealTimers();
+  });
+
+  it("includes response body in error message for other non-ok responses", async () => {
+    vi.useFakeTimers();
+    const errorBody = '{"error": "Invalid access token"}';
+    vi.spyOn(global, "fetch").mockImplementation(() =>
+      Promise.resolve(new Response(errorBody, { status: 401 })),
+    );
+    const api = createHttpYahooApi("test-token");
+
+    const promise = api.getLeague("423.l.11184").catch((e) => e);
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toBeInstanceOf(Error);
+    expect((result as Error).message).toContain("Yahoo 401");
+    expect((result as Error).message).toContain(errorBody);
+    vi.useRealTimers();
+  });
+
+  it("handles empty response body in error message", async () => {
+    vi.useFakeTimers();
+    vi.spyOn(global, "fetch").mockImplementation(() =>
+      Promise.resolve(new Response("", { status: 403 })),
+    );
+    const api = createHttpYahooApi("test-token");
+
+    const promise = api.getLeague("423.l.11184").catch((e) => e);
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toBeInstanceOf(Error);
+    expect((result as Error).message).toContain("Yahoo 403");
+    // Should not have trailing ': ' when body is empty
+    expect((result as Error).message).toMatch(/Yahoo 403 for.*(?<!: )$/);
     vi.useRealTimers();
   });
 });
