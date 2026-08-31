@@ -33,15 +33,15 @@ test("landing page renders the pitch and username form", async ({ page }) => {
 
 test("landing stays a single stacked column at every width", async ({ page }) => {
   await page.goto("/");
-  const header = page.locator("header");
+  const heading = page.getByRole("heading", { level: 1 });
   const form = page.getByTestId("landing-form");
   await expect(form).toBeVisible();
-  const headerBox = await header.boundingBox();
+  const headingBox = await heading.boundingBox();
   const formBox = await form.boundingBox();
-  if (!headerBox || !formBox) throw new Error("no layout box");
-  // Stacked on one vertical axis: the form starts below the header, never
+  if (!headingBox || !formBox) throw new Error("no layout box");
+  // Stacked on one vertical axis: the form starts below the headline, never
   // beside it — there is no column relationship to break at any breakpoint.
-  expect(formBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height);
+  expect(formBox.y).toBeGreaterThanOrEqual(headingBox.y + headingBox.height);
   // No card chrome around the form itself — just the input row's own border.
   await expect(form).toHaveCSS("border-top-width", "0px");
 });

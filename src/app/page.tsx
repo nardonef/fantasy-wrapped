@@ -11,43 +11,27 @@ export default function Home() {
         }}
       />
 
-      <header className="relative z-10 flex items-baseline justify-between gap-6">
-        <p className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[rgba(244,244,246,0.52)] uppercase">
-          FANTASY FOOTBALL
-          <span className="px-2 text-[rgba(244,244,246,0.24)]">/</span>
-          2025
-        </p>
-        <p className="font-mono text-[11px] leading-none font-normal tracking-[0.16em] text-[rgba(244,244,246,0.32)] uppercase">
-          SEASON RECAP
-        </p>
-      </header>
-
       <main className="relative z-10 flex flex-1 flex-col items-center justify-center py-[clamp(40px,7vh,88px)] text-center">
-        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.22em] text-[rgba(244,244,246,0.34)] uppercase">
-          YOUR YEAR IN THE LEAGUE
-        </p>
-
-        <h1 className="mt-7 max-w-[9em] font-display text-[clamp(52px,9.2vw,148px)] font-bold leading-[0.86] tracking-[-0.045em]">
+        <h1 className="max-w-[9em] font-display text-[clamp(52px,9.2vw,148px)] font-bold leading-[0.86] tracking-[-0.045em]">
           Your season.
           <br />
           <span className="text-[#5b83ff]">Wrapped.</span>
         </h1>
 
         <p className="mt-8 max-w-[38ch] text-[clamp(16px,1.2vw,19px)] leading-[1.55] tracking-[-0.005em] text-pretty text-[rgba(244,244,246,0.58)]">
-          Every start, sit, trade and bad beat — nothing forgotten, nothing forgiven.
+          Every start, sit, trade and bad beat
+          <br />
+          nothing forgotten, nothing forgiven.
         </p>
 
         <LandingFlow />
       </main>
 
-      <footer className="relative z-10 flex items-baseline justify-between gap-6 border-t border-[rgba(244,244,246,0.08)] pt-[18px]">
+      <footer className="relative z-10 border-t border-[rgba(244,244,246,0.08)] pt-[18px]">
         <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.34)] uppercase">
           SLEEPER LEAGUES
           <span className="px-2.5 text-[rgba(244,244,246,0.18)]">/</span>
           ESPN &amp; YAHOO COMING
-        </p>
-        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.22)] uppercase">
-          V1
         </p>
       </footer>
     </div>
