@@ -25,9 +25,15 @@ async function fetchJson(url: string, accessToken: string): Promise<unknown> {
         headers: { authorization: `Bearer ${accessToken}`, accept: "application/json" },
       });
       if (res.status === 429 || res.status >= 500) {
-        lastError = new Error(`Yahoo ${res.status} for ${url}`);
+        const body = await res.text().catch(() => "");
+        const bodyPreview = body.slice(0, 500);
+        lastError = new Error(
+          `Yahoo ${res.status} for ${url}${bodyPreview ? `: ${bodyPreview}` : ""}`,
+        );
       } else if (!res.ok) {
-        throw new Error(`Yahoo ${res.status} for ${url}`);
+        const body = await res.text().catch(() => "");
+        const bodyPreview = body.slice(0, 500);
+        throw new Error(`Yahoo ${res.status} for ${url}${bodyPreview ? `: ${bodyPreview}` : ""}`);
       } else {
         return await res.json();
       }
