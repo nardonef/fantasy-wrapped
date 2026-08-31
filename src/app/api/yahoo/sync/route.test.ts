@@ -4,6 +4,7 @@ import { encryptCookieValue, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 import type { NormalizedLeagueBundle } from "@/providers/types";
 import * as yahooProvider from "@/providers/yahoo";
 import * as persistModule from "@/sync/persist";
+import * as teamSeasonStatsModule from "@/sync/team-season-stats";
 import { POST } from "./route";
 
 // Mock next/server's after() function so it runs immediately in tests,
@@ -86,6 +87,7 @@ describe("POST /api/yahoo/sync", () => {
       leagueId: "423.l.1",
       teamIdByRoster: new Map([["1", "team-uuid-1"]]),
     });
+    vi.spyOn(teamSeasonStatsModule, "writeTeamSeasonStats").mockResolvedValue(undefined);
   });
 
   afterEach(() => {
@@ -119,6 +121,11 @@ describe("POST /api/yahoo/sync", () => {
       yourRosterId: "1",
     });
     expect(persistModule.persistBundle).toHaveBeenCalled();
+    expect(teamSeasonStatsModule.writeTeamSeasonStats).toHaveBeenCalledWith(
+      expect.anything(),
+      BUNDLE,
+      expect.any(Map),
+    );
     expect(response.cookies.get(YAHOO_TOKEN_COOKIE)?.value).toBe("");
   });
 

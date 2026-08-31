@@ -7,7 +7,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest
 import * as schema from "@/db/schema";
 import { encryptCookieValue, YAHOO_TOKEN_COOKIE } from "@/lib/yahoo-cookies";
 
-const LEAGUE_KEY = "423.l.1";
+const LEAGUE_KEY = "423.l.team-stats-fail-open";
 
 const testUrl = process.env.TEST_DATABASE_URL ?? process.env.DATABASE_URL ?? "";
 if (!testUrl.includes("test")) {

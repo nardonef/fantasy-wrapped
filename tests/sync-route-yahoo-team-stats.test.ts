@@ -22,10 +22,11 @@ const client = postgres(testUrl, { prepare: false, max: 4 });
 const db = drizzle(client, { schema });
 
 // Hand-built Yahoo bundle fixture, mirroring the pattern used in route.test.ts
+// Uses distinct providerLeagueId to avoid collision with sync-route-yahoo-fail-open.test.ts
 const BUNDLE: NormalizedLeagueBundle = {
   league: {
     provider: "yahoo",
-    providerLeagueId: "423.l.1",
+    providerLeagueId: "423.l.team-stats-happy",
     season: 2025,
     name: "Legends Only League",
     totalTeams: 2,
