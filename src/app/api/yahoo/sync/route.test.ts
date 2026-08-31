@@ -6,6 +6,20 @@ import * as yahooProvider from "@/providers/yahoo";
 import * as persistModule from "@/sync/persist";
 import { POST } from "./route";
 
+// Mock next/server's after() function so it runs immediately in tests,
+// preventing "after() was called outside a request scope" errors.
+vi.mock("next/server", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("next/server")>();
+  return {
+    ...actual,
+    after: (fn: () => unknown) => {
+      Promise.resolve()
+        .then(fn)
+        .catch(() => {});
+    },
+  };
+});
+
 function postRequest(body: unknown, token?: string): NextRequest {
   const headers = new Headers({ "content-type": "application/json" });
   if (token) headers.set("cookie", `${YAHOO_TOKEN_COOKIE}=${encryptCookieValue(token)}`);
