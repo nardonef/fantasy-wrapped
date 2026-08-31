@@ -12,11 +12,7 @@ export default function Home() {
       />
 
       <main className="relative z-10 flex flex-1 flex-col items-center justify-center py-[clamp(40px,7vh,88px)] text-center">
-        <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.22em] text-[rgba(244,244,246,0.34)] uppercase">
-          YOUR YEAR IN THE LEAGUE
-        </p>
-
-        <h1 className="mt-7 max-w-[9em] font-display text-[clamp(52px,9.2vw,148px)] font-bold leading-[0.86] tracking-[-0.045em]">
+        <h1 className="max-w-[9em] font-display text-[clamp(52px,9.2vw,148px)] font-bold leading-[0.86] tracking-[-0.045em]">
           Your season.
           <br />
           <span className="text-[#5b83ff]">Wrapped.</span>
