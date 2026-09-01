@@ -1,7 +1,11 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Yahoo connect flow", () => {
-  test("landing page links to the Yahoo OAuth start route", async ({ page }) => {
+  // The landing page's "Connect Yahoo instead" entry point is temporarily
+  // hidden while Yahoo's Fantasy Sports API access application is pending
+  // (see STATUS.md) — the app currently 403s on real Yahoo accounts even
+  // though the OAuth handshake itself is correct. Re-enable once approved.
+  test.skip("landing page links to the Yahoo OAuth start route", async ({ page }) => {
     await page.goto("/");
     const link = page.getByRole("link", { name: "Connect Yahoo instead" });
     await expect(link).toHaveAttribute("href", "/api/auth/yahoo/start");
