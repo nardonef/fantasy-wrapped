@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { LandingFlow } from "@/components/LandingFlow";
 
 export default function Home() {
@@ -28,18 +27,11 @@ export default function Home() {
         <LandingFlow />
       </main>
 
-      <Link
-        href="/api/auth/yahoo/start"
-        className="relative z-10 mt-6 self-center text-[13px] font-medium text-[rgba(244,244,246,0.48)] underline decoration-[rgba(244,244,246,0.24)] underline-offset-4 transition-colors hover:text-[#5b83ff] hover:decoration-[#5b83ff]"
-      >
-        Connect Yahoo instead
-      </Link>
-
       <footer className="relative z-10 border-t border-[rgba(244,244,246,0.08)] pt-[18px]">
         <p className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.34)] uppercase">
-          SLEEPER &amp; YAHOO LEAGUES
+          SLEEPER LEAGUES
           <span className="px-2.5 text-[rgba(244,244,246,0.18)]">/</span>
-          ESPN COMING
+          ESPN &amp; YAHOO COMING
         </p>
       </footer>
     </div>

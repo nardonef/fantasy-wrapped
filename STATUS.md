@@ -61,6 +61,19 @@ including for the repo owner — verified live, not just configured.
 
 ## Blocked on Frank
 
+- [ ] **Yahoo Fantasy Sports API access application** (external, Yahoo-side
+      review) — the OAuth flow, adapter, and UI are all built and correct
+      (verified live: login, consent, and token exchange all work, and the
+      consent screen correctly names Fantasy Sports read access), but
+      Yahoo's API itself rejects every call with `"This application is not
+      authorized to perform this action."` Yahoo has moved Fantasy Sports
+      API access behind a separate application/approval process
+      (https://sports.yahoo.com/developer/access/) — the old
+      developer.yahoo.com console's "Fantasy Sports - Read" checkbox no
+      longer grants real access under current enforcement, even on an app
+      that has it checked. Needs an application submitted and approved; the
+      landing page's "Connect Yahoo instead" entry point is hidden (and its
+      e2e test skipped) until this comes back approved.
 - [ ] ESPN credentials/cookie auth → ESPN adapter (after Yahoo)
 
 ## Not started / deferred
