@@ -9,7 +9,7 @@ export default function Home() {
       }}
     >
       <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pt-[76px] pb-16 text-center">
-        <h1 className="font-display text-[clamp(46px,7vw,92px)] font-extrabold leading-[0.92] tracking-[-0.04em]">
+        <h1 className="font-display text-[clamp(46px,14vw,92px)] font-extrabold leading-[0.92] tracking-[-0.04em]">
           Your season.
           <br />
           <span className="text-[#5b7cf6]">Wrapped.</span>
