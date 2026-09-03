@@ -72,8 +72,11 @@ including for the repo owner — verified live, not just configured.
       developer.yahoo.com console's "Fantasy Sports - Read" checkbox no
       longer grants real access under current enforcement, even on an app
       that has it checked. Needs an application submitted and approved; the
-      landing page's "Connect Yahoo instead" entry point is hidden (and its
-      e2e test skipped) until this comes back approved.
+      landing page shows Yahoo as a selectable tab (equal billing with
+      Sleeper, per the provider-selection redesign) but its "Continue with
+      Yahoo" CTA stays disabled with a "coming soon" state — inert, so it
+      can't reach the 403 — until this comes back approved. The old direct
+      link's e2e test stays skipped for the same reason.
 - [ ] ESPN credentials/cookie auth → ESPN adapter (after Yahoo)
 
 ## Not started / deferred
