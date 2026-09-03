@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { PendingStoryOverlay } from "@/components/PendingStoryOverlay";
 
@@ -35,14 +35,41 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 /** Every list on this page is hairline-ruled rather than boxed. */
 const LIST = "mt-3 divide-y divide-chalk/12 border-y border-chalk/12";
 
+type Provider = "sleeper" | "yahoo";
+const PROVIDER_STORAGE_KEY = "wrapped:lastProvider";
+
 export function LandingFlow() {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>({ step: "user" });
+  const [provider, setProviderState] = useState<Provider>("sleeper");
   const [username, setUsername] = useState("");
   const [season, setSeason] = useState(SEASONS[0]);
   const [userId, setUserId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const sleeperTabRef = useRef<HTMLButtonElement>(null);
+  const yahooTabRef = useRef<HTMLButtonElement>(null);
+
+  // Read the last-used provider after mount, not in the initializer, so the
+  // server-rendered markup (which has no access to localStorage) matches the
+  // client's first render and React doesn't flag a hydration mismatch.
+  useEffect(() => {
+    const stored = window.localStorage.getItem(PROVIDER_STORAGE_KEY);
+    if (stored === "sleeper" || stored === "yahoo") setProviderState(stored);
+  }, []);
+
+  function setProvider(next: Provider) {
+    setProviderState(next);
+    window.localStorage.setItem(PROVIDER_STORAGE_KEY, next);
+  }
+
+  function handleTabKeyDown(e: React.KeyboardEvent) {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    e.preventDefault();
+    const next: Provider = provider === "sleeper" ? "yahoo" : "sleeper";
+    setProvider(next);
+    (next === "sleeper" ? sleeperTabRef : yahooTabRef).current?.focus();
+  }
 
   async function findLeagues(e: React.FormEvent) {
     e.preventDefault();
@@ -93,98 +120,219 @@ export function LandingFlow() {
   }
 
   return (
-    <div
-      data-testid="landing-form"
-      className="mt-[clamp(40px,6vh,72px)] w-full max-w-[520px] text-left"
-    >
+    <div data-testid="landing-form" className="mt-[44px] w-full max-w-[460px] text-left">
       <AnimatePresence mode="wait">
         {phase.step === "user" && (
-          <motion.form
+          <motion.div
             key="user"
-            onSubmit={findLeagues}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: EASE }}
-            className="flex w-full flex-col items-stretch gap-3"
+            className="flex w-full flex-col items-stretch gap-5"
           >
-            <label
-              htmlFor="username"
-              className="font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.46)] uppercase"
-            >
-              Sleeper username
-            </label>
-
-            <div
-              className={`flex items-stretch overflow-hidden rounded-[4px] border bg-[rgba(244,244,246,0.035)] transition-colors duration-150 ease-out focus-within:border-[#5b83ff] focus-within:ring-2 focus-within:ring-[rgba(91,131,255,0.35)] ${
-                error ? "border-[rgba(242,84,45,0.6)]" : "border-[rgba(244,244,246,0.14)]"
-              }`}
-            >
-              <input
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="frothydogs"
-                autoComplete="off"
-                autoCapitalize="none"
-                autoCorrect="off"
-                spellCheck={false}
-                disabled={busy}
-                className="h-[60px] min-w-0 flex-1 bg-transparent px-5 font-mono text-[15px] tracking-[0.01em] text-[#f4f4f6] outline-none placeholder:text-[rgba(255,255,255,0.26)] disabled:opacity-60"
-              />
-              <button
-                type="submit"
-                disabled={busy}
-                className="flex w-[92px] shrink-0 items-center justify-center bg-[#5b83ff] font-mono text-[11px] font-medium tracking-[0.20em] text-[#08080a] uppercase transition-colors duration-150 ease-out hover:bg-[#7c9dff] disabled:cursor-not-allowed disabled:opacity-70"
+            <div className="flex flex-col gap-2.5">
+              <span
+                id="provider-label"
+                className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[#6d6d7c] uppercase"
               >
-                {busy ? "…" : "Go"}
-              </button>
-            </div>
-
-            <div
-              role="radiogroup"
-              aria-label="Season"
-              className="flex flex-wrap items-center gap-2 pt-2"
-            >
-              <span className="pr-1.5 font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[rgba(244,244,246,0.32)] uppercase">
-                Season
+                Where do you play?
               </span>
-              {SEASONS.map((s) => {
-                const selected = s === season;
-                return (
-                  <label
-                    key={s}
-                    className={`inline-flex min-h-8 cursor-pointer items-center justify-center rounded-[3px] border px-[14px] pt-[11px] pb-[7px] font-mono text-xs leading-none tracking-[0.06em] transition-all duration-150 ease-out [@media(pointer:coarse)]:min-h-11 ${
-                      selected
-                        ? "border-[#5b83ff] bg-[rgba(91,131,255,0.14)] text-[#f4f4f6]"
-                        : "border-[rgba(244,244,246,0.14)] text-[rgba(244,244,246,0.46)] hover:border-[rgba(244,244,246,0.28)] hover:text-[rgba(244,244,246,0.70)]"
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="season"
-                      value={s}
-                      checked={selected}
-                      onChange={() => setSeason(s)}
-                      className="sr-only"
-                    />
-                    {s}
-                  </label>
-                );
-              })}
+              <div
+                role="tablist"
+                aria-labelledby="provider-label"
+                onKeyDown={handleTabKeyDown}
+                className="flex gap-1 rounded-[11px] border border-[#22222e] bg-[#101018] p-1"
+              >
+                <button
+                  ref={sleeperTabRef}
+                  type="button"
+                  role="tab"
+                  id="provider-tab-sleeper"
+                  aria-selected={provider === "sleeper"}
+                  aria-controls="provider-panel-sleeper"
+                  tabIndex={provider === "sleeper" ? 0 : -1}
+                  onClick={() => setProvider("sleeper")}
+                  className={`flex h-12 flex-1 items-center justify-center gap-2.5 rounded-[8px] font-display text-[15px] font-semibold transition-all duration-150 ease-out ${
+                    provider === "sleeper"
+                      ? "border border-[#5b7cf666] bg-[#1c1f33] text-[#f4f4f7] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                      : "border border-transparent text-[#75758a]"
+                  }`}
+                >
+                  <span className="size-5 shrink-0 rounded-[6px] bg-[#5b7cf6]" aria-hidden />
+                  Sleeper
+                </button>
+                <button
+                  ref={yahooTabRef}
+                  type="button"
+                  role="tab"
+                  id="provider-tab-yahoo"
+                  aria-selected={provider === "yahoo"}
+                  aria-controls="provider-panel-yahoo"
+                  tabIndex={provider === "yahoo" ? 0 : -1}
+                  onClick={() => setProvider("yahoo")}
+                  className={`flex h-12 flex-1 items-center justify-center gap-2.5 rounded-[8px] font-display text-[15px] font-semibold transition-all duration-150 ease-out ${
+                    provider === "yahoo"
+                      ? "border border-[#7b3fe466] bg-[#1c1f33] text-[#f4f4f7] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                      : "border border-transparent text-[#75758a]"
+                  }`}
+                >
+                  <span className="size-5 shrink-0 rounded-[6px] bg-[#7b3fe4]" aria-hidden />
+                  Yahoo
+                </button>
+              </div>
             </div>
 
-            <p
-              role="alert"
-              className="min-h-[14px] font-mono text-[10.5px] leading-none font-medium tracking-[0.18em] text-[#ff4a31] uppercase"
-            >
-              {error}
-            </p>
+            <AnimatePresence mode="wait">
+              {provider === "sleeper" && (
+                <motion.form
+                  key="sleeper"
+                  id="provider-panel-sleeper"
+                  role="tabpanel"
+                  aria-labelledby="provider-tab-sleeper"
+                  onSubmit={findLeagues}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.12 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="flex flex-col gap-2.5">
+                    <label
+                      htmlFor="username"
+                      className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[#6d6d7c] uppercase"
+                    >
+                      Sleeper username
+                    </label>
+                    <div className="flex h-[58px]">
+                      <input
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="frothydogs"
+                        autoComplete="off"
+                        autoCapitalize="none"
+                        autoCorrect="off"
+                        spellCheck={false}
+                        disabled={busy}
+                        className={`min-w-0 flex-1 rounded-l-[9px] border border-r-0 bg-[#0e0e16] px-[18px] font-mono text-[15px] text-[#f4f4f7] outline-none transition-colors duration-150 ease-out placeholder:text-[#4a4a58] disabled:opacity-60 ${
+                          error ? "border-[#ff4a31]" : "border-[#262633] focus:border-[#5b7cf6]"
+                        }`}
+                      />
+                      <button
+                        type="submit"
+                        disabled={busy}
+                        className="flex w-[108px] shrink-0 items-center justify-center rounded-r-[9px] bg-[#5b7cf6] font-mono text-[12px] font-medium tracking-[0.18em] text-[#0b0b12] transition-colors duration-150 ease-out hover:bg-[#7089f8] disabled:cursor-not-allowed disabled:opacity-70"
+                      >
+                        {busy ? "…" : "GO"}
+                      </button>
+                    </div>
+                  </div>
 
-            <p className="text-[13px] leading-[1.6] text-[rgba(244,244,246,0.36)]">
-              Public leagues only. We never ask for a password.
-            </p>
-          </motion.form>
+                  <div className="flex items-center gap-3.5">
+                    <span className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[#6d6d7c] uppercase">
+                      Season
+                    </span>
+                    <div role="radiogroup" aria-label="Season" className="flex flex-wrap gap-2">
+                      {SEASONS.map((s) => {
+                        const selected = s === season;
+                        return (
+                          <label
+                            key={s}
+                            className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-[7px] border px-[13px] pt-[2px] font-mono text-[13px] leading-none transition-colors duration-150 ease-out [@media(pointer:coarse)]:h-11 ${
+                              selected
+                                ? "border-[#5b7cf6] bg-[#1c1f33] text-[#f4f4f7]"
+                                : "border-[#262633] text-[#75758a]"
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              name="season"
+                              value={s}
+                              checked={selected}
+                              onChange={() => setSeason(s)}
+                              className="sr-only"
+                            />
+                            {s}
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <p
+                    role={error ? "alert" : undefined}
+                    className={`m-0 text-[13px] leading-[1.5] ${error ? "text-[#ff4a31]" : "text-[#5d5d6b]"}`}
+                  >
+                    {error ??
+                      "Public leagues only. Username is all we need, we never ask for a password."}
+                  </p>
+                </motion.form>
+              )}
+
+              {provider === "yahoo" && (
+                <motion.div
+                  key="yahoo"
+                  id="provider-panel-yahoo"
+                  role="tabpanel"
+                  aria-labelledby="provider-tab-yahoo"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.12 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="flex flex-col gap-2.5">
+                    <span className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[#6d6d7c] uppercase">
+                      Yahoo fantasy account
+                    </span>
+                    <button
+                      type="button"
+                      disabled
+                      className="flex h-[58px] cursor-not-allowed items-center justify-center rounded-[9px] bg-[#7b3fe4] font-display text-[16px] font-semibold text-white opacity-50"
+                    >
+                      Continue with Yahoo
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-3.5">
+                    <span className="font-mono text-[11px] leading-none font-medium tracking-[0.16em] text-[#6d6d7c] uppercase">
+                      Season
+                    </span>
+                    <div role="radiogroup" aria-label="Season" className="flex flex-wrap gap-2">
+                      {SEASONS.map((s) => {
+                        const selected = s === season;
+                        return (
+                          <label
+                            key={s}
+                            className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-[7px] border px-[13px] pt-[2px] font-mono text-[13px] leading-none transition-colors duration-150 ease-out [@media(pointer:coarse)]:h-11 ${
+                              selected
+                                ? "border-[#7b3fe4] bg-[#1c1f33] text-[#f4f4f7]"
+                                : "border-[#262633] text-[#75758a]"
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              name="season"
+                              value={s}
+                              checked={selected}
+                              onChange={() => setSeason(s)}
+                              className="sr-only"
+                            />
+                            {s}
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <p className="m-0 text-[13px] leading-[1.5] text-[#5d5d6b]">
+                    Yahoo support is coming soon.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         )}
 
         {phase.step === "leagues" && (
